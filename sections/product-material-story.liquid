@@ -1,0 +1,293 @@
+{{ 'product-material-story.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign s = section.settings
+-%}
+
+<section
+  class="nook-material-story color-{{ s.color_scheme }} gradient"
+  style="
+    --material-accent: {{ s.accent_color }};
+    --material-padding-top: {{ s.padding_top }}px;
+    --material-padding-bottom: {{ s.padding_bottom }}px;
+    --material-padding-top-mobile: {{ s.padding_top_mobile }}px;
+    --material-padding-bottom-mobile: {{ s.padding_bottom_mobile }}px;
+  "
+  {%- if s.heading != blank %}
+  aria-labelledby="MaterialStoryHeading-{{ section.id }}"
+  {%- endif %}
+>
+  <div class="nook-material-story__inner">
+    <header class="nook-material-story__header">
+      <div data-material-reveal style="--material-order: 0;">
+        {%- if s.eyebrow != blank -%}
+          <p class="nook-material-story__eyebrow">{{ s.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if s.heading != blank -%}
+          <h2 id="MaterialStoryHeading-{{ section.id }}" class="nook-material-story__heading">
+            {{ s.heading | escape }}
+          </h2>
+        {%- endif -%}
+      </div>
+
+      {%- if s.intro != blank -%}
+        <p class="nook-material-story__intro" data-material-reveal style="--material-order: 1;">
+          {{ s.intro | escape }}
+        </p>
+      {%- endif -%}
+    </header>
+
+    <div class="nook-material-story__media-study">
+      <figure class="nook-material-story__figure nook-material-story__figure--texture" data-material-reveal style="--material-order: 2;">
+        <div class="nook-material-story__image-wrap">
+          {%- if s.texture_image != blank -%}
+            {{
+              s.texture_image
+              | image_url: width: 1800
+              | image_tag:
+                class: 'nook-material-story__image',
+                widths: '550, 750, 1000, 1400, 1800',
+                sizes: '(min-width: 990px) 58vw, 100vw',
+                loading: 'lazy',
+                alt: s.texture_alt
+            }}
+          {%- else -%}
+            <img
+              class="nook-material-story__image"
+              src="{{ 'product-fabric-texture.webp' | asset_url }}"
+              width="1800"
+              height="980"
+              loading="lazy"
+              alt="{{ s.texture_alt | escape }}"
+            >
+          {%- endif -%}
+        </div>
+        <figcaption class="nook-material-story__caption">
+          {%- if s.texture_label != blank -%}
+            <p class="nook-material-story__figure-label">{{ s.texture_label | escape }}</p>
+          {%- endif -%}
+          {%- if s.texture_text != blank -%}
+            <p class="nook-material-story__figure-text">{{ s.texture_text | escape }}</p>
+          {%- endif -%}
+        </figcaption>
+      </figure>
+
+      <figure class="nook-material-story__figure nook-material-story__figure--loom" data-material-reveal style="--material-order: 3;">
+        <div class="nook-material-story__image-wrap">
+          {%- if s.loom_image != blank -%}
+            {{
+              s.loom_image
+              | image_url: width: 1800
+              | image_tag:
+                class: 'nook-material-story__image',
+                widths: '450, 650, 850, 1100, 1500, 1800',
+                sizes: '(min-width: 990px) 42vw, 100vw',
+                loading: 'lazy',
+                alt: s.loom_alt
+            }}
+          {%- else -%}
+            <img
+              class="nook-material-story__image"
+              src="{{ 'product-fabric-loom.webp' | asset_url }}"
+              width="1698"
+              height="926"
+              loading="lazy"
+              alt="{{ s.loom_alt | escape }}"
+            >
+          {%- endif -%}
+        </div>
+        <figcaption class="nook-material-story__caption">
+          {%- if s.loom_label != blank -%}
+            <p class="nook-material-story__figure-label">{{ s.loom_label | escape }}</p>
+          {%- endif -%}
+          {%- if s.loom_text != blank -%}
+            <p class="nook-material-story__figure-text">{{ s.loom_text | escape }}</p>
+          {%- endif -%}
+        </figcaption>
+      </figure>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="nook-material-story__benefits" role="list" data-material-reveal style="--material-order: 4;">
+        {%- for block in section.blocks -%}
+          <li class="nook-material-story__benefit" {{ block.shopify_attributes }}>
+            {%- if block.settings.title != blank -%}
+              <h3 class="nook-material-story__benefit-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="nook-material-story__benefit-text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product material story",
+  "class": "section-product-material",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Inside the knit"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Comfort starts with the structure."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "The feel comes from how the yarn is built into the sock. Soft loops create give underfoot, while a balanced outer knit helps the fabric flex, recover, and sit smoothly inside your shoe."
+    },
+    {
+      "type": "header",
+      "content": "Texture image"
+    },
+    {
+      "type": "image_picker",
+      "id": "texture_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "texture_alt",
+      "label": "Alternative text",
+      "default": "Macro close-up of the light-colored knit texture used in the orthopedic sock"
+    },
+    {
+      "type": "text",
+      "id": "texture_label",
+      "label": "Label",
+      "default": "01 / Close-knit softness"
+    },
+    {
+      "type": "textarea",
+      "id": "texture_text",
+      "label": "Description",
+      "default": "Looped yarn creates a plush surface that spreads pressure instead of concentrating it."
+    },
+    {
+      "type": "header",
+      "content": "Loom image"
+    },
+    {
+      "type": "image_picker",
+      "id": "loom_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "loom_alt",
+      "label": "Alternative text",
+      "default": "Textile woven on a wooden loom in a warm workshop"
+    },
+    {
+      "type": "text",
+      "id": "loom_label",
+      "label": "Label",
+      "default": "02 / Built to keep its shape"
+    },
+    {
+      "type": "textarea",
+      "id": "loom_text",
+      "label": "Description",
+      "default": "A balanced knit combines flexibility with gentle recovery, so the sock moves with your foot and returns without bunching."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Material benefit"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Explain how the knit supports everyday comfort."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product material story",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}

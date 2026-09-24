@@ -1,0 +1,346 @@
+{{ 'section-3d-image-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign n = section.blocks.size
+  assign show_placeholders = false
+  if n < 3
+    assign n = 6
+    assign show_placeholders = true
+  endif
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="slider-3d-wrapper section-{{ section.id }}-padding">
+    {%- if section.settings.title != blank or section.settings.description != blank -%}
+      <div class="slider-3d-header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <div class="description rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div
+      class="slider-3d-container{% if section.settings.with_mask %} slider-3d-mask-left-right{% endif %}"
+      style="
+        perspective: {{ section.settings.perspective }};
+        --card-width: {{ section.settings.card_width }};
+        --card-aspect-ratio: {{ section.settings.card_aspect_ratio }};
+        --slider-duration: {{ section.settings.duration }}s;
+      "
+    >
+      <div class="slider-3d-spinner {{ section.settings.rotation_direction }}{% if section.settings.pause_on_hover %} pause-hover{% endif %}">
+        {%- if show_placeholders -%}
+          {%- for i in (1..6) -%}
+            {%- assign index0 = forloop.index0 -%}
+            <div
+              class="slider-3d-card-wrapper"
+              style="transform: rotateY(calc({{ index0 }} * (360deg / {{ n }}))) translateZ(calc(-1 * (0.5 * var(--card-width) + 0.5rem) / tan(180deg / {{ n }})));"
+            >
+              {%- assign placeholder_img = '' -%}
+              {%- assign placeholder_alt = '' -%}
+              {%- case index0 -%}
+                {%- when 0 -%}
+                  {%- assign placeholder_img = 'arrival-sock-white.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 1 -%}
+                  {%- assign placeholder_img = 'arrival-sock-black.png' -%}
+                  {%- assign placeholder_alt = 'Black Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 2 -%}
+                  {%- assign placeholder_img = 'arrival-sock-grey.png' -%}
+                  {%- assign placeholder_alt = 'Grey Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 3 -%}
+                  {%- assign placeholder_img = 'arrival-sock-blue.png' -%}
+                  {%- assign placeholder_alt = 'Baby blue Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 4 -%}
+                  {%- assign placeholder_img = 'support-zones-sock.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch sock showing support zones' -%}
+                {%- when 5 -%}
+                  {%- assign placeholder_img = 'arrival-sock-white.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch cushioned sock' -%}
+              {%- endcase -%}
+              <img
+                src="{{ placeholder_img | asset_url }}"
+                alt="{{ placeholder_alt }}"
+                class="slider-3d-card"
+                loading="lazy"
+                width="600"
+                height="857"
+              >
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- assign card_image = block.settings.image -%}
+            {%- assign card_link = block.settings.link -%}
+            {%- assign alt_text = block.settings.alt_text | default: card_image.alt | escape -%}
+            
+            {%- if card_link != blank -%}
+              <a
+                href="{{ card_link }}"
+                class="slider-3d-card-wrapper"
+                {{ block.shopify_attributes }}
+                style="transform: rotateY(calc({{ forloop.index0 }} * (360deg / {{ n }}))) translateZ(calc(-1 * (0.5 * var(--card-width) + 0.5rem) / tan(180deg / {{ n }})));"
+              >
+            {%- else -%}
+              <div
+                class="slider-3d-card-wrapper"
+                {{ block.shopify_attributes }}
+                style="transform: rotateY(calc({{ forloop.index0 }} * (360deg / {{ n }}))) translateZ(calc(-1 * (0.5 * var(--card-width) + 0.5rem) / tan(180deg / {{ n }})));"
+              >
+            {%- endif -%}
+
+            {%- if card_image != blank -%}
+              {{
+                card_image
+                | image_url: width: 600
+                | image_tag: class: 'slider-3d-card', loading: 'lazy', alt: alt_text
+              }}
+            {%- else -%}
+              {%- assign placeholder_index = forloop.index0 | modulo: 6 -%}
+              {%- assign placeholder_img = '' -%}
+              {%- assign placeholder_alt = '' -%}
+              {%- case placeholder_index -%}
+                {%- when 0 -%}
+                  {%- assign placeholder_img = 'arrival-sock-white.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 1 -%}
+                  {%- assign placeholder_img = 'arrival-sock-black.png' -%}
+                  {%- assign placeholder_alt = 'Black Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 2 -%}
+                  {%- assign placeholder_img = 'arrival-sock-grey.png' -%}
+                  {%- assign placeholder_alt = 'Grey Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 3 -%}
+                  {%- assign placeholder_img = 'arrival-sock-blue.png' -%}
+                  {%- assign placeholder_alt = 'Baby blue Nook & Stitch orthopedic ankle sock' -%}
+                {%- when 4 -%}
+                  {%- assign placeholder_img = 'support-zones-sock.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch sock showing support zones' -%}
+                {%- when 5 -%}
+                  {%- assign placeholder_img = 'arrival-sock-white.png' -%}
+                  {%- assign placeholder_alt = 'White Nook & Stitch cushioned sock' -%}
+              {%- endcase -%}
+              <img
+                src="{{ placeholder_img | asset_url }}"
+                alt="{{ placeholder_alt }}"
+                class="slider-3d-card"
+                loading="lazy"
+                width="600"
+                height="857"
+              >
+            {%- endif -%}
+
+            {%- if card_link != blank -%}
+              </a>
+            {%- else -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "3D Image Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Discover Our Socks",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "s",
+      "label": "Rotation Speed (seconds)",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "rotation_direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Rotate Left"
+        },
+        {
+          "value": "right",
+          "label": "Rotate Right"
+        }
+      ],
+      "default": "left",
+      "label": "Rotation Direction"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "default": false,
+      "label": "Pause rotation on hover"
+    },
+    {
+      "type": "text",
+      "id": "card_width",
+      "default": "17.5em",
+      "label": "Card Width",
+      "info": "Width of each card. Can be px, rem, em, etc. (e.g. 17.5em or 280px)"
+    },
+    {
+      "type": "text",
+      "id": "card_aspect_ratio",
+      "default": "7/10",
+      "label": "Card Aspect Ratio",
+      "info": "CSS aspect ratio of the cards (e.g. 7/10 or 1/1)"
+    },
+    {
+      "type": "text",
+      "id": "perspective",
+      "default": "35em",
+      "label": "3D Perspective",
+      "info": "CSS perspective value for the 3D container (e.g. 35em or 1000px)"
+    },
+    {
+      "type": "checkbox",
+      "id": "with_mask",
+      "default": true,
+      "label": "Enable gradient fade mask on edges"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional link when the slide is clicked"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image Alt Text",
+          "info": "Accessibility alt text. Leave empty to use image default."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "3D Image Slider",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

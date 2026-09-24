@@ -1,0 +1,124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "track_order_intro": {
+      "type": "track-order-intro",
+      "blocks": {
+        "stage_confirmed": {
+          "type": "stage",
+          "settings": {
+            "label": "Order confirmed"
+          }
+        },
+        "stage_transit": {
+          "type": "stage",
+          "settings": {
+            "label": "On the way"
+          }
+        },
+        "stage_delivered": {
+          "type": "stage",
+          "settings": {
+            "label": "At your door"
+          }
+        }
+      },
+      "block_order": [
+        "stage_confirmed",
+        "stage_transit",
+        "stage_delivered"
+      ],
+      "settings": {
+        "eyebrow": "Order updates, made simple",
+        "heading": "Where is my order?",
+        "body": "<p>Follow your package from our door to yours. Use your order details or tracking number below for the latest update.</p>",
+        "helper_text": "Have your order number and checkout email ready.",
+        "journey_label": "Your delivery journey from order confirmation to your door",
+        "color_scheme": "background-1",
+        "padding_top": 72,
+        "padding_bottom": 40
+      }
+    },
+    "16709164393c099f56-1761634028061": {
+      "type": "apps",
+      "blocks": {
+        "11161dbd-4319-4295-8710-e7b7012a9712-1761634028061": {
+          "type": "shopify://apps/track123/blocks/search2/60c49c11-a7c0-49a0-861e-2f84d2f294e6",
+          "settings": {
+            "search_by": "by_order_number_or_by_tracking_number",
+            "time_format": "hh:mm a",
+            "show_estimated_delivery_time": true,
+            "show_carrier_info": true,
+            "show_tracking_number": true,
+            "show_package_info": true,
+            "show_reorder_button": true,
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "11161dbd-4319-4295-8710-e7b7012a9712-1761634028061"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "track_order_support": {
+      "type": "track-order-support",
+      "blocks": {
+        "detail_order_number": {
+          "type": "detail",
+          "settings": {
+            "heading": "Find your order number",
+            "text": "It is in your order confirmation email and starts with a #.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "detail_updates": {
+          "type": "detail",
+          "settings": {
+            "heading": "Allow time for updates",
+            "text": "Tracking can take up to 48 hours to show after your order ships.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "detail_support": {
+          "type": "detail",
+          "settings": {
+            "heading": "Still need help?",
+            "text": "Our support team can help with delivery questions.",
+            "link_label": "Contact support",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "detail_order_number",
+        "detail_updates",
+        "detail_support"
+      ],
+      "settings": {
+        "eyebrow": "Helpful details",
+        "heading": "Before you search",
+        "color_scheme": "background-1",
+        "padding_top": 56,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "track_order_intro",
+    "16709164393c099f56-1761634028061",
+    "track_order_support"
+  ]
+}

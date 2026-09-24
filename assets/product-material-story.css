@@ -1,0 +1,268 @@
+.nook-material-story {
+  --material-line: rgba(var(--color-foreground), 0.16);
+  --material-muted: rgba(var(--color-foreground), 0.72);
+  position: relative;
+  display: block;
+  padding-block: var(--material-padding-top) var(--material-padding-bottom);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.nook-material-story__inner {
+  width: calc(100% - 4rem);
+  max-width: min(var(--page-width), 118rem);
+  margin-inline: auto;
+}
+
+.nook-material-story__header {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(320px, 5fr);
+  gap: clamp(3.2rem, 6vw, 8rem);
+  align-items: end;
+  margin-bottom: clamp(3.6rem, 5vw, 6rem);
+}
+
+.nook-material-story__eyebrow {
+  margin: 0 0 1.6rem;
+  color: var(--material-accent);
+  font-family: var(--font-heading-family);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nook-material-story__heading {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.4rem, 4.4vw, 5.6rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.nook-material-story__intro {
+  max-width: 58ch;
+  margin: 0 0 0.6rem;
+  color: var(--material-muted);
+  font-family: var(--font-body-family);
+  font-size: clamp(1.7rem, 1.35vw, 2rem);
+  line-height: 1.62;
+}
+
+.nook-material-story__media-study {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(2rem, 3.4vw, 5.2rem);
+  align-items: start;
+}
+
+.nook-material-story__figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.nook-material-story__figure--texture {
+  grid-column: 1 / span 7;
+}
+
+.nook-material-story__figure--loom {
+  grid-column: 8 / -1;
+  margin-top: clamp(4.8rem, 7vw, 9rem);
+}
+
+.nook-material-story__image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  background: color-mix(in srgb, rgb(var(--color-background)) 86%, rgb(var(--color-foreground)));
+}
+
+.nook-material-story__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nook-material-story__caption {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: start;
+  padding-top: 1.8rem;
+  border-top: 0.1rem solid var(--material-line);
+  margin-top: 1.8rem;
+}
+
+.nook-material-story__figure-label,
+.nook-material-story__figure-text {
+  margin: 0;
+}
+
+.nook-material-story__figure-label {
+  color: var(--material-accent);
+  font-family: var(--font-heading-family);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nook-material-story__figure-text {
+  color: var(--material-muted);
+  font-family: var(--font-body-family);
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
+.nook-material-story__benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2.4rem, 4vw, 6.4rem);
+  margin: clamp(6rem, 9vw, 11rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nook-material-story__benefit {
+  padding: 2.6rem 0 0;
+  border-top: 0.1rem solid var(--material-line);
+}
+
+.nook-material-story__benefit::before {
+  display: block;
+  width: 3.2rem;
+  height: 0.3rem;
+  margin-bottom: 2.2rem;
+  background: var(--material-accent);
+  content: '';
+}
+
+.nook-material-story__benefit-title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.9rem, 1.6vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.nook-material-story__benefit-text {
+  max-width: 36ch;
+  margin: 1rem 0 0;
+  color: var(--material-muted);
+  font-family: var(--font-body-family);
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
+@media screen and (max-width: 989px) {
+  .nook-material-story__header {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .nook-material-story__intro {
+    max-width: 65ch;
+  }
+
+  .nook-material-story__caption {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nook-material-story__benefits {
+    gap: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .nook-material-story {
+    padding-block: var(--material-padding-top-mobile) var(--material-padding-bottom-mobile);
+  }
+
+  .nook-material-story__inner {
+    width: calc(100% - 3.2rem);
+  }
+
+  .nook-material-story__header {
+    margin-bottom: 3.2rem;
+  }
+
+  .nook-material-story__heading {
+    max-width: 15ch;
+    font-size: clamp(3.2rem, 10vw, 4.4rem);
+  }
+
+  .nook-material-story__media-study {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .nook-material-story__figure--texture,
+  .nook-material-story__figure--loom {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .nook-material-story__image-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .nook-material-story__caption {
+    padding-top: 1.8rem;
+    margin-top: 1.8rem;
+  }
+
+  .nook-material-story__benefits {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+    margin-top: 5.6rem;
+  }
+
+  .nook-material-story__benefit {
+    padding-top: 2.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js.product-motion-ready
+    #MainContent
+    > .shopify-section.product-section-reveal:not(.is-revealed)
+    [data-material-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 2.4rem, 0);
+  }
+
+  .js.product-motion-ready
+    #MainContent
+    > .shopify-section.product-section-reveal
+    [data-material-reveal] {
+    transition:
+      opacity 680ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 680ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--material-order, 0) * 80ms);
+  }
+
+  .js.product-motion-ready
+    #MainContent
+    > .shopify-section.product-section-reveal.is-revealed
+    [data-material-reveal] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nook-material-story [data-material-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

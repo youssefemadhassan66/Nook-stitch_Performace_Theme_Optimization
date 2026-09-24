@@ -1,0 +1,1302 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product-backup-master",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - (1,356) Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#000000",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#20ad82",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong> Limited Stock</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "accent-2",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#ffe7ec",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 3,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#20ad82",
+            "regular_price_color": "#212121",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "icon_with_text_8G9TXx": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 11,
+            "icon_1": "truck",
+            "image_1": "shopify://shop_images/rush_1.png",
+            "heading_1": "Order Today = Shipped Today",
+            "icon_2": "truck",
+            "heading_2": "Free Shipping on +$25 Orders",
+            "icon_3": "clipboard",
+            "image_3": "shopify://shop_images/thumbs-up_1.png",
+            "heading_3": "30 Day Money Back Guarantee"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "body",
+            "font_size": 14,
+            "font_style": "normal",
+            "swatchType": "variantImage",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 44,
+            "swatchHeight": 30,
+            "size_trigger": "",
+            "chart_id": "",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_full_button": true,
+            "lm_main_button": "#20ad82",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "payment_EymzfV": {
+          "type": "payment",
+          "disabled": true,
+          "settings": {
+            "original": "custom",
+            "payment_icon": "visa,master,apple_pay,shopify-pay,klarna",
+            "payment_content_alignment": "center"
+          }
+        },
+        "shipping_qbTyxb": {
+          "type": "shipping",
+          "settings": {
+            "ship_days": 2,
+            "cut_off_time": 16,
+            "icon_size": 20,
+            "image_ani": "none",
+            "text_size": 10,
+            "text_style": "uppercase",
+            "text": "ORDER BEFORE 23:00 = SHIPPED THE SAME DAY!",
+            "date_locale": "en-US",
+            "ship_bg": "#dcc5c5",
+            "show_border": false,
+            "ship_border": "#f2f2f2",
+            "border_radius": 0,
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "margin_top": 16,
+            "margin_bottom": 16
+          }
+        },
+        "image_KchwP9": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_gcybehgcybehgcyb.png",
+            "image_size": 100,
+            "image_border": 0,
+            "img_position": "left",
+            "padding_top": 36,
+            "padding_bottom": 36
+          }
+        },
+        "icon_with_text_ebdgHe": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "price",
+        "icon_with_text_8G9TXx",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "payment_EymzfV",
+        "shipping_qbTyxb",
+        "image_KchwP9",
+        "icon_with_text_ebdgHe",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": true,
+        "color_scheme": "",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffffff",
+        "container_border_color": "#0e1b4d",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffffff",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number-backup-master",
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 3,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "17655272342f7a4155": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_28154c2_fbmXEe": {
+          "type": "ai_gen_block_28154c2",
+          "disabled": true,
+          "settings": {
+            "heading": "Stitched for your daily wear",
+            "heading_size": 28,
+            "heading_color": "#000000",
+            "heading_alignment": "center",
+            "heading_spacing": 24,
+            "image_1": "shopify://shop_images/Untitled_design_-_2025-12-13T144836.652.png",
+            "image_2": "shopify://shop_images/Untitled_design_-_2025-12-10T093917.883.png",
+            "image_3": "shopify://shop_images/Untitled_design_-_2025-12-10T110633.376.png",
+            "image_4": "shopify://shop_images/Untitled_design_-_2025-12-13T144915.108.png",
+            "image_5": "shopify://shop_images/Untitled_design_-_2025-12-11T140031.541.png",
+            "image_width": 400,
+            "image_height": 400,
+            "image_width_mobile": 280,
+            "image_height_mobile": 280,
+            "image_gap": 16,
+            "image_border_radius": 8,
+            "scrollbar_style": "thin",
+            "scrollbar_height": 6,
+            "scrollbar_padding": 8,
+            "scrollbar_radius": 4,
+            "scrollbar_track_color": "#e0e0e0",
+            "scrollbar_thumb_color": "#888888",
+            "scrollbar_thumb_hover_color": "#555555",
+            "container_width": 1200,
+            "side_padding": 20,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_28154c2_fbmXEe"
+      ],
+      "settings": {}
+    },
+    "1765306786c7a64c3a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_335c379_bNh7Ey": {
+          "type": "ai_gen_block_335c379",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/COMFORT.png",
+            "aspect_ratio": "16/9",
+            "image_fit": "cover",
+            "border_radius": 0,
+            "enable_link": false,
+            "link": "",
+            "show_caption": false,
+            "caption": "<p>Image caption</p>",
+            "caption_alignment": "center",
+            "caption_size": 14,
+            "caption_spacing": 12,
+            "caption_color": "#000000"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_335c379_bNh7Ey"
+      ],
+      "settings": {}
+    },
+    "177654638781b05ffe": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "177654694631265ad9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_21e7eb9_pHTTEp": {
+          "type": "ai_gen_block_21e7eb9",
+          "settings": {
+            "heading": "Stitched for your daily comfort",
+            "heading_size": 28,
+            "heading_alignment": "center",
+            "heading_color": "#000000",
+            "heading_spacing": 24,
+            "image_1": "shopify://shop_images/Untitled_design_-_2025-12-10T122010.970.png",
+            "image_2": "shopify://shop_images/Untitled_design_-_2026-04-18T225151.675.png",
+            "image_3": "shopify://shop_images/Untitled_design_-_2026-04-18T215243.207.png",
+            "image_4": "shopify://shop_images/Untitled_design_-_2026-04-18T214656.452.png",
+            "image_5": "shopify://shop_images/Untitled_design_-_2025-12-12T101707.023.png",
+            "image_6": "shopify://shop_images/Gemini_Generated_Image_nl8m3jnl8m3jnl8m.png",
+            "image_shape": "portrait",
+            "image_width": 400,
+            "image_gap": 16,
+            "image_border_radius": 8,
+            "desktop_width_percent": 100,
+            "scroll_speed": 20,
+            "placeholder_bg_color": "#f4f4f4"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_21e7eb9_pHTTEp"
+      ],
+      "settings": {}
+    },
+    "multirow_VyPRij": {
+      "type": "multirow-backup-master",
+      "blocks": {
+        "row_ttKrmL": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Right_banner.jpg",
+            "caption": "",
+            "heading": "<strong>Cushioned Support with Every Step</strong>",
+            "text": "<p>The terry loop bottom is designed to act as a soft shock absorber, cushioning every step and reducing impact on hard surfaces. Its thick, looped fabric provides extra comfort and support while helping ease pressure on your feet. Ideal for daily wear or sports activities, it enhances overall comfort and keeps your feet feeling supported all day long.<br/><br/></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_fqLxa6": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/H4a1d396b8a0845e99446c33ec8f4557cP.jpg",
+            "caption": "",
+            "heading": "<strong>Stay Steady with Anti-Slip Grip</strong>",
+            "text": "<p><br/>The anti-slip stripes on the bottom of the socks provide extra stability and grip, preventing unwanted slipping on smooth surfaces. Designed for both home and active use, they help you stay balanced and confident whether walking, exercising, or simply moving around indoors.<br/><br/></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_MQUTFn": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/896411db-2189-46e1-8bae-077f3712a007.jpg",
+            "caption": "",
+            "heading": "<strong>Padded Ankle Protection for Lasting Comfort</strong>",
+            "text": "<p>The padded ankle brace at the back of the sock provides targeted protection against friction and shoe pressure. Positioned just above the heel, it cushions the ankle to prevent irritation and blisters, making the socks especially comfortable for long wear and active movement.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_4ed9wy": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/6b5a12b8-7045-4eea-bfb6-49fb57f7080d.jpg",
+            "caption": "",
+            "heading": "<strong>Everything You Need in One Sock</strong>",
+            "text": "<p>Comfort padding, strong arch support, ankle protection, and a perfect fit made for long hours on your feet. Designed with premium cotton cushioning and stable support for your most comfortable step yet.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_tTNUNH": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_hhkv71hhkv71hhkv.png",
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_ttKrmL",
+        "row_fqLxa6",
+        "row_MQUTFn",
+        "row_4ed9wy",
+        "row_tTNUNH"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_Q9RU8e": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_iXfY8p": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_fWjEFh": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_RAeRXM": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iXfY8p",
+        "text_fWjEFh",
+        "buttons_RAeRXM"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/COMFORT.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "custom_liquid_7RqYxa": {
+      "type": "product-review-proof",
+      "blocks": {
+        "review_emma": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/3c16a6e2-732f-4196-9bcb-68b2f5298475.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "So much better than regular socks. My feet feel cushioned all day long.",
+            "name": "Emma C.",
+            "verified": true,
+            "date": "15 May 2026"
+          }
+        },
+        "review_charlotte": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9417.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Breathable and soft. I wish they came in more colours, but they do the job well.",
+            "name": "Charlotte H.",
+            "verified": true,
+            "date": "15 May 2026"
+          }
+        },
+        "review_nigel": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/5b74d3c6-f570-413b-8001-b998ac071fde.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Excellent quality and very supportive. I wear them daily for work and my feet feel much better.",
+            "name": "Nigel P.",
+            "verified": true,
+            "date": "15 May 2026"
+          }
+        },
+        "review_ella": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Perfect for my bad ankles. The padding makes a world of difference.",
+            "name": "Ella C.",
+            "verified": true,
+            "date": "12 May 2026"
+          }
+        },
+        "review_robert": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/504ad598-2078-4056-b172-3142dddedd06.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "The cushioning feels like walking on clouds. Worth every penny!",
+            "name": "Robert L.",
+            "verified": true,
+            "date": "14 May 2026"
+          }
+        },
+        "review_amelia": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/c1ff88ad-2785-42d0-9f0d-093eec5a52b3.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Good socks overall, though they take a bit longer to dry after washing.",
+            "name": "Amelia F.",
+            "verified": true,
+            "date": "14 May 2026"
+          }
+        },
+        "review_jack": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/d9af9950-1ff2-49f2-ba20-d4e8d37aa1b7.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Strong, durable, and very supportive. I use them at the gym daily.",
+            "name": "Jack T.",
+            "verified": true,
+            "date": "12 May 2026"
+          }
+        },
+        "review_grace": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Exactly as described. Comfortable, supportive, and stylish too.",
+            "name": "Grace E.",
+            "verified": true,
+            "date": "11 May 2026"
+          }
+        },
+        "review_thomas": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "I stand for 10 hours at work, these socks have saved my feet!",
+            "name": "Thomas M.",
+            "verified": true,
+            "date": "10 May 2026"
+          }
+        },
+        "review_rick": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "I've tried many orthopedic socks, but these are the most comfortable so far.",
+            "name": "Rick J.",
+            "verified": true,
+            "date": "10 May 2026"
+          }
+        },
+        "review_lucas": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/c94c77c2-f175-4e31-a32d-0bb8bfd76653.jpg",
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "These really absorb impact. Great for long walks and hiking.",
+            "name": "Lucas P.",
+            "verified": true,
+            "date": "10 May 2026"
+          }
+        },
+        "review_margaret": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "These are the first socks that don't dig into my ankles. I wear them every single day now.",
+            "name": "Margaret R.",
+            "verified": true,
+            "date": ""
+          }
+        },
+        "review_david": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "On my feet all day at work and my heels finally stopped aching. The cushioning is gentle but real.",
+            "name": "David P.",
+            "verified": true,
+            "date": ""
+          }
+        },
+        "review_susan": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 5,
+            "title": "",
+            "quote": "Soft, supportive, and they don't slip. My mother has sensitive feet and these are the only pair she'll wear.",
+            "name": "Susan L.",
+            "verified": true,
+            "date": ""
+          }
+        },
+        "review_james": {
+          "type": "review",
+          "settings": {
+            "video_url": "",
+            "rating": 4,
+            "title": "",
+            "quote": "Great arch support without feeling tight. Took one wash to soften up and now they're my favorite.",
+            "name": "James W.",
+            "verified": true,
+            "date": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_emma",
+        "review_charlotte",
+        "review_nigel",
+        "review_ella",
+        "review_robert",
+        "review_amelia",
+        "review_jack",
+        "review_grace",
+        "review_thomas",
+        "review_rick",
+        "review_lucas",
+        "review_margaret",
+        "review_david",
+        "review_susan",
+        "review_james"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "kicker": "Comfort, in their words",
+        "heading": "What does our customers say?",
+        "body": "<p>Stories from people who wanted less rubbing, a softer step, and socks they could keep on all day.</p>",
+        "rating_text": "4.8 from (1,356) reviews",
+        "verified_label": "Verified buyer",
+        "initial_reviews": 12,
+        "load_count": 8,
+        "load_more_text": "View more reviews",
+        "padding_top": 76,
+        "padding_bottom": 92,
+        "padding_top_mobile": 52,
+        "padding_bottom_mobile": 64
+      }
+    },
+    "1764945502ca0ed9b4": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_252996e_cgn6qm": {
+          "type": "ai_gen_block_252996e",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/COMFORT.png",
+            "image_position": "center",
+            "banner_height_desktop": 500,
+            "banner_height_mobile": 350,
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0.3,
+            "heading": "",
+            "text": "",
+            "content_max_width": 600,
+            "content_vertical_alignment": "center",
+            "content_horizontal_alignment": "center",
+            "text_alignment": "center",
+            "heading_size": 48,
+            "heading_color": "#ffffff",
+            "text_size": 18,
+            "text_color": "#ffffff",
+            "button_text": "Shop now",
+            "button_link": "",
+            "button_text_size": 16,
+            "button_background": "#ffffff",
+            "button_hover_background": "#f0f0f0",
+            "button_text_color": "#000000",
+            "button_border_radius": 4
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_93fc552_TLn8Q3": {
+          "type": "ai_gen_block_93fc552",
+          "disabled": true,
+          "settings": {
+            "title": "Customer Reviews",
+            "title_size": 36,
+            "subtitle": "See what our customers are saying",
+            "subtitle_size": 16,
+            "reviews_per_page": 8,
+            "load_more_text": "Load More Reviews",
+            "background_color": "#f9fafb",
+            "card_background": "#ffffff",
+            "text_color": "#000000",
+            "star_color": "#000000",
+            "avatar_bg_color": "#000000",
+            "avatar_text_color": "#ffffff",
+            "verified_bg_color": "#10b981",
+            "verified_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_hover_color": "#333333",
+            "button_text_color": "#ffffff",
+            "card_radius": 12,
+            "image_radius": 8,
+            "button_radius": 8,
+            "show_form": false,
+            "form_title": "Write a Review",
+            "submit_button_text": "Submit Review",
+            "success_message": "Thank you for your review! It will be published shortly.",
+            "review_1_name": "Emma Campbell",
+            "review_1_verified": true,
+            "review_1_date": "",
+            "review_1_rating": 5,
+            "review_1_text": "So much better than regular socks. My feet feel cushioned all day long.",
+            "review_1_image": "shopify://shop_images/3c16a6e2-732f-4196-9bcb-68b2f5298475.jpg",
+            "review_2_name": "Charlotte Holland",
+            "review_2_verified": true,
+            "review_2_date": "",
+            "review_2_rating": 5,
+            "review_2_text": "Breathable and soft. I wish they came in more colours, but they do the job well.",
+            "review_2_image": "shopify://shop_images/IMG_9417.jpg",
+            "review_3_name": "Nigel Peter",
+            "review_3_verified": true,
+            "review_3_date": "",
+            "review_3_rating": 5,
+            "review_3_text": "Excellent quality and very supportive. I wear them daily for work and my feet feel much better.",
+            "review_3_image": "shopify://shop_images/5b74d3c6-f570-413b-8001-b998ac071fde.jpg",
+            "review_4_name": "Robert Lee",
+            "review_4_verified": true,
+            "review_4_date": "",
+            "review_4_rating": 5,
+            "review_4_text": "The cushioning feels like walking on clouds. Worth every penny!",
+            "review_4_image": "shopify://shop_images/504ad598-2078-4056-b172-3142dddedd06.jpg",
+            "review_5_name": "Amelia Frost",
+            "review_5_verified": true,
+            "review_5_date": "",
+            "review_5_rating": 5,
+            "review_5_text": "Good socks overall, though they take a bit longer to dry after washing.",
+            "review_5_image": "shopify://shop_images/c1ff88ad-2785-42d0-9f0d-093eec5a52b3.jpg",
+            "review_6_name": "Jack Turner",
+            "review_6_verified": true,
+            "review_6_date": "",
+            "review_6_rating": 5,
+            "review_6_text": "Strong, durable, and very supportive. I use them at the gym daily.",
+            "review_6_image": "shopify://shop_images/d9af9950-1ff2-49f2-ba20-d4e8d37aa1b7.jpg",
+            "review_7_name": "Ella Carter",
+            "review_7_verified": true,
+            "review_7_date": "",
+            "review_7_rating": 5,
+            "review_7_text": "Perfect for my bad ankles. The padding makes a world of difference.",
+            "review_8_name": "Grace Evans",
+            "review_8_verified": true,
+            "review_8_date": "",
+            "review_8_rating": 5,
+            "review_8_text": "Exactly as described. Comfortable, supportive, and stylish too.",
+            "review_9_name": "Thomas Mitchell",
+            "review_9_verified": true,
+            "review_9_date": "",
+            "review_9_rating": 5,
+            "review_9_text": "I stand for 10 hours at work, these socks have saved my feet!",
+            "review_10_name": "Rick Jordan",
+            "review_10_verified": true,
+            "review_10_date": "",
+            "review_10_rating": 5,
+            "review_10_text": "I’ve tried many orthopedic socks, but these are the most comfortable so far.",
+            "review_11_name": "Lucas Peterson",
+            "review_11_verified": true,
+            "review_11_date": "",
+            "review_11_rating": 5,
+            "review_11_text": "These really absorb impact. Great for long walks and hiking.",
+            "review_11_image": "shopify://shop_images/c94c77c2-f175-4e31-a32d-0bb8bfd76653.jpg",
+            "review_12_name": "",
+            "review_12_verified": false,
+            "review_12_date": "",
+            "review_12_rating": 5,
+            "review_12_text": "",
+            "review_13_name": "",
+            "review_13_verified": false,
+            "review_13_date": "",
+            "review_13_rating": 5,
+            "review_13_text": "",
+            "review_14_name": "",
+            "review_14_verified": false,
+            "review_14_date": "",
+            "review_14_rating": 5,
+            "review_14_text": "",
+            "review_15_name": "",
+            "review_15_verified": false,
+            "review_15_date": "",
+            "review_15_rating": 5,
+            "review_15_text": "",
+            "review_16_name": "",
+            "review_16_verified": false,
+            "review_16_date": "",
+            "review_16_rating": 5,
+            "review_16_text": "",
+            "review_17_name": "",
+            "review_17_verified": false,
+            "review_17_date": "",
+            "review_17_rating": 5,
+            "review_17_text": "",
+            "review_18_name": "",
+            "review_18_verified": false,
+            "review_18_date": "",
+            "review_18_rating": 5,
+            "review_18_text": "",
+            "review_19_name": "",
+            "review_19_verified": false,
+            "review_19_date": "",
+            "review_19_rating": 5,
+            "review_19_text": "",
+            "review_20_name": "",
+            "review_20_verified": false,
+            "review_20_date": "",
+            "review_20_rating": 5,
+            "review_20_text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_252996e_cgn6qm",
+        "ai_gen_block_93fc552_TLn8Q3"
+      ],
+      "settings": {}
+    },
+    "featured_collection_nLDL4d": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Black Friday Early Deals!",
+        "description": "",
+        "collection_text_alignment": "left",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "socks",
+        "show_collection_image": false,
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "navigation_on_desk": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_scroll_tags": false,
+        "enable_quick_desc": false,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 14,
+        "enable_quick_add": false,
+        "show_secondary_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "navigation_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_comparison_HDGKVp": {
+      "type": "image-comparison",
+      "blocks": {
+        "text_QHwVeR": {
+          "type": "text",
+          "settings": {
+            "subheading": "",
+            "heading": "Image comparison",
+            "content": "<p>See the stunning transformations our products deliver — real results from real customers.</p>",
+            "text_position": "center",
+            "color": "#000000"
+          }
+        },
+        "images_HbhYND": {
+          "type": "images",
+          "settings": {
+            "desktop_height": 500,
+            "mobile_height": 500,
+            "border_radius": 12,
+            "drag_initial_position": 50,
+            "cover": true,
+            "before_text": "Before",
+            "after_text": "After",
+            "before_after_text_position": "bottom",
+            "before_text_color": "#ffffff",
+            "after_text_color": "#ffffff",
+            "drag_cursor_bg": "#ffffff",
+            "drag_cursor_color": "#000000"
+          }
+        },
+        "button_HyfhMn": {
+          "type": "button",
+          "settings": {
+            "link_text": "SHOP NO",
+            "link": "",
+            "button_position": "center",
+            "width": 160,
+            "font_size": 16,
+            "border_radius": 10,
+            "border_width": 0,
+            "color": "#ffffff",
+            "background_color": "#000000",
+            "hover_color": "#ffffff",
+            "hover_background_color": "#000000",
+            "border_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "text_QHwVeR",
+        "images_HbhYND",
+        "button_HyfhMn"
+      ],
+      "disabled": true,
+      "name": "Image comparison",
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_QntHhK": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_HVppW6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How Long Does The Shipping take?",
+            "icon": "none",
+            "row_content": "<p>Standard delivery takes 5-12 business days, depending on your location.<br/><br/>You'll receive a tracking number as soon as your order is on the way.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KQn6x6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What Can The Cyan AI Do?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI gives you instant access to ChatGPT. Ask questions, get ideas, write texts, solve problems and plan your day—all by voice. It's like having your own personal assistant built into your glasses.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LhhV7X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are They Easy To Use?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI Glasses are built for simplicity. Just connect them to your phone through the HeyCyan app and control everything with touch gestures or voice commands—no complicated setup required. Every order includes a user manual, and the app will guide you step by step<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NxibBb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will They Work With My Phone?",
+            "icon": "none",
+            "row_content": "<p>Absolutely, Cyan AI Glasses work seamlessly with both iOS and Android devices. Just download the HeyCyan app and you're ready to connect, control and customize.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3DrMCA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can People Around Me Hear The Audio?",
+            "icon": "none",
+            "row_content": "<p>We designed Cyan AI with open-air directional speakers that play audio clearly to you, not the room. People nearby won't hear your music or calls unless you raise the volume very high.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Nf6eKH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where Will My Videos And Photos Go?",
+            "icon": "none",
+            "row_content": "<p>After taking a video or a photo, your media will be saved in HeyCyan app!</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_HVppW6",
+        "collapsible_row_KQn6x6",
+        "collapsible_row_LhhV7X",
+        "collapsible_row_NxibBb",
+        "collapsible_row_3DrMCA",
+        "collapsible_row_Nf6eKH"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "brands_7ULWLR": {
+      "type": "brands",
+      "blocks": {
+        "image_3dehmJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_86.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_kib7VG": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_85.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_4hzkYd": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_82.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_reHxCJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_81.png",
+            "logo_image_width": 110
+          }
+        }
+      },
+      "block_order": [
+        "image_3dehmJ",
+        "image_kib7VG",
+        "image_4hzkYd",
+        "image_reHxCJ"
+      ],
+      "disabled": true,
+      "name": "LOGO Slider",
+      "settings": {
+        "scroll_speed": 15,
+        "fade": false,
+        "color_scheme": "background-1",
+        "padding_desktop": 16,
+        "padding_mobile": 8,
+        "padding_item_desktop": 36,
+        "padding_item_mobile": 24,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17573385083b13945d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "17655272342f7a4155",
+    "1765306786c7a64c3a",
+    "177654638781b05ffe",
+    "177654694631265ad9",
+    "multirow_VyPRij",
+    "image_banner_Q9RU8e",
+    "custom_liquid_7RqYxa",
+    "1764945502ca0ed9b4",
+    "featured_collection_nLDL4d",
+    "image_comparison_HDGKVp",
+    "related-products",
+    "collapsible_content_QntHhK",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "brands_7ULWLR",
+    "17573385083b13945d"
+  ]
+}

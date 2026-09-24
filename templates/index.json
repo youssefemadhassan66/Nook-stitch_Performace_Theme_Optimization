@@ -1,0 +1,1060 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_editorial": {
+      "type": "hero-editorial",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "background_color": "#000000",
+            "content_position": "center",
+            "kicker": "Feel the difference",
+            "heading_line_1": "Relief that",
+            "heading_line_2": "feels easy.",
+            "body": "<p>Orthopedic arch support and seamless cushioning, made for sensitive feet and long days.</p>",
+            "button_label": "Shop now",
+            "button_link": "shopify://products/orthopedicsocks",
+            "image": "shopify://shop_images/Untitled_design_-_2026-07-14T230523.531.png",
+            "image_asset": "featured-sock-pair-editorial.jpg",
+            "video_url": "",
+            "overlay_opacity": 30
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "background_color": "#000000",
+            "content_position": "center",
+            "kicker": "All-day comfort",
+            "heading_line_1": "Support that",
+            "heading_line_2": "feels good.",
+            "body": "<p>Soft cushioning and a non-binding fit that stays comfortable from the first step to the last.</p>",
+            "button_label": "Shop now",
+            "button_link": "shopify://products/orthopedicsocks",
+            "image": "shopify://shop_images/Gemini_Generated_Image_yl4zxeyl4zxeyl4z.jpg",
+            "image_asset": "featured-sock-pair-editorial.jpg",
+            "video_url": "",
+            "overlay_opacity": 30
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "background_color": "#000000",
+            "content_position": "left",
+            "kicker": "Just landed",
+            "heading_line_1": "New arrivals",
+            "heading_line_2": "",
+            "body": "<p>Fresh comfort, just dropped — be first to feel the difference.</p>",
+            "button_label": "Shop new",
+            "button_link": "shopify://products/orthopedicsocks",
+            "image": "shopify://shop_images/hf_20260714_201559_c941bb0c-9156-4f11-a234-dd653fdd278f.png",
+            "image_asset": "",
+            "video_url": "",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "autoplay_seconds": 4,
+        "show_dots": true,
+        "text_color": "#ffffff",
+        "dot_color": "#ffffff",
+        "button_color": "#ffffff",
+        "button_text_color": "#1f1d24",
+        "min_height": 720
+      }
+    },
+    "sock_photo_atelier": {
+      "type": "home-sock-atelier",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "Everyday support.",
+        "body": "<p>Cushioned ankle socks with a clean, low profile.</p>",
+        "button_label": "Shop socks",
+        "button_link": "shopify://products/orthopedicsocks",
+        "image_alt": "White orthopedic ankle socks on a dark studio background",
+        "background_color": "#ffffff",
+        "photo_background_color": "#020202",
+        "text_color": "#1f1d24",
+        "muted_color": "#625e66",
+        "padding_top": 48,
+        "padding_bottom": 68
+      }
+    },
+    "comfort_selector": {
+      "type": "comfort-selector",
+      "blocks": {
+        "comfort_sole": {
+          "type": "comfort",
+          "settings": {
+            "title": "Cushioned sole",
+            "description": "Soft cushioning underfoot helps absorb impact during all activities.",
+            "marker_label": "SOLE",
+            "point_x": 54,
+            "point_y": 86,
+            "use_mobile_position": false,
+            "point_x_mobile": 50,
+            "point_y_mobile": 50,
+            "label_side": "right"
+          }
+        },
+        "comfort_heel": {
+          "type": "comfort",
+          "settings": {
+            "title": "Heel cushioning",
+            "description": "Targeted heel padding softens impact and helps ease pressure with every step.",
+            "marker_label": "HEEL",
+            "point_x": 89,
+            "point_y": 31,
+            "use_mobile_position": false,
+            "point_x_mobile": 50,
+            "point_y_mobile": 50,
+            "label_side": "left"
+          }
+        },
+        "comfort_ankle": {
+          "type": "comfort",
+          "settings": {
+            "title": "Padded ankle protection",
+            "description": "Gentle ankle padding adds coverage where shoes can rub without feeling bulky.",
+            "marker_label": "PADDED ANKLE PROTECTION",
+            "point_x": 66,
+            "point_y": 10,
+            "use_mobile_position": false,
+            "point_x_mobile": 50,
+            "point_y_mobile": 50,
+            "label_side": "left"
+          }
+        },
+        "comfort_toe": {
+          "type": "comfort",
+          "settings": {
+            "title": "Toe comfort",
+            "description": "A smooth toe area helps reduce rubbing around sensitive toes.",
+            "marker_label": "SEAMLESS TOE",
+            "point_x": 16,
+            "point_y": 85,
+            "use_mobile_position": true,
+            "point_x_mobile": 24,
+            "point_y_mobile": 88,
+            "label_side": "left"
+          }
+        },
+        "comfort_fabric": {
+          "type": "comfort",
+          "settings": {
+            "title": "Moisture-wicking fabric",
+            "description": "Breathable knit helps move moisture away so feet stay cooler and drier.",
+            "marker_label": "FABRIC",
+            "point_x": 45,
+            "point_y": 34,
+            "use_mobile_position": false,
+            "point_x_mobile": 50,
+            "point_y_mobile": 50,
+            "label_side": "left"
+          }
+        }
+      },
+      "block_order": [
+        "comfort_sole",
+        "comfort_heel",
+        "comfort_ankle",
+        "comfort_toe",
+        "comfort_fabric"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "The Anatomy of Comfort",
+        "body": "<p>Five thoughtful details work together for softer, more comfortable steps.</p>",
+        "image_alt": "Black Nook and Stitch orthopedic ankle sock on a neutral gray studio background",
+        "image_max_width": 760,
+        "background_color": "#ffffff",
+        "surface_color": "#ffffff",
+        "text_color": "#1f1d24",
+        "accent_color": "#157a5b",
+        "media_background": "#777673",
+        "media_background_gradient": "linear-gradient(180deg, rgba(119, 118, 115, 1), rgba(133, 131, 132, 1) 48%, rgba(168, 162, 164, 1) 100%)",
+        "hotspot_color": "#fbfaf4",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "activity_categories": {
+      "type": "activity-categories",
+      "blocks": {
+        "activity_walk": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_12_2026_05_20_19_PM.png",
+            "overlay_opacity": 55,
+            "eyebrow": "Made for every step",
+            "title": "Walk socks",
+            "link": "shopify://products/orthopedicsocks",
+            "gradient_start": "#157a5b",
+            "gradient_end": "#1f1d24",
+            "accent_color": "#157a5b"
+          }
+        },
+        "activity_work": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_mgjmtqmgjmtqmgjm.png",
+            "overlay_opacity": 55,
+            "eyebrow": "Made for long days",
+            "title": "Work socks",
+            "link": "shopify://products/orthopedicsocks",
+            "gradient_start": "#999999",
+            "gradient_end": "#1f1d24",
+            "accent_color": "#157a5b"
+          }
+        },
+        "activity_travel": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_12_2026_10_13_07_PM_055410dd-2312-474e-8186-ae7d022a1434.png",
+            "overlay_opacity": 55,
+            "eyebrow": "Made for easy miles",
+            "title": "Travel socks",
+            "link": "shopify://products/orthopedicsocks",
+            "gradient_start": "#157a5b",
+            "gradient_end": "#123c34",
+            "accent_color": "#fbfaf4"
+          }
+        }
+      },
+      "block_order": [
+        "activity_walk",
+        "activity_work",
+        "activity_travel"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "accessibility_label": "Shop socks by activity",
+        "background_color": "#ffffff",
+        "text_color": "#fbfaf4",
+        "divider_color": "#fbfaf4",
+        "min_height": 760
+      }
+    },
+    "sock_reel_guide": {
+      "type": "sock-reel-guide",
+      "settings": {
+        "color_scheme": "background-1",
+        "eyebrow": "Shop by style",
+        "heading": "Choose the sock. Find your fit.",
+        "intro": "",
+        "product_link": "shopify://products/orthopedicsocks",
+        "normal_link": "shopify://products/orthopedicsocks",
+        "crew_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#1f1d24",
+        "accent_color": "#157a5b",
+        "normal_kicker": "Normal socks",
+        "normal_text": "",
+        "normal_white_image": "shopify://shop_images/Untitled_design_-_2026-07-13T191827.550.png",
+        "normal_white_link": "https://nookandstitch.com/products/orthopedicsocks?variant=55775989170551",
+        "normal_black_image": "shopify://shop_images/Untitled_design_-_2026-07-13T191857.965.png",
+        "normal_black_link": "https://nookandstitch.com/products/orthopedicsocks?variant=55775989039479",
+        "normal_grey_image": "shopify://shop_images/09a7a11b6c4e23d029e7e4ee33feb9da58c15090_a42984a4-31c1-40d2-8f32-c9f7d6925ce2.png",
+        "normal_grey_link": "https://nookandstitch.com/products/orthopedicsocks?variant=57174032548215",
+        "normal_blue_image": "shopify://shop_images/50b0aeed1ed9b2a63defdaf789fc911cc59e7763_5cb83e16-6f99-47ee-a014-1d9302b84399.png",
+        "normal_blue_link": "https://nookandstitch.com/products/orthopedicsocks?variant=57174032646519",
+        "crew_kicker": "Crew socks",
+        "crew_text": "",
+        "crew_black_image": "shopify://shop_images/Untitled_design_-_2026-07-14T224608.840.png",
+        "crew_black_link": "https://nookandstitch.com/products/orthopedic-crew-socks?variant=56616549843319",
+        "crew_white_image": "shopify://shop_images/Untitled_design_-_2026-07-14T224525.185.png",
+        "crew_white_link": "https://nookandstitch.com/products/orthopedic-crew-socks?variant=56616554594679"
+      }
+    },
+    "sock_360": {
+      "type": "sock-360",
+      "blocks": {
+        "feat_heel": {
+          "type": "feature",
+          "settings": {
+            "title": "Cushioned heel",
+            "text": "Extra softness where impact builds with every step."
+          }
+        },
+        "feat_arch": {
+          "type": "feature",
+          "settings": {
+            "title": "Steady arch band",
+            "text": "Light support that keeps the sock secure all day."
+          }
+        },
+        "feat_toe": {
+          "type": "feature",
+          "settings": {
+            "title": "Seamless toe",
+            "text": "Smooth knit that reduces rubbing for sensitive feet."
+          }
+        }
+      },
+      "block_order": [
+        "feat_heel",
+        "feat_arch",
+        "feat_toe"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "eyebrow": "Every angle",
+        "heading": "See the whole sock.",
+        "body": "<p>Spin it around. Cushioned heel, steady arch band, and a smooth, seamless toe — engineered to support sensitive feet all day.</p>",
+        "button_label": "Shop the socks",
+        "button_link": "shopify://products/orthopedicsocks",
+        "autoplay": true,
+        "spin_speed": 90,
+        "drag_to_spin": true,
+        "reverse": false,
+        "hint_label": "Drag to spin",
+        "image_alt": "Rotating view of the orthopedic sock",
+        "base_color": "#1f1d24",
+        "text_color": "#ffffff",
+        "accent_color": "#157a5b",
+        "button_color": "#fbfaf4",
+        "button_text_color": "#1f1d24",
+        "min_height": 640
+      }
+    },
+    "home_reviews": {
+      "type": "home-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "These are the first socks that don't dig into my ankles. I wear them every single day now.",
+            "author": "Margaret R.",
+            "meta": "Ohio",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "On my feet all day at work and my heels finally stopped aching. The cushioning is gentle but real.",
+            "author": "David P.",
+            "meta": "Texas",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Soft, supportive, and they don't slip. My mother has sensitive feet and these are the only pair she'll wear.",
+            "author": "Susan L.",
+            "meta": "Florida",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "quote": "Great arch support without feeling tight. Took one wash to soften up and now they're my favorite.",
+            "author": "James W.",
+            "meta": "Oregon",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "kicker": "Loved by real feet",
+        "heading": "What customers say",
+        "show_trust_bar": true,
+        "trust_stars": 5,
+        "trust_rating": "4.9",
+        "trust_text": "from 2,000+ happy customers",
+        "columns_desktop": 3,
+        "background_color": "#ffffff",
+        "surface_color": "#ffffff",
+        "text_color": "#1f1d24",
+        "accent_color": "#157a5b",
+        "muted_color": "#8a8a8a",
+        "padding_top": 84,
+        "padding_bottom": 84
+      }
+    },
+    "home_video": {
+      "type": "home-video",
+      "blocks": {
+        "copy_cushion": {
+          "type": "copy",
+          "settings": {
+            "title": "High-cushion sole",
+            "text": "A soft terry footbed helps absorb impact from hard floors, long walks, and standing days."
+          }
+        },
+        "copy_toe": {
+          "type": "copy",
+          "settings": {
+            "title": "Seamless toe feel",
+            "text": "Smooth knit at the front reduces rubbing where sensitive feet notice it most."
+          }
+        },
+        "copy_breathable": {
+          "type": "copy",
+          "settings": {
+            "title": "Breathable daily knit",
+            "text": "Ventilation through the upper helps heat escape so feet stay fresher longer."
+          }
+        },
+        "copy_heel": {
+          "type": "copy",
+          "settings": {
+            "title": "Secure heel hold",
+            "text": "A deeper heel pocket helps the sock stay in place without bunching inside your shoe."
+          }
+        }
+      },
+      "block_order": [
+        "copy_cushion",
+        "copy_toe",
+        "copy_breathable",
+        "copy_heel"
+      ],
+      "settings": {
+        "show_content": true,
+        "kicker": "Comfort details",
+        "heading": "Comfort you can see",
+        "subtext": "A closer look at the cushioning, support, and everyday feel.",
+        "rotate_interval": 5,
+        "video": "shopify://files/videos/download (3).mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "Nook & Stitch orthopedic socks in motion",
+        "enable_video_looping": true,
+        "desktop_height": 650,
+        "mobile_height": 520,
+        "overlay_opacity": 68,
+        "blur_strength": 6,
+        "color_scheme": "background-1",
+        "background_color": "#ffffff",
+        "cinematic_background": "#020812",
+        "text_color": "#ffffff",
+        "accent_color": "#20ad82",
+        "muted_color": "#d8e0dc"
+      }
+    },
+    "collection_list_86AYp3": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_6YQ9BB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "men"
+          }
+        },
+        "featured_collection_gqDPyL": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "top"
+          }
+        },
+        "featured_collection_BTLdw3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "shoes"
+          }
+        },
+        "featured_collection_BcUFzQ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dresses"
+          }
+        },
+        "featured_collection_f6htiW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sets"
+          }
+        },
+        "featured_collection_V8pqyT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "socks"
+          }
+        },
+        "featured_collection_kHGefM": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "best-seller"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_6YQ9BB",
+        "featured_collection_gqDPyL",
+        "featured_collection_BTLdw3",
+        "featured_collection_BcUFzQ",
+        "featured_collection_f6htiW",
+        "featured_collection_V8pqyT",
+        "featured_collection_kHGefM"
+      ],
+      "disabled": true,
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "image_radius": 0,
+        "columns_desktop": 6,
+        "color_scheme": "background-1",
+        "subtitle_center": true,
+        "show_arrow": false,
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "4fc2a4e4-2bff-4a11-b951-52e00e0e0a88": {
+      "type": "lumin-grids",
+      "blocks": {
+        "554b4b71-ee5b-4226-9f87-c6a4238f18c5": {
+          "type": "text",
+          "settings": {
+            "large_up_hide": false,
+            "grid_width_desktop": "100",
+            "medium_hide": false,
+            "grid_width_tablet": "100",
+            "small_hide": false,
+            "show_border": false,
+            "border_color": "#eeeeee",
+            "padding_size": 0,
+            "padding_size_mobile": 0,
+            "padding_left_mobile": 0,
+            "text_border": 0,
+            "bg_color": "rgba(0,0,0,0)",
+            "icon_size": 25,
+            "icon_corner": 0,
+            "head": "<strong>Effortless Style, Timeless Confidence</strong>",
+            "use_body_font": true,
+            "head_color": "#ffffff",
+            "head_size_d": 35,
+            "head_size_m": 20,
+            "margin_bottom": 0,
+            "subtitle": "",
+            "text_color": "#1f1d24",
+            "text_size_d": 40,
+            "text_size_m": 36,
+            "button-text": "",
+            "show_secondary": false,
+            "button_link": "",
+            "image_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "grid-url": ""
+          }
+        }
+      },
+      "block_order": [
+        "554b4b71-ee5b-4226-9f87-c6a4238f18c5"
+      ],
+      "disabled": true,
+      "settings": {
+        "video_border": 8,
+        "zoom_hover": true,
+        "loading_color": "#f2f2f2",
+        "grid_gap": 8,
+        "color_scheme": "inverse",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "margin_top": 4,
+        "margin_bottom": 0
+      }
+    },
+    "featured_product_XC4mR8": {
+      "type": "featured-product",
+      "blocks": {
+        "text_UCGtHA": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_nzDzYL": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_P4YkMW": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size_2": 1,
+            "badge_size": 14,
+            "sale_price_color": "#131313",
+            "badge_price": "#8b8d8f",
+            "badge_bg": "#f2f2f2",
+            "badge_border": "#f2f2f2",
+            "price_bold": false,
+            "price_bold_2": false,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "variant_picker_phYQDk": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatchType": "variantImage",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30
+          }
+        },
+        "quantity_selector_aWMwrM": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_MUG7c9": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "text_UCGtHA",
+        "title_nzDzYL",
+        "price_P4YkMW",
+        "variant_picker_phYQDk",
+        "quantity_selector_aWMwrM",
+        "buy_buttons_MUG7c9"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "orthopedicsocks",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_BFykLn": {
+      "type": "multirow",
+      "blocks": {
+        "row_wdaxUW": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2026-04-09T133234.100.png",
+            "caption": "",
+            "heading": "<strong>Everything You Need in One Sock</strong>",
+            "text": "<p>Comfort padding, strong arch support, ankle protection, and a perfect fit made for long hours on your feet. Designed with premium cotton cushioning and stable support for your most comfortable step yet.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_GUVhcb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_nl8m3jnl8m3jnl8m.png",
+            "caption": "",
+            "heading": "Walking on Clouds",
+            "text": "<p>Your feet work hard every day, and they deserve true support. Our orthopedic sneaker socks deliver soft padding, steady support, and breathable comfort that keeps you feeling good with every step. Comfort should not be a luxury. It should be your everyday standard.</p>",
+            "button_label": "",
+            "button_link": "shopify://products/orthopedicsocks"
+          }
+        },
+        "row_nmraYx": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/maxim_PP.jpg",
+            "caption": "Minimal & bold",
+            "heading": "Men’s Fall & Winter Collection",
+            "text": "<p>Discover effortless sophistication with our latest men’s essentials. Crafted for comfort, confidence, and timeless appeal</p>",
+            "button_label": "Shop Men’s Collection",
+            "button_link": "shopify://collections/men"
+          }
+        }
+      },
+      "block_order": [
+        "row_wdaxUW",
+        "row_GUVhcb",
+        "row_nmraYx"
+      ],
+      "disabled": true,
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "background-1",
+        "row_color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "176529994151fb67d3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d3eebad_cMjTaJ": {
+          "type": "ai_gen_block_d3eebad",
+          "settings": {
+            "heading": "Suitable for your daily wear",
+            "heading_size": 28,
+            "heading_alignment": "center",
+            "heading_spacing": 24,
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_gdrwowgdrwowgdrw.png",
+            "image_2": "shopify://shop_images/Untitled_design_-_2025-12-10T110633.376.png",
+            "image_3": "shopify://shop_images/Untitled_design_-_2025-12-12T101707.023.png",
+            "image_4": "shopify://shop_images/Untitled_design_-_2025-12-10T122010.970.png",
+            "image_5": "shopify://shop_images/Untitled_design_-_2025-12-11T140031.541.png",
+            "image_width": 400,
+            "image_height": 400,
+            "image_width_mobile": 280,
+            "image_height_mobile": 280,
+            "image_gap": 16,
+            "image_border_radius": 8,
+            "scrollbar_color": "#cccccc",
+            "scrollbar_hover_color": "#999999",
+            "scrollbar_track_color": "#f4f4f4",
+            "background_color": "#ffffff",
+            "heading_color": "#000000",
+            "container_padding": 20,
+            "padding_top": 40,
+            "padding_bottom": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d3eebad_cMjTaJ"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_qQUy8k": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_gUjRhA": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Best Sellers",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gUjRhA"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 0
+      }
+    },
+    "featured_product_jpAQzX": {
+      "type": "featured-product",
+      "blocks": {
+        "text_WQQW6N": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_zJMU36": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_mCRmmR": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size_2": 1,
+            "badge_size": 14,
+            "sale_price_color": "#131313",
+            "badge_price": "#ffffff",
+            "badge_bg": "#d50000",
+            "badge_border": "#f2f2f2",
+            "price_bold": false,
+            "price_bold_2": false,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "variant_picker_TK8Wji": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatchType": "color",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30
+          }
+        },
+        "quantity_selector_fJ4FdY": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_FVc7Wx": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_VXBYGh": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_WQQW6N",
+        "title_zJMU36",
+        "price_mCRmmR",
+        "variant_picker_TK8Wji",
+        "quantity_selector_fJ4FdY",
+        "buy_buttons_FVc7Wx",
+        "share_VXBYGh"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "rilofungeefree™-nail-fungus-laser",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_VNNAMa": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section style=\"background:#fff; color:#111; padding:60px 20px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial;\">\n  <div style=\"max-width:1100px; margin:0 auto;\">\n    <h2 style=\"color:#000; text-align:center; font-size:30px; font-weight:700; letter-spacing:0.5px; margin-bottom:40px;\">Customer Reviews</h2>\n\n    <div style=\"display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); justify-items:center;\">\n      \n      <div style=\"background:#f9f9f9; border:1px solid rgba(0,0,0,0.1); border-radius:14px; padding:26px; box-shadow:0 4px 18px rgba(0,0,0,0.05); max-width:320px; width:100%; transition:transform 0.2s;\">\n        <div style=\"color:#000; font-size:20px; letter-spacing:2px;\">★★★★★</div>\n        <p style=\"margin:14px 0; color:#333; line-height:1.6; font-size:15px;\">“Socks arrived on time and in great condition. Will definitely order again.”</p>\n        <div style=\"color:#000; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;\">Sofia W.</div>\n      </div>\n\n      <div style=\"background:#f9f9f9; border:1px solid rgba(0,0,0,0.1); border-radius:14px; padding:26px; box-shadow:0 4px 18px rgba(0,0,0,0.05); max-width:320px; width:100%; transition:transform 0.2s;\">\n        <div style=\"color:#000; font-size:20px; letter-spacing:2px;\">★★★★★</div>\n        <p style=\"margin:14px 0; color:#333; line-height:1.6; font-size:15px;\">“I’ve loved everything about these socks. Great quality and fast delivery.”</p>\n        <div style=\"color:#000; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;\">Marta K.</div>\n      </div>\n\n      <div style=\"background:#f9f9f9; border:1px solid rgba(0,0,0,0.1); border-radius:14px; padding:26px; box-shadow:0 4px 18px rgba(0,0,0,0.05); max-width:320px; width:100%; transition:transform 0.2s;\">\n        <div style=\"color:#000; font-size:20px; letter-spacing:2px;\">★★★★★</div>\n        <p style=\"margin:14px 0; color:#333; line-height:1.6; font-size:15px;\">“Support was amazing when I had a small issue. So happy with my experience.”</p>\n        <div style=\"color:#000; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;\">Sara J.</div>\n      </div>\n\n    </div>\n\n    <div style=\"text-align:center; margin-top:50px;\">\n      <a href=\"https://nookandstitch.com/pages/customer-reviews\" style=\"display:inline-block; color:#fff; background:#000; border:none; padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:600; font-size:15px; letter-spacing:0.5px; transition:0.3s;\">\n        Read More Reviews\n      </a>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "17650215354eaba6ed": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_22afdc6_KrfczQ": {
+          "type": "ai_gen_block_22afdc6",
+          "settings": {
+            "heading": "What Our Customers Say",
+            "subheading": "",
+            "heading_alignment": "center",
+            "heading_size": 36,
+            "subheading_size": 16,
+            "review_1_name": "Hayley T.",
+            "review_1_text": "These socks are a lifesaver. The padding feels incredible on long walks.",
+            "review_2_name": "Ryan M.",
+            "review_2_text": "Very comfortable and supportive. Took a day to mold to my feet.",
+            "review_3_name": "Laura S.",
+            "review_3_text": "Best cushioning I've tried. They stay in place all day.",
+            "review_4_name": "David P.",
+            "review_4_text": "Reduced my heel pain a lot. Bought three more pairs.",
+            "review_5_name": "Hannah L.",
+            "review_5_text": "Perfect for long shifts on my feet. Super soft inside.",
+            "review_6_name": "Mark J.",
+            "review_6_text": "Really supportive. Would love more colors in the future.",
+            "review_7_name": "Sarah W.",
+            "review_7_text": "The padding is next level. My feet feel relaxed after hours of standing.",
+            "review_8_name": "Paul D.",
+            "review_8_text": "Bought these for work and now wear them daily. Incredible comfort.",
+            "review_9_name": "Chloe F.",
+            "review_9_text": "Very breathable and soft. Helped with my arch pain.",
+            "review_10_name": "Liam K.",
+            "review_10_text": "Amazing shock absorption. My knees feel better too.",
+            "show_verified": true,
+            "card_width": 340,
+            "card_gap": 20,
+            "card_padding": 24,
+            "card_border_radius": 12,
+            "card_border_width": 1,
+            "card_background": "#ffffff",
+            "card_border_color": "#e5e5e5",
+            "card_shadow_x": 0,
+            "card_shadow_y": 4,
+            "card_shadow_blur": 12,
+            "card_shadow_color": "#00000014",
+            "name_size": 16,
+            "review_text_size": 14,
+            "star_size": 16,
+            "background_color": "#f9f9f9",
+            "heading_color": "#1a1a1a",
+            "subheading_color": "#666666",
+            "name_color": "#1a1a1a",
+            "review_text_color": "#4a4a4a",
+            "star_color": "#000000",
+            "verified_color": "#10b981",
+            "show_controls": true,
+            "button_background": "#ffffff",
+            "button_border_color": "#e5e5e5",
+            "button_color": "#1a1a1a",
+            "button_hover_background": "#1a1a1a",
+            "button_hover_color": "#ffffff",
+            "padding_top": 60,
+            "padding_bottom": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_22afdc6_KrfczQ"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_liquid_Hm7TtU": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div style=\"margin:50px 0; text-align:center; padding:40px; background:#fff; color:#111; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.08);\">\n  <h3 style=\"font-size:24px; font-weight:700; margin-bottom:30px; letter-spacing:0.5px; color:#000;\">Our Guarantees</h3>\n  \n  <div style=\"display:flex; justify-content:center; gap:40px; flex-wrap:wrap;\">\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s; border-radius:12px;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0; color:#111;\">Fast & Free Shipping</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s; border-radius:12px;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0; color:#111;\">Satisfaction Guarantee</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s; border-radius:12px;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0; color:#111;\">24/7 Customer Support</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s; border-radius:12px;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 11c.828 0 1.5.672 1.5 1.5v1.5a1.5 1.5 0 01-3 0V12.5c0-.828.672-1.5 1.5-1.5z\" />\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 9V7a6 6 0 1112 0v2M4 9h16v11H4V9z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0; color:#111;\">Secure Checkout</p>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .guarantee-card:hover {\n    transform: translateY(-6px);\n  }\n\n  .guarantee-card:hover .guarantee-icon {\n    stroke: #111;\n    transform: scale(1.1);\n    filter: drop-shadow(0 0 6px rgba(0,0,0,0.15));\n  }\n</style>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1765019748df7d449c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ad4b897_ggc4bN": {
+          "type": "ai_gen_block_ad4b897",
+          "disabled": true,
+          "settings": {
+            "heading": "Our Promise to You",
+            "heading_size": 32,
+            "heading_color": "#1a1a1a",
+            "heading_spacing": 40,
+            "guarantee_1_title": "Fast & Free Shipping",
+            "guarantee_1_description": "Enjoy complimentary express delivery on all orders",
+            "guarantee_2_title": "Satisfaction Guarantee",
+            "guarantee_2_description": "Love our socks or return it within 30 days",
+            "guarantee_3_title": "24/7 Customer Support",
+            "guarantee_3_description": "Our dedicated team is here to help you anytime",
+            "guarantee_4_title": "Secure Checkout",
+            "guarantee_4_description": "Your payment information is protected with encryption",
+            "background_color": "#fafafa",
+            "card_background": "#ffffff",
+            "card_border_color": "#e8e8e8",
+            "card_hover_border": "#d0d0d0",
+            "card_border_radius": 12,
+            "card_padding": 32,
+            "icon_color": "#2c2c2c",
+            "icon_size": 48,
+            "icon_spacing": 20,
+            "title_color": "#1a1a1a",
+            "title_size": 18,
+            "title_spacing": 12,
+            "description_color": "#5a5a5a",
+            "description_size": 14,
+            "container_width": 1200,
+            "grid_gap": 24,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ad4b897_ggc4bN"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_editorial",
+    "sock_photo_atelier",
+    "comfort_selector",
+    "activity_categories",
+    "sock_reel_guide",
+    "sock_360",
+    "home_reviews",
+    "home_video",
+    "collection_list_86AYp3",
+    "4fc2a4e4-2bff-4a11-b951-52e00e0e0a88",
+    "featured_product_XC4mR8",
+    "multirow_BFykLn",
+    "176529994151fb67d3",
+    "rich_text_qQUy8k",
+    "featured_product_jpAQzX",
+    "custom_liquid_VNNAMa",
+    "17650215354eaba6ed",
+    "custom_liquid_Hm7TtU",
+    "1765019748df7d449c"
+  ]
+}

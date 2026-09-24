@@ -1,0 +1,755 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - 1356 Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#157a5b",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#000000",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "description_7rxnqF": {
+          "type": "description",
+          "settings": {}
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong>(x) people are looking at this!</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "accent-2",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#ffe7ec",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 3,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#157a5b",
+            "regular_price_color": "#212121",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "body",
+            "font_size": 14,
+            "font_style": "normal",
+            "swatchType": "color",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30,
+            "size_trigger": "Size",
+            "chart_id": "Size Chart",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_full_button": true,
+            "lm_main_button": "#157a5b",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "payment_xDFV7V": {
+          "type": "payment",
+          "settings": {
+            "original": "custom",
+            "payment_icon": "visa,master,paypal,apple_pay,shopify-pay,klarna",
+            "payment_content_alignment": "center"
+          }
+        },
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "accent-2",
+            "icon_font_size": 11,
+            "icon_1": "box",
+            "heading_1": "<strong>FREE SHIPPING GLOBLY</strong>",
+            "icon_2": "return",
+            "heading_2": "30-Day Money Back Guarantee",
+            "icon_3": "chat_bubble",
+            "heading_3": "<strong>24/7 Customer Support</strong>"
+          }
+        },
+        "shipping_Rf8pbi": {
+          "type": "shipping",
+          "settings": {
+            "ship_days": 2,
+            "cut_off_time": 16,
+            "icon_size": 20,
+            "image_ani": "none",
+            "text_size": 10,
+            "text_style": "uppercase",
+            "text": "Order before 12:00AM and gets shipped tomorrow",
+            "date_locale": "en-US",
+            "ship_bg": "#dbbebe",
+            "show_border": false,
+            "ship_border": "#f2f2f2",
+            "border_radius": 0,
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "margin_top": 16,
+            "margin_bottom": 16
+          }
+        },
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_first_collapsible_row": false,
+            "heading": "Customer Service",
+            "icon": "none",
+            "content": "<p>Need help? Our friendly team is just a message away.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "description_7rxnqF",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "payment_xDFV7V",
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3",
+        "shipping_Rf8pbi",
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": false,
+        "color_scheme": "",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffffff",
+        "container_border_color": "#157a5b",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffffff",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number",
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 3,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "multicolumn_FHkHdg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ngtLVN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image1_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>The Perfect Nightlights</h3><p>These are great night lights. Love that they offer a dimmer slide on them to control brightness and they look very nice throughout our home. The color is very nice, the size is perfect and they aren't heavy in weight, but don't feel cheap at all. The price point is perfect.<br/>We have had them for a few weeks and they seem very durable and function quite well in our main living room and hallways.<br/>We have had nightlights since our 11 year old was just a baby and now that she is almost a teen, the sophisticated look that these provide are great and still serve the purpose they were created for, to provide light. We love having them for sleepovers for her friends, so no one is stumbling around in the dark looking for the bathroom or the stairs. Highly recommend.</p><p><strong>- Jacob C.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XEJ9wK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image2_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>Nice Upgrade for Decor Lighting</h3><p>I like how I can change the strength of the light. Good for bathrooms, kitchens, etc. sometimes you just don’t want bright light when walking into the bathroom and this can give you a good lighting that doesn’t hurt your eyes.</p><p><strong>- Shirley R.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_n6BUk7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image3_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>Home Elevation - Check!</h3><p>I am in LOVE with these nightlights! I have purchased 6 in total. I love the ‘spotlight’ look and how they nicely light up the hallway, bathroom, and kitchen for when anyone needs to get up at night. I love the dimming feature. I wish I could make them a bit warmer, but love them nonetheless! I love how they automatically turn on when it gets dark/dim. My sons all love them too. The price is amazing! The size doesn’t prevent you from plugging in something else into the outlet which is so great! Highly recommend!</p><p><strong>- Mary H.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ngtLVN",
+        "column_XEJ9wK",
+        "column_n6BUk7"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "A Game-Changer for Your Home!",
+        "heading_size": "h1",
+        "heading_center": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "navigation_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_xncC34": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6MRetC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Add A Special Touch To Your Home</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_wJWghn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the AoraLight, a versatile dimmable night light plug-in designed to enhance your nighttime ambiance. With its sleek and modern design, this plug-in night light is the ideal addition to any home, providing adjustable brightness to suit your needs.<br/><br/></p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6MRetC",
+        "text_wJWghn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/eee205bfc3e04f35a2fafdd35bd4de2d.SD-480p-0.9Mbps-47560493.gif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_XxqPa8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9PgEhE": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Customized Illumination</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_68qhVM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy personalized lighting with the AoraLight's adjustable brightness feature. Whether you prefer a soft glow for a calming atmosphere or a brighter light for added visibility, you can easily tailor the illumination to create the perfect ambiance in any room.<br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9PgEhE",
+        "text_68qhVM"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/17ebe78a18e345c9a5d6283fec7512b3.SD-480p-0.9Mbps-47560494.gif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_gTrci7": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_3rBj9f": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Modern Sleek Design</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_mAwW8T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The AoraLight's modern and sleek design effortlessly complements any interior. Its stylish appearance adds a touch of elegance to your home, making it not only a functional lighting solution but also a stylish decor piece.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3rBj9f",
+        "text_mAwW8T"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/ce8fdd42699e468194453e669943bf00.HD-720p-1.6Mbps-47560495.gif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "wave_3wDATN": {
+      "type": "wave",
+      "name": "Wave",
+      "settings": {
+        "wave_height": 300,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": true,
+        "animation_duration": 5,
+        "background_color": "#ffffff",
+        "wave_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "rich_text_4nmcXw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_irTViK": {
+          "type": "heading",
+          "settings": {
+            "heading": "30-Day Money Back Guarantee",
+            "heading_size": "h1"
+          }
+        },
+        "text_CettG7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If for any reason, you aren't 100% happy with your order, we'll do absolutely everything in our power to make it right.<br/></p><p>We're offering a <strong>30-day money-back guarantee </strong>so you can comfortably try Aoralight out.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_irTViK",
+        "text_CettG7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "inverse",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "wave_YcgUW8": {
+      "type": "wave",
+      "name": "Wave",
+      "settings": {
+        "wave_height": 300,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": true,
+        "animation_duration": 5,
+        "background_color": "#ffffff",
+        "wave_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "collapsible_content_QAcDQm": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_rpGfjz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does it work?",
+            "icon": "none",
+            "row_content": "<p>The AoraLight is a plug-in night light that uses a built-in dusk to dawn sensor that can automatically turn the night light off during the day and on at night. You can also manually adjust its brightness to your preferred level.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_AzyzJQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I have a horizontal outlet?",
+            "icon": "none",
+            "row_content": "<p>That's not a problem! The Aoralight has a rotatable plug so you can use it on both vertical and horizontal outlets.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_P3xLYE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does it consume a lot of energy?",
+            "icon": "none",
+            "row_content": "<p>No, the AoraLight is energy-efficient. The light sensor ensures it only operates when needed, and its LED technology consumes minimal power while providing ample illumination.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fA7i9G": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use multiple in one room?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can use multiple AoraLights in a single room to create a layered or uniform lighting effect, depending on your preferences and needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ft6dx3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use it in children's bedrooms?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. The AoraLight's gentle and customizable illumination makes it an excellent choice for children's bedrooms, providing a comforting and safe night light.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9KaWDq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is it safe to use continuously?",
+            "icon": "none",
+            "row_content": "<p>Yes, the AoraLight is designed for continuous use. Its LED technology produces minimal heat, making it safe for extended operation.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_RUGAc3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What If I dont like it?",
+            "icon": "none",
+            "row_content": "<p>We have full faith that you will love the AoraLight. If, for any reason, you aren't completely happy with your purchase, you can return it within 30 days for free.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_rpGfjz",
+        "collapsible_row_AzyzJQ",
+        "collapsible_row_P3xLYE",
+        "collapsible_row_fA7i9G",
+        "collapsible_row_ft6dx3",
+        "collapsible_row_9KaWDq",
+        "collapsible_row_RUGAc3"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "inverse",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_MweP6P": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"eu-reviews-section\">\n  <style>\n    .eu-reviews-section { background:#f7fafc; padding:48px 0; font-family:-apple-system, BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial; }\n    .eu-reviews-container{ max-width:1100px; margin:0 auto; padding:0 20px; }\n    .eu-reviews-header{ text-align:center; margin-bottom:28px; }\n    .eu-reviews-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }\n    .eu-review-card{ background:#fff; border-radius:18px; padding:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); display:flex; flex-direction:column; min-height:160px; }\n    .eu-review-top{ display:flex; align-items:center; margin-bottom:10px; }\n    .eu-avatar{ width:44px; height:44px; border-radius:50%; background:#e6e6e6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#374151; margin-right:12px; }\n    .eu-review-name{ font-weight:600; margin:0; }\n    .eu-verified{ font-size:13px; color:#6b7280; margin:0; }\n    .eu-stars{ display:flex; gap:4px; margin-bottom:8px; }\n    .eu-review-text{ color:#374151; margin-top:auto; }\n    .eu-star-filled{ fill:#FBBF24; }\n    .eu-star-empty{ fill:#E5E7EB; }\n    .eu-loadmore-wrap{ text-align:center; margin-top:30px; }\n    .eu-loadmore-btn{ background:#111827; color:#fff; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-loadmore-btn:hover{ background:#374151; }\n    .eu-write-review{ margin-top:50px; padding:28px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); }\n    .eu-write-review h3{ margin:0 0 14px; font-size:22px; }\n    .eu-write-review input, .eu-write-review textarea, .eu-write-review select { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d1d5db; border-radius:8px; }\n    .eu-write-review button{ background:#111827; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-write-review button:hover{ background:#374151; }\n  </style>\n\n  <div class=\"eu-reviews-container\">\n    <div class=\"eu-reviews-header\">\n      <h2 style=\"font-size:28px; margin:0 0 6px;\">Customer Reviews</h2>\n      <p style=\"color:#6b7280; margin:0;\">Rated <strong>4.8/5</strong> by 1,356 customers</p>\n    </div>\n\n    {% assign reviews = \"\nEmily Johnson|5|These AoraLights changed my nights. No more harsh lights when I get up, just a soft glow. Love them!;\nMichael Smith|5|Bought 6 for my house. Now every hallway and room feels cozy and safe.;\nOlivia Brown|5|Stylish and practical. They blend perfectly with my décor.;\nJames Wilson|4|Great light, though I wish it had more color options. Still very useful!;\nSophie Taylor|5|The dusk-to-dawn sensor works like magic. I never touch a switch anymore.;\nDaniel Miller|5|I ordered 4 and now I want more. Perfect for bedrooms and living room!;\nCharlotte Davis|5|The glow is soft but bright enough to see clearly at night. Perfect balance.;\nBenjamin Moore|5|Super energy efficient. My bills are lower since I stopped leaving big lights on.;\nAmelia Thomas|5|I bought 8 to cover the whole house. Now I never stumble at night!;\nMatthew White|4|Good product, but shipping took a bit longer than expected. Worth the wait.;\nGrace Harris|5|Love how modern they look. Guests always ask me where I got them.;\nJoshua Lewis|5|One of the best purchases I made this year. Cozy and safe at night.;\nChloe Hall|5|Great quality, small but powerful. I use them in every room.;\nEthan Walker|5|Perfect for kids’ rooms. My children sleep better with the soft glow.;\nIsla Scott|5|I can’t imagine living without them now. Ordered 6 and they’re amazing.;\nJack Green|5|The auto sensor is very accurate. Lights up exactly when I need it.;\nElla King|5|Makes my home feel like a hotel. The vibe is just so cozy.;\nHenry Adams|5|No more tripping at night! These lights saved me more than once.;\nMia Wright|4|Very good, but I wish they were slightly brighter. Still works well.;\nLucas Turner|5|I bought 3 at first, then immediately ordered 5 more. Totally worth it!;\nJessica Carter|5|Perfect for hallways. They look sleek and don’t stick out like other night lights.;\nWilliam Evans|5|Super easy to use. Just plug and forget. Zero hassle.;\nLily Baker|5|Love the warm glow. It makes the room feel instantly cozy.;\nSamuel Roberts|5|I feel safer moving around at night with these lights on.;\nAva Mitchell|5|They turn on automatically right at dusk. Perfect timing every day.;\nGeorge Parker|5|Got a pack for my parents’ house too. They love it!;\nSophia Edwards|4|Nice light, but one arrived slightly scratched. Customer service replaced it quickly.;\nLeo Collins|5|The design is minimal and beautiful. Fits in any room.;\nHarper Morris|5|Very practical. I don’t worry about my kids running around in the dark anymore.;\nAlexander Ward|5|The glow is calming. It helps me sleep better too.;\nIsabella Hughes|5|Excellent product. I recommend buying at least 4 for the whole house.;\nJacob Foster|5|So much better than ugly old night lamps. These look premium.;\nScarlett Howard|5|Bought 6 and spread them across the house. Every corner looks amazing.;\nOliver Ross|5|The light is soft, elegant, and energy-saving. Couldn’t ask for better.;\nEmily Price|5|Very well made. Feels durable and high-quality.;\nNoah Bennett|4|The brightness is good but I would love adjustable color. Still happy overall.;\nFreya Phillips|5|Exactly what I needed. Hallways feel safe and warm at night.;\nThomas Gray|5|The kids are no longer scared at night. Best gift I bought for my family.;\nHolly Cooper|5|I was skeptical but now I’m obsessed. Already ordered more!;\nJoseph Kelly|5|Beautiful glow, saves energy, and looks amazing. 10/10!;\nAbigail Wood|5|Everyone who visits my home compliments these lights. Love them!;\n\" | split: \";\" %}\n\n\n\n    <div id=\"eu-reviews-grid\" class=\"eu-reviews-grid\">\n      {% for r in reviews %}\n        {% assign parts = r | split: \"|\" %}\n        {% assign name = parts[0] | strip %}\n        {% assign rating = parts[1] | strip | plus: 0 %}\n        {% assign text = parts[2] | strip %}\n        {% if name != \"\" %}\n        <article class=\"eu-review-card\" style=\"display:none;\">\n          <div class=\"eu-review-top\">\n            <div class=\"eu-avatar\">{{ name | slice: 0, 1 }}</div>\n            <div>\n              <p class=\"eu-review-name\">{{ name }}</p>\n              <p class=\"eu-verified\">Verified Buyer</p>\n            </div>\n          </div>\n          <div class=\"eu-stars\">\n            {% for i in (1..5) %}\n              {% if i <= rating %}\n                <svg class=\"eu-star-filled\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% else %}\n                <svg class=\"eu-star-empty\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% endif %}\n            {% endfor %}\n          </div>\n          <p class=\"eu-review-text\">“{{ text }}”</p>\n        </article>\n        {% endif %}\n      {% endfor %}\n    </div>\n\n    <div class=\"eu-loadmore-wrap\">\n      <button id=\"eu-loadmore-btn\" class=\"eu-loadmore-btn\">Load More Reviews</button>\n    </div>\n\n    <div class=\"eu-write-review\">\n      <h3>Write a Review</h3>\n      <form id=\"review-form\">\n        <input type=\"text\" name=\"name\" placeholder=\"Your Name\" required>\n        <select name=\"rating\" required>\n          <option value=\"\">Rating</option>\n          <option value=\"5\">★★★★★ - Excellent</option>\n          <option value=\"4\">★★★★☆ - Good</option>\n          <option value=\"3\">★★★☆☆ - Average</option>\n          <option value=\"2\">★★☆☆☆ - Poor</option>\n          <option value=\"1\">★☆☆☆☆ - Terrible</option>\n        </select>\n        <textarea name=\"review\" rows=\"4\" placeholder=\"Share your experience...\" required></textarea>\n        <button type=\"submit\">Submit Review</button>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", function(){\n      var reviews = document.querySelectorAll(\"#eu-reviews-grid .eu-review-card\");\n      var btn = document.getElementById(\"eu-loadmore-btn\");\n      var perPage = 6; \n      var shown = 0;\n\n      function showMore(){\n        for(var i=shown; i<shown+perPage && i<reviews.length; i++){\n          reviews[i].style.display = \"flex\";\n        }\n        shown += perPage;\n        if(shown >= reviews.length){\n          btn.style.display = \"none\";\n        }\n      }\n      showMore(); \n      btn.addEventListener(\"click\", showMore);\n\n      document.getElementById(\"review-form\").addEventListener(\"submit\", function(e){\n        e.preventDefault();\n        alert(\"Thank you for your review! It will appear once approved.\");\n        this.reset();\n      });\n    });\n  </script>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1754229929908d5e4f": {
+      "type": "apps",
+      "blocks": {
+        "air_product_reviews_app_block_review_list_Yz8PhH": {
+          "type": "shopify://apps/ag-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {
+            "air_blockreviews_summaryHeading": "Reviews",
+            "air_blockreviews_layout": "list",
+            "air_blockreviews_singleStarColor": "#16a086",
+            "air_blockreviews_primaryColor": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "air_product_reviews_app_block_review_list_Yz8PhH"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "related-products",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "multicolumn_FHkHdg",
+    "image_with_text_xncC34",
+    "image_with_text_XxqPa8",
+    "image_with_text_gTrci7",
+    "wave_3wDATN",
+    "rich_text_4nmcXw",
+    "wave_YcgUW8",
+    "collapsible_content_QAcDQm",
+    "custom_liquid_MweP6P",
+    "1754229929908d5e4f"
+  ]
+}

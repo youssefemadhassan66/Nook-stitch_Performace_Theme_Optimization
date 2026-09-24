@@ -1,0 +1,299 @@
+{%- liquid
+  assign s = section.settings
+  assign image_alt = s.image_alt | default: s.heading | strip_html
+  assign primary_link = s.button_link | default: routes.all_products_collection_url
+-%}
+
+<section
+  class="sock-atelier color-{{ s.color_scheme }} gradient"
+  style="
+    --sock-atelier-bg: {{ s.background_color }};
+    --sock-atelier-photo-bg: {{ s.photo_background_color }};
+    --sock-atelier-ink: {{ s.text_color }};
+    --sock-atelier-muted: {{ s.muted_color }};
+    --sock-atelier-padding-top: {{ s.padding_top }}px;
+    --sock-atelier-padding-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <figure class="sock-atelier__media" aria-label="{{ image_alt | escape }}">
+    {%- if s.image != blank -%}
+      {{
+        s.image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'lazy',
+          widths: '720, 960, 1200, 1600, 2000, 2400',
+          sizes: '100vw',
+          alt: image_alt,
+          class: 'sock-atelier__photo'
+      }}
+    {%- else -%}
+      <img
+        class="sock-atelier__photo"
+        src="{{ 'featured-sock-pair-editorial.jpg' | asset_url }}"
+        alt="{{ image_alt | escape }}"
+        width="1536"
+        height="1024"
+        loading="lazy"
+      >
+    {%- endif -%}
+  </figure>
+
+  <div class="page-width sock-atelier__caption">
+    <div class="sock-atelier__text">
+      {%- if s.heading != blank -%}
+        <h2 class="sock-atelier__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if s.body != blank -%}
+        <div class="sock-atelier__body rte">{{ s.body }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if s.button_label != blank -%}
+      <a class="sock-atelier__button" href="{{ primary_link }}">{{ s.button_label | escape }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .sock-atelier {
+    overflow: hidden;
+    padding-block: var(--sock-atelier-padding-top, 48px) var(--sock-atelier-padding-bottom, 68px);
+    background: var(--sock-atelier-bg, #ffffff);
+    color: var(--sock-atelier-ink, #1f1d24);
+    scroll-margin-top: 96px;
+  }
+
+  .sock-atelier__media {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    background: var(--sock-atelier-photo-bg, #020202);
+  }
+
+  .sock-atelier__photo {
+    display: block;
+    width: 100%;
+    height: clamp(54rem, 58vw, 92rem);
+    object-fit: cover;
+    object-position: center 58%;
+  }
+
+  .sock-atelier__caption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(2rem, 3vw, 6rem);
+    align-items: end;
+    padding-top: clamp(2.2rem, 2.4vw, 4rem);
+  }
+
+  .sock-atelier__text {
+    max-width: 64rem;
+  }
+
+  .sock-atelier__heading {
+    max-width: 16ch;
+    margin: 0;
+    color: var(--sock-atelier-ink, #1f1d24);
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.8rem, 2.6vw, 4.4rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .sock-atelier__body {
+    max-width: 42ch;
+    margin-top: 1rem;
+    color: var(--sock-atelier-muted, #625e66);
+    font-size: clamp(1.55rem, 1.2vw, 1.85rem);
+    line-height: 1.55;
+  }
+
+  .sock-atelier__body > :first-child {
+    margin-top: 0;
+  }
+
+  .sock-atelier__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .sock-atelier__button {
+    display: inline-flex;
+    min-height: 4.6rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2.4rem;
+    border: 1px solid var(--sock-atelier-ink, #1f1d24);
+    border-radius: 0;
+    background: var(--sock-atelier-ink, #1f1d24);
+    color: var(--sock-atelier-bg, #ffffff);
+    font-family: var(--font-heading-family);
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      background 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sock-atelier__button:hover {
+    background: #333333;
+  }
+
+  .sock-atelier__button:active {
+    transform: scale(0.98);
+  }
+
+  .sock-atelier__button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .sock-atelier__photo {
+      height: clamp(42rem, 72vw, 70rem);
+    }
+
+    .sock-atelier__caption {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .sock-atelier {
+      padding-block: calc(var(--sock-atelier-padding-top, 48px) * 0.72) calc(var(--sock-atelier-padding-bottom, 68px) * 0.8);
+    }
+
+    .sock-atelier__photo {
+      height: clamp(34rem, 96vw, 52rem);
+      object-position: center bottom;
+    }
+
+    .sock-atelier__heading {
+      font-size: clamp(2.7rem, 9vw, 3.8rem);
+    }
+
+    .sock-atelier__button {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sock photo atelier",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everyday support."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Cushioned ankle socks with a clean, low profile.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop socks"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image",
+      "info": "Optional. If blank, the editorial sock photo is used."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "White orthopedic ankle socks on a dark studio background"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "photo_background_color",
+      "label": "Photo background",
+      "default": "#020202"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#625E66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 68
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sock photo atelier"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "blocks_DqiM6z": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2b0f398_kQFyM3": {
+          "type": "ai_gen_block_2b0f398",
+          "settings": {
+            "guarantee_1_logo": "shopify://shop_images/Untitled_design_-_2026-07-14T213813.254.png",
+            "guarantee_1_title": "Free shipping",
+            "guarantee_1_description": "Free shipping on +$25 orders",
+            "guarantee_2_logo": "shopify://shop_images/Untitled_design_-_2026-07-14T213923.637.png",
+            "guarantee_2_title": "Highly rated",
+            "guarantee_2_description": "Focus on quality and comfort",
+            "guarantee_3_logo": "shopify://shop_images/Untitled_design_-_2026-07-14T213857.871.png",
+            "guarantee_3_title": "Money back",
+            "guarantee_3_description": "Money back within 30 days",
+            "guarantee_4_logo": "shopify://shop_images/Untitled_design_-_2026-07-14T212139.771.png",
+            "guarantee_4_title": "Customer support",
+            "guarantee_4_description": "Helpful support when you need it",
+            "container_width": 1350,
+            "columns_desktop": 4,
+            "columns_tablet": 2,
+            "columns_mobile": "1",
+            "gap": 30,
+            "alignment": "center",
+            "icon_size": 50,
+            "icon_padding": 0,
+            "icon_spacing": 15,
+            "icon_border_radius": 0,
+            "icon_color": "#157a5b",
+            "icon_background": "#ffffff",
+            "title_size": 15,
+            "title_weight": "700",
+            "title_spacing": 6,
+            "title_color": "#1f1d24",
+            "description_size": 15,
+            "description_color": "#5f5b66",
+            "item_padding": 20,
+            "border_radius": 0,
+            "item_background": "#ffffff",
+            "enable_hover": true,
+            "hover_lift": 1,
+            "background_color": "#ffffff",
+            "padding_top": 45,
+            "padding_bottom": 45,
+            "padding_horizontal": 25
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2b0f398_kQFyM3"
+      ],
+      "name": "Guarantees section",
+      "settings": {}
+    },
+    "176552959050f3defc": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "back_to_top_Ca7nbV": {
+      "type": "back-to-top",
+      "settings": {
+        "hide_on_mobile": false,
+        "show_when_precent_of_page": 60,
+        "button_position": "right",
+        "button_bg_color": "#ffffff",
+        "button_border_color": "#dddddd",
+        "icon_color": "#000000",
+        "button_diameter": 48,
+        "icon_size": 24,
+        "horizontal_padding": 20,
+        "vertical_padding": 100
+      }
+    },
+    "176552942837eb0ecb": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0bc960d_w3PKJM": {
+          "type": "ai_gen_block_0bc960d",
+          "disabled": true,
+          "settings": {
+            "heading": "About Us",
+            "text": "<p>Nook and Stitch began with one simple goal. We wanted to create socks that actually make a difference in how people feel every day. After years of selling different styles, one product stood out above everything else. Our orthopedic sneaker socks. Customers kept telling us how much relief, comfort, and support they brought to their feet during work, training, or daily life.</p><p>So we listened.</p><p>Today, Nook and Stitch is fully dedicated to perfecting orthopedic sneaker socks. Nothing else. No distractions. Just one product that we believe can improve the way people move, walk, and live.</p><p>Every pair is designed with smart padding, breathable materials, and supportive knitting that helps reduce strain and keeps your feet comfortable from morning to night. Whether you are active, on your feet all day, or simply want a better level of comfort, our socks are made to support you.</p><p>Nook and Stitch is built on care, quality, and real feedback from real people. We grow by listening to our customers and improving constantly.</p><p>Thank you for being part of our journey as we focus on creating the most comfortable orthopedic sneaker socks you will ever own.</p>",
+            "max_width": 800,
+            "text_alignment": "center",
+            "heading_size": 32,
+            "heading_size_mobile": 24,
+            "heading_spacing": 20,
+            "heading_color": "#000000",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "line_height": 1.6,
+            "text_color": "#333333",
+            "background_color": "#ffffff",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "padding_top_mobile": 32,
+            "padding_bottom_mobile": 32,
+            "padding_horizontal_mobile": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0bc960d_w3PKJM"
+      ],
+      "settings": {}
+    },
+    "trust_badges_LN3iJX": {
+      "type": "trust-badges",
+      "blocks": {
+        "image_xMgRGk": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Fast Shipping</strong>",
+            "feature_text": "",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_RgRA8N": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Price-match guarantee</strong>",
+            "feature_text": "",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_kh6e7A": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Hassle-free exchange</strong>",
+            "feature_text": "",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_Jpgbqc": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>5 Star Reviews</strong>",
+            "feature_text": "",
+            "feature_url": "",
+            "hide_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_xMgRGk",
+        "image_RgRA8N",
+        "image_kh6e7A",
+        "image_Jpgbqc"
+      ],
+      "disabled": true,
+      "settings": {
+        "feature_row": 4,
+        "feature_row_mobile": 2,
+        "feature_gap": 20,
+        "feature_gap_mobile": 20,
+        "feature_padding_horizontal": 0,
+        "feature_padding_vertical": 0,
+        "feature_radius": 16,
+        "feature_border_thickness": 0,
+        "feature_shadow": false,
+        "feature_heading_size": 14,
+        "feature_heading_size_mobile": 12,
+        "feature_heading_height": 130,
+        "feature_heading_mt": 8,
+        "feature_text_size": 12,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 130,
+        "feature_text_mt": 4,
+        "feature_icon_size": 42,
+        "feature_icon_size_mobile": 42,
+        "feature_bg": "#ffffff",
+        "feature_border_color": "#000000",
+        "feature_shadow_color": "#000000",
+        "feature_heading_color": "#000000",
+        "feature_text_color": "#000000",
+        "feature_icon_color": "#d50000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "newsletter_FMdemc": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_mNmPCB": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Sign up and never miss a deal!</strong>",
+            "heading_size": "h0"
+          }
+        },
+        "paragraph_AUkyWt": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get exclusive discounts and more when you subscribe.</p>"
+          }
+        },
+        "email_form_WpF34Q": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_mNmPCB",
+        "paragraph_AUkyWt",
+        "email_form_WpF34Q"
+      ],
+      "disabled": true,
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "inverse",
+        "full_width": true,
+        "text_align": "left",
+        "news_alignment": "horizontal",
+        "show_small_text": true,
+        "small_text": "You can unsubscribe at any time.",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "shop_links": {
+          "type": "text",
+          "settings": {
+            "heading": "Shop",
+            "subtext": "<p><a href=\"/products/orthopedicsocks\">Ankle socks</a></p><p><a href=\"/products/orthopedic-crew-socks\">Crew socks</a></p><p><a href=\"/collections/all\">Shop all</a></p>"
+          }
+        },
+        "fit_links": {
+          "type": "text",
+          "settings": {
+            "heading": "Fit guide",
+            "subtext": "<p></p><p><a href=\"/pages/feel-the-difference\">Feel the difference</a></p><p><a href=\"/pages/trackmyorder\">Track order</a></p>"
+          }
+        },
+        "company_links": {
+          "type": "text",
+          "settings": {
+            "heading": "Company",
+            "subtext": "<p><a href=\"/pages/about-us\">About</a></p><p><a href=\"/pages/contact\">Contact</a></p><p><a href=\"/policies/refund-policy\">Return policy</a></p><p><a href=\"/policies/privacy-policy\">Privacy</a></p><p><a href=\"/policies/terms-of-service\">Terms</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "shop_links",
+        "fit_links",
+        "company_links"
+      ],
+      "settings": {
+        "color_scheme": "inverse",
+        "show_collapse": true,
+        "show_border": false,
+        "show_body_font": "head",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe",
+        "newsletter_subtext": "Get comfort tips, new sock updates, and quiet offers in your inbox.",
+        "newsletter_button_label": "Sign up",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "social_heading": "Follow us",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "original": "custom",
+        "payment_icon": "visa,master,apple_pay,shopify-pay,google-pay",
+        "hide_shopify": true,
+        "copyright": "Copyright (c) 2026 Nook & Stitch.",
+        "show_bottom_text": false,
+        "bottom_text": "Note that all content and resources provided on our website are not medical advice nor should they be used as a substitute for professional medical treatment. For medical concerns and/or emergencies, consult your health care provider and emergency services immediately.",
+        "color_bottom_text": "#868686",
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 72,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "blocks_DqiM6z",
+    "176552959050f3defc",
+    "back_to_top_Ca7nbV",
+    "176552942837eb0ecb",
+    "trust_badges_LN3iJX",
+    "newsletter_FMdemc",
+    "footer"
+  ]
+}

@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_ygjyYf": {
+      "type": "breadcrumbs",
+      "settings": {
+        "color_scheme": "",
+        "title_home": "Home",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "rich_text_EK6ryx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EbkTfz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Black Friday Deal!",
+            "heading_size": "h1"
+          }
+        },
+        "text_Cghbc4": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em><strong>BUY 2 GET 1 FREE</strong></em></p>"
+          }
+        },
+        "text_a6rJ7U": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Add 3 items to your cart and the 3rd item will be discounted automatically.</strong></p>"
+          }
+        },
+        "button_pdXtEC": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EbkTfz",
+        "text_Cghbc4",
+        "text_a6rJ7U",
+        "button_pdXtEC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_countdown_timer_4e6zBy": {
+      "type": "image-banner-countdown-timer",
+      "blocks": {
+        "heading_NXegE8": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "timer_n8rT6D": {
+          "type": "timer",
+          "settings": {
+            "date": "2025-11-27",
+            "timer_days": "Days",
+            "hide_days": true,
+            "timer_hrs": "Hours",
+            "timer_min": "Minutes",
+            "timer_sec": "Seconds",
+            "number_size": "medium",
+            "head_font": false,
+            "timer_color": "#212121",
+            "timer_color_bg": "#ffffff",
+            "tm_bg_opacity": 0.3,
+            "message": "<p>Sale is end!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NXegE8",
+        "timer_n8rT6D"
+      ],
+      "name": "Image banner Count Timer",
+      "settings": {
+        "image": "shopify://shop_images/Elf-and-Raindeerr-Socks-with-friends.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_scroll_tags": false,
+        "enable_quick_desc": false,
+        "quick_desc_legth": 80,
+        "quick_desc_size": 12,
+        "enable_quick_add": false,
+        "show_secondary_add": false,
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_zpKBcD": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"eu-reviews-section\">\n  <style>\n    .eu-reviews-section { background:#f7fafc; padding:48px 0; font-family:-apple-system, BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial; }\n    .eu-reviews-container{ max-width:1100px; margin:0 auto; padding:0 20px; }\n    .eu-reviews-header{ text-align:center; margin-bottom:28px; }\n    .eu-reviews-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }\n    .eu-review-card{ background:#fff; border-radius:18px; padding:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); display:flex; flex-direction:column; min-height:160px; }\n    .eu-review-top{ display:flex; align-items:center; margin-bottom:10px; }\n    .eu-avatar{ width:44px; height:44px; border-radius:50%; background:#e6e6e6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#374151; margin-right:12px; }\n    .eu-review-name{ font-weight:600; margin:0; }\n    .eu-verified{ font-size:13px; color:#6b7280; margin:0; }\n    .eu-stars{ display:flex; gap:4px; margin-bottom:8px; }\n    .eu-review-text{ color:#374151; margin-top:auto; }\n    .eu-star-filled{ fill:#EC4899; }\n    .eu-star-empty{ fill:#E5E7EB; }\n    .eu-loadmore-wrap{ text-align:center; margin-top:30px; }\n    .eu-loadmore-btn{ background:#111827; color:#fff; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-loadmore-btn:hover{ background:#374151; }\n    .eu-write-review{ margin-top:50px; padding:28px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); }\n    .eu-write-review h3{ margin:0 0 14px; font-size:22px; }\n    .eu-write-review input, .eu-write-review textarea, .eu-write-review select { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d1d5db; border-radius:8px; }\n    .eu-write-review button{ background:#111827; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-write-review button:hover{ background:#374151; }\n  </style>\n\n  <div class=\"eu-reviews-container\">\n    <div class=\"eu-reviews-header\">\n      <h2 style=\"font-size:28px; margin:0 0 6px;\">Customer Reviews</h2>\n      <p style=\"color:#6b7280; margin:0;\">Rated <strong>4.8/5</strong> by 1,356 customers</p>\n    </div>\n\n    {% assign reviews = \"\nConnie Colas|5|Great socks. Fast delivery.;\nTammy|5|Perfect for the holidays!;\nSusan Manke|5|I know I love my Elf socks, and I know my granddaughter’s gonna love hers. They’re perfect. I can’t wait to wear them Christmas and I can’t wait for my granddaughter to open hers.;\nLowell Arbuckle|5|ELF SOCKS!;\nDebra Crooks|5|Lovely Socks. My granddaughter loves her socks!! She wears them every day.;\nOlivia Parker|5|Bought the Lilo & Stitch socks for my niece and she absolutely loves them! Perfect for Christmas morning.;\nLiam Cooper|4|The Grinch socks are so fun! Very cozy, though I wish they were slightly thicker.;\nEmma Foster|5|Got the Elf socks as a gift and they were a hit. My friends loved them!;\nNoah Hughes|5|Moana socks are adorable and comfy. Perfect stocking stuffers for my kids.;\nSophia Gray|4|Purchased the Grinch socks. Very cute and festive, a bit snug but still happy.;\nMason Perry|5|Lilo & Stitch socks are great quality. Soft, warm, and a perfect holiday gift.;\nIsabella Bennett|5|Bought the Moana socks for Christmas gifts. Everyone was thrilled!;\nLucas Carter|4|The Elf socks are cute, but I wish they came in more sizes.;\nAva Long|5|Got the Grinch and Elf socks for my family. Loved the buy 2 get 1 free deal!;\nEthan Shaw|5|Moana socks are super soft and cozy. Perfect for holiday mornings.;\nMia Barnes|4|The Lilo & Stitch socks are adorable. Slightly tight around the ankle but still comfy.;\nJames Russell|5|Grinch socks made great Christmas presents. Very happy with quality and softness!;\nCharlotte Ward|5|Elf socks are fun and very festive. Bought 2 pairs, got 1 free – excellent deal!;\nHenry Brooks|4|Moana socks are comfy and cute. Could be a bit thicker, but still good.;\nAmelia Price|5|Lilo & Stitch socks are perfect for kids’ Christmas gifts. Very happy with this purchase!;\nJack Thompson|5|Grinch socks are super cozy and fun to wear around the house during holidays.;\nGrace Edwards|5|Elf socks are soft, warm, and cheerful. Loved the buy 2 get 1 free offer!;\nBenjamin Hughes|4|Moana socks are very cute and soft, but a little snug on my feet.;\nLily Adams|5|Purchased Lilo & Stitch socks as a Christmas gift. Everyone loved them!;\nJacob Foster|5|Grinch socks are fantastic. Fun patterns, very comfortable, perfect for gifts.;\nElla Murphy|4|Elf socks are adorable. Slightly tight at first, but they stretch nicely.;\nWilliam Cooper|5|Moana socks are soft and cozy. Bought 2 pairs, got 1 free – a perfect deal!;\nRuby Bell|5|Lilo & Stitch socks are amazing. My kids loved them on Christmas morning!;\nDaniel Ward|5|Grinch socks are festive and fun. Everyone commented on how cute they were!;\nSophie Gray|4|Elf socks are cozy, festive, and very cute. Happy with my purchase.;\nOscar Phillips|5|Moana socks made great stocking stuffers. Super soft and cheerful!;\nChloe Parker|5|Lilo & Stitch socks are a hit with my niece. Perfect Christmas gift!;\nLeo White|4|Grinch socks are fun and soft. Could be a bit longer but still comfy.;\nHannah Lewis|5|Elf socks are perfect for family gifts. Everyone loved the designs!;\nThomas Mitchell|5|Moana socks are cozy, fun, and very cute. Great quality!;\nPoppy Scott|4|Lilo & Stitch socks are very cute. A little snug but overall happy.;\nSamuel Johnson|5|Grinch socks are adorable and warm. Perfect for the holidays!;\nMia Evans|5|Elf socks are fun and soft. Bought 3 with buy 2 get 1 free – loved the deal!;\nAlexander Baker|5|Moana socks are perfect for Christmas morning. Kids were thrilled!;\nElla Howard|4|Lilo & Stitch socks are cute and comfy, but a tiny bit tight on me.;\nOliver Allen|5|Grinch socks made excellent gifts. Soft, festive, and everyone loved them!;\nEmily Turner|5|Elf socks are very cozy and cheerful. Great for holiday presents.;\nJack Wilson|4|Moana socks are adorable, slightly thin but still very festive.;\nLily Walker|5|Lilo & Stitch socks are perfect for Christmas gifts. Kids loved them!;\nJoshua Hill|5|Grinch socks are super cute, soft, and warm. Highly recommend!;\nIsabella Evans|5|Elf socks are amazing. My friends loved the buy 2 get 1 free deal!;\nEthan Baker|4|Moana socks are cute and comfy. Slightly snug but great for gifts.;\nCharlotte Hughes|5|Lilo & Stitch socks are fantastic. Perfect for holiday stockings!;\nLogan Brooks|5|Grinch socks are soft, fun, and very festive. Loved the designs!;\nSophia Bell|4|Elf socks are adorable. Could be slightly thicker but still very happy.;\nHarry Scott|5|Moana socks are perfect for family gifts. Super soft and cheerful!;\nAva Turner|5|Lilo & Stitch socks are cozy and festive. Great buy for Christmas!;\nBenjamin Adams|5|Grinch socks are fun, comfortable, and perfect for holiday mornings!;\nElla Foster|4|Elf socks are cute and soft. A little snug but overall satisfied.;\nLucas Gray|5|Moana socks are very festive. Kids were excited to receive them!;\nGrace Cooper|5|Lilo & Stitch socks are perfect Christmas presents. Everyone loved them!;\n\" | split: \";\" %}\n\n\n\n    <div id=\"eu-reviews-grid\" class=\"eu-reviews-grid\">\n      {% for r in reviews %}\n        {% assign parts = r | split: \"|\" %}\n        {% assign name = parts[0] | strip %}\n        {% assign rating = parts[1] | strip | plus: 0 %}\n        {% assign text = parts[2] | strip %}\n        {% if name != \"\" %}\n        <article class=\"eu-review-card\" style=\"display:none;\">\n          <div class=\"eu-review-top\">\n            <div class=\"eu-avatar\">{{ name | slice: 0, 1 }}</div>\n            <div>\n              <p class=\"eu-review-name\">{{ name }}</p>\n              <p class=\"eu-verified\">Verified Buyer</p>\n            </div>\n          </div>\n          <div class=\"eu-stars\">\n            {% for i in (1..5) %}\n              {% if i <= rating %}\n                <svg class=\"eu-star-filled\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% else %}\n                <svg class=\"eu-star-empty\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% endif %}\n            {% endfor %}\n          </div>\n          <p class=\"eu-review-text\">“{{ text }}”</p>\n        </article>\n        {% endif %}\n      {% endfor %}\n    </div>\n\n    <div class=\"eu-loadmore-wrap\">\n      <button id=\"eu-loadmore-btn\" class=\"eu-loadmore-btn\">Load More Reviews</button>\n    </div>\n\n    <div class=\"eu-write-review\">\n      <h3>Write a Review</h3>\n      <form id=\"review-form\">\n        <input type=\"text\" name=\"name\" placeholder=\"Your Name\" required>\n        <select name=\"rating\" required>\n          <option value=\"\">Rating</option>\n          <option value=\"5\">★★★★★ - Excellent</option>\n          <option value=\"4\">★★★★☆ - Good</option>\n          <option value=\"3\">★★★☆☆ - Average</option>\n          <option value=\"2\">★★☆☆☆ - Poor</option>\n          <option value=\"1\">★☆☆☆☆ - Terrible</option>\n        </select>\n        <textarea name=\"review\" rows=\"4\" placeholder=\"Share your experience...\" required></textarea>\n        <button type=\"submit\">Submit Review</button>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", function(){\n      var reviews = document.querySelectorAll(\"#eu-reviews-grid .eu-review-card\");\n      var btn = document.getElementById(\"eu-loadmore-btn\");\n      var perPage = 6; \n      var shown = 0;\n\n      function showMore(){\n        for(var i=shown; i<shown+perPage && i<reviews.length; i++){\n          reviews[i].style.display = \"flex\";\n        }\n        shown += perPage;\n        if(shown >= reviews.length){\n          btn.style.display = \"none\";\n        }\n      }\n      showMore(); \n      btn.addEventListener(\"click\", showMore);\n\n      document.getElementById(\"review-form\").addEventListener(\"submit\", function(e){\n        e.preventDefault();\n        alert(\"Thank you for your review! It will appear once approved.\");\n        this.reset();\n      });\n    });\n  </script>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_nKFXXR": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_ygjyYf",
+    "banner",
+    "rich_text_EK6ryx",
+    "image_banner_countdown_timer_4e6zBy",
+    "product-grid",
+    "custom_liquid_zpKBcD",
+    "custom_liquid_nKFXXR"
+  ]
+}

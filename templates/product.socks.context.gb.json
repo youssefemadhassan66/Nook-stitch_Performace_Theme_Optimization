@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "gb"
+  },
+  "parent": "product.socks.json",
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_8G9TXx": {
+          "settings": {
+            "heading_2": "Free Shipping on +£20 Orders"
+          }
+        },
+        "variant_picker": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    }
+  }
+}

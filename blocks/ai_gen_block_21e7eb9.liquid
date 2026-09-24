@@ -1,0 +1,393 @@
+{% doc %}
+  @prompt
+    i want a horizontally smooth scrollable image  and give options to be squared or portrait frames and the speed on the scrol with a heading on the top
+    , i want a horizontally smooth automatic scrollable image  and give options to be squared or portrait frames and the speed on the scrol with a heading on the to, make after the photos finish it display the photos again in the same order
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign gallery_mobile_width = block.settings.image_width | times: 0.7 | round %}
+{% capture gallery_image_sizes %}(max-width: 749px) {{ gallery_mobile_width }}px, {{ block.settings.image_width }}px{% endcapture %}
+
+{% style %}
+  .ai-auto-scroll-gallery-{{ ai_gen_id }} {
+    width: 100%;
+    display: block;
+  }
+
+  .ai-auto-scroll-gallery__container-{{ ai_gen_id }} {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-auto-scroll-gallery__heading-{{ ai_gen_id }} {
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    text-align: {{ block.settings.heading_alignment }};
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .ai-auto-scroll-gallery__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .ai-auto-scroll-gallery__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.image_gap }}px;
+  }
+
+  .ai-auto-scroll-gallery__track-{{ ai_gen_id }}:hover .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
+    animation-play-state: paused;
+  }
+
+  .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.image_gap }}px;
+    animation: ai-auto-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  .ai-auto-scroll-gallery__item-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.image_width }}px;
+    {% if block.settings.image_shape == 'square' %}
+      height: {{ block.settings.image_width }}px;
+    {% elsif block.settings.image_shape == 'portrait' %}
+      height: calc({{ block.settings.image_width }}px * 1.4);
+    {% endif %}
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    background-color: {{ block.settings.placeholder_bg_color }};
+  }
+
+  .ai-auto-scroll-gallery__item-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-auto-scroll-gallery__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-auto-scroll-gallery__placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  @keyframes ai-auto-scroll-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - {{ block.settings.image_gap }}px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-auto-scroll-gallery__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+
+    .ai-auto-scroll-gallery__item-{{ ai_gen_id }} {
+      width: calc({{ block.settings.image_width }}px * 0.7);
+      {% if block.settings.image_shape == 'square' %}
+        height: calc({{ block.settings.image_width }}px * 0.7);
+      {% elsif block.settings.image_shape == 'portrait' %}
+        height: calc({{ block.settings.image_width }}px * 0.7 * 1.4);
+      {% endif %}
+    }
+  }
+{% endstyle %}
+
+<auto-scroll-gallery-{{ ai_gen_id }} class="ai-auto-scroll-gallery-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-auto-scroll-gallery__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-auto-scroll-gallery__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-auto-scroll-gallery__wrapper-{{ ai_gen_id }}">
+      <div class="ai-auto-scroll-gallery__track-{{ ai_gen_id }}">
+        {% liquid
+          assign has_images = false
+          for i in (1..8)
+            assign image_key = 'image_' | append: i
+            if block.settings[image_key] != blank
+              assign has_images = true
+              break
+            endif
+          endfor
+        %}
+
+        <div class="ai-auto-scroll-gallery__set-{{ ai_gen_id }}">
+          {% if has_images %}
+            {% for i in (1..8) %}
+              {% liquid
+                assign image_key = 'image_' | append: i
+                assign current_image = block.settings[image_key]
+              %}
+              {% if current_image != blank %}
+                <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
+                  {{ current_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% for i in (1..8) %}
+              <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
+                <div class="ai-auto-scroll-gallery__placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="ai-auto-scroll-gallery__set-{{ ai_gen_id }}" aria-hidden="true">
+          {% if has_images %}
+            {% for i in (1..8) %}
+              {% liquid
+                assign image_key = 'image_' | append: i
+                assign current_image = block.settings[image_key]
+              %}
+              {% if current_image != blank %}
+                <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
+                  {{ current_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% for i in (1..8) %}
+              <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
+                <div class="ai-auto-scroll-gallery__placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</auto-scroll-gallery-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AutoScrollGallery{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-auto-scroll-gallery__track-{{ ai_gen_id }}');
+      }
+    }
+
+    customElements.define('auto-scroll-gallery-{{ ai_gen_id }}', AutoScrollGallery{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Auto scroll gallery",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Gallery"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Spacing below heading",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_7",
+      "label": "Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_8",
+      "label": "Image 8"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image width",
+      "min": 100,
+      "max": 400,
+      "step": 20,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Gap between images",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 30,
+      "info": "Lower value = faster scroll"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_bg_color",
+      "label": "Placeholder background",
+      "default": "#f4f4f4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto scroll gallery"
+    }
+  ]
+}
+{% endschema %}

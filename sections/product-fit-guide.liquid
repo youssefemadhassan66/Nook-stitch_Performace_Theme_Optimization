@@ -1,0 +1,550 @@
+{%- liquid
+  assign s = section.settings
+  assign video_id = s.video.id | default: s.video_url.id
+  assign video_alt = s.video.alt | default: s.heading
+  assign alt = video_alt | default: 'Fit and Feel loop' | escape
+  assign poster = s.video.preview_image | default: s.cover_image
+  assign overlay_opacity = s.overlay_opacity | default: 60
+  assign desktop_height = s.desktop_height | default: 550
+  assign mobile_height = s.mobile_height | default: 450
+-%}
+
+<section
+  id="nook-fit-guide-{{ section.id }}"
+  class="nook-fit-guide color-{{ s.color_scheme }} gradient"
+  style="
+    --fit-accent: {{ s.accent_color }};
+    --fit-text-color: {{ s.text_color | default: '#FFFFFF' }};
+    --fit-overlay-opacity: {{ overlay_opacity | times: 1.0 | divided_by: 100.0 }};
+    --fit-desktop-height: {{ desktop_height }}px;
+    --fit-mobile-height: {{ mobile_height }}px;
+    padding-top: {{ s.padding_top }}px;
+    padding-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <style>
+    .nook-fit-guide {
+      position: relative;
+      background: rgb(var(--color-background));
+      overflow: hidden;
+      display: block;
+    }
+
+    .nook-fit-guide__container {
+      position: relative;
+      width: 100%;
+      height: var(--fit-desktop-height);
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 0 auto;
+      max-width: {{ settings.page_width }}px;
+      background: #000000;
+    }
+
+    .nook-fit-guide__video-wrapper {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .nook-fit-guide__video-wrapper video,
+    .nook-fit-guide__video-wrapper iframe,
+    .nook-fit-guide__video-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nook-fit-guide__overlay {
+      position: absolute;
+      inset: 0;
+      background: #000000;
+      opacity: var(--fit-overlay-opacity);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .nook-fit-guide__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: clamp(24px, 4vw, 64px);
+      color: var(--fit-text-color);
+    }
+
+    .nook-fit-guide__kicker {
+      margin: 0 0 16px;
+      color: var(--fit-accent);
+      font-family: var(--font-heading-family);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nook-fit-guide__heading {
+      margin: 0 0 24px;
+      font-family: var(--font-heading-family);
+      font-size: clamp(32px, 3.8vw, 54px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: inherit;
+    }
+
+    .nook-fit-guide__rotator-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      min-height: 140px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+    }
+
+    .nook-fit-guide__slide {
+      grid-area: 1 / 1 / 2 / 2;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(16px);
+      visibility: hidden;
+      transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1), visibility 600ms;
+    }
+
+    .nook-fit-guide__slide.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .nook-fit-guide__slide-title {
+      margin: 0 0 8px;
+      font-family: var(--font-heading-family);
+      font-size: clamp(20px, 2.2vw, 30px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: inherit;
+    }
+
+    .nook-fit-guide__slide-text {
+      margin: 0;
+      font-family: var(--font-body-family);
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--fit-text-color) 86%, transparent);
+      text-wrap: pretty;
+    }
+
+    .nook-fit-guide__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nook-fit-guide__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      min-width: 180px;
+      padding: 14px 24px;
+      border: 1px solid var(--fit-accent);
+      border-radius: 6px;
+      background: var(--fit-accent);
+      color: #ffffff;
+      font-family: var(--font-heading-family);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .nook-fit-guide__button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.24);
+    }
+
+    .nook-fit-guide__button:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--fit-accent) 34%, transparent);
+      outline-offset: 3px;
+    }
+
+    @media screen and (max-width: 749px) {
+      .nook-fit-guide__container {
+        height: var(--fit-mobile-height);
+        border-radius: 0;
+      }
+      .nook-fit-guide {
+        padding-top: {{ s.padding_top_mobile }}px;
+        padding-bottom: {{ s.padding_bottom_mobile }}px;
+      }
+      .nook-fit-guide__button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="nook-fit-guide__inner">
+    <div class="nook-fit-guide__container">
+      <div class="nook-fit-guide__video-wrapper">
+        {%- if s.video != blank -%}
+          {{
+            s.video
+            | video_tag:
+              image_size: '1800x',
+              autoplay: true,
+              loop: true,
+              muted: true,
+              controls: false,
+              playsinline: true
+          }}
+        {%- elsif s.video_url != blank -%}
+          {%- if s.video_url.type == 'youtube' -%}
+            <iframe
+              src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist={{ video_id }}&rel=0&modestbranding=1"
+              title="{{ alt }}"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              tabindex="-1"
+            ></iframe>
+          {%- else -%}
+            <iframe
+              src="https://player.vimeo.com/video/{{ video_id }}?background=1&autoplay=1&muted=1&loop=1"
+              title="{{ alt }}"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              tabindex="-1"
+            ></iframe>
+          {%- endif -%}
+        {%- elsif poster != blank -%}
+          {{
+            poster
+            | image_url: width: 1800
+            | image_tag:
+              widths: '750, 1100, 1500, 1800',
+              sizes: '(min-width: 990px) 100vw, 100vw',
+              alt: alt
+          }}
+        {%- else -%}
+          <div style="background: #111; width: 100%; height: 100%;"></div>
+        {%- endif -%}
+      </div>
+
+      <div class="nook-fit-guide__overlay"></div>
+
+      <div class="nook-fit-guide__content">
+        {%- if s.kicker != blank -%}
+          <p class="nook-fit-guide__kicker">{{ s.kicker | escape }}</p>
+        {%- endif -%}
+
+        {%- if s.heading != blank -%}
+          <h2 class="nook-fit-guide__heading">{{ s.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <div
+            class="nook-fit-guide__rotator-wrapper"
+            data-fit-rotator="{{ section.id }}"
+            data-interval="{{ s.rotate_interval | default: 30 | times: 1000 }}"
+          >
+            {%- for block in section.blocks -%}
+              <div
+                class="nook-fit-guide__slide{% if forloop.first %} is-active{% endif %}"
+                data-fit-slide="{{ forloop.index0 }}"
+                aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.title != blank -%}
+                  <h3 class="nook-fit-guide__slide-title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="nook-fit-guide__slide-text">{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="nook-fit-guide__footer">
+          {%- if s.button_label != blank and s.button_link != blank -%}
+            <a class="nook-fit-guide__button" href="{{ s.button_link }}">
+              {{ s.button_label | escape }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if section.blocks.size > 1 %}
+  <script>
+    (() => {
+      const container = document.querySelector('[data-fit-rotator="{{ section.id }}"]');
+      if (!container) return;
+
+      const slides = Array.from(container.querySelectorAll('[data-fit-slide]'));
+      const interval = Math.max(3000, parseInt(container.dataset.interval, 10) || 30000);
+      if (slides.length < 2) return;
+
+      let index = 0;
+      let timer = null;
+      let paused = false;
+
+      const show = (nextIndex) => {
+        const next = (nextIndex + slides.length) % slides.length;
+        if (next === index) return;
+
+        slides[index].classList.remove('is-active');
+        slides[index].setAttribute('aria-hidden', 'true');
+        index = next;
+        slides[index].classList.add('is-active');
+        slides[index].setAttribute('aria-hidden', 'false');
+      };
+
+      const start = () => {
+        if (timer || paused) return;
+        timer = window.setInterval(() => {
+          show(index + 1);
+        }, interval);
+      };
+
+      const stop = () => {
+        if (!timer) return;
+        window.clearInterval(timer);
+        timer = null;
+      };
+
+      const pause = () => {
+        paused = true;
+        stop();
+      };
+
+      const resume = () => {
+        paused = false;
+        start();
+      };
+
+      container.addEventListener('mouseenter', pause);
+      container.addEventListener('mouseleave', resume);
+      container.addEventListener('focusin', pause);
+      container.addEventListener('focusout', resume);
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              start();
+            } else {
+              stop();
+            }
+          });
+        }, { threshold: 0.2 }).observe(container);
+      } else {
+        start();
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product fit guide",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Shopify Video"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "label": "External Video URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Fallback Cover Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 95,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "rotate_interval",
+      "min": 5,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Text Rotation Interval",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Fit and feel"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Know what you are putting on."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the sock"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 300,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 550
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 250,
+      "max": 700,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 450
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guide",
+      "name": "Text Slide",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Perfect Fit"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Designed to sit cleanly in everyday sneakers and walking shoes."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product fit guide",
+      "blocks": [
+        {
+          "type": "guide",
+          "settings": {
+            "title": "Cushion level",
+            "text": "Soft underfoot support for hard floors and long days."
+          }
+        },
+        {
+          "type": "guide",
+          "settings": {
+            "title": "Ankle height",
+            "text": "Low ankle profile with padding where shoes tend to rub."
+          }
+        },
+        {
+          "type": "guide",
+          "settings": {
+            "title": "Shoe fit",
+            "text": "Designed to sit cleanly in everyday sneakers and walking shoes."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

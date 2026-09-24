@@ -1,0 +1,644 @@
+{%- style -%}
+  #AboutImpact-{{ section.id }} {
+    --ns-about-top-bg: {{ section.settings.top_background }};
+    --ns-about-dark-bg: {{ section.settings.dark_background }};
+    --ns-about-accent-bg: {{ section.settings.accent_background }};
+    --ns-about-ink: {{ section.settings.ink_color }};
+    --ns-about-cream: {{ section.settings.cream_color }};
+    --ns-about-muted: color-mix(in srgb, var(--ns-about-ink) 72%, transparent);
+    color: var(--ns-about-ink);
+    background: var(--ns-about-top-bg);
+    padding: clamp(72px, 8vw, 112px) 0 clamp(64px, 8vw, 96px);
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__statement {
+    display: grid;
+    grid-template-columns: minmax(0, 0.96fr) minmax(360px, 0.84fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: stretch;
+    width: min(1400px, calc(100% - 44px));
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__top {
+    display: flex;
+    min-height: 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    background: transparent;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__dark {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 18px;
+    padding: clamp(30px, 4vw, 48px);
+    border: 1px solid color-mix(in srgb, var(--ns-about-ink) 12%, transparent);
+    border-radius: 8px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--ns-about-accent-bg) 28%, transparent), transparent 210px),
+      var(--ns-about-dark-bg);
+    color: var(--ns-about-cream);
+    text-align: left;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__headline {
+    width: 100%;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-style: var(--font-heading-style);
+    font-size: clamp(44px, 7vw, 84px);
+    line-height: 0.98;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: none;
+    text-wrap: balance;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__headline span {
+    display: block;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__headline--dark {
+    color: var(--ns-about-cream);
+    font-size: clamp(34px, 4.6vw, 58px);
+    line-height: 1.02;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__headline .ns-about-impact__real-line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: auto;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__real-line span {
+    display: inline;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__comfort-mark {
+    flex: 0 0 auto;
+    width: 72px;
+    height: auto;
+    color: var(--ns-about-accent-bg);
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__intro {
+    width: min(52ch, 100%);
+    margin: 0;
+    color: color-mix(in srgb, var(--ns-about-cream) 84%, transparent);
+    font-family: var(--font-body-family);
+    font-size: 17px;
+    line-height: 1.58;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    margin-top: 4px;
+    padding: 0 26px;
+    border: 1px solid var(--ns-about-accent-bg);
+    border-radius: 6px;
+    background: var(--ns-about-accent-bg);
+    color: var(--ns-about-ink);
+    font-family: var(--font-heading-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 160ms ease, background-color 160ms ease;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__cta:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--ns-about-accent-bg) 84%, var(--ns-about-cream));
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__corner-mark {
+    position: absolute;
+    right: 22px;
+    bottom: 20px;
+    width: 92px;
+    color: var(--ns-about-accent-bg);
+    opacity: 0.18;
+    transform: rotate(-8deg);
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: min(1400px, calc(100% - 44px));
+    margin: clamp(44px, 6vw, 72px) auto 0;
+    border-top: 1px solid color-mix(in srgb, var(--ns-about-ink) 12%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--ns-about-ink) 12%, transparent);
+    background: transparent;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card {
+    position: relative;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: clamp(30px, 3.8vw, 48px) clamp(24px, 3.5vw, 42px);
+    border: 0;
+    border-right: 1px solid color-mix(in srgb, var(--ns-about-ink) 12%, transparent);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ns-about-ink);
+    text-align: left;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card:last-child {
+    border-right: 0;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card--accent {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--ns-about-accent-bg) 11%, transparent),
+        transparent 68%
+      );
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card--accent::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: clamp(24px, 3.5vw, 42px);
+    right: clamp(24px, 3.5vw, 42px);
+    height: 2px;
+    background: var(--ns-about-accent-bg);
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card-heading {
+    max-width: 12em;
+    min-height: 0;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(24px, 2.5vw, 34px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: 0;
+    text-transform: none;
+    text-wrap: balance;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card-number {
+    margin: 0 0 22px;
+    color: var(--ns-about-accent-bg);
+    font-family: var(--font-heading-family);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card-text {
+    max-width: 56ch;
+    min-height: 0;
+    margin: 20px 0 26px;
+    color: var(--ns-about-muted);
+    font-family: var(--font-body-family);
+    font-size: 17px;
+    line-height: 1.58;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: auto;
+    padding: 0 22px;
+    border: 1px solid var(--ns-about-ink);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ns-about-ink);
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+
+  #AboutImpact-{{ section.id }} .ns-about-impact__card-button:hover {
+    transform: translateY(-1px);
+    border-color: var(--ns-about-accent-bg);
+    background: color-mix(in srgb, var(--ns-about-accent-bg) 12%, transparent);
+    color: var(--ns-about-ink);
+  }
+
+  @media screen and (max-width: 1199px) {
+    #AboutImpact-{{ section.id }} .ns-about-impact__statement {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__headline {
+      font-size: clamp(40px, 6.6vw, 68px);
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__headline--dark {
+      font-size: clamp(32px, 4.8vw, 50px);
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__comfort-mark {
+      width: 62px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-heading {
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 899px) {
+    #AboutImpact-{{ section.id }} {
+      padding-top: 64px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__statement {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__cards {
+      grid-template-columns: 1fr;
+      margin-top: 32px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card {
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--ns-about-ink) 12%, transparent);
+      padding: 30px 24px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card:last-child {
+      border-bottom: 0;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-heading,
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-text {
+      min-height: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #AboutImpact-{{ section.id }} {
+      padding: 52px 0 58px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__statement,
+    #AboutImpact-{{ section.id }} .ns-about-impact__cards {
+      width: min(calc(100% - 36px), 1400px);
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__top {
+      min-height: 0;
+      padding: 0;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__dark {
+      min-height: 0;
+      gap: 16px;
+      padding: 24px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__headline {
+      font-size: 36px;
+      line-height: 1.02;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__headline--dark {
+      font-size: 30px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__real-line {
+      gap: 10px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__comfort-mark {
+      width: 50px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__intro {
+      font-size: 16px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__corner-mark {
+      right: 14px;
+      bottom: 16px;
+      width: 68px;
+      opacity: 0.14;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-heading {
+      font-size: 25px;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-text {
+      font-size: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #AboutImpact-{{ section.id }} .ns-about-impact__cta,
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-button {
+      transition: none;
+    }
+
+    #AboutImpact-{{ section.id }} .ns-about-impact__cta:hover,
+    #AboutImpact-{{ section.id }} .ns-about-impact__card-button:hover {
+      transform: none;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="AboutImpact-{{ section.id }}"
+  class="ns-about-impact color-{{ section.settings.color_scheme }} gradient"
+  aria-labelledby="AboutImpactHeading-{{ section.id }}"
+>
+  <div class="ns-about-impact__statement">
+    <div class="ns-about-impact__top">
+      <h2 id="AboutImpactHeading-{{ section.id }}" class="ns-about-impact__headline">
+        <span>{{ section.settings.top_line_1 | escape }}</span>
+        <span>{{ section.settings.top_line_2 | escape }}</span>
+      </h2>
+    </div>
+
+    <div class="ns-about-impact__dark">
+      <h3 class="ns-about-impact__headline ns-about-impact__headline--dark">
+        <span>{{ section.settings.bottom_line_1 | escape }}</span>
+        <span class="ns-about-impact__real-line">
+          <span>{{ section.settings.bottom_line_2_prefix | escape }}</span>
+          <svg class="ns-about-impact__comfort-mark" viewBox="0 0 176 64" aria-hidden="true" focusable="false">
+            <path d="M10 34c19-21 40-21 59 0s39 21 58 0 38-21 49 0" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+            <path d="m27 49-12-12m41 12L44 37m55 12L87 37m52 12-12-12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".52"/>
+          </svg>
+          <span>{{ section.settings.bottom_line_2_suffix | escape }}</span>
+        </span>
+      </h3>
+
+      {%- if section.settings.intro != blank -%}
+        <p class="ns-about-impact__intro">{{ section.settings.intro | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="ns-about-impact__cta"
+          href="{% if section.settings.button_link != blank %}{{ section.settings.button_link }}{% else %}#AboutImpactCards-{{ section.id }}{% endif %}"
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+
+      <svg class="ns-about-impact__corner-mark" viewBox="0 0 150 110" aria-hidden="true" focusable="false">
+        <path d="M16 70c24-29 54-42 91-38 11 1 18 11 14 22-8 25-31 42-67 50-21 5-41-4-47-21-2-5 1-9 9-13Z" fill="currentColor"/>
+        <path d="M33 72c23 10 50 9 81-5M49 86l-12-11m34 16L59 80m34 11L81 80" fill="none" stroke="var(--ns-about-dark-bg)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="AboutImpactCards-{{ section.id }}" class="ns-about-impact__cards">
+    {%- for block in section.blocks -%}
+      <article class="ns-about-impact__card ns-about-impact__card--{{ block.settings.tone }}" {{ block.shopify_attributes }}>
+        <div class="ns-about-impact__card-number" aria-hidden="true">{{ forloop.index | prepend: '0' }}</div>
+
+        {%- if block.settings.heading != blank -%}
+          <h3 class="ns-about-impact__card-heading">{{ block.settings.heading | escape }}</h3>
+        {%- endif -%}
+
+        {%- if block.settings.text != blank -%}
+          <p class="ns-about-impact__card-text">{{ block.settings.text | escape }}</p>
+        {%- endif -%}
+
+        {%- if block.settings.button_label != blank -%}
+          <a
+            class="ns-about-impact__card-button"
+            {% if block.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ block.settings.button_link }}"
+            {% endif %}
+          >
+            {{ block.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About impact",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "top_line_1",
+      "label": "Top headline line 1",
+      "default": "YOUR NOOK & STITCH"
+    },
+    {
+      "type": "text",
+      "id": "top_line_2",
+      "label": "Top headline line 2",
+      "default": "COMFORT PROMISE"
+    },
+    {
+      "type": "text",
+      "id": "bottom_line_1",
+      "label": "Dark headline line 1",
+      "default": "BUILT FOR"
+    },
+    {
+      "type": "text",
+      "id": "bottom_line_2_prefix",
+      "label": "Dark headline line 2 prefix",
+      "default": "DAILY"
+    },
+    {
+      "type": "text",
+      "id": "bottom_line_2_suffix",
+      "label": "Dark headline line 2 suffix",
+      "default": "RELIEF"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "A softer orthopedic sock made for steady support, gentle cushioning, and comfort that lasts from the first step to the last."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Section colors"
+    },
+    {
+      "type": "color",
+      "id": "top_background",
+      "label": "Top and card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "dark_background",
+      "label": "Dark background",
+      "default": "#1f1d24"
+    },
+    {
+      "type": "color",
+      "id": "accent_background",
+      "label": "Accent background",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "ink_color",
+      "label": "Ink color",
+      "default": "#1f1d24"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream color",
+      "default": "#fbfaf4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_card",
+      "name": "Story card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "FOOT PAIN IS NOT ALWAYS WHAT YOU THINK"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Small pressure points can change how your whole day feels. We design around the details your feet notice first."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "See the comfort details"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "pressure",
+              "label": "Pressure relief"
+            },
+            {
+              "value": "support",
+              "label": "Arch support"
+            },
+            {
+              "value": "daily",
+              "label": "All-day wear"
+            }
+          ],
+          "default": "pressure"
+        },
+        {
+          "type": "select",
+          "id": "tone",
+          "label": "Panel tone",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "accent",
+              "label": "Accent"
+            }
+          ],
+          "default": "light"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About impact",
+      "blocks": [
+        {
+          "type": "story_card"
+        },
+        {
+          "type": "story_card",
+          "settings": {
+            "heading": "ONE PRODUCT, REFINED AROUND REAL FEEDBACK",
+            "text": "We focus on the orthopedic sock people keep coming back for, then improve the fit, cushion, and support.",
+            "button_label": "See how it works",
+            "icon": "support",
+            "tone": "accent"
+          }
+        },
+        {
+          "type": "story_card",
+          "settings": {
+            "heading": "BUILT FOR LONG DAYS ON YOUR FEET",
+            "text": "Soft support for work, walking, travel, and sensitive feet without the bulky medical-sock feeling.",
+            "button_label": "Shop the sock",
+            "icon": "daily"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

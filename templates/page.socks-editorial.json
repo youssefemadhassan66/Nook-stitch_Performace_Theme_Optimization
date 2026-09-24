@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "progress_bar": {
+      "type": "scroll-progress-bar",
+      "settings": {
+        "fill_color": "#157A5B",
+        "bg_color": "#d5ded2",
+        "bar_height": 6
+      }
+    },
+    "story_hero": {
+      "type": "feel-story-hero",
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "I Tried 5 Different 'Orthopedic' Socks. Only One Actually Worked.",
+        "lede": "Let me save you the time and money I wasted.",
+        "body": "<p>Over the past few years, I tried cheap cotton socks, bulky compression pairs, seamless diabetic socks, cushioned athletic socks, and finally, a pair designed around real orthopedic support.<\/p>",
+        "summary": "<p><strong>Four misses. One clear winner.<\/strong> Here's the difference:<\/p>",
+        "note": "<p><strong>Note:<\/strong> Read this before you struggle with another uncomfortable pair of socks.<\/p>",
+        "accent_color": "#157A5B",
+        "heading_shadow_color": "#CFE0D2",
+        "note_background": "#ECF3EA",
+        "padding_top": 72,
+        "padding_bottom": 56
+      }
+    },
+    "benefit_rows": {
+      "type": "feel-benefit-rows",
+      "blocks": {
+        "row_cushion": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_d341x4d341x4d341.png",
+            "kicker": "1. CUSHIONED FOOTBED",
+            "heading": "The pressure felt softer right away",
+            "text": "<p>Most thin socks let every hard floor travel straight into your heel. These use a soft cushioned base that helps absorb impact without feeling bulky inside your shoes.<\/p><p><strong>Less sharp pressure, more steady comfort<\/strong> from the first step to the last.<\/p>"
+          }
+        },
+        "row_grip": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/H4a1d396b8a0845e99446c33ec8f4557cP.jpg",
+            "kicker": "2. STABILITY",
+            "heading": "My steps felt more controlled",
+            "text": "<p>Slippery floors and loose socks can make every step feel uncertain. The knit is made to stay in place, so the sock feels secure instead of shifting around your foot.<\/p><p><strong>The difference is subtle, but confidence matters<\/strong> when you are walking through a long day.<\/p>"
+          }
+        },
+        "row_ankle": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_-_2025-12-13T153106.192.png",
+            "kicker": "3. ANKLE COMFORT",
+            "heading": "The back of my shoe stopped rubbing",
+            "text": "<p>The raised ankle cushion helps protect the spot where shoes usually scrape. That means less friction at the heel and a softer feel when your shoes are stiff or new.<\/p><p><strong>No constant adjusting, no irritated heel line<\/strong> after a few hours of wear.<\/p>"
+          }
+        },
+        "row_arch": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_-_2026-05-09T025339.794.png",
+            "kicker": "4. ARCH SUPPORT",
+            "heading": "The middle of my foot felt held",
+            "text": "<p>A light support band wraps the midfoot so the sock does more than cover your skin. It gives the arch a gentle, steady feeling without squeezing too hard.<\/p><p><strong>It is support you notice because your foot feels calmer<\/strong>, not because the sock feels tight.<\/p>"
+          }
+        },
+        "row_seamless": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_hhkv71hhkv71hhkv.png",
+            "kicker": "5. SMOOTH TOE",
+            "heading": "My toes did not fight a thick seam",
+            "text": "<p>The toe area is designed to feel smooth inside the shoe, so it does not press into sensitive skin or bunch at the front.<\/p><p><strong>That small detail matters a lot<\/strong> when your toes already feel tender or cramped.<\/p>"
+          }
+        },
+        "row_breathable": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_d341x4d341x4d341.png",
+            "kicker": "6. BREATHABLE KNIT",
+            "heading": "They stayed comfortable longer",
+            "text": "<p>Comfort socks should not feel hot and heavy after an hour. The knit keeps the sock soft and breathable, so it works for walking, errands, workdays, and travel.<\/p><p><strong>It feels cushioned without turning into a bulky winter sock.<\/strong><\/p>"
+          }
+        },
+        "row_nonbinding": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/H4a1d396b8a0845e99446c33ec8f4557cP.jpg",
+            "kicker": "7. GENTLE FIT",
+            "heading": "No tight marks around my foot",
+            "text": "<p>A good orthopedic sock should support you without leaving deep pressure marks. This fit is secure, but still soft enough for sensitive feet.<\/p><p><strong>It holds without that medical, over-compressed feeling<\/strong> many support socks have.<\/p>"
+          }
+        },
+        "row_daily": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_-_2025-12-13T153106.192.png",
+            "kicker": "8. EVERYDAY WEAR",
+            "heading": "They fit into normal shoes",
+            "text": "<p>The biggest test was simple: could I wear them with the shoes I already own? The low-profile cushion makes them easy to use every day, not just when your feet are already hurting.<\/p><p><strong>That is what made them practical enough to keep reaching for.<\/strong><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_cushion",
+        "row_grip",
+        "row_ankle",
+        "row_arch",
+        "row_seamless",
+        "row_breathable",
+        "row_nonbinding",
+        "row_daily"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "",
+        "subheading": "",
+        "accent_color": "#157A5B",
+        "heading_shadow_color": "#CFE0D2",
+        "padding_top": 36,
+        "padding_bottom": 84
+      }
+    }
+  },
+  "order": [
+    "progress_bar",
+    "story_hero",
+    "benefit_rows"
+  ]
+}

@@ -1,0 +1,665 @@
+<script src="{{ 'product-review-proof.js' | asset_url }}" defer="defer"></script>
+
+<review-wall
+  id="ProductReviews"
+  class="nook-review-wall color-{{ section.settings.color_scheme }} gradient{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  data-initial-reviews="{{ section.settings.initial_reviews }}"
+  data-load-count="{{ section.settings.load_count }}"
+>
+  <style>
+    #shopify-section-{{ section.id }} .nook-review-wall {
+      --review-line: rgba(var(--color-foreground), 0.14);
+      --review-muted: rgba(var(--color-foreground), 0.68);
+      --review-soft: rgba(var(--color-foreground), 0.055);
+      display: block;
+      scroll-margin-top: 9.6rem;
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__inner {
+      width: min({{ settings.page_width }}px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.58fr);
+      gap: clamp(34px, 7vw, 112px);
+      align-items: end;
+      margin-bottom: clamp(34px, 4.5vw, 62px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__kicker {
+      margin: 0 0 13px;
+      color: rgb(var(--color-button));
+      font-family: var(--font-heading-family);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__heading {
+      max-width: 15ch;
+      margin: 0;
+      font-family: var(--font-heading-family);
+      font-size: clamp(38px, 4.7vw, 68px);
+      font-weight: 700;
+      line-height: 0.99;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__summary {
+      max-width: 58ch;
+      color: var(--review-muted);
+      font-family: var(--font-body-family);
+      font-size: clamp(17px, 1.15vw, 19px);
+      line-height: 1.6;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__summary p {
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__rating {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 13px;
+      margin-top: 19px;
+      font-family: var(--font-heading-family);
+      font-size: 15px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__stars {
+      display: inline-flex;
+      gap: 2px;
+      color: rgb(var(--color-button));
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__grid {
+      --review-columns: 4;
+      display: grid;
+      grid-template-columns: repeat(var(--review-columns), minmax(0, 1fr));
+      gap: clamp(12px, 1.35vw, 20px);
+      align-items: start;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__column {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: clamp(12px, 1.35vw, 20px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__card {
+      display: block;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--review-line);
+      border-radius: 5px;
+      background: rgb(var(--color-background));
+      box-shadow: 0 3px 14px rgba(var(--color-foreground), 0.045);
+      color: rgb(var(--color-foreground));
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__card[hidden] {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__media {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--review-line);
+      background: var(--review-soft);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: cover;
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      border: 0;
+      object-fit: cover;
+      background: var(--review-soft);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__card:hover .nook-review-wall__image {
+      transform: scale(1.018);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__content {
+      padding: clamp(18px, 1.7vw, 25px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__person {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 8px;
+      margin-bottom: 5px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__name {
+      margin: 0;
+      font-family: var(--font-heading-family);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: rgb(var(--color-foreground));
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__verified-icon {
+      display: inline-grid;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      place-items: center;
+      background: rgb(var(--color-foreground));
+      color: rgb(var(--color-background));
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__verified-icon svg {
+      width: 9px;
+      height: 9px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__date {
+      color: var(--review-muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__date {
+      display: block;
+      margin: 0 0 11px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__card .nook-review-wall__stars {
+      margin-bottom: 13px;
+      font-size: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__quote {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-family: var(--font-body-family);
+      font-size: 16px;
+      font-style: normal;
+      line-height: 1.48;
+      text-wrap: pretty;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__review-title {
+      margin: 0 0 8px;
+      font-family: var(--font-heading-family);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.012em;
+      text-wrap: pretty;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__actions {
+      display: flex;
+      justify-content: center;
+      margin-top: clamp(30px, 4vw, 52px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__load-more {
+      display: none;
+      min-width: min(100%, 240px);
+      min-height: 50px;
+      padding: 13px 24px;
+      border: 1px solid rgb(var(--color-foreground));
+      border-radius: 6px;
+      background: transparent;
+      color: rgb(var(--color-foreground));
+      font-family: var(--font-heading-family);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall.is-enhanced .nook-review-wall__load-more:not([hidden]) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__load-more:hover {
+      background: rgb(var(--color-foreground));
+      color: rgb(var(--color-background));
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__load-more:active {
+      transform: translateY(1px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__load-more:focus-visible {
+      outline: 3px solid rgb(var(--color-button));
+      outline-offset: 4px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-review-wall__status {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media screen and (max-width: 1100px) {
+      #shopify-section-{{ section.id }} .nook-review-wall__grid {
+        --review-columns: 3;
+      }
+    }
+
+    @media screen and (max-width: 820px) {
+      #shopify-section-{{ section.id }} .nook-review-wall__header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__grid {
+        --review-columns: 2;
+      }
+
+    }
+
+    @media screen and (max-width: 560px) {
+      #shopify-section-{{ section.id }} .nook-review-wall {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__inner {
+        width: min(100% - 28px, {{ settings.page_width }}px);
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__grid {
+        --review-columns: 1;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__card {
+        margin-bottom: 14px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__content {
+        padding: 20px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__quote {
+        font-size: 17px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__load-more {
+        width: 100%;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .nook-review-wall__image,
+      #shopify-section-{{ section.id }} .nook-review-wall__load-more {
+        transition: none;
+      }
+
+      #shopify-section-{{ section.id }} .nook-review-wall__card:hover .nook-review-wall__image {
+        transform: none;
+      }
+    }
+  </style>
+
+  <div class="nook-review-wall__inner">
+    <header class="nook-review-wall__header">
+      <div>
+        {%- if section.settings.kicker != blank -%}
+          <p class="nook-review-wall__kicker">{{ section.settings.kicker | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="nook-review-wall__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- if section.settings.body != blank -%}
+          <div class="nook-review-wall__summary rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+        {%- if section.settings.rating_text != blank -%}
+          <div class="nook-review-wall__rating">
+            <span class="nook-review-wall__stars" aria-hidden="true">★★★★★</span>
+            <span>{{ section.settings.rating_text | escape }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="nook-review-wall__grid" data-review-grid role="list">
+        {%- for block in section.blocks -%}
+          <article class="nook-review-wall__card" data-review-card role="listitem" {{ block.shopify_attributes }}>
+            {%- if block.settings.video != blank or block.settings.video_url != blank or block.settings.image != blank -%}
+              <div class="nook-review-wall__media">
+                {%- if block.settings.video != blank -%}
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      controls: true,
+                      muted: false,
+                      playsinline: true,
+                      preload: 'metadata',
+                      class: 'nook-review-wall__video'
+                  }}
+                {%- elsif block.settings.video_url != blank -%}
+                  {{
+                    block.settings.video_url
+                    | external_video_tag:
+                      loading: 'lazy',
+                      class: 'nook-review-wall__video',
+                      title: block.settings.title
+                  }}
+                {%- else -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 900
+                    | image_tag:
+                      widths: '300, 450, 600, 750, 900',
+                      sizes: '(min-width: 1101px) 25vw, (min-width: 821px) 33vw, (min-width: 561px) 50vw, 100vw',
+                      class: 'nook-review-wall__image',
+                      loading: 'lazy',
+                      alt: block.settings.name
+                  }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <div class="nook-review-wall__content">
+              <div class="nook-review-wall__person">
+                {%- if block.settings.name != blank -%}
+                  <h3 class="nook-review-wall__name">{{ block.settings.name | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.verified -%}
+                  <span class="nook-review-wall__verified">
+                    <span class="nook-review-wall__verified-icon" aria-hidden="true">
+                      <svg viewBox="0 0 12 12" fill="none"><path d="m2.4 6.1 2.1 2.1 5.1-5.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    {{ section.settings.verified_label | escape }}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.date != blank -%}
+                <time class="nook-review-wall__date">{{ block.settings.date | escape }}</time>
+              {%- endif -%}
+
+              <div
+                class="nook-review-wall__stars"
+                aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: block.settings.rating, rating_max: 5 }}"
+              >
+                {%- for i in (1..5) -%}
+                  <span aria-hidden="true">{%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}</span>
+                {%- endfor -%}
+              </div>
+
+              {%- if block.settings.title != blank -%}
+                <h4 class="nook-review-wall__review-title">{{ block.settings.title | escape }}</h4>
+              {%- endif -%}
+
+              {%- if block.settings.quote != blank -%}
+                <blockquote class="nook-review-wall__quote">{{ block.settings.quote | escape | newline_to_br }}</blockquote>
+              {%- endif -%}
+
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > section.settings.initial_reviews -%}
+        <div class="nook-review-wall__actions">
+          <button class="nook-review-wall__load-more" type="button" data-review-load-more hidden>
+            {{ section.settings.load_more_text | escape }}
+          </button>
+        </div>
+        <p class="nook-review-wall__status" data-review-status aria-live="polite"></p>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+</review-wall>
+
+{% schema %}
+{
+  "name": "Product review wall",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Use Add review to create up to 50 review cards. Each card can include an image or video, title, paragraph, star rating, and customer details."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Comfort, in their words"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real feet. Softer days."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Stories from people who wanted less rubbing, a softer step, and socks they could keep on all day.</p>"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "4.9 from 1,356 reviews"
+    },
+    {
+      "type": "text",
+      "id": "verified_label",
+      "label": "Verified label",
+      "default": "Verified buyer"
+    },
+    {
+      "type": "range",
+      "id": "initial_reviews",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "label": "Reviews shown initially",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "load_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Reviews per load",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "load_more_text",
+      "label": "Load more label",
+      "default": "View more reviews"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 92
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 50,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Review media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Review image (optional)",
+          "info": "Shown when this review has no video."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted video (optional)",
+          "info": "A hosted video takes priority over the external video and image."
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "accept": ["youtube", "vimeo"],
+          "label": "YouTube or Vimeo video (optional)"
+        },
+        {
+          "type": "header",
+          "content": "Review content"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review paragraph",
+          "default": "The soft cushioning made my everyday shoes feel more comfortable."
+        },
+        {
+          "type": "header",
+          "content": "Customer details"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Customer"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified buyer",
+          "info": "Enable only when the customer's purchase has been confirmed.",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product review wall",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "The soft cushioning made my everyday shoes feel more comfortable.",
+            "name": "Customer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

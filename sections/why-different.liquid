@@ -1,0 +1,238 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="wd gradient color-{{ s.color_scheme }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--pt: {{ s.padding_top }}px; --pb: {{ s.padding_bottom }}px;">
+  <div class="page-width">
+    <div class="wd__head">
+      {%- if s.kicker != blank -%}
+        <p class="wd__kicker">{{ s.kicker | escape }}</p>
+      {%- endif -%}
+      {%- if s.heading != blank -%}
+        <h2 class="wd__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if s.subheading != blank -%}
+        <p class="wd__sub">{{ s.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="wd__cols">
+        <div class="wd__plate wd__plate--ordinary">
+          <p class="wd__plate-title">{{ s.ordinary_title | escape }}</p>
+          <ul class="wd__list">
+            {%- for block in section.blocks -%}
+              <li class="wd__item" {{ block.shopify_attributes }}>
+                <svg class="wd__mark wd__mark--no" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>{{ block.settings.ordinary_label | escape }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="wd__plate wd__plate--ours">
+          <p class="wd__plate-title">{{ s.ours_title | escape }}</p>
+          <ul class="wd__list">
+            {%- for block in section.blocks -%}
+              <li class="wd__item" {{ block.shopify_attributes }}>
+                <svg class="wd__mark wd__mark--yes" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path d="M16.7 5.8a1 1 0 010 1.4l-7.4 7.4a1 1 0 01-1.4 0l-3.6-3.6a1 1 0 011.4-1.4l2.9 2.9 6.7-6.7a1 1 0 011.4 0z"/>
+                </svg>
+                <span>{{ block.settings.ours_label | escape }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if s.button_label != blank -%}
+      <div class="wd__cta">
+        <a class="wd__btn" href="{{ s.button_link | default: routes.all_products_collection_url }}">
+          {{ s.button_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .wd {
+    padding-block: var(--pt, 72px) var(--pb, 72px);
+    --ours-bg: #E7F6F0;
+    --ours-border: #BCE5D6;
+    --ours-check: var(--brand-green, #157A5B);
+  }
+
+  .wd__head { text-align: center; max-width: 56rem; margin: 0 auto clamp(3.2rem, 2rem + 2vw, 4.8rem); }
+  .wd__kicker {
+    margin: 0 0 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+  .wd__heading {
+    margin: 0 0 1.2rem;
+    font-size: clamp(2.8rem, 2rem + 2.4vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .wd__sub {
+    margin: 0;
+    font-size: clamp(1.7rem, 1.6rem + 0.3vw, 1.9rem);
+    color: rgba(var(--color-foreground), 0.78);
+  }
+
+  .wd__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.2rem, 0.5rem + 2vw, 2.4rem);
+    align-items: start;
+    max-width: 88rem;
+    margin: 0 auto;
+  }
+
+  .wd__plate {
+    border-radius: 1.4rem;
+    padding: clamp(2.4rem, 1.6rem + 2vw, 3.6rem);
+    border: 1px solid rgba(var(--color-foreground), 0.12);
+  }
+  .wd__plate--ours {
+    background: var(--ours-bg);
+    border-color: var(--ours-border);
+    box-shadow: 0 2.4rem 5rem -2.4rem rgba(var(--color-shadow, 31 29 36), 0.3);
+  }
+
+  .wd__plate-title {
+    margin: 0 0 2rem;
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    letter-spacing: -0.01em;
+  }
+  .wd__plate--ordinary .wd__plate-title { color: rgba(var(--color-foreground), 0.55); }
+
+  .wd__list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.4rem; }
+  .wd__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+  .wd__plate--ordinary .wd__item { color: rgba(var(--color-foreground), 0.6); }
+
+  .wd__mark { flex: none; margin-top: 0.1rem; }
+  .wd__mark--no { color: rgba(var(--color-foreground), 0.3); fill: none; }
+  .wd__mark--yes { fill: var(--ours-check); }
+
+  .wd__cta { text-align: center; margin-top: clamp(2.8rem, 2rem + 2vw, 4rem); }
+  .wd__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    padding: 0 3rem;
+    border-radius: var(--buttons-radius, 6px);
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .wd__btn:hover { transform: translateY(-2px); }
+
+  @media (max-width: 749px) {
+    .wd__cols { grid-template-columns: 1fr; }
+    .wd__plate--ordinary { order: 2; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Why different",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "kicker", "label": "Eyebrow", "default": "The difference" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Not your ordinary socks."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Targeted orthopedic design you can feel from the very first step."
+    },
+    { "type": "header", "content": "Column titles" },
+    { "type": "text", "id": "ordinary_title", "label": "Left column title", "default": "Ordinary socks" },
+    { "type": "text", "id": "ours_title", "label": "Right column title", "default": "Nook & Stitch" },
+    { "type": "header", "content": "Button" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop the socks" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Spacing" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 140, "step": 4, "unit": "px",
+      "label": "Top padding", "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 140, "step": 4, "unit": "px",
+      "label": "Bottom padding", "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "attribute",
+      "name": "Attribute",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ordinary_label",
+          "label": "t:sections.why_different.blocks.attribute.settings.ordinary_label.label",
+          "default": "Cushioned sole"
+        },
+        {
+          "type": "text",
+          "id": "ours_label",
+          "label": "t:sections.why_different.blocks.attribute.settings.ours_label.label",
+          "default": "Cushioned sole"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Why different",
+      "blocks": [
+        { "type": "attribute", "settings": { "ordinary_label": "Cushioned sole", "ours_label": "Cushioned sole" } },
+        { "type": "attribute", "settings": { "ordinary_label": "Padded ankle protection", "ours_label": "Padded ankle protection" } },
+        { "type": "attribute", "settings": { "ordinary_label": "Moisture-wicking fabric", "ours_label": "Moisture-wicking fabric" } },
+        { "type": "attribute", "settings": { "ordinary_label": "Targeted arch support", "ours_label": "Targeted arch support" } },
+        { "type": "attribute", "settings": { "ordinary_label": "Smooth toe feel", "ours_label": "Smooth toe feel" } },
+        { "type": "attribute", "settings": { "ordinary_label": "Lifetime comfort guarantee", "ours_label": "Lifetime comfort guarantee" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

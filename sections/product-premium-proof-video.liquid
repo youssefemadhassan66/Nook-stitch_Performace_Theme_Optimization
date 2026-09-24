@@ -1,0 +1,555 @@
+<section class="nook-product-proof color-{{ section.settings.color_scheme }} gradient">
+  <style>
+    #shopify-section-{{ section.id }} .nook-product-proof {
+      --proof-accent: {{ section.settings.accent_color }};
+      --proof-line: rgba(var(--color-foreground), 0.12);
+      --proof-muted: rgba(var(--color-foreground), 0.72);
+      --proof-soft: color-mix(in srgb, var(--proof-accent) 8%, rgb(var(--color-background)));
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.86fr);
+      gap: clamp(36px, 5vw, 74px);
+      align-items: center;
+      width: min({{ settings.page_width }}px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__media {
+      position: relative;
+      overflow: hidden;
+      min-height: clamp(360px, 42vw, 620px);
+      border: 1px solid var(--proof-line);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 20px 40px rgba(var(--color-foreground), 0.04), 0 1px 3px rgba(var(--color-foreground), 0.02);
+      transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__media:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(var(--color-foreground), 0.08), 0 1px 3px rgba(var(--color-foreground), 0.03);
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__media video,
+    #shopify-section-{{ section.id }} .nook-product-proof__media img,
+    #shopify-section-{{ section.id }} .nook-product-proof__placeholder {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__copy {
+      max-width: 560px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__kicker {
+      margin: 0 0 14px;
+      color: var(--proof-accent);
+      font-family: var(--font-heading-family);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__heading {
+      margin: 0;
+      font-family: var(--font-heading-family);
+      font-size: clamp(36px, 4.4vw, 64px);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__body {
+      max-width: 44ch;
+      margin: 22px 0 0;
+      color: var(--proof-muted);
+      font-family: var(--font-body-family);
+      font-size: clamp(17px, 1.25vw, 20px);
+      line-height: 1.55;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__body p {
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__points {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 32px 0 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__point {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 20px 24px;
+      border: 1px solid var(--proof-line);
+      border-radius: 12px;
+      background: color-mix(in srgb, rgb(var(--color-background)) 98%, rgb(var(--color-foreground)));
+      transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__point:hover {
+      border-color: var(--proof-accent);
+      background: color-mix(in srgb, var(--proof-accent) 4%, rgb(var(--color-background)));
+      transform: translateX(4px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__icon-box {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--proof-accent) 10%, transparent);
+      color: var(--proof-accent);
+      display: grid;
+      place-items: center;
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__point:hover .nook-product-proof__icon-box {
+      transform: scale(1.1) rotate(4deg);
+      background-color: color-mix(in srgb, var(--proof-accent) 18%, transparent);
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__icon-box svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__icon-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__point-title {
+      margin: 0 0 6px;
+      font-family: var(--font-heading-family);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__point-text {
+      max-width: 44ch;
+      margin: 0;
+      color: var(--proof-muted);
+      font-family: var(--font-body-family);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-top: 34px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      min-width: 210px;
+      padding: 15px 28px;
+      border: 1px solid var(--proof-accent);
+      border-radius: 6px;
+      background: var(--proof-accent);
+      color: #ffffff;
+      font-family: var(--font-heading-family);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px color-mix(in srgb, var(--proof-accent) 22%, transparent);
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__button:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--proof-accent) 34%, transparent);
+      outline-offset: 3px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-product-proof__trust {
+      margin: 0;
+      color: var(--proof-muted);
+      font-family: var(--font-body-family);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media screen and (max-width: 989px) {
+      #shopify-section-{{ section.id }} .nook-product-proof__inner {
+        grid-template-columns: 1fr;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__copy {
+        max-width: 720px;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      #shopify-section-{{ section.id }} .nook-product-proof {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__inner {
+        width: min(100% - 32px, {{ settings.page_width }}px);
+        gap: 28px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__media {
+        min-height: 280px;
+        border-radius: 12px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__heading {
+        font-size: clamp(34px, 11vw, 46px);
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__body {
+        font-size: 16px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__actions,
+      #shopify-section-{{ section.id }} .nook-product-proof__button {
+        width: 100%;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__point {
+        padding: 16px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .nook-product-proof__button {
+        transition: none;
+      }
+
+      #shopify-section-{{ section.id }} .nook-product-proof__button:hover {
+        transform: none;
+      }
+    }
+  </style>
+
+  <div class="nook-product-proof__inner">
+    <div class="nook-product-proof__media">
+      {%- if section.settings.video != blank -%}
+        {{
+          section.settings.video
+          | video_tag: image_size: '1600x', controls: true, muted: false, playsinline: true
+        }}
+      {%- elsif section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1600
+          | image_tag:
+            loading: 'lazy',
+            widths: '480, 720, 960, 1200, 1600',
+            sizes: '(min-width: 990px) 56vw, 100vw',
+            alt: section.settings.image_alt
+        }}
+      {%- else -%}
+        <img
+          src="{{ 'featured-sock-pair-editorial.jpg' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1536"
+          height="1024"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+    <div class="nook-product-proof__copy">
+      {%- if section.settings.kicker != blank -%}
+        <p class="nook-product-proof__kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="nook-product-proof__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <div class="nook-product-proof__body rte">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="nook-product-proof__points">
+          {%- for block in section.blocks -%}
+            <article class="nook-product-proof__point" {{ block.shopify_attributes }}>
+              <div class="nook-product-proof__icon-box">
+                {%- if block.settings.logo != blank -%}
+                  {{
+                    block.settings.logo
+                    | image_url: width: 160
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '44, 88, 132, 160',
+                      sizes: '44px',
+                      class: 'nook-product-proof__icon-image',
+                      alt: block.settings.logo_alt
+                  }}
+                {%- else -%}
+                  {%- case block.settings.icon -%}
+                    {%- when 'cushion' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                        <line x1="16" y1="8" x2="2" y2="22"/>
+                        <line x1="17.5" y1="15" x2="9" y2="15"/>
+                      </svg>
+                    {%- when 'shield' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                    {%- when 'breeze' -%}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9.59 4.59A2 2 0 1 1 11 8H2M10.59 11.59A2 2 0 1 1 12 15H2M8.59 18.59A2 2 0 1 1 10 22H2"/>
+                      </svg>
+                  {%- endcase -%}
+                {%- endif -%}
+              </div>
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <h3 class="nook-product-proof__point-title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="nook-product-proof__point-text">{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="nook-product-proof__actions">
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          <a class="nook-product-proof__button" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.trust_text != blank -%}
+          <p class="nook-product-proof__trust">{{ section.settings.trust_text | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium proof video",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Fallback image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Nook and Stitch orthopedic socks"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Comfort you can see"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Support that feels easy from the first step."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>A closer look at the cushioned sole, padded ankle protection, and breathable knit that make daily comfort easier to trust.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Try them risk free"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Trust text",
+      "default": "Free shipping over $30. Lifetime comfort guarantee."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof point",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cushioned sole"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Soft terry cushioning helps absorb hard-floor impact without feeling bulky."
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Custom logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "Custom logo alt text",
+          "info": "Leave blank when the logo is decorative."
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Fallback icon",
+          "info": "Shown only when no custom logo is selected.",
+          "options": [
+            {
+              "value": "cushion",
+              "label": "Cushion / Footbed"
+            },
+            {
+              "value": "shield",
+              "label": "Ankle Shield"
+            },
+            {
+              "value": "breeze",
+              "label": "Breathable Breeze"
+            }
+          ],
+          "default": "cushion"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium proof video",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "title": "Cushioned sole",
+            "text": "Soft terry cushioning helps absorb hard-floor impact without feeling bulky.",
+            "icon": "cushion"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "title": "Padded ankle protection",
+            "text": "A cushioned back tab helps reduce shoe rub around the heel and ankle.",
+            "icon": "shield"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "title": "Moisture-wicking comfort",
+            "text": "Breathable knit helps feet stay cool, dry, and comfortable through long days.",
+            "icon": "breeze"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

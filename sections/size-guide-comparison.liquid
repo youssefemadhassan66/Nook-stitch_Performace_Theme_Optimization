@@ -1,0 +1,612 @@
+<section class="nook-size-guide color-{{ section.settings.color_scheme }} gradient">
+  <style>
+    #shopify-section-{{ section.id }} .nook-size-guide {
+      --size-guide-accent: {{ section.settings.accent_color }};
+      --size-guide-line: rgba(var(--color-foreground), 0.13);
+      --size-guide-muted: rgba(var(--color-foreground), 0.7);
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__inner {
+      width: min({{ settings.page_width }}px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.52fr);
+      gap: clamp(28px, 6vw, 96px);
+      align-items: end;
+      margin-bottom: clamp(42px, 6vw, 76px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__eyebrow {
+      margin: 0 0 14px;
+      color: var(--size-guide-accent);
+      font-family: var(--font-heading-family);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__title {
+      max-width: 12ch;
+      margin: 0;
+      font-family: var(--font-heading-family);
+      font-size: clamp(42px, 5.4vw, 76px);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__intro-text {
+      max-width: 48ch;
+      margin: 0;
+      color: var(--size-guide-muted);
+      font-family: var(--font-body-family);
+      font-size: clamp(17px, 1.2vw, 19px);
+      line-height: 1.58;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__intro-text p {
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__guides {
+      display: grid;
+      gap: clamp(60px, 9vw, 126px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__guide {
+      display: grid;
+      grid-template-columns: minmax(0, 0.84fr) minmax(320px, 0.76fr);
+      gap: clamp(34px, 6vw, 92px);
+      align-items: center;
+      scroll-margin-top: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__guide--reverse .nook-size-guide__media {
+      order: 2;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__media {
+      display: grid;
+      min-height: clamp(370px, 36vw, 560px);
+      overflow: hidden;
+      border-radius: 18px;
+      place-items: center;
+      background: color-mix(in srgb, var(--size-guide-accent) 8%, rgb(var(--color-background)));
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__image--product {
+      object-fit: contain;
+      padding: clamp(24px, 5vw, 64px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__placeholder {
+      padding: 28px;
+      color: var(--size-guide-muted);
+      font-family: var(--font-heading-family);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__content {
+      min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__product-label {
+      margin: 0 0 12px;
+      color: var(--size-guide-accent);
+      font-family: var(--font-heading-family);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__heading {
+      max-width: 14ch;
+      margin: 0;
+      font-family: var(--font-heading-family);
+      font-size: clamp(31px, 3.2vw, 50px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__note {
+      max-width: 48ch;
+      margin: 18px 0 0;
+      color: var(--size-guide-muted);
+      font-family: var(--font-body-family);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table-wrap {
+      margin-top: clamp(24px, 3vw, 36px);
+      overflow-x: auto;
+      border-top: 1px solid var(--size-guide-line);
+      border-bottom: 1px solid var(--size-guide-line);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table {
+      width: 100%;
+      min-width: 430px;
+      border-collapse: collapse;
+      color: rgb(var(--color-foreground));
+      font-family: var(--font-body-family);
+      font-size: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table th,
+    #shopify-section-{{ section.id }} .nook-size-guide__table td {
+      padding: 16px 12px;
+      border-bottom: 1px solid var(--size-guide-line);
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table thead th {
+      background: color-mix(in srgb, var(--size-guide-accent) 10%, rgb(var(--color-background)));
+      font-family: var(--font-heading-family);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table th:first-child,
+    #shopify-section-{{ section.id }} .nook-size-guide__table td:first-child {
+      width: 34%;
+      padding-left: 0;
+      font-family: var(--font-heading-family);
+      font-weight: 700;
+      text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table th:first-child {
+      padding-left: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__table tbody tr:last-child th,
+    #shopify-section-{{ section.id }} .nook-size-guide__table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__shop-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      margin-top: 26px;
+      padding: 13px 22px;
+      border: 1px solid rgb(var(--color-foreground));
+      border-radius: 6px;
+      background: rgb(var(--color-foreground));
+      color: rgb(var(--color-background));
+      font-family: var(--font-heading-family);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__shop-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(var(--color-foreground), 0.14);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__shop-link:active {
+      transform: translateY(1px);
+    }
+
+    #shopify-section-{{ section.id }} .nook-size-guide__shop-link:focus-visible {
+      outline: 3px solid var(--size-guide-accent);
+      outline-offset: 4px;
+    }
+
+    @media screen and (max-width: 989px) {
+      #shopify-section-{{ section.id }} .nook-size-guide__intro,
+      #shopify-section-{{ section.id }} .nook-size-guide__guide {
+        grid-template-columns: 1fr;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__guide--reverse .nook-size-guide__media {
+        order: 0;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__title,
+      #shopify-section-{{ section.id }} .nook-size-guide__heading {
+        max-width: 16ch;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__media {
+        min-height: min(72vw, 560px);
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      #shopify-section-{{ section.id }} .nook-size-guide {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__inner {
+        width: min(100% - 32px, {{ settings.page_width }}px);
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__intro {
+        gap: 22px;
+        margin-bottom: 44px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__guides {
+        gap: 64px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__guide {
+        gap: 28px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__media {
+        min-height: 360px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__table th,
+      #shopify-section-{{ section.id }} .nook-size-guide__table td {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__shop-link {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .nook-size-guide__shop-link {
+        transition: none;
+      }
+
+      #shopify-section-{{ section.id }} .nook-size-guide__shop-link:hover,
+      #shopify-section-{{ section.id }} .nook-size-guide__shop-link:active {
+        transform: none;
+      }
+    }
+  </style>
+
+  <div class="nook-size-guide__inner">
+    <header class="nook-size-guide__intro">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="nook-size-guide__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h1 class="nook-size-guide__title">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.intro != blank -%}
+        <div class="nook-size-guide__intro-text rte">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </header>
+
+    <div class="nook-size-guide__guides">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign guide_image = block.settings.image
+          assign guide_product = block.settings.product
+          if guide_image == blank and guide_product != blank
+            assign guide_image = guide_product.featured_image
+          endif
+          assign has_second_size = false
+          assign has_third_size = false
+          if block.settings.size_2 != blank
+            assign has_second_size = true
+          endif
+          if block.settings.size_3 != blank
+            assign has_third_size = true
+          endif
+        -%}
+
+        <article id="size-guide-{{ block.id }}" class="nook-size-guide__guide{% if forloop.index0 == 1 %} nook-size-guide__guide--reverse{% endif %}" {{ block.shopify_attributes }}>
+          <div class="nook-size-guide__media">
+            {%- if guide_image != blank -%}
+              {{
+                guide_image
+                | image_url: width: 1400
+                | image_tag:
+                  widths: '360, 540, 720, 960, 1200, 1400',
+                  sizes: '(min-width: 990px) 50vw, 100vw',
+                  class: 'nook-size-guide__image nook-size-guide__image--product',
+                  loading: 'lazy',
+                  alt: block.settings.heading
+              }}
+            {%- else -%}
+              <span class="nook-size-guide__placeholder">{{ block.settings.heading | escape }}</span>
+            {%- endif -%}
+          </div>
+
+          <div class="nook-size-guide__content">
+            {%- if block.settings.product_label != blank -%}
+              <p class="nook-size-guide__product-label">{{ block.settings.product_label | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h2 class="nook-size-guide__heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if block.settings.note != blank -%}
+              <p class="nook-size-guide__note">{{ block.settings.note | escape }}</p>
+            {%- endif -%}
+
+            <div class="nook-size-guide__table-wrap">
+              <table class="nook-size-guide__table">
+                <caption class="visually-hidden">{{ block.settings.heading | escape }}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">{{ section.settings.size_header | escape }}</th>
+                    <th scope="col">{{ block.settings.size_1 | escape }}</th>
+                    {%- if has_second_size -%}<th scope="col">{{ block.settings.size_2 | escape }}</th>{%- endif -%}
+                    {%- if has_third_size -%}<th scope="col">{{ block.settings.size_3 | escape }}</th>{%- endif -%}
+                  </tr>
+                </thead>
+                <tbody>
+                  {%- if block.settings.us_size_1 != blank -%}
+                    <tr>
+                      <th scope="row">{{ section.settings.us_shoe_size_label | escape }}</th>
+                      <td>{{ block.settings.us_size_1 | escape }}</td>
+                      {%- if has_second_size -%}<td>{{ block.settings.us_size_2 | escape }}</td>{%- endif -%}
+                      {%- if has_third_size -%}<td>{{ block.settings.us_size_3 | escape }}</td>{%- endif -%}
+                    </tr>
+                  {%- endif -%}
+                  {%- if block.settings.uk_size_1 != blank -%}
+                    <tr>
+                      <th scope="row">{{ section.settings.uk_shoe_size_label | escape }}</th>
+                      <td>{{ block.settings.uk_size_1 | escape }}</td>
+                      {%- if has_second_size -%}<td>{{ block.settings.uk_size_2 | escape }}</td>{%- endif -%}
+                      {%- if has_third_size -%}<td>{{ block.settings.uk_size_3 | escape }}</td>{%- endif -%}
+                    </tr>
+                  {%- endif -%}
+                </tbody>
+              </table>
+            </div>
+
+            {%- if block.settings.button_label != blank and guide_product != blank -%}
+              <a class="nook-size-guide__shop-link" href="{{ guide_product.url }}">{{ block.settings.button_label | escape }}</a>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Size guide comparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Fit and feel"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your most comfortable fit."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Use the guide below to choose between our everyday ankle sock and our crew sock. If you are between sizes, we recommend sizing up.</p>"
+    },
+    {
+      "type": "text",
+      "id": "size_header",
+      "label": "Size table header",
+      "default": "Sock size"
+    },
+    {
+      "type": "text",
+      "id": "us_shoe_size_label",
+      "label": "US shoe size label",
+      "default": "US shoe size"
+    },
+    {
+      "type": "text",
+      "id": "uk_shoe_size_label",
+      "label": "UK shoe size label",
+      "default": "UK shoe size"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 32,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 24,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guide",
+      "name": "Sock size guide",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override"
+        },
+        {
+          "type": "text",
+          "id": "product_label",
+          "label": "Product label",
+          "default": "Everyday comfort"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Normal orthopedic socks"
+        },
+        {
+          "type": "textarea",
+          "id": "note",
+          "label": "Sizing note",
+          "default": "If you are between sizes, choose the larger size for a more relaxed fit."
+        },
+        {
+          "type": "text",
+          "id": "size_1",
+          "label": "First size label",
+          "default": "S"
+        },
+        {
+          "type": "text",
+          "id": "size_2",
+          "label": "Second size label",
+          "default": "M"
+        },
+        {
+          "type": "text",
+          "id": "size_3",
+          "label": "Third size label",
+          "default": "L"
+        },
+        {
+          "type": "text",
+          "id": "us_size_1",
+          "label": "First US shoe size",
+          "default": "4–7½"
+        },
+        {
+          "type": "text",
+          "id": "us_size_2",
+          "label": "Second US shoe size",
+          "default": "8–10½"
+        },
+        {
+          "type": "text",
+          "id": "us_size_3",
+          "label": "Third US shoe size",
+          "default": "11–13"
+        },
+        {
+          "type": "text",
+          "id": "uk_size_1",
+          "label": "First UK shoe size"
+        },
+        {
+          "type": "text",
+          "id": "uk_size_2",
+          "label": "Second UK shoe size"
+        },
+        {
+          "type": "text",
+          "id": "uk_size_3",
+          "label": "Third UK shoe size"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop this sock"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Size guide comparison",
+      "blocks": [
+        {
+          "type": "guide"
+        },
+        {
+          "type": "guide",
+          "settings": {
+            "product_label": "More coverage",
+            "heading": "Orthopedic crew socks",
+            "note": "One comfortable size designed to fit US shoe sizes 7 through 14.",
+            "size_1": "One size",
+            "size_2": "",
+            "size_3": "",
+            "us_size_1": "7–14",
+            "button_label": "Shop crew socks"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

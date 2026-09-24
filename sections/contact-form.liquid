@@ -1,0 +1,931 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'page-section-reveal.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'page-section-reveal.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  .nook-contact-{{ section.id }} {
+    --nook-contact-bg: {{ section.settings.background_color }};
+    --nook-contact-surface: {{ section.settings.surface_color }};
+    --nook-contact-ink: {{ section.settings.text_color }};
+    --nook-contact-accent: {{ section.settings.accent_color }};
+    --nook-contact-border: {{ section.settings.text_color | color_modify: 'alpha', 0.14 }};
+    --nook-contact-mark-size: {{ section.settings.mark_icon_size }}px;
+    position: relative;
+    overflow: hidden;
+    max-width: 100vw;
+    background:
+      linear-gradient(180deg, {{ section.settings.accent_color | color_modify: 'alpha', 0.08 }} 0%, {{ section.settings.accent_color | color_modify: 'alpha', 0 }} 38%),
+      var(--nook-contact-bg);
+    color: var(--nook-contact-ink);
+  }
+
+  .nook-contact-{{ section.id }}::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: {{ section.settings.text_color | color_modify: 'alpha', 0.12 }};
+    pointer-events: none;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(380px, 1fr);
+    gap: clamp(34px, 5vw, 72px);
+    align-items: start;
+    width: min(1180px, 100%);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__copy {
+    display: grid;
+    gap: 20px;
+    min-width: 0;
+    padding-top: clamp(2px, 1.5vw, 16px);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__mark {
+    display: inline-flex;
+    width: 62px;
+    height: 62px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid {{ section.settings.text_color | color_modify: 'alpha', 0.14 }};
+    border-radius: 18px;
+    background: {{ section.settings.surface_color | color_modify: 'alpha', 0.76 }};
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.74 }};
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__mark svg,
+  .nook-contact-{{ section.id }} .nook-contact__mark-image {
+    display: block;
+    width: var(--nook-contact-mark-size);
+    height: var(--nook-contact-mark-size);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__mark-image {
+    object-fit: contain;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__eyebrow {
+    margin: 0;
+    color: var(--nook-contact-accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: none;
+  }
+
+  .nook-contact-{{ section.id }} .contact-heading-{{ section.id }} {
+    max-width: 8.7em;
+    margin: 0;
+    color: var(--nook-contact-ink);
+    font-size: clamp(4rem, 6.2vw, 7.2rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.98;
+    text-align: {{ section.settings.heading_align }};
+    text-transform: uppercase;
+  }
+
+  .nook-contact-{{ section.id }} .contact-sub-heading-{{ section.id }} {
+    max-width: 54rem;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.76 }};
+    font-size: clamp(1.6rem, 1.5vw, 1.9rem);
+    line-height: 1.58;
+    text-align: {{ section.settings.sub_heading_align }};
+    overflow-wrap: break-word;
+  }
+
+  .nook-contact-{{ section.id }} .contact-sub-heading-{{ section.id }} p {
+    margin: 0;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support {
+    counter-reset: nook-contact-support;
+    display: grid;
+    gap: 0;
+    max-width: 54rem;
+    margin-top: 14px;
+    border-top: 1px solid var(--nook-contact-border);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-item {
+    counter-increment: nook-contact-support;
+    display: grid;
+    grid-template-columns: 4.8rem minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--nook-contact-border);
+    background: transparent;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-item::before {
+    content: counter(nook-contact-support, decimal-leading-zero);
+    padding-top: 0.2rem;
+    color: var(--nook-contact-accent);
+    font-family: var(--font-body-family);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-icon {
+    display: none;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.12 }};
+    color: var(--nook-contact-accent);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-title {
+    margin: 0 0 4px;
+    color: var(--nook-contact-ink);
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__support-text {
+    margin: 0;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.70 }};
+    font-size: 1.42rem;
+    line-height: 1.5;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__panel {
+    position: relative;
+    min-width: 0;
+    padding: clamp(24px, 3vw, 40px);
+    border: 1px solid var(--nook-contact-border);
+    border-radius: 8px;
+    background: var(--nook-contact-surface);
+    box-shadow: 0 18px 50px {{ section.settings.text_color | color_modify: 'alpha', 0.07 }};
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    border-radius: 8px 8px 0 0;
+    background: var(--nook-contact-accent);
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__form-heading {
+    margin: 0 0 20px;
+    color: var(--nook-contact-ink);
+    font-size: clamp(2.3rem, 2.2vw, 3.1rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.05;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin: 0;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__field--full,
+  .nook-contact-{{ section.id }} .contact__button,
+  .nook-contact-{{ section.id }} .form__message,
+  .nook-contact-{{ section.id }} .form-status-list {
+    grid-column: 1 / -1;
+  }
+
+  .nook-contact-{{ section.id }} .field {
+    margin: 0;
+  }
+
+  .nook-contact-{{ section.id }} .field::before,
+  .nook-contact-{{ section.id }} .field::after {
+    content: none;
+  }
+
+  .nook-contact-{{ section.id }} .field__input,
+  .nook-contact-{{ section.id }} .text-area,
+  .nook-contact-{{ section.id }} select.field__input {
+    min-height: 56px;
+    border: 1px solid {{ section.settings.text_color | color_modify: 'alpha', 0.16 }};
+    border-radius: 8px;
+    background: {{ section.settings.background_color | color_modify: 'alpha', 0.74 }};
+    box-shadow: none;
+    color: var(--nook-contact-ink);
+    font-size: 1.5rem;
+  }
+
+  .nook-contact-{{ section.id }} .text-area {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .nook-contact-{{ section.id }} .field__label {
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.58 }};
+    font-size: 1.25rem;
+  }
+
+  .nook-contact-{{ section.id }} .field__input:focus,
+  .nook-contact-{{ section.id }} .text-area:focus,
+  .nook-contact-{{ section.id }} select.field__input:focus {
+    border-color: var(--nook-contact-accent);
+    box-shadow: 0 0 0 2px {{ section.settings.accent_color | color_modify: 'alpha', 0.24 }};
+  }
+
+  .nook-contact-{{ section.id }} .contact__button {
+    --ns-cta-fill: var(--nook-contact-accent);
+    --ns-cta-surface: var(--nook-contact-surface);
+    --ns-cta-text: var(--nook-contact-ink);
+    --ns-cta-text-hover: #ffffff;
+    margin-top: 8px;
+  }
+
+  .nook-contact-{{ section.id }} .contact__button .button {
+    width: 100%;
+    min-height: 50px;
+    min-width: 100%;
+    padding: 0 3.2rem !important;
+    border: 1px solid var(--nook-contact-accent) !important;
+    border-radius: 0 !important;
+    background: var(--nook-contact-surface) !important;
+    box-shadow: none !important;
+    color: var(--nook-contact-ink) !important;
+    font-family: var(--font-body-family);
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  .nook-contact-{{ section.id }} .contact__button .button::before,
+  .nook-contact-{{ section.id }} .contact__button .button::after {
+    content: none !important;
+  }
+
+  .nook-contact-{{ section.id }} .contact__button .button:hover {
+    background: var(--nook-contact-accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 22px {{ section.settings.text_color | color_modify: 'alpha', 0.12 }} !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .nook-contact-{{ section.id }} .contact__button .button:focus-visible {
+    outline: 2px solid var(--nook-contact-accent);
+    outline-offset: 4px;
+    box-shadow: none !important;
+  }
+
+  .nook-contact-{{ section.id }} .nook-contact__response {
+    margin: 18px 0 0;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.64 }};
+    font-size: 1.25rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 899px) {
+    .nook-contact-{{ section.id }} .nook-contact__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .nook-contact-{{ section.id }} .contact-heading-{{ section.id }} {
+      max-width: 9em;
+      text-align: {{ section.settings.heading_align_mobile }};
+    }
+
+    .nook-contact-{{ section.id }} .contact-sub-heading-{{ section.id }} {
+      text-align: {{ section.settings.sub_heading_align_mobile }};
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    .nook-contact-{{ section.id }} .nook-contact__inner {
+      width: min(100%, calc(100vw - 32px));
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__copy,
+    .nook-contact-{{ section.id }} .nook-contact__support,
+    .nook-contact-{{ section.id }} .nook-contact__panel,
+    .nook-contact-{{ section.id }} .contact-sub-heading-{{ section.id }} {
+      width: 100%;
+      max-width: calc(100vw - 32px);
+    }
+
+    .nook-contact-{{ section.id }} .contact-heading-{{ section.id }} {
+      font-size: clamp(3.4rem, 13vw, 5rem);
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__copy {
+      gap: 16px;
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__support-item {
+      grid-template-columns: 4rem minmax(0, 1fr);
+      gap: 14px;
+      padding: 16px 0;
+      min-width: 0;
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__support-text {
+      overflow-wrap: break-word;
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__panel {
+      padding: 20px;
+    }
+
+    .nook-contact-{{ section.id }} .nook-contact__form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="nook-contact nook-contact--motion nook-contact-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width section-{{ section.id }}-padding nook-contact__inner">
+    <div class="nook-contact__copy">
+      <span class="nook-contact__mark" aria-hidden="true">
+        {%- if section.settings.mark_icon != blank -%}
+          {{
+            section.settings.mark_icon
+            | image_url: width: 160
+            | image_tag:
+              widths: '40, 68, 96, 136, 160',
+              sizes: '48px',
+              class: 'nook-contact__mark-image',
+              loading: 'eager'
+          }}
+        {%- else -%}
+          <svg viewBox="0 0 48 48" fill="none" role="presentation">
+            <path d="M15 27.5h5.5l4.2 4.2a3.5 3.5 0 0 0 4.9 0l3.9-3.9a3.1 3.1 0 0 0-4.4-4.4l-2 2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 32h8.2a7.5 7.5 0 0 0 5.3-2.2l8.1-8.1a3 3 0 0 1 4.2 4.2l-8.3 8.3A12 12 0 0 1 23 37.8h-9" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23.8 17.7c0-3.2 4-4.6 6.1-2.2 2.1-2.4 6.1-1 6.1 2.2 0 3.9-6.1 7.1-6.1 7.1s-6.1-3.2-6.1-7.1Z" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        {%- endif -%}
+      </span>
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="nook-contact__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="contact-heading-{{ section.id }} title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
+        </h2>
+      {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.sub_heading != blank -%}
+        <div class="contact-sub-heading-{{ section.id }}">
+          {{ section.settings.sub_heading }}
+        </div>
+      {%- endif -%}
+
+      <div class="nook-contact__support" aria-label="Customer support options">
+        <div class="nook-contact__support-item">
+          <span class="nook-contact__support-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" role="presentation">
+              <path d="M5 13c3.4-4.2 10.6-4.2 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 16h8M10 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 9h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+            </svg>
+          </span>
+          <div>
+            <p class="nook-contact__support-title">{{ section.settings.support_1_title }}</p>
+            <p class="nook-contact__support-text">{{ section.settings.support_1_text }}</p>
+          </div>
+        </div>
+        <div class="nook-contact__support-item">
+          <span class="nook-contact__support-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" role="presentation">
+              <path d="M6 7h12l-1 12H7L6 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 7a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+            </svg>
+          </span>
+          <div>
+            <p class="nook-contact__support-title">{{ section.settings.support_2_title }}</p>
+            <p class="nook-contact__support-text">{{ section.settings.support_2_text }}</p>
+          </div>
+        </div>
+        <div class="nook-contact__support-item">
+          <span class="nook-contact__support-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" role="presentation">
+              <path d="M12 20s7-3.9 7-10.2A4.2 4.2 0 0 0 12 6a4.2 4.2 0 0 0-7 3.8C5 16.1 12 20 12 20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+            </svg>
+          </span>
+          <div>
+            <p class="nook-contact__support-title">{{ section.settings.support_3_title }}</p>
+            <p class="nook-contact__support-text">{{ section.settings.support_3_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nook-contact__panel">
+      {%- if section.settings.form_heading != blank -%}
+        <p class="nook-contact__form-heading">{{ section.settings.form_heading }}</p>
+      {%- endif -%}
+
+    {%- liquid
+      assign contact_form_class = 'isolate nook-contact__form'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in nook-contact__form'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+              {%- when 'name' -%}
+        <div class="field nook-contact__field nook-contact__field--name">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name' | t }}"
+          >
+          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        </div>
+           {%- when 'email' -%}
+        <div class="field field--with-error nook-contact__field nook-contact__field--email">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email' | t }}"
+          >
+          <label class="field__label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span aria-hidden="true">*</span></label
+          >
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+           {%- when 'tel' -%}
+      <div class="field nook-contact__field nook-contact__field--full">
+        <input
+          type="tel"
+          id="ContactForm-phone"
+          class="field__input"
+          autocomplete="tel"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]"
+          pattern="[0-9\-]*"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          placeholder="{{ 'templates.contact.form.phone' | t }}"
+        >
+        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+      </div>
+        {%- when 'date' -%}
+      <div class="field nook-contact__field nook-contact__field--full">
+      <input 
+        type="date"  
+        placeholder="Select your date" 
+        id="ContactForm-date" 
+        class="field__input" 
+        name="contact[date]" 
+        value="2024-06-16"
+        >
+      <label class="form__label field__label" for="ContactForm-date" style="margin-bottom: 0.2rem;top: 10px;">Select your date</label>
+      </div>
+          {%- when 'select' -%}
+      <div class="field nook-contact__field nook-contact__field--full">
+        <select class="field__input" name="contact[{{ block.settings.select_id }}]" id="ContactForm-select-{{ block.id }}" style="padding: 1.8rem 1.5rem .8rem 2rem;">
+            <option value="option-1" selected="true" id="ContactForm-select-0">{{ block.settings.option_1 }}</option>
+            <option value="option-2" id="ContactForm-select-1">{{ block.settings.option_2 }}</option>
+            {% if block.settings.show_option_3 %}<option value="option-3" id="ContactForm-select-2">{{ block.settings.option_3 }}</option>{% endif %}
+            {% if block.settings.show_option_4 %}<option value="option-4" id="ContactForm-select-3">{{ block.settings.option_4 }}</option>{% endif %}
+        </select>
+           <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6" style="width: 16px;position: absolute;right: 16px;top: 40%;"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path></svg>
+      <label class="form__label field__label" for="ContactForm-select-{{ block.id }}" style="margin-bottom: 0.2rem;top: 10px;">{{ block.settings.option_label }}</label>
+      </div>
+       {%- when 'textarea' -%}
+      <div class="field nook-contact__field nook-contact__field--full">
+        <textarea
+          rows="10"
+          id="ContactForm-body"
+          class="text-area field__input"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="{{ 'templates.contact.form.comment' | t }}"
+        >
+          {{- form.body -}}
+        </textarea>
+        <label class="form__label field__label" for="ContactForm-body">
+          {{- 'templates.contact.form.comment' | t -}}
+        </label>
+      </div>
+           {%- when 'text' -%}
+      <div class="field nook-contact__field nook-contact__field--full">
+        <input 
+          type="text" 
+          id="ContactForm-text-{{ block.id }}"
+          name="contact[{{ block.settings.text }}]"
+          class="field__input"
+          size="30" 
+          placeholder="{{ block.settings.text_label }}"
+          >
+        <label class="form__label field__label" for="ContactForm-text-{{ block.id }}">
+          {{ block.settings.text_label }}
+        </label>
+      </div>
+          {% endcase %}
+        {% endfor %}
+      <div class="contact__button">
+        <button type="submit" class="button">
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+
+      {%- if section.settings.response_note != blank -%}
+        <p class="nook-contact__response">{{ section.settings.response_note }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+   "disabled_on": {
+  "groups": ["header", "footer", "custom.popup"]
+   },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Get support that fits",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "text_alignment",
+      "id": "heading_align",
+      "label": "Alignment",
+      "default": "center"
+    },
+     {
+      "type": "text_alignment",
+      "id": "heading_align_mobile",
+      "label": "Alignment – Mobile",
+      "default": "center"
+    },
+    {
+      "type": "richtext",
+      "id": "sub_heading",
+      "default": "<p>Questions about sizing, support, shipping, or your order? Send us a note and we will help you choose the right pair with clear, practical guidance.</p>",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Here to help"
+    },
+    {
+      "type": "image_picker",
+      "id": "mark_icon",
+      "label": "Header icon",
+      "info": "Upload an image to replace the default hand-and-heart icon. Square images work best."
+    },
+    {
+      "type": "range",
+      "id": "mark_icon_size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Header icon size",
+      "default": 34
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Send us a message"
+    },
+    {
+      "type": "text",
+      "id": "support_1_title",
+      "label": "Support item 1 title",
+      "default": "Sizing guidance"
+    },
+    {
+      "type": "text",
+      "id": "support_1_text",
+      "label": "Support item 1 text",
+      "default": "Tell us how you like your socks to fit and we will point you to the right style."
+    },
+    {
+      "type": "text",
+      "id": "support_2_title",
+      "label": "Support item 2 title",
+      "default": "Order support"
+    },
+    {
+      "type": "text",
+      "id": "support_2_text",
+      "label": "Support item 2 text",
+      "default": "Get help with tracking, delivery questions, exchanges, and returns."
+    },
+    {
+      "type": "text",
+      "id": "support_3_title",
+      "label": "Support item 3 title",
+      "default": "Comfort promise"
+    },
+    {
+      "type": "text",
+      "id": "support_3_text",
+      "label": "Support item 3 text",
+      "default": "If something does not feel right, we will work with you to make it better."
+    },
+    {
+      "type": "text",
+      "id": "response_note",
+      "label": "Response note",
+      "default": "We usually reply within one business day."
+    },
+    {
+      "type": "text_alignment",
+      "id": "sub_heading_align",
+      "label": "Alignment",
+      "default": "left"
+    },
+    {
+      "type": "text_alignment",
+      "id": "sub_heading_align_mobile",
+      "label": "Alignment – Mobile",
+      "default": "left"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Form surface color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1f1d24"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+   "blocks": [
+    {
+      "type": "name",
+      "name": "Name",
+      "limit": 1
+    },
+     {
+      "type": "email",
+      "limit": 1,
+      "name": "Email"
+    },
+     {
+      "type": "textarea",
+       "limit": 1,
+      "name": "Text Box"
+    },
+     {
+      "type": "tel",
+       "limit": 1,
+      "name": "Telephone"
+    },
+     {
+      "type": "date",
+      "limit": 1,
+      "name": "Date"
+    },
+      {
+      "type": "text",
+      "name": "Text field",
+       "settings": [
+              {
+      "type": "text",
+       "id": "text_label",
+      "label": "Placeholder text",
+      "default": "Write something"
+     },
+         {
+      "type": "text",
+       "id": "text",
+      "label": "Name",
+      "default": "Text",
+      "info": "Only you can see this when recieve form"
+     }
+       ]
+      },
+     {
+      "type": "select",
+      "name": "Dropdown",
+       "settings": [
+             {
+      "type": "text",
+       "id": "select_id",
+      "label": "Name",
+      "default": "select",
+      "info": "Only you can see this when recieve form"
+     },
+              {
+      "type": "text",
+       "id": "option_label",
+      "label": "Placeholder text",
+      "default": "Select your option"
+     },
+         {
+      "type": "text",
+      "id": "option_1",
+      "label": "Option 1",
+      "default": "Option 1"
+     },
+      {
+      "type": "text",
+       "id": "option_2",
+      "label": "Option 2",
+      "default": "Option 2"
+     },
+     {
+       "type": "checkbox",
+       "id": "show_option_3",
+       "default": false,
+       "label": "Show Option 3"
+     },
+           {
+      "type": "text",
+       "id": "option_3",
+      "label": "Option 3",
+      "default": "Option 3"
+     },
+          {
+       "type": "checkbox",
+       "id": "show_option_4",
+       "default": false,
+       "label": "Show Option 4"
+     },
+           {
+      "type": "text",
+       "id": "option_4",
+      "label": "Option 4",
+      "default": "Option 4"
+     }
+       ]
+    }
+   ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name",
+       "blocks": [
+        {
+          "type": "name"
+        },
+        {
+          "type": "email"
+        },
+        {
+          "type": "tel"
+        },
+         {
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

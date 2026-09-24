@@ -1,0 +1,944 @@
+{%- liquid
+  assign s = section.settings
+  assign media_alt = s.image_alt | default: s.heading
+-%}
+
+<section
+  id="ComfortAnatomy-{{ section.id }}"
+  class="comfort-selector color-{{ s.color_scheme }} gradient"
+  style="
+    --comfort-selector-bg: {{ s.background_color }};
+    --comfort-selector-surface: {{ s.surface_color }};
+    --comfort-selector-ink: {{ s.text_color }};
+    --comfort-selector-accent: {{ s.accent_color }};
+    --comfort-selector-media-bg: {{ s.media_background }};
+    --comfort-selector-media-surface: {{ s.media_background_gradient | default: s.media_background }};
+    --comfort-selector-hotspot: {{ s.hotspot_color }};
+    --comfort-selector-image-width: {{ s.image_max_width }}px;
+    --comfort-selector-padding-top: {{ s.padding_top }}px;
+    --comfort-selector-padding-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <div class="page-width comfort-selector__inner">
+    <header class="comfort-selector__header">
+      {%- if s.heading != blank -%}
+        <h2 class="comfort-selector__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if s.body != blank -%}
+        <div class="comfort-selector__body rte">{{ s.body }}</div>
+      {%- endif -%}
+    </header>
+
+    <div class="comfort-selector__stage">
+      {%- if section.blocks.size > 0 -%}
+        <div class="comfort-selector__cards" role="list" aria-label="{{ s.heading | escape }}">
+          {%- for block in section.blocks limit: 5 -%}
+            {%- liquid
+              assign card_text = block.settings.description | default: block.settings.short_label
+              assign card_id = 'ComfortCard-' | append: section.id | append: '-' | append: forloop.index
+            -%}
+            <div class="comfort-selector__card-item" role="listitem">
+              <button
+                type="button"
+                class="comfort-selector__card{% if forloop.first %} is-active{% endif %}"
+                id="{{ card_id }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-comfort-control="{{ forloop.index }}"
+                data-comfort-card
+                {{ block.shopify_attributes }}
+              >
+                <span class="comfort-selector__card-index" aria-hidden="true">
+                  {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+                </span>
+
+                <span class="comfort-selector__card-copy">
+                  {%- if block.settings.title != blank -%}
+                    <span class="comfort-selector__card-title">{{ block.settings.title | escape }}</span>
+                  {%- endif -%}
+
+                  {%- if card_text != blank -%}
+                    <span class="comfort-selector__card-text">{{ card_text | escape }}</span>
+                  {%- endif -%}
+                </span>
+              </button>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <figure class="comfort-selector__media">
+        <div class="comfort-selector__image-map">
+          {%- if s.product_image != blank -%}
+            {{
+              s.product_image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                widths: '420, 620, 760, 930, 1200, 1600',
+                sizes: '(min-width: 990px) 58vw, 94vw',
+                alt: media_alt,
+                class: 'comfort-selector__media-image'
+            }}
+          {%- else -%}
+            <img
+              class="comfort-selector__media-image"
+              src="{{ 'comfort-anatomy-black-sock.png' | asset_img_url: '900x' }}"
+              srcset="{{ 'comfort-anatomy-black-sock.png' | asset_img_url: '420x' }} 420w, {{ 'comfort-anatomy-black-sock.png' | asset_img_url: '700x' }} 700w, {{ 'comfort-anatomy-black-sock.png' | asset_img_url: '900x' }} 900w, {{ 'comfort-anatomy-black-sock.png' | asset_url }} 1190w"
+              sizes="(min-width: 990px) 58vw, 94vw"
+              alt="{{ media_alt | escape }}"
+              width="1190"
+              height="1322"
+              loading="lazy"
+            >
+          {%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <div class="comfort-selector__hotspots" role="group" aria-label="{{ s.heading | escape }}">
+              {%- for block in section.blocks limit: 5 -%}
+                {%- liquid
+                  assign point_label = block.settings.marker_label | default: block.settings.title
+                  assign point_id = 'ComfortPoint-' | append: section.id | append: '-' | append: forloop.index
+                -%}
+                <button
+                  type="button"
+                  class="comfort-selector__hotspot{% if forloop.first %} is-active{% endif %}"
+                  id="{{ point_id }}"
+                  aria-label="{{ block.settings.title | escape }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  data-comfort-control="{{ forloop.index }}"
+                  data-comfort-hotspot
+                  data-label-side="{{ block.settings.label_side }}"
+                  data-use-mobile-position="{{ block.settings.use_mobile_position }}"
+                  style="--point-x: {{ block.settings.point_x }}%; --point-y: {{ block.settings.point_y }}%; --point-x-mobile: {{ block.settings.point_x_mobile }}%; --point-y-mobile: {{ block.settings.point_y_mobile }}%;"
+                >
+                  <span class="comfort-selector__hotspot-dot" aria-hidden="true"></span>
+                  <span class="comfort-selector__annotation" aria-hidden="true">
+                    <span class="comfort-selector__leader"></span>
+                    <span class="comfort-selector__point-label">{{ point_label | escape | upcase }}</span>
+                  </span>
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const section = document.getElementById('ComfortAnatomy-{{ section.id }}');
+    if (!section || section.dataset.comfortReady === 'true') return;
+
+    section.dataset.comfortReady = 'true';
+
+    const controls = Array.from(section.querySelectorAll('[data-comfort-control]'));
+    let selected = controls.find((control) => control.classList.contains('is-active'))?.dataset.comfortControl || '1';
+
+    const preview = (target) => {
+      controls.forEach((control) => {
+        const isActive = control.dataset.comfortControl === String(target);
+        control.classList.toggle('is-active', isActive);
+      });
+    };
+
+    const commit = (target) => {
+      selected = String(target);
+      preview(selected);
+
+      controls.forEach((control) => {
+        control.setAttribute('aria-pressed', control.dataset.comfortControl === selected ? 'true' : 'false');
+      });
+    };
+
+    controls.forEach((control) => {
+      const target = control.dataset.comfortControl;
+
+      control.addEventListener('pointerenter', () => preview(target));
+      control.addEventListener('pointerleave', () => preview(selected));
+      control.addEventListener('focus', () => preview(target));
+      control.addEventListener('blur', () => preview(selected));
+      control.addEventListener('click', () => commit(target));
+    });
+
+    section.addEventListener('shopify:block:select', (event) => {
+      const selectedCard = event.target.querySelector('[data-comfort-card]') || event.target.closest('[data-comfort-card]');
+      if (selectedCard) preview(selectedCard.dataset.comfortControl);
+    });
+  })();
+</script>
+
+{% stylesheet %}
+  .comfort-selector {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: var(--comfort-selector-padding-top) var(--comfort-selector-padding-bottom);
+    background: var(--comfort-selector-bg);
+    color: var(--comfort-selector-ink);
+    scroll-margin-top: 9.6rem;
+  }
+
+  .comfort-selector__inner {
+    display: grid;
+    gap: clamp(4.8rem, 5vw, 7.2rem);
+    max-width: 140rem;
+  }
+
+  .comfort-selector__header {
+    max-width: 78rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .comfort-selector__heading {
+    margin: 0;
+    color: var(--comfort-selector-ink);
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-size: clamp(4rem, 4.2vw, 5.8rem);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+
+  .comfort-selector__body {
+    max-width: 64rem;
+    margin: 1.6rem auto 0;
+    color: color-mix(in srgb, var(--comfort-selector-ink) 72%, transparent);
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: clamp(1.6rem, 1.25vw, 1.8rem);
+    line-height: 1.6;
+  }
+
+  .comfort-selector__body > :first-child {
+    margin-top: 0;
+  }
+
+  .comfort-selector__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .comfort-selector__stage {
+    display: grid;
+    grid-template-columns: minmax(30rem, 38rem) minmax(0, 1fr);
+    gap: clamp(4rem, 5vw, 7rem);
+    align-items: center;
+  }
+
+  .comfort-selector__cards {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .comfort-selector__card-item {
+    min-width: 0;
+  }
+
+  .comfort-selector__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 1.4rem;
+    align-items: start;
+    width: 100%;
+    min-height: 9rem;
+    padding: 1.7rem 1.8rem;
+    overflow: hidden;
+    border: 0.1rem solid color-mix(in srgb, var(--comfort-selector-ink) 12%, transparent);
+    border-radius: 0.6rem;
+    background: color-mix(in srgb, var(--comfort-selector-surface) 42%, transparent);
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    appearance: none;
+    transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .comfort-selector__card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.35rem;
+    background: transparent;
+    transition: background 180ms ease;
+  }
+
+  .comfort-selector__card:hover,
+  .comfort-selector__card.is-active {
+    border-color: color-mix(in srgb, var(--comfort-selector-accent) 78%, transparent);
+    background: color-mix(in srgb, var(--comfort-selector-surface) 88%, var(--comfort-selector-accent) 4%);
+    box-shadow: 0 1.8rem 4rem -3.4rem color-mix(in srgb, var(--comfort-selector-ink) 40%, transparent);
+    transform: translateX(0.25rem);
+  }
+
+  .comfort-selector__card:hover::before,
+  .comfort-selector__card.is-active::before {
+    background: var(--comfort-selector-accent);
+  }
+
+  .comfort-selector__card:focus-visible {
+    outline: 0.2rem solid var(--comfort-selector-accent);
+    outline-offset: 0.3rem;
+  }
+
+  .comfort-selector__card-index {
+    display: inline-grid;
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-top: 0.1rem;
+    place-items: center;
+    border: 0.1rem solid color-mix(in srgb, var(--comfort-selector-ink) 16%, transparent);
+    border-radius: 50%;
+    color: color-mix(in srgb, var(--comfort-selector-ink) 58%, transparent);
+    font-family: var(--font-heading-family);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: border-color 180ms ease, color 180ms ease;
+  }
+
+  .comfort-selector__card.is-active .comfort-selector__card-index,
+  .comfort-selector__card:hover .comfort-selector__card-index {
+    border-color: var(--comfort-selector-accent);
+    color: var(--comfort-selector-accent);
+  }
+
+  .comfort-selector__card-title {
+    display: block;
+    color: var(--comfort-selector-ink);
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-size: clamp(1.8rem, 1.35vw, 2.1rem);
+    font-weight: var(--font-heading-weight);
+    line-height: 1.2;
+  }
+
+  .comfort-selector__card-text {
+    display: block;
+    max-width: 42ch;
+    margin-top: 0.55rem;
+    color: color-mix(in srgb, var(--comfort-selector-ink) 70%, transparent);
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: 1.55rem;
+    line-height: 1.46;
+  }
+
+  .comfort-selector__media {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 0.1rem solid color-mix(in srgb, var(--comfort-selector-hotspot) 12%, transparent);
+    border-radius: 0.8rem;
+    background: var(--comfort-selector-media-surface);
+    place-items: center;
+  }
+
+  .comfort-selector__image-map {
+    position: relative;
+    width: min(100%, var(--comfort-selector-image-width));
+    margin-inline: auto;
+  }
+
+  .comfort-selector__media-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .comfort-selector__hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .comfort-selector__hotspot {
+    --leader-length: clamp(7.2rem, 8vw, 11rem);
+    position: absolute;
+    top: var(--point-y);
+    left: var(--point-x);
+    display: grid;
+    width: 5.6rem;
+    height: 5.6rem;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    color: var(--comfort-selector-hotspot);
+    cursor: pointer;
+    pointer-events: auto;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    appearance: none;
+  }
+
+  .comfort-selector__hotspot:focus-visible {
+    border-radius: 50%;
+    outline: 0.2rem solid var(--comfort-selector-hotspot);
+    outline-offset: 0.2rem;
+  }
+
+  .comfort-selector__hotspot-dot {
+    position: relative;
+    display: block;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 0.2rem solid var(--comfort-selector-hotspot);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--comfort-selector-media-bg) 54%, transparent);
+    box-shadow: 0 0 0 0.35rem color-mix(in srgb, var(--comfort-selector-media-bg) 46%, transparent);
+    transition: background 180ms ease, box-shadow 180ms ease, transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .comfort-selector__hotspot-dot::before,
+  .comfort-selector__hotspot-dot::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 999px;
+    background: var(--comfort-selector-hotspot);
+    transform: translate(-50%, -50%);
+  }
+
+  .comfort-selector__hotspot-dot::before {
+    width: 1.35rem;
+    height: 0.18rem;
+  }
+
+  .comfort-selector__hotspot-dot::after {
+    width: 0.18rem;
+    height: 1.35rem;
+  }
+
+  .comfort-selector__hotspot:hover .comfort-selector__hotspot-dot,
+  .comfort-selector__hotspot.is-active .comfort-selector__hotspot-dot {
+    border-color: var(--comfort-selector-hotspot);
+    background: var(--comfort-selector-accent);
+    box-shadow:
+      0 0 0 0.3rem var(--comfort-selector-hotspot),
+      0 0 0 0.7rem color-mix(in srgb, var(--comfort-selector-accent) 44%, transparent);
+    transform: rotate(45deg) scale(1.06);
+  }
+
+  .comfort-selector__annotation {
+    position: absolute;
+    bottom: 50%;
+    left: calc(50% + 1.6rem);
+    width: var(--leader-length);
+    height: 4rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-0.6rem);
+    transition: opacity 180ms ease, transform 220ms ease, visibility 180ms ease;
+  }
+
+  .comfort-selector__leader {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .comfort-selector__leader::before,
+  .comfort-selector__leader::after {
+    content: "";
+    position: absolute;
+    height: 0.1rem;
+    background: var(--comfort-selector-hotspot);
+    transform-origin: left center;
+  }
+
+  .comfort-selector__leader::before {
+    bottom: 0.7rem;
+    left: 0;
+    width: 2.8rem;
+    transform: rotate(-31deg);
+  }
+
+  .comfort-selector__leader::after {
+    right: 0;
+    bottom: 2.14rem;
+    left: 2.4rem;
+  }
+
+  .comfort-selector__point-label {
+    position: absolute;
+    right: 0;
+    bottom: 2.55rem;
+    color: var(--comfort-selector-hotspot);
+    font-family: var(--font-heading-family);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-align: right;
+    text-shadow: 0 0.1rem 0.8rem color-mix(in srgb, var(--comfort-selector-media-bg) 86%, transparent);
+    white-space: nowrap;
+  }
+
+  .comfort-selector__hotspot[data-label-side="left"] .comfort-selector__annotation {
+    right: calc(50% + 1.6rem);
+    left: auto;
+    transform: translateX(0.6rem);
+  }
+
+  .comfort-selector__hotspot[data-label-side="left"] .comfort-selector__leader {
+    transform: scaleX(-1);
+  }
+
+  .comfort-selector__hotspot[data-label-side="left"] .comfort-selector__point-label {
+    right: auto;
+    left: 0;
+    text-align: left;
+  }
+
+  .comfort-selector__hotspot:hover .comfort-selector__annotation,
+  .comfort-selector__hotspot.is-active .comfort-selector__annotation {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .comfort-selector__card,
+    .comfort-selector__card::before,
+    .comfort-selector__card-index,
+    .comfort-selector__hotspot-dot,
+    .comfort-selector__annotation {
+      transition: none;
+    }
+
+    .comfort-selector__card:hover,
+    .comfort-selector__card.is-active {
+      transform: none;
+    }
+  }
+
+  @media screen and (min-width: 990px) and (min-height: 650px) {
+    .comfort-selector {
+      box-sizing: border-box;
+      max-height: 100svh;
+      padding-block: clamp(2.4rem, 3.5vh, 3.6rem);
+    }
+
+    .comfort-selector__inner {
+      gap: clamp(2.4rem, 3.5vh, 3.6rem);
+    }
+
+    .comfort-selector__heading {
+      font-size: clamp(3.6rem, 4.8vh, 4.8rem);
+    }
+
+    .comfort-selector__body {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .comfort-selector__image-map {
+      width: min(100%, var(--comfort-selector-image-width), calc(90svh - 19rem));
+    }
+
+    .comfort-selector__cards {
+      gap: 0.8rem;
+    }
+
+    .comfort-selector__card {
+      min-height: 0;
+      padding: clamp(1.15rem, 1.5vh, 1.5rem) 1.6rem;
+    }
+
+    .comfort-selector__card-text {
+      margin-top: 0.4rem;
+      font-size: 1.45rem;
+      line-height: 1.4;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .comfort-selector__inner {
+      gap: 4.6rem;
+    }
+
+    .comfort-selector__stage {
+      grid-template-columns: 1fr;
+      gap: 3.6rem;
+    }
+
+    .comfort-selector__media {
+      order: -1;
+    }
+
+    .comfort-selector__image-map {
+      width: min(100%, 68rem);
+    }
+
+    .comfort-selector__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .comfort-selector {
+      padding-block: calc(var(--comfort-selector-padding-top) * 0.72) calc(var(--comfort-selector-padding-bottom) * 0.76);
+    }
+
+    .comfort-selector__inner {
+      gap: 3.4rem;
+    }
+
+    .comfort-selector__heading {
+      font-size: clamp(3.2rem, 10vw, 4.2rem);
+    }
+
+    .comfort-selector__body {
+      font-size: 1.6rem;
+    }
+
+    .comfort-selector__stage {
+      gap: 2.8rem;
+    }
+
+    .comfort-selector__cards {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .comfort-selector__card {
+      grid-template-columns: 3.6rem minmax(0, 1fr);
+      gap: 1.2rem;
+      min-height: 0;
+      padding: 1.5rem 1.4rem;
+    }
+
+    .comfort-selector__card:hover,
+    .comfort-selector__card.is-active {
+      transform: none;
+    }
+
+    .comfort-selector__card-index {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    .comfort-selector__card-title {
+      font-size: 1.8rem;
+    }
+
+    .comfort-selector__card-text {
+      font-size: 1.5rem;
+    }
+
+    .comfort-selector__media {
+      margin-inline: -0.6rem;
+    }
+
+    .comfort-selector__hotspot {
+      --leader-length: 6.4rem;
+      width: 5.2rem;
+      height: 5.2rem;
+    }
+
+    .comfort-selector__hotspot[data-use-mobile-position="true"] {
+      top: var(--point-y-mobile);
+      left: var(--point-x-mobile);
+    }
+
+    .comfort-selector__hotspot-dot {
+      width: 3.1rem;
+      height: 3.1rem;
+    }
+
+    .comfort-selector__point-label {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Comfort anatomy",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Anatomy of Comfort"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Five thoughtful details work together for softer, more comfortable steps.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image",
+      "info": "Use an uncropped image. Adjust each anatomy point after replacing it."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Product image alt text",
+      "default": "Black Nook and Stitch orthopedic ankle sock"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "min": 500,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum image width",
+      "default": 760
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Feature surface",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Active accent",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "media_background",
+      "label": "Image background",
+      "default": "#020A12"
+    },
+    {
+      "type": "color_background",
+      "id": "media_background_gradient",
+      "label": "Image background gradient"
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color",
+      "label": "Hotspot and line",
+      "default": "#FBFAF4"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comfort",
+      "name": "Anatomy point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Toe comfort"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A smooth toe area helps reduce rubbing around sensitive toes."
+        },
+        {
+          "type": "text",
+          "id": "marker_label",
+          "label": "Hotspot label",
+          "default": "TOE"
+        },
+        {
+          "type": "range",
+          "id": "point_x",
+          "min": 8,
+          "max": 92,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "point_y",
+          "min": 8,
+          "max": 92,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 50
+        },
+        {
+          "type": "checkbox",
+          "id": "use_mobile_position",
+          "label": "t:sections.comfort_selector.blocks.comfort.settings.use_mobile_position.label",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "point_x_mobile",
+          "min": 8,
+          "max": 92,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.comfort_selector.blocks.comfort.settings.point_x_mobile.label",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "point_y_mobile",
+          "min": 8,
+          "max": 92,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.comfort_selector.blocks.comfort.settings.point_y_mobile.label",
+          "default": 50
+        },
+        {
+          "type": "select",
+          "id": "label_side",
+          "label": "Label direction",
+          "options": [
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "right"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Comfort anatomy",
+      "blocks": [
+        {
+          "type": "comfort",
+          "settings": {
+            "title": "Toe comfort",
+            "description": "A smooth toe area helps reduce rubbing around sensitive toes.",
+            "marker_label": "TOE",
+            "point_x": 16,
+            "point_y": 85,
+            "label_side": "right"
+          }
+        },
+        {
+          "type": "comfort",
+          "settings": {
+            "title": "Heel cushioning",
+            "description": "Targeted heel padding softens impact and helps ease pressure with every step.",
+            "marker_label": "HEEL",
+            "point_x": 87,
+            "point_y": 43,
+            "label_side": "left"
+          }
+        },
+        {
+          "type": "comfort",
+          "settings": {
+            "title": "Cushioned sole",
+            "description": "Soft cushioning underfoot helps absorb impact during long days on your feet.",
+            "marker_label": "SOLE",
+            "point_x": 55,
+            "point_y": 89,
+            "label_side": "right"
+          }
+        },
+        {
+          "type": "comfort",
+          "settings": {
+            "title": "Padded ankle protection",
+            "description": "Gentle ankle padding adds coverage where shoes can rub without feeling bulky.",
+            "marker_label": "PADDED ANKLE PROTECTION",
+            "point_x": 66,
+            "point_y": 10,
+            "label_side": "left"
+          }
+        },
+        {
+          "type": "comfort",
+          "settings": {
+            "title": "Moisture-wicking fabric",
+            "description": "Breathable knit helps move moisture away so feet stay cooler and drier.",
+            "marker_label": "FABRIC",
+            "point_x": 45,
+            "point_y": 34,
+            "label_side": "left"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,487 @@
+{%- liquid
+  assign s = section.settings
+  assign has_link = false
+  assign has_copy = false
+  assign logo_alt = s.logo_alt | default: shop.name
+  if s.link != blank
+    assign has_link = true
+  endif
+  if s.show_copy
+    if s.title != blank or s.subtitle != blank
+      assign has_copy = true
+    endif
+  endif
+-%}
+
+{%- style -%}
+  #FeelAnnouncementBar-{{ section.id }} {
+    --feel-announcement-logo-width: {{ s.logo_width }}px;
+    --feel-announcement-logo-width-mobile: {{ s.logo_width_mobile }}px;
+    position: fixed;
+    top: var(--feel-announcement-top, 0px);
+    right: 0;
+    left: 0;
+    z-index: 82;
+    padding: 8px 18px;
+    color: {{ s.text_color }};
+    background: {{ s.background_color }};
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    width: min(100%, 58rem);
+    min-height: {{ s.bar_min_height }}px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__copy {
+    grid-column: 1;
+    justify-self: end;
+    display: grid;
+    gap: 1px;
+    text-align: right;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__logo {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__logo-image {
+    display: block;
+    width: var(--feel-announcement-logo-width);
+    max-width: 100%;
+    height: auto;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__title {
+    margin: 0;
+    color: currentColor;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.48rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__subtitle {
+    margin: 0;
+    color: currentColor;
+    font-size: 1.12rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__timer {
+    grid-column: 3;
+    justify-self: start;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 6px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    background: {{ s.timer_background_color }};
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__unit {
+    display: grid;
+    min-width: 38px;
+    gap: 1px;
+    text-align: center;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__number {
+    color: currentColor;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.58rem;
+    font-weight: 900;
+    line-height: 0.95;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__label {
+    color: {{ s.muted_text_color }};
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .feel-announcement-bar__spacer {
+    display: block;
+    height: var(--feel-announcement-reserved-height, 82px);
+  }
+
+  @media screen and (max-width: 749px) {
+    #FeelAnnouncementBar-{{ section.id }} {
+      padding: 8px 10px;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__inner {
+      width: 100%;
+      min-height: 42px;
+      gap: 9px;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__logo-image {
+      width: var(--feel-announcement-logo-width-mobile);
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__title {
+      font-size: 1.18rem;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__subtitle {
+      font-size: 0.9rem;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__timer {
+      gap: 4px;
+      padding: 6px 7px;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__unit {
+      min-width: 30px;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__number {
+      font-size: 1.22rem;
+    }
+
+    #FeelAnnouncementBar-{{ section.id }} .feel-announcement-bar__label {
+      font-size: 0.56rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture announcement_inner -%}
+  <div class="feel-announcement-bar__inner">
+    <div class="feel-announcement-bar__copy{% unless has_copy %} is-empty{% endunless %}">
+      {%- if s.show_copy and s.title != blank -%}
+        <p class="feel-announcement-bar__title">{{ s.title | escape }}</p>
+      {%- endif -%}
+      {%- if s.show_copy and s.subtitle != blank -%}
+        <p class="feel-announcement-bar__subtitle">{{ s.subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if s.show_logo -%}
+      <div class="feel-announcement-bar__logo">
+        {%- if s.logo != blank -%}
+          <img
+            class="feel-announcement-bar__logo-image"
+            src="{{ s.logo | image_url: width: 600 }}"
+            alt="{{ logo_alt | escape }}"
+            width="{{ s.logo.width }}"
+            height="{{ s.logo.height }}"
+            loading="eager"
+          >
+        {%- else -%}
+          <img
+            class="feel-announcement-bar__logo-image"
+            src="{{ 'feel-announcement-logo.png' | asset_url }}"
+            alt="{{ logo_alt | escape }}"
+            width="1636"
+            height="419"
+            loading="eager"
+          >
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.show_countdown -%}
+      <div class="feel-announcement-bar__timer" aria-label="{{ s.countdown_label | escape }}">
+        <span class="feel-announcement-bar__unit">
+          <span class="feel-announcement-bar__number" data-countdown-part="hours">00</span>
+          <span class="feel-announcement-bar__label">{{ s.countdown_hours_label | escape }}</span>
+        </span>
+        <span class="feel-announcement-bar__unit">
+          <span class="feel-announcement-bar__number" data-countdown-part="minutes">00</span>
+          <span class="feel-announcement-bar__label">{{ s.countdown_minutes_label | escape }}</span>
+        </span>
+        <span class="feel-announcement-bar__unit">
+          <span class="feel-announcement-bar__number" data-countdown-part="seconds">00</span>
+          <span class="feel-announcement-bar__label">{{ s.countdown_seconds_label | escape }}</span>
+        </span>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endcapture -%}
+
+{%- if has_link -%}
+  <a
+    id="FeelAnnouncementBar-{{ section.id }}"
+    class="feel-announcement-bar feel-announcement-bar__link"
+    href="{{ s.link }}"
+    data-feel-announcement-bar
+    data-countdown-target="{{ s.countdown_target | escape }}"
+  >
+    {{ announcement_inner }}
+  </a>
+{%- else -%}
+  <div
+    id="FeelAnnouncementBar-{{ section.id }}"
+    class="feel-announcement-bar"
+    data-feel-announcement-bar
+    data-countdown-target="{{ s.countdown_target | escape }}"
+  >
+    {{ announcement_inner }}
+  </div>
+{%- endif -%}
+
+<div class="feel-announcement-bar__spacer" data-feel-announcement-spacer aria-hidden="true"></div>
+
+<script>
+  (() => {
+    const bar = document.getElementById('FeelAnnouncementBar-{{ section.id }}');
+    if (!bar || bar.dataset.ready === 'true') return;
+
+    bar.dataset.ready = 'true';
+    const section = document.getElementById('shopify-section-{{ section.id }}');
+    const spacer = section ? section.querySelector('[data-feel-announcement-spacer]') : null;
+
+    const selectors = [
+      '.shopify-section-header-sticky',
+      '.section-header',
+      '.header-wrapper',
+      'sticky-header'
+    ];
+
+    const syncTop = () => {
+      let top = 0;
+
+      for (const selector of selectors) {
+        const header = document.querySelector(selector);
+        if (!header || bar.contains(header)) continue;
+
+        const rect = header.getBoundingClientRect();
+        if (rect.height > 0 && rect.bottom > 0) {
+          top = Math.round(rect.bottom);
+          break;
+        }
+      }
+
+      bar.style.setProperty('--feel-announcement-top', `${top}px`);
+      document.documentElement.style.setProperty('--feel-announcement-bottom', `${top + bar.offsetHeight}px`);
+      if (spacer) {
+        spacer.style.setProperty('--feel-announcement-reserved-height', `${bar.offsetHeight + 28}px`);
+      }
+    };
+
+    const target = Date.parse(bar.dataset.countdownTarget || '');
+    const parts = {
+      hours: bar.querySelector('[data-countdown-part="hours"]'),
+      minutes: bar.querySelector('[data-countdown-part="minutes"]'),
+      seconds: bar.querySelector('[data-countdown-part="seconds"]')
+    };
+
+    const format = (value) => String(Math.max(0, value)).padStart(2, '0');
+
+    const syncCountdown = () => {
+      if (!target || Number.isNaN(target) || !parts.hours) return;
+
+      const remaining = Math.max(0, target - Date.now());
+      const totalSeconds = Math.floor(remaining / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      parts.hours.textContent = format(hours);
+      parts.minutes.textContent = format(minutes);
+      parts.seconds.textContent = format(seconds);
+    };
+
+    window.addEventListener('resize', syncTop, { passive: true });
+    window.addEventListener('load', syncTop, { once: true });
+    document.addEventListener('shopify:section:load', syncTop);
+    syncTop();
+    syncCountdown();
+
+    if (parts.hours) {
+      window.setInterval(syncCountdown, 1000);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Feel announcement bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo",
+      "label": "Show logo",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Leave blank to use the included Nook & Stitch logo."
+    },
+    {
+      "type": "text",
+      "id": "logo_alt",
+      "label": "Logo alt text",
+      "default": "Nook & Stitch"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width on desktop",
+      "min": 100,
+      "max": 320,
+      "step": 4,
+      "unit": "px",
+      "default": 176
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "label": "Logo width on mobile",
+      "min": 80,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 132
+    },
+    {
+      "type": "range",
+      "id": "bar_min_height",
+      "label": "Minimum bar height",
+      "min": 44,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Message"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_copy",
+      "label": "Show message",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Limited comfort offer"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Up to 49% off + free shipping"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Countdown"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Show countdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_label",
+      "label": "Countdown accessible label",
+      "default": "Offer countdown"
+    },
+    {
+      "type": "text",
+      "id": "countdown_target",
+      "label": "Countdown target",
+      "info": "Use ISO format, for example 2026-07-31T23:59:59-04:00.",
+      "default": "2026-07-31T23:59:59-04:00"
+    },
+    {
+      "type": "text",
+      "id": "countdown_hours_label",
+      "label": "Hours label",
+      "default": "Hrs"
+    },
+    {
+      "type": "text",
+      "id": "countdown_minutes_label",
+      "label": "Minutes label",
+      "default": "Min"
+    },
+    {
+      "type": "text",
+      "id": "countdown_seconds_label",
+      "label": "Seconds label",
+      "default": "Sec"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#0f2a16"
+    },
+    {
+      "type": "color",
+      "id": "timer_background_color",
+      "label": "Timer background color",
+      "default": "#2f4a23"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text color",
+      "default": "#d7e7b6"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feel announcement bar"
+    }
+  ]
+}
+{% endschema %}

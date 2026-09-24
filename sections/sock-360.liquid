@@ -1,0 +1,565 @@
+{% comment %} sock-360 — 360° rotating sock viewer with feature callouts {% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign frames = section.blocks | where: 'type', 'frame'
+-%}
+
+<section
+  class="sock360 gradient color-{{ s.color_scheme }}"
+  style="
+    --s360-base: {{ s.base_color }};
+    --s360-text: {{ s.text_color }};
+    --s360-accent: {{ s.accent_color }};
+    --s360-btn-bg: {{ s.button_color }};
+    --s360-btn-text: {{ s.button_text_color }};
+    --s360-min: {{ s.min_height }}px;
+  "
+  data-sock360="{{ section.id }}"
+  data-autoplay="{{ s.autoplay }}"
+  data-speed="{{ s.spin_speed }}"
+  data-drag="{{ s.drag_to_spin }}"
+  data-reverse="{{ s.reverse }}"
+>
+  <div class="sock360__inner">
+    <div class="sock360__stage-wrap">
+      <div
+        class="sock360__stage{% if frames.size <= 1 %} is-single{% endif %}"
+        role="img"
+        aria-label="{{ s.image_alt | default: 'Rotating view of the sock' | escape }}"
+        tabindex="0"
+      >
+        <span class="sock360__halo" aria-hidden="true"></span>
+        {%- if frames.size > 0 -%}
+          {%- for block in frames -%}
+            {%- liquid
+              assign fload = 'lazy'
+              if forloop.first
+                assign fload = 'eager'
+              endif
+            -%}
+            <span
+              class="sock360__frame{% if forloop.first %} is-active{% endif %}"
+              data-frame="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.image != blank -%}
+                {{- block.settings.image | image_url: width: 1200 | image_tag:
+                    loading: fload,
+                    class: 'sock360__img',
+                    widths: '500, 800, 1200',
+                    sizes: '(max-width: 989px) 80vw, 40vw'
+                -}}
+              {%- endif -%}
+            </span>
+          {%- endfor -%}
+        {%- elsif request.design_mode -%}
+          <span class="sock360__placeholder">Add “Frame” blocks (transparent PNG photos of the sock at each angle) to enable the 360° spin.</span>
+        {%- endif -%}
+      </div>
+      {%- if frames.size > 1 -%}
+        <p class="sock360__hint" aria-hidden="true">{{ s.hint_label | default: 'Drag to spin' | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="sock360__copy">
+      {%- if s.eyebrow != blank -%}
+        <p class="sock360__eyebrow">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if s.heading != blank -%}
+        <h2 class="sock360__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if s.body != blank -%}
+        <div class="sock360__body rte">{{ s.body }}</div>
+      {%- endif -%}
+
+      {%- assign features = section.blocks | where: 'type', 'feature' -%}
+      {%- if features.size > 0 -%}
+        <ul class="sock360__features">
+          {%- for block in features -%}
+            <li class="sock360__feature" style="--i: {{ forloop.index0 }};" {{ block.shopify_attributes }}>
+              <span class="sock360__dot" aria-hidden="true"></span>
+              <span class="sock360__feature-text">
+                <strong>{{ block.settings.title | escape }}</strong>
+                {%- if block.settings.text != blank -%}<span>{{ block.settings.text | escape }}</span>{%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a class="sock360__button" href="{{ s.button_link | default: routes.all_products_collection_url }}">{{ s.button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const root = document.querySelector('[data-sock360="{{ section.id }}"]');
+    if (!root) return;
+    const stage = root.querySelector('.sock360__stage');
+    const frames = Array.from(root.querySelectorAll('.sock360__frame'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!stage || frames.length === 0) return;
+
+    // Single frame (or reduced motion): CSS handles a gentle idle turn; no JS spin.
+    if (frames.length <= 1) return;
+
+    const autoplay = root.dataset.autoplay === 'true' && !reduce;
+    const reverse = root.dataset.reverse === 'true';
+    const speed = Math.max(40, parseInt(root.dataset.speed, 10) || 90); // ms per frame
+    const dragEnabled = root.dataset.drag === 'true';
+    let index = 0;
+    let timer = null;
+
+    const show = (i) => {
+      const next = ((i % frames.length) + frames.length) % frames.length;
+      if (next === index) return;
+      frames[index].classList.remove('is-active');
+      index = next;
+      frames[index].classList.add('is-active');
+    };
+
+    const start = () => {
+      if (!autoplay || timer) return;
+      timer = setInterval(() => show(index + (reverse ? -1 : 1)), speed);
+    };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+    // Pause autoplay when offscreen
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? start() : stop()));
+      }, { threshold: 0.2 }).observe(root);
+    } else {
+      start();
+    }
+
+    // Drag / swipe to scrub frames
+    if (dragEnabled) {
+      let dragging = false;
+      let startX = 0;
+      let startIndex = 0;
+      const sensitivity = 8; // px per frame step
+
+      const down = (x) => { dragging = true; startX = x; startIndex = index; stop(); stage.classList.add('is-grabbing'); };
+      const move = (x) => {
+        if (!dragging) return;
+        const step = Math.round((x - startX) / sensitivity);
+        show(startIndex + (reverse ? -step : step));
+      };
+      const up = () => { if (!dragging) return; dragging = false; stage.classList.remove('is-grabbing'); start(); };
+
+      stage.addEventListener('pointerdown', (e) => { down(e.clientX); });
+      window.addEventListener('pointermove', (e) => move(e.clientX), { passive: true });
+      window.addEventListener('pointerup', up);
+
+      // Keyboard: arrows scrub one frame
+      stage.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { stop(); show(index + 1); }
+        else if (e.key === 'ArrowLeft') { stop(); show(index - 1); }
+      });
+    }
+
+    start();
+  })();
+</script>
+
+{% stylesheet %}
+  .sock360 {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: var(--s360-min, 640px);
+    display: flex;
+    align-items: center;
+    color: var(--s360-text, #ffffff);
+    background:
+      radial-gradient(120% 90% at 18% 12%, color-mix(in srgb, var(--s360-base, #1f1d24) 76%, #000) 0%, var(--s360-base, #1f1d24) 62%),
+      var(--s360-base, #1f1d24);
+  }
+
+  .sock360__inner {
+    width: min(100%, 1240px);
+    margin: 0 auto;
+    padding: clamp(72px, 8vw, 120px) clamp(24px, 5vw, 72px);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: clamp(32px, 5vw, 80px);
+  }
+
+  /* ---- Stage / spinner ---- */
+  .sock360__stage-wrap { display: grid; justify-items: center; gap: 16px; }
+
+  .sock360__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 40rem;
+    display: grid;
+    place-items: center;
+    perspective: 1200px;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .sock360__stage.is-grabbing { cursor: grabbing; }
+  .sock360__stage:focus-visible { outline: 3px solid var(--s360-accent, #157A5B); outline-offset: 8px; border-radius: 12px; }
+
+  .sock360__halo {
+    position: absolute;
+    width: 78%;
+    height: 78%;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--s360-accent, #157A5B) 40%, transparent) 0%, transparent 64%);
+    filter: blur(10px);
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .sock360__frame {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 90ms linear;
+  }
+  .sock360__frame.is-active { opacity: 1; }
+
+  .sock360__img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 40px rgba(10, 9, 12, 0.55));
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  /* Single-frame fallback: gentle 3D idle turn + float so it still feels alive */
+  .sock360__stage.is-single .sock360__frame {
+    opacity: 1;
+    animation: sock360-idle 7s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+  @keyframes sock360-idle {
+    0%, 100% { transform: translateY(0) rotateY(-15deg); }
+    50%      { transform: translateY(-14px) rotateY(15deg); }
+  }
+
+  .sock360__placeholder {
+    position: relative;
+    z-index: 1;
+    max-width: 24rem;
+    padding: 1.4rem 1.8rem;
+    border: 1px dashed color-mix(in srgb, var(--s360-text, #fff) 40%, transparent);
+    border-radius: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .sock360__hint {
+    margin: 0;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* ---- Copy ---- */
+  .sock360__copy { display: grid; justify-items: start; gap: 0; max-width: 46rem; }
+
+  .sock360__eyebrow {
+    margin: 0 0 18px;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(1.05rem, 0.9vw, 1.3rem);
+    font-weight: 600;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    opacity: 0.92;
+  }
+  .sock360__heading {
+    margin: 0;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(3.2rem, 4vw, 5.4rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+  .sock360__body {
+    max-width: 40rem;
+    margin-top: 20px;
+    font-size: clamp(1.55rem, 1.1vw, 1.9rem);
+    line-height: 1.5;
+    opacity: 0.94;
+  }
+  .sock360__body p { margin: 0; }
+
+  /* ---- Feature callouts ---- */
+  .sock360__features {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .sock360__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    opacity: 0;
+    transform: translateX(-14px);
+    animation: sock360-in 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 130ms + 160ms);
+  }
+  @keyframes sock360-in {
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .sock360__dot {
+    flex: none;
+    margin-top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--s360-accent, #157A5B);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--s360-accent, #157A5B) 24%, transparent);
+  }
+  .sock360__feature-text { display: grid; gap: 2px; }
+  .sock360__feature-text strong {
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .sock360__feature-text span {
+    font-size: 1.35rem;
+    line-height: 1.45;
+    opacity: 0.82;
+  }
+
+  .sock360__button {
+    display: inline-flex;
+    min-width: 152px;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 0 34px;
+    background: var(--s360-btn-bg, #FBFAF4);
+    color: var(--s360-btn-text, #1F1D24);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .sock360__button:hover { transform: translateY(-2px); box-shadow: 0 18px 32px rgba(10, 9, 12, 0.3); }
+  .sock360__button:focus-visible { outline: 3px solid var(--s360-btn-bg, #FBFAF4); outline-offset: 4px; }
+
+  @media screen and (max-width: 989px) {
+    .sock360__inner { grid-template-columns: 1fr; gap: 32px; }
+    .sock360__stage { max-width: 30rem; margin: 0 auto; }
+    .sock360__copy { justify-items: center; text-align: center; max-width: none; }
+    .sock360__features { justify-items: start; text-align: left; }
+    .sock360__heading { font-size: clamp(2.8rem, 8vw, 4rem); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sock360__frame { transition: none; }
+    .sock360__stage.is-single .sock360__frame { animation: none; }
+    .sock360__feature { animation: none; opacity: 1; transform: none; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "360° sock viewer",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Every angle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See the whole sock."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Spin it around. Cushioned heel, steady arch band, and a smooth, seamless toe — engineered to support sensitive feet all day.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the socks"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "360° spinner",
+      "info": "Add 'Frame' blocks — one transparent-PNG photo of the sock at each angle (12–36 frames gives a smooth spin). With a single frame it does a gentle 3D idle turn instead."
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "spin_speed",
+      "min": 40,
+      "max": 240,
+      "step": 10,
+      "unit": "ms",
+      "label": "Time per frame",
+      "default": 90,
+      "info": "Lower = faster spin. Auto-rotate pauses while dragging and off-screen, and is disabled for reduced-motion visitors."
+    },
+    {
+      "type": "checkbox",
+      "id": "drag_to_spin",
+      "label": "Drag / swipe to spin",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "Reverse direction",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "hint_label",
+      "label": "Spin hint text",
+      "default": "Drag to spin"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Rotating view of the orthopedic sock"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "base_color",
+      "label": "Background color",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#FBFAF4"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 480,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 640
+    }
+  ],
+  "blocks": [
+    {
+      "type": "frame",
+      "name": "Frame (360° image)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Sock photo (transparent PNG)"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature callout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cushioned heel"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Extra softness where impact builds with every step."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 40,
+  "presets": [
+    {
+      "name": "360° sock viewer",
+      "blocks": [
+        { "type": "feature", "settings": { "title": "Cushioned heel", "text": "Extra softness where impact builds with every step." } },
+        { "type": "feature", "settings": { "title": "Steady arch band", "text": "Light support that keeps the sock secure all day." } },
+        { "type": "feature", "settings": { "title": "Seamless toe", "text": "Smooth knit that reduces rubbing for sensitive feet." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

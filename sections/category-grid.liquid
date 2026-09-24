@@ -1,0 +1,244 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div
+  class="cat-grid"
+  style="--bg: {{ s.background_color }}; --fg: {{ s.text_color }}; --cols: {{ s.columns_desktop }}; --pt: {{ s.padding_top }}px; --pb: {{ s.padding_bottom }}px;"
+>
+  <div class="page-width">
+    {%- if section.blocks.size > 0 -%}
+      <ul class="cat-grid__list">
+        {%- for block in section.blocks -%}
+          {%- assign tile_alt = block.settings.label | default: 'Category' -%}
+          <li class="cat-grid__item" {{ block.shopify_attributes }}>
+            <a class="cat-tile" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+              <span class="cat-tile__media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 700
+                    | image_tag:
+                      loading: 'lazy',
+                      sizes: '(min-width: 990px) 24vw, (min-width: 750px) 33vw, 50vw',
+                      widths: '300, 450, 600, 700, 900',
+                      alt: tile_alt,
+                      class: 'cat-tile__image'
+                  }}
+                {%- else -%}
+                  <span class="cat-tile__placeholder"></span>
+                {%- endif -%}
+              </span>
+              <span class="cat-tile__label">{{ block.settings.label | escape }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if s.show_tagline and s.tagline != blank -%}
+      <div class="cat-grid__tagline">
+        <p class="cat-grid__headline">{{ s.tagline | escape }}</p>
+        {%- if s.tagline_sub != blank -%}
+          <p class="cat-grid__sub">{{ s.tagline_sub | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .cat-grid {
+    padding-block: var(--pt, 64px) var(--pb, 64px);
+    background: var(--bg, #FAF7F2);
+    color: var(--fg, #1F1D24);
+  }
+
+  .cat-grid__list {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+    gap: clamp(1rem, 0.5rem + 1vw, 1.8rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cat-tile {
+    position: relative;
+    display: block;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    text-decoration: none;
+    color: #fff;
+  }
+  .cat-tile__media,
+  .cat-tile__image,
+  .cat-tile__placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .cat-tile__image { object-fit: cover; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  .cat-tile__placeholder { background: linear-gradient(165deg, #C0CFA9, #E7EEE9); }
+
+  /* Scrim for label legibility */
+  .cat-tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.28) 100%), rgba(0,0,0,0.06);
+    transition: background .3s ease;
+  }
+  .cat-tile:hover .cat-tile__image { transform: scale(1.04); }
+  .cat-tile:hover::after { background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.32) 100%), rgba(0,0,0,0.1); }
+
+  .cat-tile__label {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-synthesis: weight;
+    font-size: clamp(1.6rem, 1rem + 1.4vw, 2.4rem);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+  }
+  .cat-tile__label::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    margin: 0.6rem auto 0;
+    background: currentColor;
+    transition: width .3s cubic-bezier(.16,1,.3,1);
+  }
+  .cat-tile:hover .cat-tile__label::after,
+  .cat-tile:focus-visible .cat-tile__label::after { width: 4.4rem; }
+
+  .cat-grid__tagline {
+    text-align: center;
+    margin-top: clamp(3.6rem, 2rem + 3vw, 6rem);
+  }
+  .cat-grid__headline {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-synthesis: weight;
+    font-size: clamp(2.8rem, 1.4rem + 4.4vw, 5.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .cat-grid__sub {
+    margin: 1.2rem auto 0;
+    max-width: 52ch;
+    font-size: clamp(1.6rem, 1.5rem + 0.3vw, 1.9rem);
+    color: rgba(var(--color-foreground, 31 29 36), 0.72);
+  }
+
+  @media (max-width: 989px) {
+    .cat-grid__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Category grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 4
+    },
+    { "type": "header", "content": "Tagline" },
+    {
+      "type": "checkbox",
+      "id": "show_tagline",
+      "label": "Show tagline",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline heading",
+      "default": "Built for every step"
+    },
+    {
+      "type": "text",
+      "id": "tagline_sub",
+      "label": "Tagline subtext",
+      "default": "Cushioned support, sized and styled for every foot."
+    },
+    { "type": "header", "content": "Colors" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FAF7F2"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tagline text",
+      "default": "#1F1D24"
+    },
+    { "type": "header", "content": "Spacing" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Category" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Category grid",
+      "blocks": [
+        { "type": "category", "settings": { "label": "Everyday" } },
+        { "type": "category", "settings": { "label": "Compression" } },
+        { "type": "category", "settings": { "label": "Diabetic" } },
+        { "type": "category", "settings": { "label": "Arch Support" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

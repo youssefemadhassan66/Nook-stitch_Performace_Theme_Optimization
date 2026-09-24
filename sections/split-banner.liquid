@@ -1,0 +1,388 @@
+{%- liquid
+  assign s = section.settings
+  assign banner_link = s.button_link
+  assign overlay_opacity = s.overlay_opacity | divided_by: 100.0
+
+  if banner_link == blank
+    assign banner_link = '#CollectionProducts'
+  endif
+-%}
+
+<section
+  class="collection-shop-hero gradient color-{{ s.color_scheme }}{% if s.monochrome_image %} collection-shop-hero--monochrome{% endif %}{% if s.image_contains_content %} collection-shop-hero--embedded-content{% endif %}"
+  style="--hero-height: {{ s.desktop_height }}px; --hero-height-mobile: {{ s.mobile_height }}px; --hero-overlay: {{ overlay_opacity }}; --hero-x: {{ s.focal_x }}%; --hero-y: {{ s.focal_y }}%;"
+  {% if s.heading != blank %}
+    aria-labelledby="CollectionHeroHeading-{{ section.id }}"
+  {% elsif s.text != blank %}
+    aria-label="{{ s.text | escape }}"
+  {% endif %}
+>
+  <div class="collection-shop-hero__media" aria-hidden="true">
+    {%- if s.image != blank -%}
+      {{
+        s.image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '750, 1100, 1500, 1800, 2100, 2400',
+          alt: '',
+          class: 'collection-shop-hero__image'
+      }}
+    {%- else -%}
+      <img
+        src="{{ 'collection-all-socks-hero.png' | asset_url }}"
+        alt=""
+        class="collection-shop-hero__image collection-shop-hero__image--fallback"
+        width="2123"
+        height="741"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {%- endif -%}
+  </div>
+
+  {%- if s.image_contains_content -%}
+    <div class="visually-hidden">
+      {%- if s.heading != blank -%}
+        <h1 id="CollectionHeroHeading-{{ section.id }}">{{ s.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if s.text != blank -%}
+        <p>{{ s.text | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if s.button_label != blank -%}
+      <a class="collection-shop-hero__embedded-link" href="{{ banner_link }}">
+        <span class="visually-hidden">{{ s.button_label | escape }}</span>
+      </a>
+    {%- endif -%}
+  {%- else -%}
+    <div class="page-width collection-shop-hero__content">
+      {%- if s.eyebrow != blank -%}
+        <p class="collection-shop-hero__eyebrow">{{ s.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if s.heading != blank -%}
+        <h1 id="CollectionHeroHeading-{{ section.id }}" class="collection-shop-hero__heading">
+          {{ s.heading | escape }}
+        </h1>
+      {%- endif -%}
+
+      {%- if s.text != blank -%}
+        <p class="collection-shop-hero__text">{{ s.text | escape }}</p>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a class="collection-shop-hero__button" href="{{ banner_link }}">
+          {{ s.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .collection-shop-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: var(--hero-height, 500px);
+    overflow: hidden;
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .collection-shop-hero__media,
+  .collection-shop-hero::after {
+    position: absolute;
+    inset: 0;
+  }
+
+  .collection-shop-hero__media {
+    z-index: 0;
+    background: rgb(var(--color-background));
+  }
+
+  .collection-shop-hero__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--hero-x, 50%) var(--hero-y, 50%);
+    transform: scale(1.01);
+  }
+
+  .collection-shop-hero--monochrome .collection-shop-hero__image,
+  .collection-shop-hero:not(.collection-shop-hero--embedded-content) .collection-shop-hero__image--fallback {
+    filter: grayscale(1) contrast(1.08);
+  }
+
+  .collection-shop-hero--embedded-content .collection-shop-hero__image {
+    transform: none;
+  }
+
+  .collection-shop-hero::after {
+    z-index: 1;
+    background: rgba(var(--color-background), var(--hero-overlay, 0.62));
+    content: '';
+  }
+
+  .collection-shop-hero--embedded-content::after {
+    display: none;
+  }
+
+  .collection-shop-hero__embedded-link {
+    position: absolute;
+    z-index: 2;
+    top: 67.5%;
+    left: 50%;
+    width: 15.5%;
+    height: 12.5%;
+    border-radius: var(--buttons-radius, 6px);
+    transform: translate(-50%, -50%);
+    transition: background-color 180ms ease;
+  }
+
+  .collection-shop-hero__embedded-link:hover {
+    background: rgba(var(--color-foreground), 0.08);
+  }
+
+  .collection-shop-hero__embedded-link:focus-visible {
+    outline: 0.3rem solid rgb(var(--color-foreground));
+    outline-offset: 0.4rem;
+  }
+
+  .collection-shop-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: var(--hero-height, 500px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: clamp(5rem, 8vw, 10rem);
+    text-align: center;
+  }
+
+  .collection-shop-hero__eyebrow {
+    margin: 0 0 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .collection-shop-hero__heading {
+    margin: 0;
+    max-width: 11ch;
+    color: inherit;
+    font-family: var(--font-heading-family);
+    font-size: clamp(5rem, 7vw, 8.4rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .collection-shop-hero__text {
+    max-width: 44ch;
+    margin: 2rem 0 0;
+    font-size: clamp(1.7rem, 1.45rem + 0.35vw, 2rem);
+    line-height: 1.5;
+  }
+
+  .collection-shop-hero__button {
+    display: inline-flex;
+    min-width: 17rem;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 1.2rem 2.8rem;
+    border: 0.1rem solid currentColor;
+    border-radius: var(--buttons-radius, 6px);
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collection-shop-hero__button:hover {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    transform: translateY(-0.2rem);
+  }
+
+  .collection-shop-hero__button:focus-visible {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.4rem;
+  }
+
+  @media (max-width: 749px) {
+    .collection-shop-hero,
+    .collection-shop-hero__content {
+      min-height: var(--hero-height-mobile, 400px);
+    }
+
+    .collection-shop-hero__content {
+      padding-block: 5.6rem;
+    }
+
+    .collection-shop-hero__heading {
+      font-size: clamp(4.4rem, 15vw, 6.4rem);
+    }
+
+    .collection-shop-hero__embedded-link {
+      top: 65%;
+      width: 48%;
+      height: 12.5%;
+    }
+
+    .collection-shop-hero--embedded-content .collection-shop-hero__image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      max-width: none;
+      height: 88%;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .collection-shop-hero__button {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection shop hero",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "inverse"
+    },
+    { "type": "header", "content": "Content" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "All Socks"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Comfort engineered for every step."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop all"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Leave blank to scroll to the products below."
+    },
+    { "type": "header", "content": "Image" },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image",
+      "info": "Recommended: a wide macro fabric photo, at least 2000px wide."
+    },
+    {
+      "type": "checkbox",
+      "id": "image_contains_content",
+      "label": "Image already contains heading and button artwork",
+      "info": "Prevents the theme text from appearing twice while keeping the button area clickable.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "monochrome_image",
+      "label": "Show image in black and white",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "focal_x",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Horizontal focal point",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "focal_y",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Vertical focal point",
+      "default": 50
+    },
+    { "type": "header", "content": "Height" },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 360,
+      "max": 680,
+      "step": 20,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 440
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 320,
+      "max": 560,
+      "step": 20,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 400
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection shop hero"
+    }
+  ]
+}
+{% endschema %}

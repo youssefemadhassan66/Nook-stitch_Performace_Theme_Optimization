@@ -1,0 +1,483 @@
+{%- liquid
+  assign s = section.settings
+  assign image_alt = s.image_alt | default: s.heading
+-%}
+
+<section
+  class="comfort-moments color-{{ s.color_scheme }} gradient"
+  style="
+    --cm-bg: {{ s.background_color }};
+    --cm-surface: {{ s.surface_color }};
+    --cm-ink: {{ s.text_color }};
+    --cm-accent: {{ s.accent_color }};
+    --cm-padding-top: {{ s.padding_top }}px;
+    --cm-padding-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <div class="page-width comfort-moments__inner">
+    <div class="comfort-moments__media">
+      <div class="comfort-moments__image-panel">
+        {%- if s.image != blank -%}
+          {{
+            s.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 990px) 520px, 86vw',
+              widths: '360, 520, 720, 900, 1200',
+              alt: image_alt,
+              class: 'comfort-moments__image'
+          }}
+        {%- else -%}
+          <img
+            class="comfort-moments__image"
+            src="{{ 'support-zones-sock.png' | asset_url }}"
+            alt="{{ image_alt | escape }}"
+            loading="lazy"
+            width="1254"
+            height="1254"
+          >
+        {%- endif -%}
+
+        <div class="comfort-moments__badge" aria-label="{{ s.badge_label | escape }}">
+          <span>{{ s.badge_number | escape }}</span>
+          <small>{{ s.badge_label | escape }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="comfort-moments__content">
+      {%- if s.kicker != blank -%}
+        <p class="comfort-moments__kicker">{{ s.kicker | escape }}</p>
+      {%- endif -%}
+
+      {%- if s.heading != blank -%}
+        <h2 class="comfort-moments__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if s.body != blank -%}
+        <div class="comfort-moments__body rte">{{ s.body }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="comfort-moments__list">
+          {%- for block in section.blocks -%}
+            <article class="comfort-moments__item" {{ block.shopify_attributes }}>
+              <span class="comfort-moments__index">{{ forloop.index }}</span>
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p>{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a class="comfort-moments__button" href="{{ s.button_link | default: routes.all_products_collection_url }}">
+          {{ s.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .comfort-moments {
+    padding-block: var(--cm-padding-top, 80px) var(--cm-padding-bottom, 80px);
+    background: var(--cm-surface, #FFFFFF);
+    color: var(--cm-ink, rgb(var(--color-foreground)));
+  }
+
+  .comfort-moments__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(3.2rem, 2rem + 4vw, 7.2rem);
+    align-items: center;
+  }
+
+  .comfort-moments__media {
+    min-width: 0;
+  }
+
+  .comfort-moments__image-panel {
+    position: relative;
+    min-height: clamp(36rem, 42vw, 56rem);
+    overflow: hidden;
+    border-radius: 0.8rem;
+    background:
+      linear-gradient(145deg, color-mix(in srgb, var(--cm-accent, #157A5B) 88%, white) 0%, var(--cm-accent, #157A5B) 58%, color-mix(in srgb, var(--cm-accent, #157A5B) 68%, var(--cm-ink, #1F1D24)) 100%);
+    box-shadow: 0 3.4rem 7rem -5rem rgba(31, 29, 36, 0.45);
+  }
+
+  .comfort-moments__image-panel::before {
+    content: "";
+    position: absolute;
+    inset: 2rem;
+    border: 1px solid rgba(251, 250, 244, 0.32);
+    border-radius: 0.6rem;
+    pointer-events: none;
+  }
+
+  .comfort-moments__image {
+    position: absolute;
+    inset: 4% auto auto 50%;
+    width: min(88%, 52rem);
+    height: auto;
+    transform: translateX(-50%) rotate(-8deg);
+    filter: drop-shadow(0 3rem 2.8rem rgba(31, 29, 36, 0.24));
+  }
+
+  .comfort-moments__badge {
+    position: absolute;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    display: grid;
+    gap: 0.2rem;
+    min-width: 11rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: 0.8rem;
+    background: var(--cm-bg, #FFFFFF);
+    color: var(--cm-ink, #1F1D24);
+    box-shadow: 0 1.8rem 4rem -2.6rem rgba(31, 29, 36, 0.46);
+  }
+
+  .comfort-moments__badge span {
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.8rem, 2.3rem + 1.5vw, 4rem);
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .comfort-moments__badge small {
+    max-width: 9.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .comfort-moments__content {
+    min-width: 0;
+  }
+
+  .comfort-moments__kicker {
+    margin: 0 0 1.2rem;
+    color: color-mix(in srgb, var(--cm-ink, #1F1D24) 62%, transparent);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .comfort-moments__heading {
+    max-width: 9.6em;
+    margin: 0;
+    color: var(--cm-ink, #1F1D24);
+    font-size: clamp(3.4rem, 2.3rem + 3.6vw, 6.4rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  .comfort-moments__body {
+    max-width: 58ch;
+    margin-top: 1.8rem;
+    color: color-mix(in srgb, var(--cm-ink, #1F1D24) 72%, transparent);
+    font-size: clamp(1.7rem, 1.55rem + 0.4vw, 2rem);
+    line-height: 1.56;
+  }
+
+  .comfort-moments__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .comfort-moments__list {
+    display: grid;
+    margin-top: clamp(2.8rem, 1.8rem + 2vw, 4.2rem);
+    border-top: 1px solid color-mix(in srgb, var(--cm-ink, #1F1D24) 14%, transparent);
+  }
+
+  .comfort-moments__item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.6rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--cm-ink, #1F1D24) 14%, transparent);
+  }
+
+  .comfort-moments__index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 50%;
+    background: var(--cm-accent, #157A5B);
+    color: var(--cm-ink, #1F1D24);
+    font-family: var(--font-heading-family);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .comfort-moments__item h3 {
+    margin: 0;
+    color: var(--cm-ink, #1F1D24);
+    font-size: clamp(1.8rem, 1.55rem + 0.7vw, 2.3rem);
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .comfort-moments__item p {
+    max-width: 54ch;
+    margin: 0.7rem 0 0;
+    color: color-mix(in srgb, var(--cm-ink, #1F1D24) 68%, transparent);
+    font-size: 1.55rem;
+    line-height: 1.52;
+  }
+
+  .comfort-moments__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    margin-top: 3rem;
+    padding: 0 3rem;
+    border: 1px solid var(--cm-ink, #1F1D24);
+    border-radius: var(--buttons-radius, 6px);
+    background: var(--cm-ink, #1F1D24);
+    color: var(--cm-bg, #FFFFFF);
+    font-family: var(--font-heading-family);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+
+  .comfort-moments__button:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--cm-ink, #1F1D24) 88%, var(--cm-accent, #157A5B));
+  }
+
+  @media (max-width: 989px) {
+    .comfort-moments__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .comfort-moments__content {
+      order: -1;
+    }
+
+    .comfort-moments__heading,
+    .comfort-moments__body {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .comfort-moments {
+      padding-block: calc(var(--cm-padding-top, 80px) * 0.7) calc(var(--cm-padding-bottom, 80px) * 0.72);
+    }
+
+    .comfort-moments__image-panel {
+      min-height: 36rem;
+    }
+
+    .comfort-moments__image {
+      width: min(94%, 42rem);
+      top: 6%;
+    }
+
+    .comfort-moments__badge {
+      right: 1.6rem;
+      bottom: 1.6rem;
+      min-width: 9rem;
+      padding: 1.2rem;
+    }
+
+    .comfort-moments__item {
+      gap: 1.2rem;
+      padding: 1.7rem 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Comfort moments",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow",
+      "default": "All-day comfort"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Comfort that keeps up with the day."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>From the first errand to the last walk home, Nook & Stitch socks are built to soften pressure without feeling bulky.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop orthopedic socks"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Sock image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Nook & Stitch orthopedic sock"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge number",
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Badge label",
+      "default": "comfort zones"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Surface",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#157A5B"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 84
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 84
+    }
+  ],
+  "blocks": [
+    {
+      "type": "moment",
+      "name": "Moment",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Steady support"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "A gentle arch band helps the sock feel secure while you move."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Comfort moments",
+      "blocks": [
+        {
+          "type": "moment",
+          "settings": {
+            "title": "Soft start",
+            "text": "Cushioning under the heel and forefoot helps reduce impact from the first step."
+          }
+        },
+        {
+          "type": "moment",
+          "settings": {
+            "title": "Steady through the day",
+            "text": "A supportive knit holds comfortably without the squeeze of heavy compression."
+          }
+        },
+        {
+          "type": "moment",
+          "settings": {
+            "title": "Easy by evening",
+            "text": "A smooth toe and breathable feel help keep sensitive feet calm for longer wear."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "announcement_bar": {
+      "type": "feel-announcement-bar",
+      "settings": {
+        "show_logo": true,
+        "logo_alt": "Nook & Stitch",
+        "logo_width": 176,
+        "logo_width_mobile": 132,
+        "bar_min_height": 64,
+        "show_copy": false,
+        "title": "",
+        "subtitle": "",
+        "link": "shopify://products/orthopedicsocks",
+        "show_countdown": false,
+        "countdown_label": "",
+        "countdown_target": "2026-07-18T13:01:49Z",
+        "countdown_hours_label": "Hrs",
+        "countdown_minutes_label": "Min",
+        "countdown_seconds_label": "Sec",
+        "background_color": "#0f2a16",
+        "timer_background_color": "#2f4a23",
+        "text_color": "#ffffff",
+        "muted_text_color": "#d7e7b6"
+      }
+    },
+    "progress_bar": {
+      "type": "scroll-progress-bar",
+      "settings": {
+        "fill_color": "#157a5b",
+        "bg_color": "#d5ded2",
+        "bar_height": 6
+      }
+    },
+    "story_hero": {
+      "type": "feel-story-hero",
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "I Finally Found the Most Comfortable Socks I've Ever Worn",
+        "lede": "Let me save you the time and money I wasted.",
+        "body": "<p>I wanted a pair of socks that I could wear all day without thinking about them. Soft enough to keep every step comfortable, breathable enough to stay fresh, and durable enough to become the pair I reached for every morning. That's exactly what Nook & Stitch delivers.</p>",
+        "summary": "",
+        "note": "<p><strong>Note:</strong> Read this before you waste money on another socks</p>",
+        "accent_color": "#157a5b",
+        "heading_shadow_color": "#cfe0d2",
+        "note_background": "#ecf3ea",
+        "padding_top": 72,
+        "padding_bottom": 56
+      }
+    },
+    "benefit_rows": {
+      "type": "feel-benefit-rows",
+      "blocks": {
+        "row_cushion": {
+          "type": "benefit",
+          "settings": {
+            "video": "shopify://files/videos/download (3).mp4",
+            "kicker": "1. CUSHIONED SOLE",
+            "heading": "The pressure felt softer right away",
+            "text": "<p>From the very first step, you'll notice the difference. Our generously <strong>cushioned sole</strong> helps absorb everyday impact, creating a softer, more comfortable feel whether you're walking, standing, or on the move. Designed to provide lasting comfort throughout the day, it's the kind of cushioning you'll appreciate from morning until night.</p>"
+          }
+        },
+        "row_arch": {
+          "type": "benefit",
+          "settings": {
+            "video": "shopify://files/videos/download (1).mp4",
+            "kicker": "2. ARCH SUPPORT",
+            "heading": "The middle of my foot felt held",
+            "text": "<p>Under your foot, the<strong> cushioned sole</strong> uses comfort-focused padding technology It gives your <strong>arch a gentle, steady feeling </strong>without squeezing too hard.</p>"
+          }
+        },
+        "row_ankle": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_7_2026_11_20_00_PM.png",
+            "kicker": "3.PADDED ANKLE",
+            "heading": "My shoe stopped rubbing my ankles",
+            "text": "<p>The raised ankle cushion helps protect the spot where shoes usually scrape. That means less friction at the heel and a softer feel when your shoes are stiff or new.<strong>No constant adjusting, no irritated heel line</strong> after a few hours of wear.</p>"
+          }
+        },
+        "row_grip": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/d4133ad3-2bb6-4d30-9b71-e8e489572b15.png",
+            "kicker": "4. MOISTURE CONTROL",
+            "heading": "My feet stayed drier and breathable",
+            "text": "<p>Sweat can make your feet feel hot and uncomfortable, but the <strong>moisture wicking fabric</strong> helps move sweat away from your skin and reduce that wet, sticky feeling inside your shoes, so your feet stay drier, fresher, and more comfortable through long shifts, busy days, and everyday movement.</p>"
+          }
+        },
+        "mid_product_cta": {
+          "type": "product_cta",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Gradient_Money_Back_Guarantee_Circle_Sticker.png",
+            "kicker": "A simpler next step",
+            "heading": "Feel Instant Support.",
+            "text": "<p>Stop letting foot pain control your day. Slip into <strong>Nook&Stitch socks</strong> for softer steps, better support, and instant comfort the moment you put them on.</p>",
+            "button_label": "Try them risk free",
+            "button_link": "shopify://products/orthopedicsocks",
+            "support_text": "Free shipping | shipped the same day",
+            "guarantee_text": "Try it today with a 30-Day Money Back Guarantee!"
+          }
+        },
+        "row_seamless": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_7_2026_09_15_21_PM.png",
+            "kicker": "5. What does +10,000 customers say?",
+            "heading": "Loved by Thousands of Customers",
+            "text": "<p>More than <strong>10,000 real customers</strong> are experiencing the comfort of Nook & Stitch. From the first step to the last, our cushioned socks are designed to provide a softer, more comfortable feel throughout your day.</p>"
+          }
+        },
+        "row_breathable": {
+          "type": "benefit",
+          "settings": {
+            "video": "shopify://files/videos/download.mp4",
+            "kicker": "6.PRESSURE RELIEF",
+            "heading": "Hard floors felt softer",
+            "text": "<p>The cushioned sole helps absorb everyday impact, so each step feels softer, lighter, and more comfortable.</p>"
+          }
+        },
+        "row_daily": {
+          "type": "benefit",
+          "settings": {
+            "video": "shopify://files/videos/download (2).mp4",
+            "kicker": "7. EVERYDAY WEAR",
+            "heading": "They fit into normal shoes",
+            "text": "<p>The biggest test was simple: would they fit comfortably with the shoes I already wear every day? The low-profile cushioning delivers extra comfort without adding bulk, making them an easy choice for sneakers and everyday footwear. That's what made them the pair I kept reaching for.</p>"
+          }
+        },
+        "row_nonbinding": {
+          "type": "benefit",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/H4a1d396b8a0845e99446c33ec8f4557cP.jpg",
+            "kicker": "8. TRY THEM RISK FREE",
+            "heading": "Try them risk free",
+            "text": "<p>Start with one pair and feel the difference through a real day at home, work, or on a walk.</p><p><strong>The lifetime comfort guarantee keeps the decision simple.</strong></p>"
+          }
+        },
+        "row_moisture": {
+          "type": "benefit",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_d341x4d341x4d341.png",
+            "kicker": "9. MOISTURE CONTROL",
+            "heading": "My feet did not feel trapped",
+            "text": "<p>Heavy socks can hold heat and moisture until your feet feel tired and uncomfortable. This knit is made to help moisture move away from the skin, so the sock feels fresher through a normal day.</p><p><strong>Dryer comfort matters</strong> when you are wearing the same pair from morning to evening.</p>"
+          }
+        },
+        "row_easy_care": {
+          "type": "benefit",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2026-05-09T025339.794.png",
+            "kicker": "10. EASY CARE",
+            "heading": "They were simple to keep wearing",
+            "text": "<p>A comfort sock only helps if it fits into your real routine. These are easy to pair with everyday shoes, easy to wash, and easy to reach for again the next morning.</p><p><strong>No special routine, no complicated care.</strong> Just dependable comfort when you need it.</p>"
+          }
+        },
+        "final_product_cta": {
+          "type": "product_cta",
+          "settings": {
+            "image": "shopify://shop_images/Gradient_Money_Back_Guarantee_Circle_Sticker.png",
+            "kicker": "A simpler next step",
+            "heading": "Feel Instant Support.",
+            "text": "<p>Start with the sock built around cushioned soles, padded ankle protection, and breathable everyday comfort.</p>",
+            "button_label": "Try them risk free",
+            "button_link": "shopify://products/orthopedicsocks",
+            "support_text": "Free shipping | shipped the same day",
+            "guarantee_text": "Try it today with a 30-Day Money Back Guarantee!"
+          }
+        }
+      },
+      "block_order": [
+        "row_cushion",
+        "row_arch",
+        "row_ankle",
+        "row_grip",
+        "mid_product_cta",
+        "row_seamless",
+        "row_breathable",
+        "row_daily",
+        "row_nonbinding",
+        "row_moisture",
+        "row_easy_care",
+        "final_product_cta"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "heading": "",
+        "subheading": "",
+        "accent_color": "#157a5b",
+        "heading_shadow_color": "#cfe0d2",
+        "padding_top": 36,
+        "padding_bottom": 84
+      }
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "progress_bar",
+    "story_hero",
+    "benefit_rows"
+  ]
+}

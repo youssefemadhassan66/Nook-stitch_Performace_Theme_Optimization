@@ -1,0 +1,593 @@
+{%- liquid
+  assign s = section.settings
+  assign video_id = s.video.id | default: s.video_url.id
+  assign video_alt = s.video.alt | default: s.description | default: s.heading
+  assign alt = video_alt | default: 'Nook & Stitch comfort video' | escape
+  assign poster = s.video.preview_image | default: s.cover_image
+  assign overlay_opacity = s.overlay_opacity | default: 68
+  assign blur_strength = s.blur_strength | default: 6
+  assign desktop_height = s.desktop_height | default: 650
+  assign mobile_height = s.mobile_height | default: 520
+  assign copy_blocks = section.blocks | where: 'type', 'copy'
+  assign has_content = false
+  if copy_blocks.size > 0 or s.kicker != blank or s.heading != blank or s.subtext != blank
+    assign has_content = true
+  endif
+-%}
+
+<section
+  class="home-video color-{{ s.color_scheme }} gradient{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  style="
+    --hv-page-bg: {{ s.background_color | default: '#FFFFFF' }};
+    --hv-stage-bg: {{ s.cinematic_background | default: '#020812' }};
+    --hv-ink: {{ s.text_color | default: '#FFFFFF' }};
+    --hv-muted: {{ s.muted_color | default: '#D8E0DC' }};
+    --hv-accent: {{ s.accent_color | default: '#20AD82' }};
+    --hv-overlay-opacity: {{ overlay_opacity }};
+    --hv-blur: {{ blur_strength }};
+    --hv-desktop-height: {{ desktop_height }}px;
+    --hv-mobile-height: {{ mobile_height }}px;
+  "
+>
+  <div class="home-video__stage" aria-label="{{ alt }}">
+    <div class="home-video__media" aria-hidden="true">
+      {%- if s.video != blank -%}
+        {{
+          s.video
+          | video_tag:
+            image_size: '2200x',
+            autoplay: true,
+            loop: true,
+            muted: true,
+            controls: false,
+            playsinline: true,
+            class: 'home-video__video'
+        }}
+      {%- elsif s.video_url != blank and video_id != blank -%}
+        {%- if s.video_url.type == 'youtube' -%}
+          <iframe
+            class="home-video__iframe"
+            src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist={{ video_id }}&rel=0&modestbranding=1"
+            title="{{ alt }}"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            tabindex="-1"
+          ></iframe>
+        {%- else -%}
+          <iframe
+            class="home-video__iframe"
+            src="https://player.vimeo.com/video/{{ video_id }}?background=1&autoplay=1&muted=1&loop=1"
+            title="{{ alt }}"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            tabindex="-1"
+          ></iframe>
+        {%- endif -%}
+      {%- elsif poster != blank -%}
+        {{
+          poster
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 2000, 2400',
+            sizes: '100vw',
+            alt: alt,
+            class: 'home-video__image'
+        }}
+      {%- else -%}
+        <div class="home-video__fallback"></div>
+      {%- endif -%}
+    </div>
+
+    <div class="home-video__veil" aria-hidden="true"></div>
+
+    {%- if s.show_content and has_content -%}
+      <div class="home-video__content page-width">
+        <div class="home-video__copy-shell">
+          {%- if s.kicker != blank -%}
+            <p class="home-video__kicker">{{ s.kicker | escape }}</p>
+          {%- endif -%}
+
+          {%- if copy_blocks.size > 0 -%}
+            <div
+              class="home-video__rotator"
+              data-home-video-rotator="{{ section.id }}"
+              data-interval="{{ s.rotate_interval | default: 5 | times: 1000 }}"
+              aria-live="off"
+            >
+              {%- for block in copy_blocks -%}
+                <div
+                  class="home-video__copy-slide{% if forloop.first %} is-active{% endif %}"
+                  data-home-video-slide
+                  aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.title != blank -%}
+                    <h2 class="home-video__heading">{{ block.settings.title | escape }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <p class="home-video__subtext">{{ block.settings.text | escape }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="home-video__static-copy">
+              {%- if s.heading != blank -%}
+                <h2 class="home-video__heading">{{ s.heading | escape }}</h2>
+              {%- endif -%}
+              {%- if s.subtext != blank -%}
+                <p class="home-video__subtext">{{ s.subtext | escape }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% if s.show_content and copy_blocks.size > 1 %}
+  <script>
+    (() => {
+      const root = document.querySelector('[data-home-video-rotator="{{ section.id }}"]');
+      if (!root) return;
+
+      const slides = Array.from(root.querySelectorAll('[data-home-video-slide]'));
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const interval = Math.max(3200, parseInt(root.dataset.interval, 10) || 5000);
+
+      if (slides.length < 2 || reduce) return;
+
+      let index = 0;
+      let timer = null;
+
+      const show = (nextIndex) => {
+        const next = ((nextIndex % slides.length) + slides.length) % slides.length;
+        if (next === index) return;
+
+        slides[index].classList.remove('is-active');
+        slides[index].setAttribute('aria-hidden', 'true');
+        index = next;
+        slides[index].classList.add('is-active');
+        slides[index].setAttribute('aria-hidden', 'false');
+      };
+
+      const start = () => {
+        if (timer) return;
+        timer = window.setInterval(() => show(index + 1), interval);
+      };
+
+      const stop = () => {
+        if (!timer) return;
+        window.clearInterval(timer);
+        timer = null;
+      };
+
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      root.addEventListener('focusin', stop);
+      root.addEventListener('focusout', start);
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          entries.forEach((entry) => (entry.isIntersecting ? start() : stop()));
+        }, { threshold: 0.35 }).observe(root);
+      } else {
+        start();
+      }
+    })();
+  </script>
+{% endif %}
+
+<style>
+  .home-video {
+    background: var(--hv-page-bg, #ffffff);
+    overflow: hidden;
+  }
+
+  .home-video__stage {
+    position: relative;
+    display: grid;
+    min-height: var(--hv-mobile-height, 520px);
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 72% 18%, rgba(32, 173, 130, 0.12), transparent 34%),
+      linear-gradient(135deg, #020812 0%, var(--hv-stage-bg, #020812) 54%, #071b24 100%);
+  }
+
+  .home-video__media,
+  .home-video__veil {
+    position: absolute;
+    inset: 0;
+  }
+
+  .home-video__media {
+    z-index: 0;
+    background: var(--hv-stage-bg, #020812);
+  }
+
+  .home-video__video,
+  .home-video__image,
+  .home-video__iframe {
+    position: absolute;
+    inset: -24px;
+    width: calc(100% + 48px);
+    height: calc(100% + 48px);
+    border: 0;
+    object-fit: cover;
+    filter: blur(calc(var(--hv-blur, 6) * 1px)) saturate(0.85) brightness(0.58);
+    transform: scale(1.045);
+    transform-origin: center;
+  }
+
+  .home-video__iframe {
+    top: 50%;
+    left: 50%;
+    min-width: calc((var(--hv-mobile-height, 520px) + 48px) * 1.78);
+    min-height: calc(100% + 48px);
+    transform: translate(-50%, -50%) scale(1.045);
+    pointer-events: none;
+  }
+
+  .home-video__fallback {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 24% 28%, rgba(32, 173, 130, 0.15), transparent 30%),
+      radial-gradient(circle at 72% 48%, rgba(8, 62, 86, 0.68), transparent 38%),
+      linear-gradient(135deg, #02060b 0%, #071925 48%, #02060b 100%);
+    filter: blur(calc(var(--hv-blur, 6) * 1px));
+    transform: scale(1.05);
+  }
+
+  .home-video__veil {
+    z-index: 1;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.34) 48%, rgba(0, 0, 0, 0.66)),
+      rgba(0, 0, 0, calc(var(--hv-overlay-opacity, 68) / 100));
+  }
+
+  .home-video__content {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, var(--page-width, 1400px));
+    max-width: var(--page-width, 1400px);
+    padding-block: clamp(5.2rem, 7vw, 8rem);
+    color: var(--hv-ink, #ffffff);
+    text-align: center;
+  }
+
+  .home-video__copy-shell {
+    width: min(64rem, calc(100vw - 40px));
+    max-width: 64rem;
+    margin-inline: auto;
+  }
+
+  .home-video__static-copy {
+    display: grid;
+    justify-items: center;
+  }
+
+  .home-video__rotator {
+    position: relative;
+    display: grid;
+    align-items: center;
+    min-height: clamp(19rem, 24vw, 27rem);
+  }
+
+  .home-video__kicker {
+    margin: 0 0 1.2rem;
+    color: var(--hv-accent, #20ad82);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .home-video__copy-slide {
+    position: relative;
+    grid-area: 1 / 1;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition:
+      opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .home-video__copy-slide.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .home-video__heading {
+    margin: 0 auto;
+    max-width: 9.2em;
+    color: var(--hv-ink, #ffffff);
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.6rem, 6.2vw, 7.6rem);
+    font-weight: 700;
+    line-height: 0.96;
+    letter-spacing: 0;
+  }
+
+  .home-video__subtext {
+    max-width: 48rem;
+    margin: 1.8rem auto 0;
+    color: var(--hv-muted, #d8e0dc);
+    font-size: clamp(1.65rem, 1.1rem + 0.7vw, 2rem);
+    line-height: 1.55;
+  }
+
+  @media screen and (min-width: 750px) {
+    .home-video__stage {
+      min-height: var(--hv-desktop-height, 650px);
+    }
+
+    .home-video__iframe {
+      min-width: calc((var(--hv-desktop-height, 650px) + 48px) * 1.78);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .home-video__content {
+      padding-block: 4rem 5.2rem;
+    }
+
+    .home-video__rotator {
+      min-height: 23rem;
+    }
+
+    .home-video__heading {
+      font-size: clamp(3.2rem, 10vw, 4.4rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-video__video {
+      animation-play-state: paused;
+    }
+
+    .home-video__copy-slide {
+      transition: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Home video",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_content",
+      "label": "Show text overlay",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "See them in motion"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Comfort you can see"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "A closer look at the cushioning, support, and everyday feel."
+    },
+    {
+      "type": "range",
+      "id": "rotate_interval",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Rotate text every",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video (uploaded)"
+    },
+    {
+      "type": "paragraph",
+      "content": "No uploaded video? Paste a YouTube or Vimeo link below instead."
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Video link",
+      "info": "Used only when no uploaded video is set."
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Cover image (poster)"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Video alt text",
+      "info": "Describe the video for screen readers."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "Loop video",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cinematic layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 420,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 650
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 360,
+      "max": 720,
+      "step": 20,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 2,
+      "unit": "%",
+      "label": "Dark overlay",
+      "default": 68
+    },
+    {
+      "type": "range",
+      "id": "blur_strength",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Media blur",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Page background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "cinematic_background",
+      "label": "Video background",
+      "default": "#020812"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Overlay text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#20AD82"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted overlay text",
+      "default": "#D8E0DC"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "copy",
+      "name": "Rotating copy",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "High-cushion sole"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Paragraph",
+          "default": "A soft terry footbed helps absorb impact from hard floors, long walks, and standing days."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home video",
+      "settings": {
+        "show_content": true,
+        "desktop_height": 650,
+        "mobile_height": 520,
+        "overlay_opacity": 68,
+        "blur_strength": 6,
+        "rotate_interval": 5
+      },
+      "blocks": [
+        {
+          "type": "copy",
+          "settings": {
+            "title": "High-cushion sole",
+            "text": "A soft terry footbed helps absorb impact from hard floors, long walks, and standing days."
+          }
+        },
+        {
+          "type": "copy",
+          "settings": {
+            "title": "Seamless toe feel",
+            "text": "Smooth knit at the front reduces rubbing where sensitive feet notice it most."
+          }
+        },
+        {
+          "type": "copy",
+          "settings": {
+            "title": "Breathable daily knit",
+            "text": "Ventilation through the upper helps heat escape so feet stay fresher longer."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

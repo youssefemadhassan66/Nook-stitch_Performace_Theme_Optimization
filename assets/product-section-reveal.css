@@ -1,0 +1,40 @@
+/* Keep the first product image and product details visible for the initial paint. */
+@media (prefers-reduced-motion: no-preference) {
+  .js.product-motion-ready #MainContent > .shopify-section.product-section-reveal {
+    opacity: 0;
+    transform: translate3d(0, 3.2rem, 0);
+    transition:
+      opacity 720ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .js.product-motion-ready #MainContent > .shopify-section.product-section-reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Prevent Dawn's optional reveal classes from hiding content inside our product reveal. */
+  .js.product-motion-ready
+    #MainContent
+    > .shopify-section.product-section-reveal
+    .scroll-trigger.animate--fade-in,
+  .js.product-motion-ready
+    #MainContent
+    > .shopify-section.product-section-reveal
+    .scroll-trigger.animate--slide-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #MainContent > .shopify-section.product-section-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

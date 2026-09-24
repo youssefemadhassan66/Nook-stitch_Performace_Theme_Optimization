@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_form_TNnwcM": {
+      "type": "contact-form",
+      "blocks": {
+        "name_JPYEK9": {
+          "type": "name",
+          "settings": {}
+        },
+        "email_za83a4": {
+          "type": "email",
+          "settings": {}
+        },
+        "tel_PaWXe4": {
+          "type": "tel",
+          "settings": {}
+        },
+        "textarea_xdYmTC": {
+          "type": "textarea",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "name_JPYEK9",
+        "email_za83a4",
+        "tel_PaWXe4",
+        "textarea_xdYmTC"
+      ],
+      "custom_css": [
+        ".field__input:focus ~ .field__label,.field__input:not(:placeholder-shown) ~ .field__label,.field__input:-webkit-autofill ~ .field__label {top: 0; left: 1.2rem; z-index: 1; padding: 0 0.4rem; background: var(--nook-contact-surface); color: var(--nook-contact-ink); font-size: 1.1rem; line-height: 1.25;}"
+      ],
+      "settings": {
+        "heading": "Need help choosing comfort?",
+        "heading_size": "h1",
+        "heading_align": "left",
+        "heading_align_mobile": "left",
+        "sub_heading": "<p>Questions about sizing, support, shipping, or your order? Send us a note and we will help you choose the right pair with clear, practical guidance.</p>",
+        "eyebrow": "Here to help",
+        "mark_icon": "shopify://shop_images/Untitled_design_-_2026-07-14T214040.994.png",
+        "mark_icon_size": 34,
+        "form_heading": "Send us a message",
+        "support_1_title": "Sizing guidance",
+        "support_1_text": "Tell us how you like your socks to fit and we will point you to the right style.",
+        "support_2_title": "Order support",
+        "support_2_text": "Get help with tracking, delivery questions, exchanges, and returns.",
+        "support_3_title": "Comfort promise",
+        "support_3_text": "If something does not feel right, we will work with you to make it better.",
+        "response_note": "We usually reply within one business day.",
+        "sub_heading_align": "left",
+        "sub_heading_align_mobile": "left",
+        "color_scheme": "background-1",
+        "background_color": "#ffffff",
+        "surface_color": "#ffffff",
+        "text_color": "#1f1d24",
+        "accent_color": "#157a5b",
+        "padding_top": 84,
+        "padding_bottom": 84
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact_form_TNnwcM"
+  ]
+}

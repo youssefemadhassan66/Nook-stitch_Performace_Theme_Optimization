@@ -1,0 +1,854 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - 1356 Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#000000",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#157a5b",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong>8 items left in stock</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "accent-2",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#7a2537",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 10,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "icon_with_text_VqWjcf": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Untitled_design_4.gif",
+            "heading_1": "Ultra High Resolution Camera",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Untitled_design_79.png",
+            "heading_2": "CHAT-GPT Powered AI",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/Untitled_design_80.png",
+            "heading_3": "Discreet Open Air Audio"
+          }
+        },
+        "icon_with_text_8G9TXx": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Untitled_design_88.png",
+            "heading_1": "FREE HeyCyan App AI",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Untitled_design_87.png",
+            "heading_2": "AI Translator",
+            "icon_3": "clipboard",
+            "heading_3": "12 Months Warranty"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#157a5b",
+            "regular_price_color": "#212121",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "body",
+            "font_size": 14,
+            "font_style": "normal",
+            "swatchType": "color",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30,
+            "size_trigger": "Size",
+            "chart_id": "Size Chart",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "icon_with_text_tpUq6P": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "clipboard",
+            "image_1": "shopify://shop_images/rush_1.png",
+            "heading_1": "Order Today = Shipped Today",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/thumbs-up_1.png",
+            "heading_2": "30 Day Money Back Guarantee",
+            "icon_3": "clipboard",
+            "heading_3": "1-Year Warranty"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_full_button": true,
+            "lm_main_button": "#157a5b",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "payment_wKqg4T": {
+          "type": "payment",
+          "settings": {
+            "original": "custom",
+            "payment_icon": "visa,master,paypal,apple_pay,shopify-pay,klarna",
+            "payment_content_alignment": "center"
+          }
+        },
+        "shipping_9tREnc": {
+          "type": "shipping",
+          "settings": {
+            "ship_days": 5,
+            "cut_off_time": 16,
+            "icon_size": 20,
+            "image_ani": "none",
+            "text_size": 10,
+            "text_style": "uppercase",
+            "text": "ORDER BEFORE 23:00 = SHIPPED THE SAME DAY!",
+            "date_locale": "en-GB",
+            "ship_bg": "#dacaca",
+            "show_border": false,
+            "ship_border": "#f2f2f2",
+            "border_radius": 0,
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "margin_top": 16,
+            "margin_bottom": 16
+          }
+        },
+        "description_GDj6ke": {
+          "type": "description",
+          "settings": {}
+        },
+        "promo_slide_y6fqhY": {
+          "type": "promo-slide",
+          "disabled": true,
+          "settings": {
+            "slide_image": "shopify://shop_images/Screenshot_2025-09-05_173200.png",
+            "block_heading": "Good Quality",
+            "text_1": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store. ★★★★★</p>",
+            "show_slide_2": true,
+            "block_heading_2": "Nice Product",
+            "text_2": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store. ★★★★★</p>",
+            "show_slide_3": false,
+            "block_heading_3": "Recomended",
+            "text_3": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store. ★★★★★</p>",
+            "color_scheme": "background-1",
+            "slide_padding": 20,
+            "show_border": false,
+            "border_color": "#e4e4e4",
+            "slide_wrapper_radius": 0,
+            "slide_img_size": 60,
+            "slide_img_radius": 100,
+            "head_size": 20,
+            "text_size": 12,
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "icon_with_text_VqWjcf",
+        "icon_with_text_8G9TXx",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "icon_with_text_tpUq6P",
+        "buy_buttons",
+        "payment_wKqg4T",
+        "shipping_9tREnc",
+        "description_GDj6ke",
+        "promo_slide_y6fqhY",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": false,
+        "color_scheme": "",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffffff",
+        "container_border_color": "#0e1b4d",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffffff",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number",
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 3,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "custom_liquid_4yqTzc": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .featured-logos {\n    background: #000000;\n    padding: 0; /* remove all vertical padding */\n    text-align: center;\n    margin: 0; \n    overflow: hidden;\n    position: relative;\n  }\n\n  /* Scroller wrapper */\n  .logo-track {\n    display: flex;\n    width: max-content;\n    align-items: center; /* vertically center logos */\n    animation: scroll 25s linear infinite;\n  }\n\n  /* Logos */\n  .logo-track img {\n    max-height: 80px;\n    margin: 0 50px;\n    object-fit: contain;\n    opacity: 0.9;\n    transition: transform 0.3s ease, opacity 0.3s ease;\n  }\n  .logo-track img:hover {\n    opacity: 1;\n    transform: scale(1.1);\n  }\n\n  @keyframes scroll {\n    0% { transform: translateX(0); }\n    100% { transform: translateX(-50%); }\n  }\n</style>\n\n<div class=\"featured-logos\">\n  <div class=\"logo-slider\">\n    <div class=\"logo-track\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_86.png?v=1756266994\" alt=\"USA Today\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Vogue-Emblem.png?v=1756265696\" alt=\"Vogue\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/time-logo-white.png?v=1756265722\" alt=\"Time\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/forbes-2-logo-png-transparent.png?v=1756265787\" alt=\"Forbes\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_84.png?v=1756265800\" alt=\"Custom\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_85.png?v=1756266997\" alt=\"New Logo 2\">\n\n      <!-- Duplicate for seamless loop -->\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_86.png?v=1756266994\" alt=\"USA Today\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Vogue-Emblem.png?v=1756265696\" alt=\"Vogue\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/time-logo-white.png?v=1756265722\" alt=\"Time\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/forbes-2-logo-png-transparent.png?v=1756265787\" alt=\"Forbes\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_84.png?v=1756265800\" alt=\"Custom\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/Untitled_design_85.png?v=1756266997\" alt=\"New Logo 2\">\n    </div>\n  </div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_wMjXYr": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .video-section-container {\n    text-align: center;\n    margin: 40px 0;\n  }\n\n  .video-section-container h2 {\n    font-size: 28px;\n    font-weight: bold;\n    margin-bottom: 20px;\n    letter-spacing: 1px;\n  }\n\n  .video-carousel {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    overflow: hidden;\n    position: relative;\n  }\n\n  .video-track {\n    display: flex;\n    gap: 20px;\n    scroll-snap-type: x mandatory;\n    overflow-x: auto;\n    scrollbar-width: none; /* hide scrollbar Firefox */\n    -ms-overflow-style: none; /* hide scrollbar IE */\n  }\n\n  .video-track::-webkit-scrollbar {\n    display: none; /* hide scrollbar Chrome/Safari */\n  }\n\n  .video-track video {\n    flex: 0 0 auto;\n    width: 30%;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    border-radius: 12px;\n    box-shadow: 0 4px 10px rgba(0,0,0,0.3);\n    scroll-snap-align: center;\n  }\n\n  @media (max-width: 1024px) {\n    .video-track video {\n      width: 45%;\n    }\n  }\n\n  @media (max-width: 768px) {\n    .video-track video {\n      width: 80%; /* show 1 main video in center */\n    }\n  }\n</style>\n\n<div class=\"video-section-container\">\n  <h2>CAPTURED WITH CYAN AI</h2>\n  <div class=\"video-carousel\">\n    <div class=\"video-track\" id=\"videoTrack\">\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/e667e6111dd140fa916385875f75643e.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/ceeccccba01f45c2b637eb28212abc06.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/20d72c811f374d73a3dc70eb84fb3bc7.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n    </div>\n  </div>\n</div>\n\n<script>\n  // Force autoplay on mobile\n  document.querySelectorAll(\"video\").forEach(video => {\n    video.muted = true;\n    video.play().catch(err => {\n      console.log(\"Autoplay blocked:\", err);\n    });\n  });\n\n  // Scroll to middle video on load\n  window.addEventListener(\"load\", () => {\n    const track = document.getElementById(\"videoTrack\");\n    const middleVideo = track.children[1];\n    track.scrollLeft = middleVideo.offsetLeft - (track.clientWidth / 2) + (middleVideo.clientWidth / 2);\n  });\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_yiFpmN": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .reviews-section {\n    text-align: center;\n    margin: 50px 0;\n  }\n\n  .reviews-section h2 {\n    font-size: 28px;\n    font-weight: bold;\n    margin-bottom: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 12px;\n  }\n\n  .reviews-carousel {\n    display: flex;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    gap: 20px;\n    padding: 10px;\n  }\n\n  .reviews-carousel::-webkit-scrollbar {\n    display: none;\n  }\n\n  .review-card {\n    flex: 0 0 300px;\n    background: #fff;\n    border-radius: 14px;\n    padding: 20px;\n    box-shadow: 0 4px 14px rgba(0,0,0,0.1);\n    text-align: left;\n    scroll-snap-align: start;\n  }\n\n  .review-card .stars {\n    margin-bottom: 12px;\n  }\n\n  .review-card .stars img {\n    width: 150px; /* Bigger Trustpilot logo */\n    height: auto;\n  }\n\n  .review-card p {\n    font-size: 14px;\n    line-height: 1.4;\n    margin-bottom: 12px;\n  }\n\n  .review-card h4 {\n    font-size: 15px;\n    font-weight: bold;\n    margin: 8px 0 5px;\n  }\n\n  .review-card span {\n    font-size: 12px;\n    color: #666;\n  }\n\n  .carousel-controls {\n    display: flex;\n    justify-content: center;\n    margin-top: 15px;\n    gap: 10px;\n  }\n\n  .carousel-arrow {\n    background: #fff;\n    border: none;\n    padding: 14px;\n    border-radius: 50%;\n    box-shadow: 0 4px 10px rgba(0,0,0,0.2);\n    cursor: pointer;\n    transition: background 0.3s;\n  }\n\n  .carousel-arrow:hover {\n    background: #f5f5f5;\n  }\n\n  .carousel-arrow svg {\n    width: 22px;\n    height: 22px;\n    stroke-width: 2.2;\n    color: #333;\n  }\n</style>\n\n<div class=\"reviews-section\">\n  <h2>\n    <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot\" style=\"height:105px;\">\n    +10,000 Verified Reviews \n  </h2>\n\n  <div class=\"reviews-carousel\" id=\"reviewsTrack\">\n    <!-- 12 Reviews Example -->\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Amazing quality, feels premium and the AI features are on point!”</p>\n      <h4>James Miller <span>— Verified Purchaser (USA)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Super easy to set up and the video capture works flawlessly.”</p>\n      <h4>Charlotte Evans <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Battery life is outstanding, lasted me all day with heavy use.”</p>\n      <h4>Michael Johnson <span>— Verified Purchaser (USA)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Stylish and lightweight, I wear them every day.”</p>\n      <h4>Sophie Clarke <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“The voice control works like magic, so convenient when driving.”</p>\n      <h4>Daniel Harris <span>— Verified Purchaser (USA)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Honestly better than I expected, super smooth performance.”</p>\n      <h4>Olivia Green <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Perfect for capturing moments without pulling out my phone.”</p>\n      <h4>Matthew Scott <span>— Verified Purchaser (USA)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“The sound quality is crystal clear, really impressed.”</p>\n      <h4>Emily Turner <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Very intuitive to use, love the touch controls.”</p>\n      <h4>Christopher White <span>— Verified Purchaser (USA)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Worth every penny, I recommend it to all my friends.”</p>\n      <h4>Amelia Brooks <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n  </div>\n\n  <div class=\"carousel-controls\">\n    <button class=\"carousel-arrow\" onclick=\"scrollReviews(-1)\">\n      <svg fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 19l-7-7 7-7\" /></svg>\n    </button>\n    <button class=\"carousel-arrow\" onclick=\"scrollReviews(1)\">\n      <svg fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 5l7 7-7 7\" /></svg>\n    </button>\n  </div>\n</div>\n\n<script>\n  function scrollReviews(direction) {\n    const track = document.getElementById(\"reviewsTrack\");\n    const cardWidth = track.children[0].offsetWidth + 20;\n    track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });\n  }\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_exaVrT": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_TY9WnQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-09-05_173200.png",
+            "title": "Finally, Smart Glasses That Actually Feel Practical!",
+            "text": "<p><br/>I’ve been using the CYAN AI glasses for a couple of weeks now, and they’ve genuinely changed how I move through my day. The ultra-wide 1080p camera is impressive. Photos and videos are crisp, and being able to record hands-free means I catch moments I’d otherwise miss. The open-ear audio is also a big win: calls, podcasts, even music feel immersive, but without totally shutting out the world. The voice command “Hey Cyan” works well for most things, like translating signs, taking quick notes, or pulling up directions.<br/><em><strong>- David Mitchelle</strong></em><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w8BEfe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-09-05_173658.png",
+            "title": "Say Cheese! lol",
+            "text": "<p>As someone who shoots short video content and is on the go (bike commuting, etc.), the CYAN AI glasses are extremely handy. The five-mic array picks up sound well, even with traffic noise, and switching between the phone and glasses for video is pretty seamless. I like that I can give voice commands “Take a video,” “What’s that sign say?” etc. Without pulling out my phone. The frames are lightweight enough that I forget I’m wearing them after some time.<br/></p><p></p><p><em><strong>-Michael Denver<br/></strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rgqdMg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-09-19_162855.png",
+            "title": "The design is PERFECT!",
+            "text": "<p><br/>I was surprised by how modern and subtle these glasses look. They don’t scream “tech” at all, just a clean, stylish pair of frames that fit comfortably all day. I’ve even gotten compliments without people realizing they’re smart glasses, which makes them easy to wear anywhere.<br/></p><p><em><strong>-Kevin Schwartz<br/></strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_TY9WnQ",
+        "column_w8BEfe",
+        "column_rgqdMg"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Trusted by 10,000+ Customers",
+        "heading_size": "h1",
+        "heading_center": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "navigation_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumin_hero_JmDF4M": {
+      "type": "lumin-hero",
+      "blocks": {
+        "hero_BQbpMj": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/Render3.webp",
+            "use_video": false,
+            "main_image_width": 400,
+            "show_1": true,
+            "image_1": "shopify://shop_images/Untitled_design_4.gif",
+            "head_1": "Ultra-High Resolution Camera",
+            "text_1": "",
+            "show_2": true,
+            "image_2": "shopify://shop_images/Untitled_design_79.png",
+            "head_2": "ChatGPT Powered AI",
+            "text_2": "",
+            "show_3": true,
+            "image_3": "shopify://shop_images/Untitled_design_80.png",
+            "head_3": "Discreet Audio Sound",
+            "text_3": "",
+            "show_4": true,
+            "image_4": "shopify://shop_images/Untitled_design_87.png",
+            "head_4": "AI Translator",
+            "text_4": "",
+            "show_5": true,
+            "image_5": "shopify://shop_images/Untitled_design_88.png",
+            "head_5": "Free HeyCyan App",
+            "text_5": "",
+            "show_6": true,
+            "image_6": "shopify://shop_images/thumbs-up_1.png",
+            "head_6": "12 Months Warranty",
+            "text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "hero_BQbpMj"
+      ],
+      "name": "Lumin Hero",
+      "settings": {
+        "color_scheme": "",
+        "color_scheme_2": "",
+        "title": "All In Your Glasses",
+        "heading_size": "h1",
+        "column_alignment": "center",
+        "column_alignment_dt": "center",
+        "column_alignment_mb": "center",
+        "head_text": "Experience life with vision beyond limits.",
+        "feature_image": 60,
+        "feature_image_mb": 40,
+        "gap_section_top": 20,
+        "gap_section_bottom": 20,
+        "pad_section_top": 20,
+        "pad_section_bottom": 20
+      }
+    },
+    "newsletter_4EW8hn": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_y7nUJ9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe for a 10% Discount Code!",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_8Wq4Kr": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get exclusive discounts and more when you subscribe.</p>"
+          }
+        },
+        "email_form_BirJPL": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_y7nUJ9",
+        "paragraph_8Wq4Kr",
+        "email_form_BirJPL"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "text_align": "left",
+        "news_alignment": "horizontal",
+        "show_small_text": true,
+        "small_text": "* You can unsubscribe at any time.",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "custom_liquid_KdkXTW": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .heycyan-section { text-align: center; padding: 50px 20px; background: #f9fafb; border-radius: 16px; margin: 40px auto; max-width: 1000px; }\n  .heycyan-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 30px; color: #111827; }\n  .heycyan-tabs { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }\n  .heycyan-tab { cursor: pointer; padding: 10px 20px; border-radius: 8px; background: #e5e7eb; color: #1f2937; font-weight: 600; transition: background 0.2s; user-select: none; z-index: 1; position: relative; }\n  .heycyan-tab.active { background: #111827; color: #ffffff; }\n  .heycyan-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 20px; }\n  .heycyan-feature { background: #ffffff; border-radius: 14px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s ease; }\n  .heycyan-feature:hover { transform: translateY(-5px); }\n  .heycyan-feature img, .heycyan-feature video { width: 100%; height: auto; max-height: none; border-radius: 10px; margin-bottom: 15px; object-fit: contain; pointer-events: none; }\n  .heycyan-feature h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: #1f2937; }\n  .heycyan-feature p { font-size: 0.95rem; color: #4b5563; line-height: 1.5; }\n  .heycyan-feature.hidden { display: none !important; }\n</style>\n\n<div class=\"heycyan-section\">\n  <h2>Discover the Power of HeyCyan Glasses</h2>\n\n  <!-- Tabs with inline onclick -->\n  <div class=\"heycyan-tabs\">\n    <div class=\"heycyan-tab active\" onclick=\"showCategory('camera', this)\">Camera</div>\n    <div class=\"heycyan-tab\" onclick=\"showCategory('control', this)\">Controls</div>\n    <div class=\"heycyan-tab\" onclick=\"showCategory('sound', this)\">Sound</div>\n  </div>\n\n  <!-- Features -->\n  <div class=\"heycyan-features\">\n    <!-- Camera -->\n    <div class=\"heycyan-feature\" data-category=\"camera\">\n      <video autoplay loop muted playsinline>\n        <source src=\"https://cdn.shopify.com/videos/c/o/v/3cb7e0fda3ea4424ae3060e3f794877e.mp4\" type=\"video/mp4\">\n      </video>\n      <h3>High Resolution Camera</h3>\n      <p>Capture your moments instantly with the built-in Cyan AI Glasses camera — smooth, sharp, and hands-free.</p>\n    </div>\n\n    <!-- Control -->\n    <div class=\"heycyan-feature hidden\" data-category=\"control\">\n      <video autoplay loop muted playsinline>\n        <source src=\"https://cdn.shopify.com/videos/c/o/v/e8525fabe6f34a38b5725890c28e7ac0.mp4\" type=\"video/mp4\">\n      </video>\n      <h3>CONTROL</h3>\n      <p>Command all functions through intelligent speech, recognition or precision touch control. Make calls and texts, capture content, and manage media without touching your phone. Choose voice activation, or use the responsive touchpad and record button for instant access.</p>\n    </div>\n\n    <!-- Sound -->\n    <div class=\"heycyan-feature hidden\" data-category=\"sound\">\n      <video autoplay loop muted playsinline>\n        <source src=\"https://cdn.shopify.com/videos/c/o/v/f073e8f306d04f19992bc21905ba961c.mp4\" type=\"video/mp4\">\n      </video>\n      <h3>Sound</h3>\n      <p>Enjoy crystal-clear audio at high volume directly through your AI glasses, without disturbing anyone around you. Discreet, personal, and immersive sound designed just for you.</p>\n    </div>\n  </div>\n</div>\n\n<script>\n  function showCategory(category, tabElement) {\n    // Activate the clicked tab\n    const tabs = document.querySelectorAll('.heycyan-tab');\n    tabs.forEach(t => t.classList.remove('active'));\n    tabElement.classList.add('active');\n\n    // Show/hide features\n    const features = document.querySelectorAll('.heycyan-feature');\n    features.forEach(f => {\n      f.classList.toggle('hidden', f.dataset.category !== category);\n    });\n  }\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_qEWtaK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kEJ7bP": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Use Your HeyCyan™ AI Smart Glasses",
+            "heading_size": "h1"
+          }
+        },
+        "text_wGgTQB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>1. <strong>Download the HeyCyan App</strong></p><ul><li>Available on iOS & Android</li><li>Look for the blue glasses icon</li></ul><p>2. <strong>Connect via Bluetooth</strong></p><ul><li>Turn on your glasses</li><li>Open the app and pair your device</li></ul><p></p><p>3. <strong>Choose Your Mode</strong></p><ul><li><strong>Photo</strong> 📷</li><li><strong>Video</strong> 🎥</li><li><strong>Audio</strong> 🎧</li><li><strong>Music</strong> 🎵</li></ul><p>Use voice command or touch controls to switch between modes easily.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_pVycVD": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kEJ7bP",
+        "text_wGgTQB",
+        "button_pVycVD"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image-68bbfd7a27c997e86686aad6.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_YqKKdW": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"custom-image-section\" style=\"text-align:center; padding: 40px 20px;\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/3_Minutes_Recording_time.png?v=1756707738\" \n       alt=\"3 Minutes Recording Time\" \n       style=\"max-width:100%; height:auto; border-radius:10px;\">\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_QntHhK": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_HVppW6": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "How Long Does The Shipping take?",
+            "icon": "none",
+            "row_content": "<p>Orders get shipped next day.</p><p>Standard delivery takes 3-5 business days, depending on your location.<br/><br/>You'll receive a tracking number as soon as your order is on the way.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KQn6x6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What Can The Cyan AI Do?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI gives you instant access to ChatGPT. Ask questions, get ideas, write texts, solve problems and plan your day. All by voice. It's like having your own personal assistant built into your glasses.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LhhV7X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are They Easy To Use?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI Glasses are built for simplicity. Just connect them to your phone through the HeyCyan app and control everything with touch gestures or voice commands, no complicated setup required. Every order includes a user manual, and the app will guide you step by step<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NxibBb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will They Work With My Phone?",
+            "icon": "none",
+            "row_content": "<p>Absolutely, Cyan AI Glasses work seamlessly with both iOS and Android devices. Just download the HeyCyan app and you're ready to connect, control and customize.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3DrMCA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can People Around Me Hear The Audio?",
+            "icon": "none",
+            "row_content": "<p>We designed Cyan AI with open-air directional speakers that play audio clearly to you, not the room. People nearby won't hear your music or calls unless you raise the volume very high.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Nf6eKH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where Will My Videos And Photos Go?",
+            "icon": "none",
+            "row_content": "<p>After taking a video or a photo, your media will be saved in HeyCyan app!</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_HVppW6",
+        "collapsible_row_KQn6x6",
+        "collapsible_row_LhhV7X",
+        "collapsible_row_NxibBb",
+        "collapsible_row_3DrMCA",
+        "collapsible_row_Nf6eKH"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_TB99K8": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"eu-reviews-section\">\n  <style>\n    .eu-reviews-section { background:#f7fafc; padding:48px 0; font-family:-apple-system, BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial; }\n    .eu-reviews-container{ max-width:1100px; margin:0 auto; padding:0 20px; }\n    .eu-reviews-header{ text-align:center; margin-bottom:28px; }\n    .eu-reviews-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }\n    .eu-review-card{ background:#fff; border-radius:18px; padding:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); display:flex; flex-direction:column; min-height:160px; }\n    .eu-review-top{ display:flex; align-items:center; margin-bottom:10px; }\n    .eu-avatar{ width:44px; height:44px; border-radius:50%; background:#e6e6e6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#374151; margin-right:12px; }\n    .eu-review-name{ font-weight:600; margin:0; }\n    .eu-verified{ font-size:13px; color:#6b7280; margin:0; }\n    .eu-stars{ display:flex; gap:4px; margin-bottom:8px; }\n    .eu-review-text{ color:#374151; margin-top:auto; }\n    .eu-star-filled{ fill:#FBBF24; }\n    .eu-star-empty{ fill:#E5E7EB; }\n    .eu-loadmore-wrap{ text-align:center; margin-top:30px; }\n    .eu-loadmore-btn{ background:#111827; color:#fff; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-loadmore-btn:hover{ background:#374151; }\n    .eu-write-review{ margin-top:50px; padding:28px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); }\n    .eu-write-review h3{ margin:0 0 14px; font-size:22px; }\n    .eu-write-review input, .eu-write-review textarea, .eu-write-review select { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d1d5db; border-radius:8px; }\n    .eu-write-review button{ background:#111827; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-write-review button:hover{ background:#374151; }\n  </style>\n\n  <div class=\"eu-reviews-container\">\n    <div class=\"eu-reviews-header\">\n      <h2 style=\"font-size:28px; margin:0 0 6px;\">Customer Reviews</h2>\n      <p style=\"color:#6b7280; margin:0;\">Rated <strong>4.8/5</strong> by 21,317 customers</p>\n    </div>\n\n    {% assign reviews = \"\n    Joseph Lewis|5|Absolutely love these glasses! They look just like regular Wayfarers but have so many smart features.;\n    James Anderson|5|Super stylish and lightweight. I wear them daily and the sound quality is amazing.;\n    Robert Johnson|4|Very practical, though I wish the battery lasted longer. Still a great buy.;\n    Jessica Miller|5|The design is sleek and no one even realizes they’re smart glasses!;\n    Daniel Smith|5|Perfect for travel I use the translation feature all the time.;\n    Emily Davis|5|Love how comfortable they are, I forget I’m wearing them.;\n    Michael Brown|4|Video quality is sharp, but they heat up if I record too long.;\n    Sarah Wilson|5|Fashionable and functional. My favorite purchase this year.;\n    David Martinez|5|The open-ear audio is brilliant, I can still hear my surroundings.;\n    Laura Taylor|5|Looks exactly like regular sunglasses, but the tech inside is so useful.;\n    Kevin Thomas|4|Controls are a bit sensitive, but overall very happy.;\n    Olivia Harris|5|The style is so good. I’ve had tons of compliments already.;\n    Andrew White|5|Really impressed with the build quality and comfort.;\n    Sophia Clark|5|They feel premium and the features work smoothly.;\n    Matthew Rodriguez|4|Battery could be better, but the design makes up for it.;\n    Chloe Hall|5|They fit perfectly and go with every outfit I own.;\n    Benjamin King|5|Use them daily for calls and quick photos. very convenient.;\n    Ava Scott|5|Didn’t expect them to look this good in person. Love them!;\n    Ethan Moore|5|Sleek design, clear audio, and very lightweight. Great product.;\n    Isabella Young|5|Exactly what I was hoping for a stylish glasses with smart tech.;\n    \" | split: \";\" %}\n\n    <div id=\"eu-reviews-grid\" class=\"eu-reviews-grid\">\n      {% for r in reviews %}\n        {% assign parts = r | split: \"|\" %}\n        {% assign name = parts[0] | strip %}\n        {% assign rating = parts[1] | strip | plus: 0 %}\n        {% assign text = parts[2] | strip %}\n        {% if name != \"\" %}\n        <article class=\"eu-review-card\" style=\"display:none;\">\n          <div class=\"eu-review-top\">\n            <div class=\"eu-avatar\">{{ name | slice: 0, 1 }}</div>\n            <div>\n              <p class=\"eu-review-name\">{{ name }}</p>\n              <p class=\"eu-verified\">Verified Buyer</p>\n            </div>\n          </div>\n          <div class=\"eu-stars\">\n            {% for i in (1..5) %}\n              {% if i <= rating %}\n                <svg class=\"eu-star-filled\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% else %}\n                <svg class=\"eu-star-empty\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% endif %}\n            {% endfor %}\n          </div>\n          <p class=\"eu-review-text\">“{{ text }}”</p>\n        </article>\n        {% endif %}\n      {% endfor %}\n    </div>\n\n    <div class=\"eu-loadmore-wrap\">\n      <button id=\"eu-loadmore-btn\" class=\"eu-loadmore-btn\">Load More Reviews</button>\n    </div>\n\n    <div class=\"eu-write-review\">\n      <h3>Write a Review</h3>\n      <form id=\"review-form\">\n        <input type=\"text\" name=\"name\" placeholder=\"Your Name\" required>\n        <select name=\"rating\" required>\n          <option value=\"\">Rating</option>\n          <option value=\"5\">★★★★★ - Excellent</option>\n          <option value=\"4\">★★★★☆ - Good</option>\n          <option value=\"3\">★★★☆☆ - Average</option>\n          <option value=\"2\">★★☆☆☆ - Poor</option>\n          <option value=\"1\">★☆☆☆☆ - Terrible</option>\n        </select>\n        <textarea name=\"review\" rows=\"4\" placeholder=\"Share your experience...\" required></textarea>\n        <button type=\"submit\">Submit Review</button>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", function(){\n      var reviews = document.querySelectorAll(\"#eu-reviews-grid .eu-review-card\");\n      var btn = document.getElementById(\"eu-loadmore-btn\");\n      var perPage = 6; \n      var shown = 0;\n\n      function showMore(){\n        for(var i=shown; i<shown+perPage && i<reviews.length; i++){\n          reviews[i].style.display = \"flex\";\n        }\n        shown += perPage;\n        if(shown >= reviews.length){\n          btn.style.display = \"none\";\n        }\n      }\n      showMore(); \n      btn.addEventListener(\"click\", showMore);\n\n      document.getElementById(\"review-form\").addEventListener(\"submit\", function(e){\n        e.preventDefault();\n        alert(\"Thank you for your review! It will appear once approved.\");\n        this.reset();\n      });\n    });\n  </script>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "brands_7ULWLR": {
+      "type": "brands",
+      "blocks": {
+        "image_3dehmJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_86.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_kib7VG": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_85.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_4hzkYd": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_82.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_reHxCJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_81.png",
+            "logo_image_width": 110
+          }
+        }
+      },
+      "block_order": [
+        "image_3dehmJ",
+        "image_kib7VG",
+        "image_4hzkYd",
+        "image_reHxCJ"
+      ],
+      "disabled": true,
+      "name": "LOGO Slider",
+      "settings": {
+        "scroll_speed": 15,
+        "fade": false,
+        "color_scheme": "background-1",
+        "padding_desktop": 16,
+        "padding_mobile": 8,
+        "padding_item_desktop": 36,
+        "padding_item_mobile": 24,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17573385083b13945d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "custom_liquid_4yqTzc",
+    "custom_liquid_wMjXYr",
+    "custom_liquid_yiFpmN",
+    "multicolumn_exaVrT",
+    "lumin_hero_JmDF4M",
+    "newsletter_4EW8hn",
+    "custom_liquid_KdkXTW",
+    "image_with_text_qEWtaK",
+    "custom_liquid_YqKKdW",
+    "collapsible_content_QntHhK",
+    "custom_liquid_TB99K8",
+    "related-products",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "brands_7ULWLR",
+    "17573385083b13945d"
+  ]
+}

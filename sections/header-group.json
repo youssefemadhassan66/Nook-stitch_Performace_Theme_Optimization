@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.name",
+  "sections": {
+    "scroll_text_gDcWfb": {
+      "type": "scroll-text",
+      "blocks": {
+        "text_dqp9i7": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Free Shipping</strong> on +$25 Orders Today!",
+            "url": "",
+            "icon": "truck",
+            "outline_all": false,
+            "outline_text": "",
+            "text_color": "#ffffff",
+            "text_size": 20,
+            "text_size_mobile": 20,
+            "text_height": 130,
+            "text_mr": 50,
+            "text_mr_mobile": 40
+          }
+        },
+        "text_UQMDEi": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Summer Sale 25%</strong> OFF",
+            "url": "",
+            "icon": "price_tag",
+            "outline_all": false,
+            "outline_text": "scrolling",
+            "text_color": "#ffffff",
+            "text_size": 20,
+            "text_size_mobile": 18,
+            "text_height": 130,
+            "text_mr": 50,
+            "text_mr_mobile": 40
+          }
+        }
+      },
+      "block_order": [
+        "text_dqp9i7",
+        "text_UQMDEi"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "reverse_direction": false,
+        "pause_hover": true,
+        "lazy": true,
+        "scrolling_velocity": 50,
+        "scrolling_velocity_mobile": 54,
+        "background_color": "#000000",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "section_radius": 0
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-left",
+        "hide_search": false,
+        "menu": "main-menu",
+        "sticky_header_type": "reduce-logo-size",
+        "show_line_separator": false,
+        "transparent_header": "transparent_header_home",
+        "content_color": "#ffffff",
+        "menu_type_desktop": "mega",
+        "menu_hover": true,
+        "mega_columns": "20",
+        "menu_align": "center",
+        "extended-megamenu-show-imgs": "yes",
+        "link_img_size": 100,
+        "img_radius": 0,
+        "mega_menu_head_size": 16,
+        "head_menu_bold": true,
+        "mega_menu_link_size": 14,
+        "menu_bold": false,
+        "mega_menu_head_color": "",
+        "mega_menu_link_color": "",
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "countdown_timer_zNYezp": {
+      "type": "countdown-timer",
+      "disabled": true,
+      "name": "Countdown Timer",
+      "settings": {
+        "color_scheme": "inverse",
+        "layout": "full_bleed",
+        "max_width": 600,
+        "show_border": false,
+        "timer_border": "#eeeeee",
+        "video_border": 0,
+        "message_main": "<p>Black Friday Sale Ends in</p>",
+        "timer_text_size": 15,
+        "timer_text_size_mb": 14,
+        "text_layout": "left",
+        "text_layout_mb": "center",
+        "date": "2026-11-27",
+        "number_size": "small",
+        "font_style": "normal",
+        "timer_size": 1,
+        "timer_size_mb": 0.8,
+        "timer_days": "DAY",
+        "hide_days": true,
+        "timer_hrs": "HRS",
+        "timer_min": "MIN",
+        "timer_sec": "SEC",
+        "head_font": false,
+        "timer_color": "#212121",
+        "timer_bg": "#f2f2f2",
+        "message": "<p>Sale is end!</p>",
+        "message_size": 20,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "scroll_text_gDcWfb",
+    "header",
+    "countdown_timer_zNYezp"
+  ]
+}

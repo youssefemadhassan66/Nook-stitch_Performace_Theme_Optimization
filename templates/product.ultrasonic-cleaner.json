@@ -1,0 +1,828 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - 1356 Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#000000",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#d50000",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong>(x) people are looking at this!</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "accent-2",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#ffe7ec",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 3,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#d50000",
+            "regular_price_color": "#212121",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "body",
+            "font_size": 14,
+            "font_style": "normal",
+            "swatchType": "color",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30,
+            "size_trigger": "Size",
+            "chart_id": "Size Chart",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_full_button": true,
+            "lm_main_button": "#000000",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "accent-2",
+            "icon_font_size": 11,
+            "icon_1": "box",
+            "heading_1": "<strong>FREE SHIPPING GLOBLY</strong>",
+            "icon_2": "return",
+            "heading_2": "",
+            "icon_3": "chat_bubble",
+            "heading_3": "<strong>24/7 Customer Support</strong>"
+          }
+        },
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_first_collapsible_row": false,
+            "heading": "Customer Service",
+            "icon": "none",
+            "content": "<p>Need help? Our friendly team is just a message away.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3",
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": false,
+        "color_scheme": "",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffffff",
+        "container_border_color": "#0e1b4d",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffffff",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number",
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 3,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "multicolumn_hYkHyR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qih4bq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_99f47dfd-8723-49de-94ef-84dcac92fc9d.png",
+            "title": "Didn’t Realize How Dirty My Glasses Were!",
+            "text": "<p>“I thought my glasses were pretty clean until I used Clearzy. The water was actually dirty after one cycle—so gross! Now my lenses are spotless, and I don’t have to keep wiping them all day. Worth every penny!”</p><p><em><strong>- David M.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eYi7Vk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2_5e84367c-c8eb-4222-b63e-13f17f79ee6c.png",
+            "title": "Works WAY Better Than I Expected!",
+            "text": "<p>“I was skeptical, but wow—this thing really works! My lenses came out looking brand new, and it even cleaned the little crevices around my frames. If you wear glasses daily, you NEED this!”<br/><br/><em><strong>- Emma P.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Crge6f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/4_a0744b24-1376-4f1d-ac32-41c750906a77.png",
+            "title": "Game-Changer for Oily Skin",
+            "text": "<p>“I have oily skin, and my glasses are always covered in smudges. No matter how much I wiped, they never felt truly clean. clearzy changed that. One cycle, a quick dry, and my glasses stay clearer for longer. I love it!”<br/><br/><em><strong>- Jack R.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Bc8CHx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_2b2a3848-2c3b-4d31-8658-092ac764564b.png",
+            "title": "I Use It Every Single Day",
+            "text": "<p>“I never realized how much dust and grime built up on my glasses. After using this Clearzy cleaner, they look like they just came from the optician. I run them through it every morning now—best purchase ever!”<br/><br/><em><strong>- Jacob D.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WxkyQG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_bf63de25-58e6-407d-b3b9-e342c273950a.png",
+            "title": "Surprisingly Addictive to Use!",
+            "text": "<p>\"I bought this on a whim, and now I use it every day. Watching the water get dirty after cleaning my glasses is oddly satisfying, and my lenses have never looked better. Definitely recommend!\"<br/><br/><em><strong>- Lisa T.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bTgzwG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2_5b882e93-da13-4a8f-9555-c98c118cdba0.png",
+            "title": "A Must-Have for Every Glasses Wearer",
+            "text": "<p>\"I was always frustrated with how dirty my glasses got, especially in the corners. This little machine took care of everything. If you wear glasses daily, you NEED this!\"<br/><br/><em><strong>- Samantha K.</strong></em></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qih4bq",
+        "column_eYi7Vk",
+        "column_Crge6f",
+        "column_Bc8CHx",
+        "column_WxkyQG",
+        "column_bTgzwG"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Trusted by 10,000+ glasses wearers",
+        "heading_size": "h1",
+        "heading_center": "center",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "navigation_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_text_yCrycW": {
+      "type": "video-text",
+      "blocks": {
+        "heading_bHwFzc": {
+          "type": "heading",
+          "settings": {
+            "heading": "See the World Clearly Again!",
+            "heading_size": "h1"
+          }
+        },
+        "text_hKemAa": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Are you tired of constantly wiping your glasses, but they never really get clean</strong>? You tried microfiber cloths, and it always results in <strong>streaks and smudges that never go away</strong>. Not only is it annoying—it <strong>causes eye strain, headaches, and makes everything look dull</strong>.</p><p>Thankfully<strong> Nook & stitch™</strong>, uses ultrasonic waves to <strong>lift dirt, oil, and gunk from every part of your glasses</strong>—even in places your cloth can’t reach.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bHwFzc",
+        "text_hKemAa"
+      ],
+      "name": "Video with Text",
+      "settings": {
+        "color_scheme_main": "",
+        "layout_width": "grid",
+        "video": "shopify://files/videos/d56f6815c44f4e48a67ddc494508296c.HD-1080p-7.2Mbps-44244797.mp4",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "mobile_content_alignment": "left",
+        "margin_top": 36,
+        "margin_bottom": 36,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_text_jwMQW9": {
+      "type": "video-text",
+      "blocks": {
+        "heading_QrRQQx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Effortless rushify In 3 Simple Steps",
+            "heading_size": "h1"
+          }
+        },
+        "text_tAEENK": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p><h3>Fill With Water:</h3><p>Add water and a drop of cleaning solution.</p><p></p><h3>Turn On:</h3><p>Place glasses in and press the button.</p><p></p><h3>Done!</h3><p>Dry and enjoy crystal-clear vision!</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QrRQQx",
+        "text_tAEENK"
+      ],
+      "name": "Video with Text",
+      "settings": {
+        "color_scheme_main": "",
+        "layout_width": "grid",
+        "video": "shopify://files/videos/17140ada764541a7b98d2894c9b5556d.HD-1080p-7.2Mbps-44247548.mp4",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "mobile_content_alignment": "left",
+        "margin_top": 36,
+        "margin_bottom": 36,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "brands_7ULWLR": {
+      "type": "brands",
+      "blocks": {
+        "image_3dehmJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_86.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_kib7VG": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_85.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_4hzkYd": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_82.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_reHxCJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_81.png",
+            "logo_image_width": 110
+          }
+        }
+      },
+      "block_order": [
+        "image_3dehmJ",
+        "image_kib7VG",
+        "image_4hzkYd",
+        "image_reHxCJ"
+      ],
+      "disabled": true,
+      "name": "LOGO Slider",
+      "settings": {
+        "scroll_speed": 15,
+        "fade": false,
+        "color_scheme": "background-1",
+        "padding_desktop": 16,
+        "padding_mobile": 8,
+        "padding_item_desktop": 36,
+        "padding_item_mobile": 24,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17573385083b13945d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "video_text_Cc6Hmc": {
+      "type": "video-text",
+      "blocks": {
+        "heading_WyqVXf": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Foggy to Flawless",
+            "heading_size": "h1"
+          }
+        },
+        "text_PAgKYm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>See the difference <strong>clean glasses</strong> make. No more smudges, dust, or streaks—just <strong>clear, spotless lenses</strong> that let you see the world as it’s meant to be.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WyqVXf",
+        "text_PAgKYm"
+      ],
+      "name": "Video with Text",
+      "settings": {
+        "color_scheme_main": "background-1",
+        "layout_width": "grid",
+        "video": "shopify://files/videos/ac102ff449674784887c26179843c130.HD-1080p-7.2Mbps-44549565.mp4",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "left",
+        "margin_top": 36,
+        "margin_bottom": 36,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "comparison_table_VcReHa": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_8MmGhk": {
+          "type": "row",
+          "settings": {
+            "benefit": "Removes smudges",
+            "us": true,
+            "others": false
+          }
+        },
+        "row_AdBHDq": {
+          "type": "row",
+          "settings": {
+            "benefit": "Cleans crevices",
+            "us": true,
+            "others": false
+          }
+        },
+        "row_K6q4fP": {
+          "type": "row",
+          "settings": {
+            "benefit": "Hands-free",
+            "us": true,
+            "others": false
+          }
+        },
+        "row_wpJVPc": {
+          "type": "row",
+          "settings": {
+            "benefit": "Safe for all glasses",
+            "us": true,
+            "others": false
+          }
+        },
+        "row_qUazQP": {
+          "type": "row",
+          "settings": {
+            "benefit": "No scratches",
+            "us": true,
+            "others": false
+          }
+        }
+      },
+      "block_order": [
+        "row_8MmGhk",
+        "row_AdBHDq",
+        "row_K6q4fP",
+        "row_wpJVPc",
+        "row_qUazQP"
+      ],
+      "name": "Comparison table",
+      "settings": {
+        "title": "Why choose nook & stitch™?",
+        "heading_size": "h1",
+        "text": "",
+        "button_label": "",
+        "link": "",
+        "button_style_secondary": false,
+        "layout": "table_second",
+        "color_scheme": "",
+        "logo_width": 90,
+        "mobile_logo_width": 60,
+        "us_label": "",
+        "others_label": "Others",
+        "benefit_color_scheme": "background-2",
+        "checkmark_color": "#53af01",
+        "icon_cells_color_scheme": "",
+        "table_corner_radius": 0,
+        "table_shadow_opacity": 15,
+        "table_shadow_horizontal_offset": 0,
+        "table_shadow_vertical_offset": 0,
+        "table_shadow_blur": 0,
+        "table_border_thickness": 1,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_G6gVqa": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HYMTJm": {
+          "type": "heading",
+          "settings": {
+            "heading": "60 Days Risk-Free!",
+            "heading_size": "h1"
+          }
+        },
+        "text_pk3TL6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you don’t absolutely LOVE having spotless, streak-free glasses, <strong>we’ll refund every penny—no questions asked.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HYMTJm",
+        "text_pk3TL6"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "17579290111b0ad2b8": {
+      "type": "apps",
+      "blocks": {
+        "air_product_reviews_app_block_review_list_8y3XK3": {
+          "type": "shopify://apps/ag-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {
+            "air_blockreviews_summaryHeading": "Reviews",
+            "air_blockreviews_layout": "list",
+            "air_blockreviews_singleStarColor": "#16A086",
+            "air_blockreviews_primaryColor": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "air_product_reviews_app_block_review_list_8y3XK3"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "collapsible_content_mQGUbB": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_6BNMAU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will this remove streaks and smudges completely?",
+            "icon": "check_mark",
+            "row_content": "<p>Yes!<strong>Unlike cloths that just push oil around, nook & stitch™ actually lifts dirt, grime, and oil off your lenses.</strong></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gBgzxW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can it clean the crevices between my lenses and frames?",
+            "icon": "check_mark",
+            "row_content": "<p>Absolutely! The <strong>ultrasonic waves reach deep into every tiny crevice </strong>to remove trapped dirt and dust.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zhGUiY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should I use it?",
+            "icon": "check_mark",
+            "row_content": "<p>For the best results, we recommend using nook & stitch™ every few days or whenever your glasses start to get dirty.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yBEGdT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need to use a cleaning solution?",
+            "icon": "check_mark",
+            "row_content": "<p>No, just plain water works! But for extra deep cleaning, you can add a drop of mild dish soap or lens cleaning solution.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PFUQ7W": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the cleaning cycle take?",
+            "icon": "check_mark",
+            "row_content": "<p>Each cycle lasts just a few minutes. For extra dirty glasses, you can run two cycles back-to-back.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_6BNMAU",
+        "collapsible_row_gBgzxW",
+        "collapsible_row_zhGUiY",
+        "collapsible_row_yBEGdT",
+        "collapsible_row_PFUQ7W"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "multicolumn_hYkHyR",
+    "video_text_yCrycW",
+    "video_text_jwMQW9",
+    "related-products",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "brands_7ULWLR",
+    "17573385083b13945d",
+    "video_text_Cc6Hmc",
+    "comparison_table_VcReHa",
+    "rich_text_G6gVqa",
+    "17579290111b0ad2b8",
+    "collapsible_content_mQGUbB"
+  ]
+}

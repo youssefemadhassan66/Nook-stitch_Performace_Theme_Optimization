@@ -1,0 +1,494 @@
+{% doc %}
+  @prompt
+    Create a modern, clean guarantees section for my homepage. Include four guarantee blocks with icons and short text. The guarantees are: Fast and Free Shipping, Satisfaction Guarantee, 24/7 Customer Support, and Secure Checkout. Use a simple layout, soft rounded shapes, and a premium feel that matches a comfort focused brand for orthopedic sneaker socks. Keep the design minimal with clear headings and short supportive descriptions under each guarantee., make the customer support logo a person wearing headset icon and the fast shipping a truck and make all icons animated the secure checkout the lock opens and closes and the truck moves and the satisfaction guarantee is right sign that is drawn , enhance the logo for customer support a person logo and make him wear headset and the lock opens and closes , remove the circle around the icons and and remove the animation from customer support just a person icon , change the theme to make it a bit elegant and the customer service icon , make the customer service icon an envelope for email that opens and closes
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-guarantees-section-{{ ai_gen_id }} {
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-guarantees-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-guarantees-heading-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .ai-guarantees-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-guarantee-card-{{ ai_gen_id }} {
+    text-align: center;
+    padding: {{ block.settings.card_padding }}px;
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    border: 1px solid {{ block.settings.card_border_color }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-guarantee-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: {{ block.settings.card_hover_border }};
+  }
+
+  .ai-guarantee-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin: 0 auto {{ block.settings.icon_spacing }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-guarantee-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ block.settings.icon_color }};
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-guarantee-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 {{ block.settings.title_spacing }}px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-guarantee-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .ai-truck-{{ ai_gen_id }} {
+    animation: ai-truck-move-{{ ai_gen_id }} 2s ease-in-out infinite;
+  }
+
+  @keyframes ai-truck-move-{{ ai_gen_id }} {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(8px);
+    }
+  }
+
+  .ai-checkmark-{{ ai_gen_id }} {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: ai-draw-check-{{ ai_gen_id }} 2s ease-in-out infinite;
+  }
+
+  @keyframes ai-draw-check-{{ ai_gen_id }} {
+    0% {
+      stroke-dashoffset: 100;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 100;
+    }
+  }
+
+  .ai-envelope-flap-{{ ai_gen_id }} {
+    transform-origin: center;
+    animation: ai-envelope-open-{{ ai_gen_id }} 3s ease-in-out infinite;
+  }
+
+  @keyframes ai-envelope-open-{{ ai_gen_id }} {
+    0%, 100% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(180deg);
+    }
+  }
+
+  .ai-lock-shackle-{{ ai_gen_id }} {
+    transform-origin: 12px 10px;
+    animation: ai-lock-toggle-{{ ai_gen_id }} 3s ease-in-out infinite;
+  }
+
+  @keyframes ai-lock-toggle-{{ ai_gen_id }} {
+    0%, 40%, 100% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-guarantees-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: {{ block.settings.grid_gap | times: 0.75 }}px;
+    }
+
+    .ai-guarantees-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+
+    .ai-guarantee-card-{{ ai_gen_id }} {
+      padding: {{ block.settings.card_padding | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-guarantees-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-guarantees-container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-guarantees-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-guarantees-grid-{{ ai_gen_id }}">
+      <div class="ai-guarantee-card-{{ ai_gen_id }}">
+        <div class="ai-guarantee-icon-{{ ai_gen_id }}">
+          <svg class="ai-truck-{{ ai_gen_id }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 3h15v13H1z"/>
+            <path d="M16 8h4l3 3v5h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <h3 class="ai-guarantee-title-{{ ai_gen_id }}">{{ block.settings.guarantee_1_title }}</h3>
+        <p class="ai-guarantee-description-{{ ai_gen_id }}">{{ block.settings.guarantee_1_description }}</p>
+      </div>
+
+      <div class="ai-guarantee-card-{{ ai_gen_id }}">
+        <div class="ai-guarantee-icon-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path class="ai-checkmark-{{ ai_gen_id }}" d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <h3 class="ai-guarantee-title-{{ ai_gen_id }}">{{ block.settings.guarantee_2_title }}</h3>
+        <p class="ai-guarantee-description-{{ ai_gen_id }}">{{ block.settings.guarantee_2_description }}</p>
+      </div>
+
+      <div class="ai-guarantee-card-{{ ai_gen_id }}">
+        <div class="ai-guarantee-icon-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path class="ai-envelope-flap-{{ ai_gen_id }}" d="M2 6l10 7 10-7"/>
+          </svg>
+        </div>
+        <h3 class="ai-guarantee-title-{{ ai_gen_id }}">{{ block.settings.guarantee_3_title }}</h3>
+        <p class="ai-guarantee-description-{{ ai_gen_id }}">{{ block.settings.guarantee_3_description }}</p>
+      </div>
+
+      <div class="ai-guarantee-card-{{ ai_gen_id }}">
+        <div class="ai-guarantee-icon-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path class="ai-lock-shackle-{{ ai_gen_id }}" d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3 class="ai-guarantee-title-{{ ai_gen_id }}">{{ block.settings.guarantee_4_title }}</h3>
+        <p class="ai-guarantee-description-{{ ai_gen_id }}">{{ block.settings.guarantee_4_description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Guarantees section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Promise to You"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "label": "Spacing below heading",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Guarantee 1 - Fast shipping"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_1_title",
+      "label": "Title",
+      "default": "Fast & Free Shipping"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_1_description",
+      "label": "Description",
+      "default": "Enjoy complimentary express delivery on all orders"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee 2 - Satisfaction"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_2_title",
+      "label": "Title",
+      "default": "Satisfaction Guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_2_description",
+      "label": "Description",
+      "default": "Love it or return it within 30 days, no questions asked"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee 3 - Customer support"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_3_title",
+      "label": "Title",
+      "default": "24/7 Customer Support"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_3_description",
+      "label": "Description",
+      "default": "Our dedicated team is here to help you anytime"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee 4 - Secure checkout"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_4_title",
+      "label": "Title",
+      "default": "Secure Checkout"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_4_description",
+      "label": "Description",
+      "default": "Your payment information is protected with encryption"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#fafafa"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#e8e8e8"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_border",
+      "label": "Card hover border",
+      "default": "#d0d0d0"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Card padding",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#2c2c2c"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 32,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Space below icon",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "title_spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Space below title",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#5a5a5a"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between cards",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guarantees section"
+    }
+  ]
+}
+{% endschema %}

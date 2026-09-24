@@ -1,0 +1,186 @@
+/* Shared motion for the About and Contact page stories. */
+@media (prefers-reduced-motion: no-preference) {
+  .nook-page-hero-motion .about-photo-hero__image {
+    animation: nookPageHeroImage 1200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-page-hero-motion .about-photo-hero__shade {
+    animation: nookPageFadeIn 680ms ease-out both;
+  }
+
+  .nook-page-hero-motion .about-photo-hero__kicker,
+  .nook-page-hero-motion .about-photo-hero__heading-word,
+  .nook-page-hero-motion .about-photo-hero__body {
+    animation: nookPageCopyEnter 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-page-hero-motion .about-photo-hero__kicker {
+    animation-delay: 120ms;
+  }
+
+  .nook-page-hero-motion .about-photo-hero__heading-word {
+    display: inline-block;
+    animation-delay: calc(210ms + (var(--about-word-order) * 100ms));
+  }
+
+  .nook-page-hero-motion .about-photo-hero__body {
+    animation-delay: 460ms;
+  }
+
+  .nook-contact--motion .nook-contact__mark,
+  .nook-contact--motion .nook-contact__eyebrow,
+  .nook-contact--motion .contact-heading,
+  .nook-contact--motion [class*='contact-heading-'],
+  .nook-contact--motion [class*='contact-sub-heading-'],
+  .nook-contact--motion .nook-contact__support-item,
+  .nook-contact--motion .nook-contact__panel,
+  .nook-contact--motion .nook-contact__form-heading,
+  .nook-contact--motion .nook-contact__form > * {
+    animation: nookPageCopyEnter 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-contact--motion .nook-contact__mark {
+    animation-delay: 60ms;
+  }
+
+  .nook-contact--motion .nook-contact__eyebrow {
+    animation-delay: 130ms;
+  }
+
+  .nook-contact--motion [class*='contact-heading-'] {
+    animation-delay: 200ms;
+  }
+
+  .nook-contact--motion [class*='contact-sub-heading-'] {
+    animation-delay: 300ms;
+  }
+
+  .nook-contact--motion .nook-contact__support-item:nth-child(1) {
+    animation-delay: 390ms;
+  }
+
+  .nook-contact--motion .nook-contact__support-item:nth-child(2) {
+    animation-delay: 470ms;
+  }
+
+  .nook-contact--motion .nook-contact__support-item:nth-child(3) {
+    animation-delay: 550ms;
+  }
+
+  .nook-contact--motion .nook-contact__panel {
+    animation-name: nookPagePanelEnter;
+    animation-delay: 180ms;
+  }
+
+  .nook-contact--motion .nook-contact__form-heading {
+    animation-delay: 350ms;
+  }
+
+  .nook-contact--motion .nook-contact__form > *:nth-child(1) {
+    animation-delay: 430ms;
+  }
+
+  .nook-contact--motion .nook-contact__form > *:nth-child(2) {
+    animation-delay: 500ms;
+  }
+
+  .nook-contact--motion .nook-contact__form > *:nth-child(3) {
+    animation-delay: 570ms;
+  }
+
+  .nook-contact--motion .nook-contact__form > *:nth-child(4) {
+    animation-delay: 640ms;
+  }
+
+  .nook-contact--motion .nook-contact__form > *:nth-child(n + 5) {
+    animation-delay: 710ms;
+  }
+
+  .js.page-motion-ready #MainContent > .shopify-section.page-section-reveal {
+    opacity: 0;
+    transform: translate3d(0, 3.2rem, 0);
+    transition:
+      opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .js.page-motion-ready #MainContent > .shopify-section.page-section-reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Keep optional Dawn triggers from competing with this page-level reveal. */
+  .js.page-motion-ready
+    #MainContent
+    > .shopify-section.page-section-reveal
+    .scroll-trigger.animate--fade-in,
+  .js.page-motion-ready
+    #MainContent
+    > .shopify-section.page-section-reveal
+    .scroll-trigger.animate--slide-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  @keyframes nookPageHeroImage {
+    from {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.01);
+    }
+  }
+
+  @keyframes nookPageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes nookPageCopyEnter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 1.8rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes nookPagePanelEnter {
+    from {
+      opacity: 0;
+      transform: translate3d(2.4rem, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nook-page-hero-motion .about-photo-hero__image,
+  .nook-page-hero-motion .about-photo-hero__shade,
+  .nook-page-hero-motion .about-photo-hero__kicker,
+  .nook-page-hero-motion .about-photo-hero__heading-word,
+  .nook-page-hero-motion .about-photo-hero__body,
+  .nook-contact--motion .nook-contact__mark,
+  .nook-contact--motion .nook-contact__eyebrow,
+  .nook-contact--motion [class*='contact-heading-'],
+  .nook-contact--motion [class*='contact-sub-heading-'],
+  .nook-contact--motion .nook-contact__support-item,
+  .nook-contact--motion .nook-contact__panel,
+  .nook-contact--motion .nook-contact__form-heading,
+  .nook-contact--motion .nook-contact__form > *,
+  #MainContent > .shopify-section.page-section-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

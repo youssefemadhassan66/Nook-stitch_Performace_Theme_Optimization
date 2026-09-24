@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "size_guide": {
+      "type": "size-guide-comparison",
+      "blocks": {
+        "normal_socks": {
+          "type": "guide",
+          "settings": {
+            "product": "orthopedicsocks",
+            "product_label": "Everyday comfort",
+            "heading": "Normal orthopedic socks",
+            "note": "Our ankle-height sock is made for everyday shoes, walking, work, and lighter coverage. If you are between sizes, choose the larger size for a more relaxed fit.",
+            "size_1": "S",
+            "size_2": "M",
+            "size_3": "L",
+            "us_size_1": "4–7½",
+            "us_size_2": "8–10½",
+            "us_size_3": "11–13",
+            "uk_size_1": "",
+            "uk_size_2": "",
+            "uk_size_3": "",
+            "button_label": "Shop normal socks"
+          }
+        },
+        "crew_socks": {
+          "type": "guide",
+          "settings": {
+            "product": "orthopedic-crew-socks",
+            "product_label": "More coverage",
+            "heading": "Orthopedic crew socks",
+            "note": "Our crew sock gives you a taller, more covered fit while keeping the same soft support. One comfortable size fits US shoe sizes 7 through 14.",
+            "size_1": "One size",
+            "size_2": "",
+            "size_3": "",
+            "us_size_1": "7–14",
+            "us_size_2": "",
+            "us_size_3": "",
+            "uk_size_1": "",
+            "uk_size_2": "",
+            "uk_size_3": "",
+            "button_label": "Shop crew socks"
+          }
+        }
+      },
+      "block_order": [
+        "normal_socks",
+        "crew_socks"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "accent_color": "#157A5B",
+        "eyebrow": "Fit and feel",
+        "heading": "Find your most comfortable fit.",
+        "intro": "<p>Use the guide below to choose between our everyday ankle sock and our crew sock. If you are between sizes, we recommend sizing up.<\/p>",
+        "size_header": "Sock size",
+        "us_shoe_size_label": "US shoe size",
+        "uk_shoe_size_label": "UK shoe size",
+        "padding_top": 76,
+        "padding_bottom": 96,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 64
+      }
+    }
+  },
+  "order": [
+    "size_guide"
+  ]
+
+}

@@ -1,0 +1,699 @@
+{%- liquid
+  assign s = section.settings
+  assign autoplay_ms = s.autoplay_seconds | times: 1000
+  assign first_bg = section.blocks.first.settings.background_color | default: '#999999'
+  assign has_blocks = false
+  if section.blocks.size > 0
+    assign has_blocks = true
+  endif
+-%}
+
+{{ 'home-section-reveal.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'home-section-reveal.js' | asset_url }}" defer="defer"></script>
+
+<section
+  class="nook-hero nook-hero--motion gradient color-{{ s.color_scheme }}"
+  style="
+    --nook-hero-text: {{ s.text_color }};
+    --nook-hero-button-bg: {{ s.button_color }};
+    --nook-hero-button-text: {{ s.button_text_color }};
+    --nook-hero-dot: {{ s.dot_color }};
+    --nook-hero-min: {{ s.min_height }}px;
+    --nook-hero-base-bg: {{ first_bg }};
+  "
+  data-nook-hero="{{ section.id }}"
+  data-autoplay="{{ autoplay_ms }}"
+>
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign heading_1 = block.settings.heading_line_1
+      assign heading_2 = block.settings.heading_line_2
+      assign hero_loading = 'lazy'
+      assign hero_priority = 'low'
+      assign hero_secondary_priority = 'low'
+      if forloop.first
+        assign hero_loading = 'eager'
+        assign hero_priority = 'high'
+        assign hero_secondary_priority = 'auto'
+      endif
+    -%}
+    <div
+      class="nook-hero__slide{% if forloop.first %} is-active{% endif %}"
+      data-slide-index="{{ forloop.index0 }}"
+      data-align="{{ block.settings.content_position | default: 'center' }}"
+      style="--slide-bg: {{ block.settings.background_color | default: '#999999' }};"
+      {{ block.shopify_attributes }}
+    >
+      {%- if block.settings.video != blank or block.settings.video_url != blank or block.settings.image != blank or block.settings.image_asset != blank -%}
+        <span class="nook-hero__media nook-hero__media--full" aria-hidden="true" style="--overlay-opacity: {{ block.settings.overlay_opacity | default: 30 | times: 0.01 }};">
+          {%- if block.settings.video != blank -%}
+            {{- block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'nook-hero__img nook-hero__img--video' -}}
+          {%- elsif block.settings.video_url != blank -%}
+            {%- if block.settings.video_url.type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&loop=1&playlist={{ block.settings.video_url.id }}&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" loading="{{ hero_loading }}" allow="autoplay; encrypted-media" class="nook-hero__img nook-hero__img--video nook-hero__img--iframe" allowfullscreen></iframe>
+            {%- elsif block.settings.video_url.type == 'vimeo' -%}
+              <iframe src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1&loop=1&muted=1&background=1" frameborder="0" loading="{{ hero_loading }}" allow="autoplay; encrypted-media" class="nook-hero__img nook-hero__img--video nook-hero__img--iframe" allowfullscreen></iframe>
+            {%- endif -%}
+          {%- elsif block.settings.image != blank -%}
+            {{- block.settings.image | image_url: width: 2200 | image_tag: loading: hero_loading, fetchpriority: hero_priority, widths: '420, 700, 1100, 1600, 2200', sizes: '100vw', class: 'nook-hero__img' -}}
+          {%- elsif block.settings.image_asset != blank -%}
+            <img src="{{ block.settings.image_asset | asset_url }}" loading="{{ hero_loading }}" fetchpriority="{{ hero_priority }}" width="1600" height="900" class="nook-hero__img" alt="">
+          {%- endif -%}
+        </span>
+      {%- else -%}
+        {%- if block.settings.left_image != blank -%}
+          <span class="nook-hero__media nook-hero__media--left" aria-hidden="true">
+            {{- block.settings.left_image | image_url: width: 1100 | image_tag: loading: hero_loading, fetchpriority: hero_priority, widths: '420, 700, 1100', sizes: '(max-width: 989px) 60vw, 40vw', class: 'nook-hero__img' -}}
+          </span>
+        {%- endif -%}
+        {%- if block.settings.right_image != blank -%}
+          <span class="nook-hero__media nook-hero__media--right" aria-hidden="true">
+            {{- block.settings.right_image | image_url: width: 1100 | image_tag: loading: hero_loading, fetchpriority: hero_secondary_priority, widths: '420, 700, 1100', sizes: '(max-width: 989px) 60vw, 40vw', class: 'nook-hero__img' -}}
+          </span>
+        {%- endif -%}
+      {%- endif -%}
+
+      <div class="nook-hero__inner">
+        <div class="nook-hero__copy">
+          {%- if block.settings.kicker != blank -%}
+            <p class="nook-hero__kicker">{{ block.settings.kicker | escape }}</p>
+          {%- endif -%}
+          {%- if forloop.first -%}
+            <h1 class="nook-hero__heading">
+              {%- if heading_1 != blank -%}<span>{{ heading_1 | escape }}</span>{%- endif -%}
+              {%- if heading_2 != blank -%}<span>{{ heading_2 | escape }}</span>{%- endif -%}
+            </h1>
+          {%- else -%}
+            <div class="nook-hero__heading">
+              {%- if heading_1 != blank -%}<span>{{ heading_1 | escape }}</span>{%- endif -%}
+              {%- if heading_2 != blank -%}<span>{{ heading_2 | escape }}</span>{%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.body != blank -%}
+            <div class="nook-hero__body rte">{{ block.settings.body }}</div>
+          {%- endif -%}
+          {%- if block.settings.button_label != blank -%}
+            <a class="nook-hero__button" href="{{ block.settings.button_link | default: routes.all_products_collection_url }}">{{ block.settings.button_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    {%- comment -%} No template blocks reached the section — render a built-in 3-slide carousel so dots + timer always work. {%- endcomment -%}
+    <div class="nook-hero__slide is-active" data-slide-index="0" style="--slide-bg: #999999;">
+      <div class="nook-hero__inner"><div class="nook-hero__copy">
+        <p class="nook-hero__kicker">Feel the difference</p>
+        <h1 class="nook-hero__heading"><span>Relief that</span><span>feels easy.</span></h1>
+        <div class="nook-hero__body rte"><p>Orthopedic arch support and seamless cushioning, made for sensitive feet and long days.</p></div>
+        <a class="nook-hero__button" href="{{ routes.all_products_collection_url }}">Shop now</a>
+      </div></div>
+    </div>
+    <div class="nook-hero__slide" data-slide-index="1" data-align="left" style="--slide-bg: #157A5B;">
+      <div class="nook-hero__inner"><div class="nook-hero__copy">
+        <p class="nook-hero__kicker">All-day comfort</p>
+        <div class="nook-hero__heading"><span>Support that</span><span>feels good.</span></div>
+        <div class="nook-hero__body rte"><p>Soft cushioning and a non-binding fit that stays comfortable from the first step to the last.</p></div>
+        <a class="nook-hero__button" href="{{ routes.all_products_collection_url }}">Shop now</a>
+      </div></div>
+    </div>
+    <div class="nook-hero__slide" data-slide-index="2" style="--slide-bg: #777777;">
+      <div class="nook-hero__inner"><div class="nook-hero__copy">
+        <p class="nook-hero__kicker">Just landed</p>
+        <div class="nook-hero__heading"><span>New arrivals</span></div>
+        <div class="nook-hero__body rte"><p>Fresh comfort, just dropped — be first to feel the difference.</p></div>
+        <a class="nook-hero__button" href="{{ routes.all_products_collection_url }}">Shop new</a>
+      </div></div>
+    </div>
+  {%- endfor -%}
+
+  {%- if has_blocks and s.show_dots and section.blocks.size > 1 -%}
+    <div class="nook-hero__dots" role="tablist" aria-label="Hero slides">
+      {%- for block in section.blocks -%}
+        <button class="nook-hero__dot{% if forloop.first %} is-active{% endif %}" type="button" data-dot-index="{{ forloop.index0 }}" aria-label="Show slide {{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+      {%- endfor -%}
+    </div>
+  {%- elsif has_blocks == false and s.show_dots -%}
+    <div class="nook-hero__dots" role="tablist" aria-label="Hero slides">
+      <button class="nook-hero__dot is-active" type="button" data-dot-index="0" aria-label="Show slide 1" aria-selected="true"></button>
+      <button class="nook-hero__dot" type="button" data-dot-index="1" aria-label="Show slide 2" aria-selected="false"></button>
+      <button class="nook-hero__dot" type="button" data-dot-index="2" aria-label="Show slide 3" aria-selected="false"></button>
+    </div>
+  {%- endif -%}
+</section>
+
+<script>
+  (() => {
+    const hero = document.querySelector('[data-nook-hero="{{ section.id }}"]');
+    if (!hero) return;
+
+    const slides = Array.from(hero.querySelectorAll('.nook-hero__slide'));
+    const dots = Array.from(hero.querySelectorAll('.nook-hero__dot'));
+    if (slides.length < 2) return;
+
+    const interval = parseInt(hero.dataset.autoplay, 10) || 7000;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer = null;
+
+    const loadInactiveImages = () => {
+      hero.querySelectorAll('.nook-hero__slide:not(.is-active) img[loading="lazy"]').forEach((img) => {
+        img.loading = 'eager';
+      });
+    };
+    if (document.readyState === 'complete') {
+      loadInactiveImages();
+    } else {
+      window.addEventListener('load', loadInactiveImages, { once: true });
+    }
+
+    const go = (next) => {
+      const target = (next + slides.length) % slides.length;
+      slides[current].classList.remove('is-active');
+      if (dots[current]) {
+        dots[current].classList.remove('is-active');
+        dots[current].setAttribute('aria-selected', 'false');
+      }
+      current = target;
+      slides[current].classList.add('is-active');
+      if (dots[current]) {
+        dots[current].classList.add('is-active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+    };
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => { if (reduce) return; stop(); timer = setInterval(() => go(current + 1), interval); };
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => { go(idx); start(); });
+    });
+
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+
+    start();
+  })();
+</script>
+
+{% stylesheet %}
+  .nook-hero[data-nook-hero] {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: var(--nook-hero-text, #ffffff);
+    background: var(--nook-hero-base-bg, #999999);
+  }
+
+  /* Bulletproof slide toggle: only the active slide is laid out */
+  .nook-hero__slide { display: none; }
+
+  .nook-hero__slide.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nook-hero__slide {
+    position: relative;
+    overflow: hidden;
+    min-height: 95vh;
+    min-height: 95svh;
+    background:
+      radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.12), transparent 40rem),
+      var(--slide-bg, #999999);
+  }
+
+  .nook-hero__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+    min-height: 95svh;
+    width: min(100%, 1280px);
+    margin: 0 auto;
+    padding: clamp(110px, 11vw, 168px) clamp(24px, 5vw, 72px) clamp(80px, 8vw, 112px);
+  }
+
+  /* Centered copy — image-2 layout (default) */
+  .nook-hero__copy {
+    display: grid;
+    gap: 0;
+    justify-items: center;
+    width: min(100%, 60rem);
+    text-align: center;
+  }
+
+  /* Per-slide alignment overrides */
+  .nook-hero__slide[data-align="left"] .nook-hero__inner { justify-content: flex-start; }
+  .nook-hero__slide[data-align="left"] .nook-hero__copy { justify-items: start; text-align: left; }
+  .nook-hero__slide[data-align="right"] .nook-hero__inner { justify-content: flex-end; }
+  .nook-hero__slide[data-align="right"] .nook-hero__copy { justify-items: end; text-align: right; }
+
+  .nook-hero[data-nook-hero] .nook-hero__kicker,
+  .nook-hero[data-nook-hero] .nook-hero__heading,
+  .nook-hero[data-nook-hero] .nook-hero__body {
+    color: var(--nook-hero-text, #ffffff);
+  }
+
+  .nook-hero__kicker {
+    margin: 0 0 22px;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(1.05rem, 0.9vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.5em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .nook-hero__heading {
+    display: grid;
+    gap: 0.04em;
+    margin: 0;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(4.8rem, 5.2vw, 8.4rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.96;
+  }
+
+  .nook-hero__body {
+    max-width: 42rem;
+    margin-top: 24px;
+    font-size: clamp(1.65rem, 1.25vw, 2.1rem);
+    line-height: 1.45;
+  }
+
+  .nook-hero__body p { margin: 0; }
+
+  .nook-hero__button {
+    display: inline-flex;
+    min-width: 178px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 34px;
+    padding: 0 42px;
+    border: 1px solid #157b5b;
+    border-radius: 0;
+    background: transparent;
+    color: var(--nook-hero-button-text, #1f1d24);
+    font-family: var(--font-body-family);
+    font-size: 1.35rem;
+    font-weight: 600;
+    isolation: isolate;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-transform: none;
+    transition: color 260ms ease, transform 220ms ease, box-shadow 260ms ease;
+  }
+
+  .nook-hero__button::before {
+    content: "";
+    position: absolute;
+    right: -14%;
+    bottom: -168%;
+    left: -14%;
+    height: 164%;
+    background: #157b5b;
+    border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+    transition: bottom 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  .nook-hero__button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--nook-hero-button-bg, #ffffff);
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  .nook-hero__button:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(31, 29, 36, 0.12);
+  }
+
+  .nook-hero__button:hover::before {
+    bottom: -24%;
+  }
+
+  .nook-hero__button:focus {
+    outline: none;
+  }
+
+  .nook-hero__button:focus-visible {
+    outline: 2px solid var(--nook-hero-button-bg, #ffffff);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nook-hero__button,
+    .nook-hero__button::before {
+      transition: none;
+    }
+  }
+
+  /* Optional edge photos behind centered copy */
+  .nook-hero__media {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    width: min(42%, 560px);
+    pointer-events: none;
+  }
+  .nook-hero__media--left { left: 0; }
+  .nook-hero__media--right { right: 0; }
+  .nook-hero__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .nook-hero__media--left::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 50%, var(--slide-bg, #999999) 96%);
+  }
+  .nook-hero__media--right::before {
+    background: linear-gradient(270deg, rgba(255,255,255,0) 50%, var(--slide-bg, #999999) 96%);
+  }
+  .nook-hero__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .nook-hero__media--full {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .nook-hero__media--full::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, var(--overlay-opacity, 0.3));
+  }
+  .nook-hero__img--video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .nook-hero__img--iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; /* 16:9 Aspect Ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 Aspect Ratio */
+    transform: translate(-50%, -50%);
+  }
+
+  /* White slide dots */
+  .nook-hero__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    z-index: 3;
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    transform: translateX(-50%);
+  }
+  .nook-hero__dot {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: 2px solid var(--nook-hero-dot, #ffffff);
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+  .nook-hero__dot.is-active {
+    background: var(--nook-hero-dot, #ffffff);
+    transform: scale(1.05);
+  }
+  .nook-hero__dot:focus-visible {
+    outline: 3px solid var(--nook-hero-dot, #ffffff);
+    outline-offset: 5px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .nook-hero__inner { padding: clamp(104px, 22vw, 150px) 22px 92px; }
+    .nook-hero__heading { font-size: clamp(4.2rem, 13vw, 7rem); }
+    .nook-hero__body { max-width: 34rem; font-size: 1.7rem; }
+    .nook-hero__media { width: 50%; opacity: 0.5; }
+  }
+
+  @media screen and (max-width: 599px) {
+    .nook-hero__inner { padding: 120px 18px 84px; }
+    .nook-hero__kicker { margin-bottom: 16px; font-size: 1rem; letter-spacing: 0.34em; }
+    .nook-hero__heading { font-size: clamp(3.8rem, 14vw, 5.4rem); }
+    .nook-hero__body { max-width: 30rem; margin-top: 16px; font-size: 1.55rem; }
+    .nook-hero__button { min-height: 48px; margin-top: 24px; padding-inline: 26px; font-size: 1.25rem; }
+    .nook-hero__media { width: 64%; opacity: 0.32; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Nook athletic hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Slideshow"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Seconds per slide",
+      "default": 7,
+      "info": "Each slide auto-advances after this many seconds. Pauses on hover. Disabled for reduced-motion visitors."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show slide dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Slide dot color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 520,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 720
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#999999"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Eyebrow",
+          "default": "Feel the difference"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_1",
+          "label": "Heading line 1",
+          "default": "Relief that"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_2",
+          "label": "Heading line 2",
+          "default": "feels easy."
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Body",
+          "default": "<p>Orthopedic arch support and seamless cushioning, made for sensitive feet and long days.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_image",
+          "label": "Left photo (optional)",
+          "info": "Bleeds in from the left edge behind the centered copy."
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right photo (optional)",
+          "info": "Bleeds in from the right edge behind the centered copy."
+        },
+        {
+          "type": "header",
+          "content": "Full background media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Full background image",
+          "info": "Fills the entire background of the slide."
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Full background image asset filename (optional)",
+          "info": "E.g., featured-sock-pair-editorial.jpg. Use for local files in assets folder."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Full background video (Shopify hosted)",
+          "info": "Takes precedence over background image."
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Full background video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Alternatively, specify a YouTube or Vimeo link."
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 90,
+          "step": 10,
+          "unit": "%",
+          "label": "Overlay dark opacity",
+          "default": 30
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Nook athletic hero",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "background_color": "#999999",
+            "kicker": "Feel the difference",
+            "heading_line_1": "Relief that",
+            "heading_line_2": "feels easy.",
+            "body": "<p>Orthopedic arch support and seamless cushioning, made for sensitive feet and long days.</p>",
+            "button_label": "Shop now"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "background_color": "#157A5B",
+            "content_position": "left",
+            "kicker": "All-day comfort",
+            "heading_line_1": "Support that",
+            "heading_line_2": "feels good.",
+            "body": "<p>Soft cushioning and a non-binding fit that stays comfortable from the first step to the last.</p>",
+            "button_label": "Shop now"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "background_color": "#777777",
+            "kicker": "Just landed",
+            "heading_line_1": "New arrivals",
+            "heading_line_2": "",
+            "body": "<p>Fresh comfort, just dropped — be first to feel the difference.</p>",
+            "button_label": "Shop new"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

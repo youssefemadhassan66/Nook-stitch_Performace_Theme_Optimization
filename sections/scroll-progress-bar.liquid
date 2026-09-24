@@ -1,0 +1,181 @@
+{% comment %}
+  Scroll Progress Bar Section
+  Renders a fixed progress bar under the header that fills as the user scrolls.
+{% endcomment %}
+
+{%- style -%}
+  #scrollProgressBarWrapper-{{ section.id }} {
+    position: fixed;
+    top: var(--scroll-progress-bar-top, 0px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 8px clamp(16px, 5vw, 40px);
+    direction: ltr;
+    pointer-events: none;
+    z-index: 80;
+  }
+
+  #scrollProgressBarWrapper-{{ section.id }} .scroll-progress-bar-container {
+    width: min(90vw, 960px);
+    margin: 0 auto;
+    padding: 4px;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 999px;
+    background: rgba(var(--color-background), 0.96);
+    box-shadow: 0 10px 24px rgba(var(--color-foreground), 0.08);
+  }
+
+  #scrollProgressBarWrapper-{{ section.id }} .scroll-progress-bar-track {
+    width: 100%;
+    height: {{ section.settings.bar_height }}px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 999px;
+    background-color: {{ section.settings.bg_color }};
+    box-shadow: inset 0 0 0 1px rgba(var(--color-foreground), 0.08);
+  }
+
+  #scrollProgressBarWrapper-{{ section.id }} .scroll-progress-bar-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: {{ section.settings.fill_color }};
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.12s ease-out;
+    will-change: transform;
+  }
+
+  @media screen and (max-width: 749px) {
+    #scrollProgressBarWrapper-{{ section.id }} {
+      padding: 7px 16px;
+    }
+
+    #scrollProgressBarWrapper-{{ section.id }} .scroll-progress-bar-container {
+      width: min(90vw, 520px);
+      padding: 3px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="scroll-progress-bar-wrapper"
+  id="scrollProgressBarWrapper-{{ section.id }}"
+  aria-hidden="true"
+>
+  <div class="scroll-progress-bar-container">
+    <div class="scroll-progress-bar-track">
+      <div class="scroll-progress-bar-fill" id="scrollProgressBarFill-{{ section.id }}"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const wrapper = document.getElementById('scrollProgressBarWrapper-{{ section.id }}');
+    const fillElement = document.getElementById('scrollProgressBarFill-{{ section.id }}');
+    if (!wrapper || !fillElement) return;
+
+    let ticking = false;
+
+    function getHeaderBottom() {
+      const selectors = [
+        '.shopify-section-header-sticky',
+        '.section-header',
+        '.header-wrapper',
+        'sticky-header'
+      ];
+      let bottom = 0;
+
+      for (const selector of selectors) {
+        const header = document.querySelector(selector);
+        if (!header || wrapper.contains(header)) continue;
+
+        const rect = header.getBoundingClientRect();
+        if (rect.height > 0 && rect.bottom > 0) {
+          bottom = Math.round(rect.bottom);
+          break;
+        }
+      }
+
+      const announcementBar = document.querySelector('[data-feel-announcement-bar]');
+      if (announcementBar && !wrapper.contains(announcementBar)) {
+        const rect = announcementBar.getBoundingClientRect();
+        if (rect.height > 0 && rect.bottom > 0) {
+          bottom = Math.max(bottom, Math.round(rect.bottom));
+        }
+      }
+
+      return bottom;
+    }
+
+    function updateProgressBar() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? Math.max(0, Math.min(scrollTop / scrollHeight, 1)) : 0;
+
+      wrapper.style.setProperty('--scroll-progress-bar-top', getHeaderBottom() + 'px');
+      fillElement.style.transform = 'scaleX(' + progress + ')';
+    }
+
+    function requestProgressUpdate() {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(function() {
+        updateProgressBar();
+        ticking = false;
+      });
+    }
+
+    function bindProgressBar() {
+      window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+      window.addEventListener('resize', requestProgressUpdate, { passive: true });
+      window.addEventListener('load', requestProgressUpdate, { once: true });
+      document.addEventListener('shopify:section:load', requestProgressUpdate);
+      updateProgressBar();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindProgressBar, { once: true });
+    } else {
+      bindProgressBar();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Scroll Progress Bar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "fill_color",
+      "label": "Progress Bar Color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Track Color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "label": "Bar Height (px)",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll Progress Bar"
+    }
+  ]
+}
+{% endschema %}

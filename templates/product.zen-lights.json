@@ -1,0 +1,811 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - 1356 Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#000000",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#ff9505",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong>(x) people are looking at this!</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "accent-2",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#ffe7ec",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 5,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#000000",
+            "regular_price_color": "#ff9505",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "icon_with_text_9hMBjp": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Untitled_design_33.png",
+            "heading_1": "30 Day Money Back Guarantee",
+            "icon_2": "lock",
+            "heading_2": "Secure & Encrypted Checkouts",
+            "icon_3": "truck",
+            "heading_3": "Free Shipping & Easy Returns"
+          }
+        },
+        "icon_with_text_ENacTF": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Untitled_design_33.png",
+            "heading_1": "",
+            "icon_2": "clipboard",
+            "heading_2": "1-Year Warranty",
+            "icon_3": "truck",
+            "heading_3": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "body",
+            "font_size": 14,
+            "font_style": "normal",
+            "swatchType": "color",
+            "optionName": "Color",
+            "swatchStyle": "round",
+            "swatchSize": 30,
+            "swatchHeight": 30,
+            "size_trigger": "Size",
+            "chart_id": "Size Chart",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_full_button": true,
+            "lm_main_button": "#ff9505",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "payment_mErKY6": {
+          "type": "payment",
+          "settings": {
+            "original": "custom",
+            "payment_icon": "visa,master,paypal,apple_pay,shopify-pay,klarna",
+            "payment_content_alignment": "center"
+          }
+        },
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "accent-2",
+            "icon_font_size": 11,
+            "icon_1": "lock",
+            "heading_1": "<strong>Secure and Encrypted Checkouts</strong>",
+            "icon_2": "return",
+            "heading_2": "30-Day Money Back Guarantee",
+            "icon_3": "chat_bubble",
+            "heading_3": "<strong>24/7 Customer Support</strong>"
+          }
+        },
+        "shipping_PjBWxx": {
+          "type": "shipping",
+          "settings": {
+            "ship_days": 2,
+            "cut_off_time": 16,
+            "icon_size": 20,
+            "image_ani": "none",
+            "text_size": 10,
+            "text_style": "uppercase",
+            "text": "Order before 12:00 AM and we’ll ship it tomorrow!",
+            "date_locale": "en-US",
+            "ship_bg": "#dbbebe",
+            "show_border": false,
+            "ship_border": "#f2f2f2",
+            "border_radius": 0,
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "margin_top": 16,
+            "margin_bottom": 16
+          }
+        },
+        "collapsible_tab_QLmh9b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_first_collapsible_row": false,
+            "heading": "Description",
+            "icon": "none",
+            "content": "<ul><li><strong>Power:</strong> AAA batteries</li><li><strong>Material:</strong> Steel</li><li><strong>Style: </strong>Modern</li></ul>",
+            "page": ""
+          }
+        },
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_first_collapsible_row": false,
+            "heading": "Customer Service",
+            "icon": "none",
+            "content": "<p>Need help? Our friendly team is just a message away.</p><p>Email us at <a href=\"/pages/contact\" title=\"Contact\">info@nookandstitch.com</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "price",
+        "icon_with_text_9hMBjp",
+        "icon_with_text_ENacTF",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "payment_mErKY6",
+        "ad4a2bc2-8dd2-4105-9923-5bd7d66f77f3",
+        "shipping_PjBWxx",
+        "collapsible_tab_QLmh9b",
+        "eb02bfdc-836f-40fa-bc36-a93ccbb6f998"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": false,
+        "color_scheme": "",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffffff",
+        "container_border_color": "#ff9505",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffffff",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number",
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 4,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "custom_liquid_DDicKx": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .reviews-section {\n    text-align: center;\n    margin: 50px 0;\n  }\n\n  .reviews-section h2 {\n    font-size: 28px;\n    font-weight: bold;\n    margin-bottom: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 12px;\n  }\n\n  .reviews-carousel {\n    display: flex;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    gap: 20px;\n    padding: 10px;\n  }\n\n  .reviews-carousel::-webkit-scrollbar {\n    display: none;\n  }\n\n  .review-card {\n    flex: 0 0 300px;\n    background: #fff;\n    border-radius: 14px;\n    padding: 20px;\n    box-shadow: 0 4px 14px rgba(0,0,0,0.1);\n    text-align: left;\n    scroll-snap-align: start;\n  }\n\n  .review-card .stars {\n    margin-bottom: 12px;\n  }\n\n  .review-card .stars img {\n    width: 150px; /* Bigger Trustpilot logo */\n    height: auto;\n  }\n\n  .review-card p {\n    font-size: 14px;\n    line-height: 1.4;\n    margin-bottom: 12px;\n  }\n\n  .review-card h4 {\n    font-size: 15px;\n    font-weight: bold;\n    margin: 8px 0 5px;\n  }\n\n  .review-card span {\n    font-size: 12px;\n    color: #666;\n  }\n\n  .carousel-controls {\n    display: flex;\n    justify-content: center;\n    margin-top: 15px;\n    gap: 10px;\n  }\n\n  .carousel-arrow {\n    background: #fff;\n    border: none;\n    padding: 14px;\n    border-radius: 50%;\n    box-shadow: 0 4px 10px rgba(0,0,0,0.2);\n    cursor: pointer;\n    transition: background 0.3s;\n  }\n\n  .carousel-arrow:hover {\n    background: #f5f5f5;\n  }\n\n  .carousel-arrow svg {\n    width: 22px;\n    height: 22px;\n    stroke-width: 2.2;\n    color: #333;\n  }\n</style>\n\n<div class=\"reviews-section\">\n  <h2>\n    <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot\" style=\"height:105px;\">\n    +10,000 Verified Reviews \n  </h2>\n\n  <div class=\"reviews-carousel\" id=\"reviewsTrack\">\n    \n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Absolutely love these lamps! They give my living room such a cosy, warm glow.”</p>\n      <h4>Emma Johnson <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Very elegant design. Everyone who visits my home asks where I got them.”</p>\n      <h4>Michael Smith <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Stylish, portable, and easy to use. I bought two and plan to get more.”</p>\n      <h4>Charlotte Brown <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“These lamps completely changed the atmosphere in my bedroom. Worth it!”</p>\n      <h4>Daniel Miller <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Soft warm light, perfect for relaxing evenings. Highly recommend.”</p>\n      <h4>Olivia Taylor <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Great lamps, very chic. I just wish they were a little taller.”</p>\n      <h4>Christopher Wilson <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Adds a calming vibe. I use one on my desk for late-night work.”</p>\n      <h4>Sophie Davis <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“I love that they’re cordless—no messy wires, just simple elegance.”</p>\n      <h4>James Anderson <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“They look even better in person than online. So modern and chic!”</p>\n      <h4>Amelia Thomas <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Perfect addition to my dining area. Creates a restaurant-like atmosphere.”</p>\n      <h4>Ethan White <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Placed one in my hallway—great soft light at night without being harsh.”</p>\n      <h4>Grace Harris <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Really good value. The glow is beautiful and the charge lasts long.”</p>\n      <h4>Benjamin Martin <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“My kids love them! They make bedtime stories extra cosy.”</p>\n      <h4>Lucy Evans <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Lovely lamps, but delivery was a bit slower than expected.”</p>\n      <h4>Matthew Thompson <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Perfect for setting the mood during movie nights at home.”</p>\n      <h4>Isla Robinson <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Bought three for my office—clients always comment on them.”</p>\n      <h4>William Clark <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“I’m obsessed with the design. They look like art pieces, not just lights.”</p>\n      <h4>Jessica Lewis <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Battery life is excellent. I use mine daily and barely recharge.”</p>\n      <h4>Andrew Walker <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Love how versatile they are. I move them around depending on my mood.”</p>\n      <h4>Poppy Hall <span>— Verified Purchaser (UK)</span></h4>\n    </div>\n\n    <div class=\"review-card\">\n      <div class=\"stars\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0738/6035/0101/files/trustpilot-stars-logo-png_seeklogo-477110.png?v=1756656806\" alt=\"Trustpilot stars\">\n      </div>\n      <p>“Elegant, warm, and unique. Easily my best home décor purchase this year.”</p>\n      <h4>Jack Allen <span>— Verified Purchaser (US)</span></h4>\n    </div>\n\n  </div>\n\n  <div class=\"carousel-controls\">\n    <button class=\"carousel-arrow\" onclick=\"scrollReviews(-1)\">\n      <svg fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 19l-7-7 7-7\" /></svg>\n    </button>\n    <button class=\"carousel-arrow\" onclick=\"scrollReviews(1)\">\n      <svg fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 5l7 7-7 7\" /></svg>\n    </button>\n  </div>\n</div>\n\n<script>\n  function scrollReviews(direction) {\n    const track = document.getElementById(\"reviewsTrack\");\n    const cardWidth = track.children[0].offsetWidth + 20;\n    track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });\n  }\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_FHkHdg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ngtLVN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image1_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>The Perfect Nightlights</h3><p>These are great night lights. Love that they offer a dimmer slide on them to control brightness and they look very nice throughout our home. The color is very nice, the size is perfect and they aren't heavy in weight, but don't feel cheap at all. The price point is perfect.<br/>We have had them for a few weeks and they seem very durable and function quite well in our main living room and hallways.<br/>We have had nightlights since our 11 year old was just a baby and now that she is almost a teen, the sophisticated look that these provide are great and still serve the purpose they were created for, to provide light. We love having them for sleepovers for her friends, so no one is stumbling around in the dark looking for the bathroom or the stairs. Highly recommend.</p><p><strong>- Jacob C.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XEJ9wK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image2_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>Nice Upgrade for Decor Lighting</h3><p>I like how I can change the strength of the light. Good for bathrooms, kitchens, etc. sometimes you just don’t want bright light when walking into the bathroom and this can give you a good lighting that doesn’t hurt your eyes.</p><p><strong>- Shirley R.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_n6BUk7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Testimonial_Image3_3.webp",
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<h3>Home Elevation - Check!</h3><p>I am in LOVE with these nightlights! I have purchased 6 in total. I love the ‘spotlight’ look and how they nicely light up the hallway, bathroom, and kitchen for when anyone needs to get up at night. I love the dimming feature. I wish I could make them a bit warmer, but love them nonetheless! I love how they automatically turn on when it gets dark/dim. My sons all love them too. The price is amazing! The size doesn’t prevent you from plugging in something else into the outlet which is so great! Highly recommend!</p><p><strong>- Mary H.</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ngtLVN",
+        "column_XEJ9wK",
+        "column_n6BUk7"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "A Game-Changer for Your Home!",
+        "heading_size": "h1",
+        "heading_center": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "navigation_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_xncC34": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6MRetC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Add A Special Touch To Your Home</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_wJWghn": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Warmth and Cosiness Your Way</strong></p><p>The adjustable LED lighting of the <strong>GlowCage™ Lamp</strong> makes it easy to set the mood to match your feeling.</p><p>Choose soft, warm light to relax or a brighter setting for functional tasks. You’re in control of how you want to experience your space.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6MRetC",
+        "text_wJWghn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2025-09-14_at_03-30-02_Nook_Stitch_Products_ZenLight_Essence_Sfeervolle_Draadloze_LED_lamp_Shopify.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "inverse",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_XxqPa8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9PgEhE": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>A Showstopper for Any Interior</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_68qhVM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The modern, minimalist design of the <strong>GlowCage™ Lamp</strong> adds a touch of elegance to any space.</p><p>Without bothersome cables, you can place this stylish lamp anywhere – from your dining room to your bedside table.</p><p>The lamp blends seamlessly into any interior and instantly catches the eye as a true statement piece.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9PgEhE",
+        "text_68qhVM"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_95.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "inverse",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_gTrci7": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_3rBj9f": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Flexible and Long-Lasting Use</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_mAwW8T": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p><p>With its long battery life, the <strong>GlowCage™ Lamp</strong> provides uninterrupted lighting – perfect for long evenings or spontaneous moments.</p><p>Thanks to the wireless design, you can easily move the lamp anywhere you like, so you can always enjoy the ultimate cosiness. Luxury and convenience in one!</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3rBj9f",
+        "text_mAwW8T"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/90d5dea9d0d136e7586888dd2e535fcc_1ec87a7b-bcb8-47ca-af9e-33e61a495562.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "inverse",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "wave_3wDATN": {
+      "type": "wave",
+      "name": "Wave",
+      "settings": {
+        "wave_height": 300,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": true,
+        "animation_duration": 5,
+        "background_color": "#ffffff",
+        "wave_color": "#ff9505",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "rich_text_4nmcXw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_irTViK": {
+          "type": "heading",
+          "settings": {
+            "heading": "30-Day Money Back Guarantee",
+            "heading_size": "h1"
+          }
+        },
+        "text_CettG7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If for any reason, you aren't 100% happy with your order, we'll do absolutely everything in our power to make it right.<br/></p><p>We're offering a <strong>30-day money-back guarantee </strong>so you can comfortably try GlowCage out.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_irTViK",
+        "text_CettG7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "wave_YcgUW8": {
+      "type": "wave",
+      "name": "Wave",
+      "settings": {
+        "wave_height": 300,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": true,
+        "animation_duration": 5,
+        "background_color": "#ffffff",
+        "wave_color": "#ff9505",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "custom_liquid_Bm8air": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"eu-reviews-section\">\n  <style>\n    .eu-reviews-section { background:#f7fafc; padding:48px 0; font-family:-apple-system, BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial; }\n    .eu-reviews-container{ max-width:1100px; margin:0 auto; padding:0 20px; }\n    .eu-reviews-header{ text-align:center; margin-bottom:28px; }\n    .eu-reviews-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }\n    .eu-review-card{ background:#fff; border-radius:18px; padding:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); display:flex; flex-direction:column; min-height:160px; }\n    .eu-review-top{ display:flex; align-items:center; margin-bottom:10px; }\n    .eu-avatar{ width:44px; height:44px; border-radius:50%; background:#e6e6e6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#374151; margin-right:12px; }\n    .eu-review-name{ font-weight:600; margin:0; }\n    .eu-verified{ font-size:13px; color:#6b7280; margin:0; }\n    .eu-stars{ display:flex; gap:4px; margin-bottom:8px; }\n    .eu-review-text{ color:#374151; margin-top:auto; }\n    .eu-star-filled{ fill:#FBBF24; }\n    .eu-star-empty{ fill:#E5E7EB; }\n    .eu-loadmore-wrap{ text-align:center; margin-top:30px; }\n    .eu-loadmore-btn{ background:#111827; color:#fff; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-loadmore-btn:hover{ background:#374151; }\n    .eu-write-review{ margin-top:50px; padding:28px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); }\n    .eu-write-review h3{ margin:0 0 14px; font-size:22px; }\n    .eu-write-review input, .eu-write-review textarea, .eu-write-review select { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d1d5db; border-radius:8px; }\n    .eu-write-review button{ background:#111827; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-write-review button:hover{ background:#374151; }\n  </style>\n\n  <div class=\"eu-reviews-container\">\n    <div class=\"eu-reviews-header\">\n      <h2 style=\"font-size:28px; margin:0 0 6px;\">Customer Reviews</h2>\n      <p style=\"color:#6b7280; margin:0;\">Rated <strong>4.8/5</strong> by 1,356 customers</p>\n    </div>\n\n    {% assign reviews = \"\nJoseph Lewis|5|Absolutely love this lamp! It adds such a warm and cozy glow to my living room. Perfect for evenings.;\nJames Anderson|5|Super stylish and modern. It completely elevates my décor. Friends always ask about it.;\nRobert Johnson|4|Beautiful lamp, though I wish it came with batteries included. Still a fantastic piece.;\nJessica Miller|5|The design is so elegant and unique. It makes my bedroom feel like a boutique hotel. Love it!;\nDaniel Smith|5|Perfect for dinner nights. Creates such a cozy atmosphere on the table. Highly recommend.;\nEmily Davis|5|Love how portable it is. I can move it around the house and it always fits perfectly.;\nMichael Brown|4|Looks amazing, though it took me a while to find the right batteries. Worth it though.;\nSarah Wilson|5|Fashionable and functional. It’s the highlight of my home décor. Best purchase this year.;\nDavid Martinez|5|The warm glow is incredible, it makes my evenings so relaxing. Great for reading too.;\nLaura Taylor|5|Looks even better in person. It transformed my space into something so elegant.;\nKevin Thomas|4|Lovely lamp, but I wish there were more color options. Still very happy with it.;\nOlivia Harris|5|The cozy vibe it brings is unmatched. I’ve had so many compliments already.;\nAndrew White|5|Really impressed with the build quality. It feels sturdy and premium. Highly satisfied.;\nSophia Clark|5|This lamp makes my home feel so welcoming. It’s now my favorite piece of décor.;\nMatthew Rodriguez|4|Would be nice if it was rechargeable, but honestly it’s so stylish I don’t mind.;\nChloe Hall|5|It goes perfectly with every corner of my home. I’m obsessed with the warm light.;\nBenjamin King|5|Use it every night. Makes my living room cozy and elegant. Great value for money.;\nAva Scott|5|Didn’t expect it to look this good in person. The glow is so soothing. Love it!;\nEthan Moore|5|Minimalist, sleek, and atmospheric. Fits perfectly in my modern apartment. Highly recommend.;\nIsabella Young|5|Exactly what I was hoping for — stylish, cozy, and functional. Perfect for my space.;\n\" | split: \";\" %}\n\n\n    <div id=\"eu-reviews-grid\" class=\"eu-reviews-grid\">\n      {% for r in reviews %}\n        {% assign parts = r | split: \"|\" %}\n        {% assign name = parts[0] | strip %}\n        {% assign rating = parts[1] | strip | plus: 0 %}\n        {% assign text = parts[2] | strip %}\n        {% if name != \"\" %}\n        <article class=\"eu-review-card\" style=\"display:none;\">\n          <div class=\"eu-review-top\">\n            <div class=\"eu-avatar\">{{ name | slice: 0, 1 }}</div>\n            <div>\n              <p class=\"eu-review-name\">{{ name }}</p>\n              <p class=\"eu-verified\">Verified Buyer</p>\n            </div>\n          </div>\n          <div class=\"eu-stars\">\n            {% for i in (1..5) %}\n              {% if i <= rating %}\n                <svg class=\"eu-star-filled\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% else %}\n                <svg class=\"eu-star-empty\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% endif %}\n            {% endfor %}\n          </div>\n          <p class=\"eu-review-text\">“{{ text }}”</p>\n        </article>\n        {% endif %}\n      {% endfor %}\n    </div>\n\n    <div class=\"eu-loadmore-wrap\">\n      <button id=\"eu-loadmore-btn\" class=\"eu-loadmore-btn\">Load More Reviews</button>\n    </div>\n\n    <div class=\"eu-write-review\">\n      <h3>Write a Review</h3>\n      <form id=\"review-form\">\n        <input type=\"text\" name=\"name\" placeholder=\"Your Name\" required>\n        <select name=\"rating\" required>\n          <option value=\"\">Rating</option>\n          <option value=\"5\">★★★★★ - Excellent</option>\n          <option value=\"4\">★★★★☆ - Good</option>\n          <option value=\"3\">★★★☆☆ - Average</option>\n          <option value=\"2\">★★☆☆☆ - Poor</option>\n          <option value=\"1\">★☆☆☆☆ - Terrible</option>\n        </select>\n        <textarea name=\"review\" rows=\"4\" placeholder=\"Share your experience...\" required></textarea>\n        <button type=\"submit\">Submit Review</button>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", function(){\n      var reviews = document.querySelectorAll(\"#eu-reviews-grid .eu-review-card\");\n      var btn = document.getElementById(\"eu-loadmore-btn\");\n      var perPage = 6; \n      var shown = 0;\n\n      function showMore(){\n        for(var i=shown; i<shown+perPage && i<reviews.length; i++){\n          reviews[i].style.display = \"flex\";\n        }\n        shown += perPage;\n        if(shown >= reviews.length){\n          btn.style.display = \"none\";\n        }\n      }\n      showMore(); \n      btn.addEventListener(\"click\", showMore);\n\n      document.getElementById(\"review-form\").addEventListener(\"submit\", function(e){\n        e.preventDefault();\n        alert(\"Thank you for your review! It will appear once approved.\");\n        this.reset();\n      });\n    });\n  </script>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "trust_badges_Xhp8UH": {
+      "type": "trust-badges",
+      "blocks": {
+        "image_h7QaXr": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Fast Shipping</strong>",
+            "feature_text": "<p>Doorstep delivery to most of the US.</p>",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_pNpm7Y": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Price-match guarantee</strong>",
+            "feature_text": "<p>Safe money when ordering with us</p>",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_7RUhgM": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>Hassle-free exchange</strong>",
+            "feature_text": "<p>No questions ask</p>",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_MgTRan": {
+          "type": "image",
+          "settings": {
+            "feature_title": "<strong>5 Star Reviews</strong>",
+            "feature_text": "<p>Customer satisfaction No.1 priority</p>",
+            "feature_url": "",
+            "hide_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_h7QaXr",
+        "image_pNpm7Y",
+        "image_7RUhgM",
+        "image_MgTRan"
+      ],
+      "disabled": true,
+      "name": "Feature Blocks",
+      "settings": {
+        "feature_row": 4,
+        "feature_row_mobile": 1,
+        "feature_gap": 20,
+        "feature_gap_mobile": 20,
+        "feature_padding_horizontal": 0,
+        "feature_padding_vertical": 0,
+        "feature_radius": 16,
+        "feature_border_thickness": 0,
+        "feature_shadow": false,
+        "feature_heading_size": 14,
+        "feature_heading_size_mobile": 12,
+        "feature_heading_height": 130,
+        "feature_heading_mt": 8,
+        "feature_text_size": 12,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 130,
+        "feature_text_mt": 4,
+        "feature_icon_size": 42,
+        "feature_icon_size_mobile": 42,
+        "feature_bg": "#ffffff",
+        "feature_border_color": "#000000",
+        "feature_shadow_color": "#000000",
+        "feature_heading_color": "#000000",
+        "feature_text_color": "#000000",
+        "feature_icon_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 24,
+        "margin_bottom": 24,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "custom_liquid_WfJMnX": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .faq-section {\n    max-width: 800px;\n    margin: 40px auto;\n    font-family: Arial, sans-serif;\n    padding: 0 20px; /* adds breathing space on small screens */\n  }\n\n  .faq-section h2 {\n    text-align: center;\n    font-size: 28px;\n    margin-bottom: 25px;\n  }\n\n  .faq-item {\n    border-bottom: 1px solid #ddd;\n    padding: 18px 0;\n  }\n\n  .faq-question {\n    cursor: pointer;\n    font-weight: bold;\n    position: relative;\n    padding-right: 25px;\n    font-size: 16px;\n    line-height: 1.4;\n  }\n\n  .faq-question::after {\n    content: '+';\n    position: absolute;\n    right: 0;\n    font-size: 20px;\n    transition: transform 0.3s ease;\n  }\n\n  .faq-question.active::after {\n    content: '-';\n    transform: rotate(180deg);\n  }\n\n  .faq-answer {\n    display: none;\n    margin-top: 10px;\n    color: #555;\n    line-height: 1.6;\n    font-size: 15px;\n  }\n\n  /* Mobile adjustments */\n  @media (max-width: 600px) {\n    .faq-section h2 {\n      font-size: 22px;\n      margin-bottom: 20px;\n    }\n\n    .faq-question {\n      font-size: 15px;\n      padding-right: 20px;\n    }\n\n    .faq-answer {\n      font-size: 14px;\n      line-height: 1.5;\n    }\n\n    .faq-item {\n      padding: 14px 0;\n    }\n  }\n</style>\n\n<div class=\"faq-section\">\n  <h2>Frequently Asked Questions</h2>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">Does the GlowCage Lamp need to be plugged in?</div>\n    <div class=\"faq-answer\">No, it’s completely wireless and runs on AAA batteries. You can place it anywhere without worrying about cables.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">How long does the battery last?</div>\n    <div class=\"faq-answer\">With normal use, the batteries can last up to several weeks. Battery life depends on brightness setting and frequency of use.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">Is it safe to leave the lamp on for long periods?</div>\n    <div class=\"faq-answer\">Yes, the LED technology is energy-efficient and produces minimal heat, making it safe for extended use.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">What material is it made from?</div>\n    <div class=\"faq-answer\">The GlowCage™ Lamp is crafted from high-quality steel with a modern, minimalist design that fits any interior.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">Where can I use it?</div>\n    <div class=\"faq-answer\">Anywhere! It’s perfect for the living room, dining table, bedside, office desk, or even outdoor spaces during cosy evenings.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">What if I’m not satisfied with my purchase?</div>\n    <div class=\"faq-answer\">No worries – we offer a 30-Day Money-Back Guarantee and hassle-free returns. Your satisfaction comes first.</div>\n  </div>\n\n  <div class=\"faq-item\">\n    <div class=\"faq-question\">Does the lamp come with batteries included?</div>\n    <div class=\"faq-answer\">To keep shipping costs low and comply with international shipping rules, batteries are not included. You’ll need standard AAA batteries.</div>\n  </div>\n</div>\n\n<script>\n  document.querySelectorAll(\".faq-question\").forEach(item => {\n    item.addEventListener(\"click\", () => {\n      item.classList.toggle(\"active\");\n      const answer = item.nextElementSibling;\n      if (answer.style.display === \"block\") {\n        answer.style.display = \"none\";\n      } else {\n        answer.style.display = \"block\";\n      }\n    });\n  });\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_4nfNzt": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div style=\"margin:50px 0; text-align:center; padding:40px; background:#fff; color:#111; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.08);\">\n  <h3 style=\"font-size:24px; font-weight:600; margin-bottom:30px; letter-spacing:0.5px; color:#111;\">Our Guarantees</h3>\n  \n  <div style=\"display:flex; justify-content:center; gap:40px; flex-wrap:wrap;\">\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 11c.828 0 1.5.672 1.5 1.5v1.5a1.5 1.5 0 01-3 0V12.5c0-.828.672-1.5 1.5-1.5z\" />\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 9V7a6 6 0 1112 0v2M4 9h16v11H4V9z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">Secure Payment</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">30-Day Money Back Guarantee</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">12-Month Warranty</p>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .guarantee-card:hover {\n    transform: translateY(-6px);\n  }\n\n  .guarantee-card:hover .guarantee-icon {\n    stroke: #c69d2f;\n    transform: scale(1.15);\n    filter: drop-shadow(0 0 6px rgba(198,157,47,0.6));\n  }\n</style>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1754229929908d5e4f": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "related-products",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "custom_liquid_DDicKx",
+    "multicolumn_FHkHdg",
+    "image_with_text_xncC34",
+    "image_with_text_XxqPa8",
+    "image_with_text_gTrci7",
+    "wave_3wDATN",
+    "rich_text_4nmcXw",
+    "wave_YcgUW8",
+    "custom_liquid_Bm8air",
+    "trust_badges_Xhp8UH",
+    "custom_liquid_WfJMnX",
+    "custom_liquid_4nfNzt",
+    "1754229929908d5e4f"
+  ]
+}

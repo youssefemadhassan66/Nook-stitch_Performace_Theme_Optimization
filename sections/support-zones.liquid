@@ -1,0 +1,456 @@
+{%- liquid
+  assign s = section.settings
+  assign image_alt = s.image_alt | default: s.heading
+  assign panel_background = s.panel_background | default: '#EEF8F3'
+  assign accent_color = s.accent_color | default: '#157A5B'
+-%}
+
+<div
+  class="support-zones gradient color-{{ s.color_scheme }}"
+  style="--pt: {{ s.padding_top }}px; --pb: {{ s.padding_bottom }}px; --accent: {{ accent_color }}; --panel-bg: {{ panel_background }};"
+>
+  <div class="page-width support-zones__inner">
+    <div class="support-zones__header">
+      {%- if s.kicker != blank -%}
+        <p class="support-zones__kicker">{{ s.kicker | escape }}</p>
+      {%- endif -%}
+
+      {%- if s.heading != blank -%}
+        <h2 class="support-zones__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if s.body != blank -%}
+        <div class="support-zones__body rte">{{ s.body }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="support-zones__panel">
+      <div class="support-zones__stage">
+        {%- if s.image != blank -%}
+          {{
+            s.image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 990px) 720px, 92vw',
+              widths: '480, 640, 800, 1000, 1250, 1600',
+              alt: image_alt,
+              class: 'support-zones__image'
+          }}
+        {%- else -%}
+          <img
+            class="support-zones__image"
+            src="{{ 'support-zones-sock.png' | asset_url }}"
+            alt="{{ image_alt | escape }}"
+            loading="lazy"
+            width="1254"
+            height="1254"
+          >
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ol class="support-zones__pins" aria-label="Sock comfort zones">
+            {%- for block in section.blocks -%}
+              <li
+                class="support-zones__pin support-zones__pin--{{ block.settings.zone }}"
+                aria-label="{{ block.settings.title | escape }}{% if block.settings.text != blank %}: {{ block.settings.text | escape }}{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <span class="support-zones__pin-number">{{ forloop.index }}</span>
+                <span class="support-zones__pin-label">{{ block.settings.title | escape }}</span>
+              </li>
+            {%- endfor -%}
+          </ol>
+
+          <ul class="support-zones__descriptions visually-hidden">
+            {%- for block in section.blocks -%}
+              <li>
+                <strong>{{ block.settings.title | escape }}</strong>
+                {%- if block.settings.text != blank -%}
+                  {{ block.settings.text | escape }}
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if s.button_label != blank -%}
+      <div class="support-zones__cta">
+        <a class="support-zones__button" href="{{ s.button_link | default: routes.all_products_collection_url }}">
+          {{ s.button_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .support-zones {
+    padding-block: var(--pt, 72px) var(--pb, 72px);
+    --support-accent-soft: color-mix(in oklch, var(--accent, var(--brand-green, #157A5B)) 24%, rgb(var(--color-background)) 76%);
+    --support-accent-ring: color-mix(in oklch, var(--accent, var(--brand-green, #157A5B)) 42%, rgb(var(--color-background)) 58%);
+  }
+
+  .support-zones__inner {
+    display: grid;
+    gap: clamp(2.8rem, 1.8rem + 3vw, 5.2rem);
+  }
+
+  .support-zones__header {
+    max-width: 68rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .support-zones__kicker {
+    margin: 0 0 1.2rem;
+    color: rgba(var(--color-foreground), 0.62);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .support-zones__heading {
+    margin: 0;
+    font-size: clamp(3rem, 2.2rem + 2.4vw, 4.8rem);
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .support-zones__body {
+    max-width: 60ch;
+    margin: 1.6rem auto 0;
+    color: rgba(var(--color-foreground), 0.74);
+    font-size: clamp(1.7rem, 1.55rem + 0.35vw, 1.95rem);
+    line-height: 1.58;
+  }
+  .support-zones__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .support-zones__panel {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+    border: 1px solid color-mix(in oklch, var(--accent, var(--brand-green, #157A5B)) 24%, rgb(var(--color-background)) 76%);
+    border-radius: 0.8rem;
+    background:
+      radial-gradient(circle at 45% 52%, color-mix(in oklch, var(--accent, var(--brand-green, #157A5B)) 12%, transparent) 0 24%, transparent 46%),
+      var(--panel-bg, #EEF8F3);
+    box-shadow: 0 3.6rem 7rem -4.6rem rgba(var(--color-shadow, 31, 29, 36), 0.34);
+  }
+
+  .support-zones__stage {
+    position: relative;
+    aspect-ratio: 1.04 / 1;
+    min-height: 42rem;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .support-zones__stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: var(--panel-bg, #EEF8F3);
+    mix-blend-mode: multiply;
+    opacity: 0.34;
+    pointer-events: none;
+  }
+
+  .support-zones__image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    opacity: 0.94;
+    filter: drop-shadow(0 2.6rem 2.4rem rgba(var(--color-shadow, 31, 29, 36), 0.16));
+    transform: translate(0, 1%) scale(1.06);
+  }
+
+  .support-zones__pins {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .support-zones__pin {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: min(26rem, 52vw);
+    transform: translate(-50%, -50%);
+  }
+
+  .support-zones__pin--cuff { left: 61%; top: 20%; }
+  .support-zones__pin--arch { left: 43%; top: 52%; }
+  .support-zones__pin--heel {
+    left: 78%;
+    top: 34%;
+    flex-direction: row-reverse;
+  }
+  .support-zones__pin--toe { left: 28%; top: 78%; }
+
+  .support-zones__pin-number {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    border: 0.7rem solid var(--support-accent-ring);
+    box-shadow: 0 1rem 2rem -1.2rem rgba(var(--color-shadow, 31, 29, 36), 0.42);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .support-zones__pin-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.2rem;
+    padding: 0.7rem 1.1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(var(--color-foreground), 0.12);
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    box-shadow: 0 1.2rem 2.6rem -2rem rgba(var(--color-shadow, 31, 29, 36), 0.36);
+    font-family: var(--font-heading-family);
+    font-size: clamp(1.3rem, 1.1rem + 0.35vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+
+  .support-zones__cta {
+    text-align: center;
+  }
+
+  .support-zones__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    padding: 0 3rem;
+    border-radius: var(--buttons-radius, 6px);
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .support-zones__button:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 749px) {
+    .support-zones__panel {
+      width: 100%;
+    }
+    .support-zones__stage {
+      aspect-ratio: 0.86 / 1;
+      min-height: 43rem;
+    }
+    .support-zones__image {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: translate(0, 1%) scale(1.02);
+    }
+    .support-zones__pin {
+      gap: 0.5rem;
+      max-width: 15rem;
+    }
+    .support-zones__pin--cuff { left: 57%; top: 23%; }
+    .support-zones__pin--arch { left: 43%; top: 51%; }
+    .support-zones__pin--heel { left: 73%; top: 34%; }
+    .support-zones__pin--toe { left: 31%; top: 77%; }
+    .support-zones__pin-number {
+      width: 3.7rem;
+      height: 3.7rem;
+      border-width: 0.6rem;
+      font-size: 1.3rem;
+    }
+    .support-zones__pin-label {
+      min-height: 3rem;
+      padding: 0.6rem 0.8rem;
+      font-size: 1.2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Support zones",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    { "type": "header", "content": "Content" },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow",
+      "default": "Engineered comfort zones"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Support where your feet ask for it."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>A quick look at the comfort details built into every pair.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop orthopedic socks"
+    },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Image" },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Sock image",
+      "info": "Leave empty to use the bundled Nook & Stitch sock image."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Nook & Stitch orthopedic sock"
+    },
+    { "type": "header", "content": "Style" },
+    {
+      "type": "color",
+      "id": "panel_background",
+      "label": "Panel background",
+      "default": "#EEF8F3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    { "type": "header", "content": "Spacing" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 76
+    }
+  ],
+  "blocks": [
+    {
+      "type": "zone",
+      "name": "Support zone",
+      "settings": [
+        {
+          "type": "select",
+          "id": "zone",
+          "label": "Diagram position",
+          "options": [
+            { "value": "cuff", "label": "Cuff" },
+            { "value": "arch", "label": "Arch" },
+            { "value": "heel", "label": "Heel" },
+            { "value": "toe", "label": "Toe" }
+          ],
+          "default": "arch"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Label",
+          "default": "Arch support"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Screen reader text",
+          "default": "A gentle support band helps reduce daily foot fatigue."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Support zones",
+      "blocks": [
+        {
+          "type": "zone",
+          "settings": {
+            "zone": "cuff",
+            "title": "Relaxed cuff",
+            "text": "Stays up without digging into sensitive legs."
+          }
+        },
+        {
+          "type": "zone",
+          "settings": {
+            "zone": "arch",
+            "title": "Steady arch band",
+            "text": "Light compression helps the sock feel secure through the day."
+          }
+        },
+        {
+          "type": "zone",
+          "settings": {
+            "zone": "heel",
+            "title": "Cushioned heel",
+            "text": "Extra softness where impact builds with every step."
+          }
+        },
+        {
+          "type": "zone",
+          "settings": {
+            "zone": "toe",
+            "title": "Smooth toe area",
+            "text": "Designed to reduce rubbing for sensitive feet."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

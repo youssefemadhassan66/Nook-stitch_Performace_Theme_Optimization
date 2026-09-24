@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "split_banner": {
+      "type": "split-banner",
+      "settings": {
+        "color_scheme": "inverse",
+        "eyebrow": "",
+        "heading": "All Socks",
+        "text": "Comfort engineered for every step.",
+        "button_label": "Shop all",
+        "button_link": "",
+        "image_contains_content": false,
+        "monochrome_image": false,
+        "overlay_opacity": 25,
+        "focal_x": 50,
+        "focal_y": 50,
+        "desktop_height": 560,
+        "mobile_height": 460
+      }
+    },
+    "featured_arrivals": {
+      "type": "featured-arrivals",
+      "blocks": {
+        "ankle_sock": {
+          "type": "product",
+          "settings": {
+            "product": "orthopedicsocks",
+            "custom_title": "Orthopedic Ankle Sock",
+            "eyebrow": "Ankle comfort",
+            "text": "",
+            "offer_label": "4 pairs",
+            "offer_price": "49.97",
+            "offer_compare_price": "",
+            "rating": 4.9,
+            "review_count": 1356
+          }
+        },
+        "crew_sock": {
+          "type": "product",
+          "settings": {
+            "product": "orthopedic-crew-socks",
+            "custom_title": "Orthopedic Crew Sock",
+            "eyebrow": "Extended coverage",
+            "text": "",
+            "offer_label": "4 pairs",
+            "offer_price": "59.97",
+            "offer_compare_price": "",
+            "rating": 4.9,
+            "review_count": 1356
+          }
+        }
+      },
+      "block_order": [
+        "ankle_sock",
+        "crew_sock"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "eyebrow": "Shop all socks",
+        "heading": "",
+        "show_product_count": true,
+        "product_count_label": "products",
+        "media_ratio": "4 / 3",
+        "media_fit": "cover",
+        "color_label": "Color",
+        "color_options_label": "color options",
+        "button_label": "Choose bundle",
+        "sold_out_label": "Sold out",
+        "show_ratings": true,
+        "reviews_label": "reviews",
+        "rating_accessibility_label": "out of 5 stars",
+        "padding_top": 76,
+        "padding_bottom": 96
+      }
+    },
+    "product_review_proof": {
+      "type": "home-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "These are the first socks that don't dig into my ankles. I wear them every single day now.",
+            "author": "Margaret R.",
+            "meta": "Ohio",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "On my feet all day at work and my heels finally stopped aching. The cushioning is gentle but real.",
+            "author": "David P.",
+            "meta": "Texas",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Soft, supportive, and they don't slip. My mother has sensitive feet and these are the only pair she'll wear.",
+            "author": "Susan L.",
+            "meta": "Florida",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "quote": "Great arch support without feeling tight. Took one wash to soften up and now they're my favorite.",
+            "author": "James W.",
+            "meta": "Oregon",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "kicker": "Loved by real feet",
+        "heading": "What customers say",
+        "show_trust_bar": true,
+        "trust_stars": 5,
+        "trust_rating": "4.9",
+        "trust_text": "from 2,000+ happy customers",
+        "columns_desktop": 3,
+        "background_color": "#ffffff",
+        "surface_color": "#ffffff",
+        "text_color": "#1f1d24",
+        "accent_color": "#157a5b",
+        "muted_color": "#8a8a8a",
+        "padding_top": 84,
+        "padding_bottom": 84
+      }
+    }
+  },
+  "order": [
+    "split_banner",
+    "featured_arrivals",
+    "product_review_proof"
+  ]
+}

@@ -1,0 +1,673 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<section
+  id="AboutSocksValues-{{ section.id }}"
+  class="about-socks-values color-{{ s.color_scheme }} gradient"
+  style="
+    --about-values-bg: {{ s.background_color }};
+    --about-values-surface: {{ s.surface_color }};
+    --about-values-ink: {{ s.text_color }};
+    --about-values-accent: {{ s.accent_color }};
+    --about-values-padding-top: {{ s.padding_top }}px;
+    --about-values-padding-bottom: {{ s.padding_bottom }}px;
+  "
+  data-about-socks-values
+>
+  <div class="page-width about-socks-values__inner">
+    <div class="about-socks-values__statement">
+      {%- if s.heading != blank -%}
+        <h2 class="about-socks-values__heading">{{ s.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if s.body != blank -%}
+        <div class="about-socks-values__body rte">{{ s.body }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="about-socks-values__content">
+      <div class="about-socks-values__product">
+        {%- if s.product_heading != blank -%}
+          <h3>{{ s.product_heading | escape }}</h3>
+        {%- endif -%}
+
+        {%- if s.product_text != blank -%}
+          <p>{{ s.product_text | escape }}</p>
+        {%- endif -%}
+
+        <div class="about-socks-values__product-pattern" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {%- if s.button_label != blank -%}
+          <a
+            class="about-socks-values__button"
+            href="{{ s.button_link | default: routes.all_products_collection_url }}"
+          >
+            {{ s.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="about-socks-values__list">
+          {%- for block in section.blocks -%}
+            <article class="about-socks-values__item" {{ block.shopify_attributes }}>
+              <span class="about-socks-values__number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+              <div>
+                {%- if block.settings.heading != blank -%}
+                  <h3>{{ block.settings.heading | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <p>{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    function initAboutSocksValues(root) {
+      if (!root || root.dataset.aboutSocksValuesReady === 'true') return;
+      root.dataset.aboutSocksValuesReady = 'true';
+      root.classList.add('is-enhanced');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            root.classList.add('is-visible');
+            observer.unobserve(root);
+          });
+        }, { threshold: 0.18 });
+
+        observer.observe(root);
+      } else {
+        root.classList.add('is-visible');
+      }
+    }
+
+    document.querySelectorAll('[data-about-socks-values]').forEach(initAboutSocksValues);
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.target) {
+        event.target.querySelectorAll('[data-about-socks-values]').forEach(initAboutSocksValues);
+      }
+    });
+  })();
+</script>
+
+{% stylesheet %}
+  .about-socks-values {
+    padding-block: var(--about-values-padding-top, 72px) var(--about-values-padding-bottom, 72px);
+    background: var(--about-values-bg, rgb(var(--color-background)));
+    color: var(--about-values-ink, rgb(var(--color-foreground)));
+    overflow: hidden;
+  }
+
+  .about-socks-values__inner {
+    display: grid;
+    gap: clamp(42px, 5.4vw, 72px);
+  }
+
+  .about-socks-values__statement {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.48fr);
+    gap: clamp(28px, 5vw, 70px);
+    align-items: end;
+    max-width: none;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .about-socks-values__heading {
+    max-width: 11em;
+    margin: 0;
+    color: var(--about-values-ink, #1F1D24);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(4rem, 6vw, 7.4rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .about-socks-values__body {
+    max-width: 42ch;
+    margin: 0;
+    padding: clamp(18px, 2.8vw, 26px) 0 clamp(18px, 2.8vw, 26px) clamp(18px, 2.8vw, 28px);
+    border-left: 2px solid var(--about-values-accent, #157A5B);
+    color: color-mix(in srgb, var(--about-values-ink, #1F1D24) 70%, transparent);
+    font-size: 1.72rem;
+    line-height: 1.6;
+  }
+
+  .about-socks-values__body > :first-child {
+    margin-top: 0;
+  }
+
+  .about-socks-values__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .about-socks-values__content {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.44fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 76px);
+    align-items: stretch;
+    padding-block: 0;
+    border-top: 0;
+    border-bottom: 0;
+  }
+
+  .about-socks-values__product {
+    order: 1;
+    position: sticky;
+    top: 96px;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: clamp(30px, 4vw, 48px);
+    border: 1px solid color-mix(in srgb, var(--about-values-ink, #1F1D24) 18%, transparent);
+    border-radius: 8px;
+    background:
+      linear-gradient(145deg, color-mix(in srgb, var(--about-values-accent, #157A5B) 20%, transparent), transparent 44%),
+      var(--about-values-ink, #1F1D24);
+    color: var(--about-values-bg, #FFFFFF);
+  }
+
+  .about-socks-values__product::before {
+    content: "";
+    position: absolute;
+    inset: auto -18% -18% auto;
+    width: min(280px, 70%);
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--about-values-bg, #FFFFFF) 18%, transparent);
+    border-radius: 50%;
+    opacity: 0.48;
+  }
+
+  .about-socks-values__product::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    pointer-events: none;
+    border: 1px solid color-mix(in srgb, var(--about-values-bg, #FFFFFF) 10%, transparent);
+    border-radius: 6px;
+  }
+
+  .about-socks-values__item h3 {
+    margin: 0;
+    color: var(--about-values-ink, #1F1D24);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-weight: 750;
+    letter-spacing: 0;
+    line-height: 1.12;
+  }
+
+  .about-socks-values__product h3 {
+    position: relative;
+    max-width: 10em;
+    margin: 0;
+    color: var(--about-values-bg, #FFFFFF);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(2.8rem, 3vw, 4rem);
+    font-weight: 750;
+    letter-spacing: 0;
+    line-height: 1.08;
+    z-index: 1;
+  }
+
+  .about-socks-values__product p {
+    position: relative;
+    max-width: 38ch;
+    margin: 22px 0 0;
+    color: color-mix(in srgb, var(--about-values-bg, #FFFFFF) 78%, transparent);
+    font-size: 1.66rem;
+    line-height: 1.58;
+    z-index: 1;
+  }
+
+  .about-socks-values__product-pattern {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+    width: min(220px, 78%);
+    margin: auto 0 0;
+    padding-top: clamp(36px, 6vw, 70px);
+    z-index: 1;
+  }
+
+  .about-socks-values__product-pattern span {
+    display: block;
+    height: 96px;
+    border-radius: 999px 999px 18px 18px;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--about-values-bg, #FFFFFF) 32%, transparent) 0 2px,
+        transparent 2px 8px
+      );
+    opacity: 0.82;
+  }
+
+  .about-socks-values__product-pattern span:nth-child(2) {
+    transform: translateY(16px);
+    opacity: 0.6;
+  }
+
+  .about-socks-values__product-pattern span:nth-child(3) {
+    transform: translateY(32px);
+    opacity: 0.42;
+  }
+
+  .about-socks-values__button {
+    position: relative;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 34px;
+    padding: 0 26px;
+    border: 1px solid color-mix(in srgb, var(--about-values-bg, #FFFFFF) 72%, transparent);
+    border-radius: var(--buttons-radius, 6px);
+    background: var(--about-values-bg, #FFFFFF);
+    color: var(--about-values-ink, #1F1D24);
+    font-family: var(--font-body-family), Arial, sans-serif;
+    font-size: 1.44rem;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    z-index: 1;
+  }
+
+  .about-socks-values__button:hover {
+    border-color: color-mix(in srgb, var(--about-values-accent, #157A5B) 68%, var(--about-values-bg, #FFFFFF));
+    background: color-mix(in srgb, var(--about-values-bg, #FFFFFF) 88%, var(--about-values-accent, #157A5B));
+    color: var(--about-values-ink, #1F1D24);
+    transform: translateY(-1px);
+  }
+
+  .about-socks-values__list {
+    order: 2;
+    display: grid;
+    align-content: center;
+    gap: clamp(16px, 2.2vw, 26px);
+    padding: clamp(10px, 2vw, 26px) 0;
+    border-top: 0;
+  }
+
+  .about-socks-values__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: clamp(18px, 2.6vw, 30px);
+    align-items: start;
+    width: min(100%, 780px);
+    min-height: 132px;
+    padding: clamp(22px, 3vw, 34px) clamp(22px, 3vw, 36px);
+    border: 1px solid color-mix(in srgb, var(--about-values-ink, #1F1D24) 10%, transparent);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--about-values-surface, #FFFFFF) 82%, transparent);
+  }
+
+  .about-socks-values__item:nth-child(2) {
+    margin-left: clamp(0px, 5vw, 78px);
+  }
+
+  .about-socks-values__item:nth-child(3) {
+    margin-left: clamp(0px, 2.8vw, 42px);
+  }
+
+  .about-socks-values__number {
+    display: inline-grid;
+    width: auto;
+    height: auto;
+    place-items: start;
+    border-radius: 0;
+    background: transparent;
+    color: var(--about-values-accent, #157A5B);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(2.9rem, 4.2vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.9;
+  }
+
+  .about-socks-values__item h3 {
+    max-width: 16em;
+    font-size: clamp(2.2rem, 2.3vw, 3rem);
+  }
+
+  .about-socks-values__item p {
+    max-width: 64ch;
+    margin: 10px 0 0;
+    color: color-mix(in srgb, var(--about-values-ink, #1F1D24) 70%, transparent);
+    font-size: 1.64rem;
+    line-height: 1.58;
+  }
+
+  .about-socks-values.is-enhanced .about-socks-values__statement,
+  .about-socks-values.is-enhanced .about-socks-values__product,
+  .about-socks-values.is-enhanced .about-socks-values__item {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .about-socks-values.is-visible .about-socks-values__statement,
+  .about-socks-values.is-visible .about-socks-values__product,
+  .about-socks-values.is-visible .about-socks-values__item {
+    animation: about-values-rise 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .about-socks-values.is-visible .about-socks-values__product {
+    animation-delay: 90ms;
+  }
+
+  .about-socks-values.is-visible .about-socks-values__item:nth-child(1) {
+    animation-delay: 120ms;
+  }
+
+  .about-socks-values.is-visible .about-socks-values__item:nth-child(2) {
+    animation-delay: 190ms;
+  }
+
+  .about-socks-values.is-visible .about-socks-values__item:nth-child(3) {
+    animation-delay: 260ms;
+  }
+
+  @keyframes about-values-rise {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .about-socks-values__statement,
+    .about-socks-values__content {
+      grid-template-columns: 1fr;
+    }
+
+    .about-socks-values__heading {
+      font-size: 4.2rem;
+    }
+
+    .about-socks-values__body {
+      font-size: 1.66rem;
+    }
+
+    .about-socks-values__product {
+      position: relative;
+      order: 1;
+      top: auto;
+      min-height: 360px;
+    }
+
+    .about-socks-values__list {
+      order: 2;
+    }
+
+    .about-socks-values__item:nth-child(2),
+    .about-socks-values__item:nth-child(3) {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-socks-values {
+      padding-block: calc(var(--about-values-padding-top, 72px) * 0.72) calc(var(--about-values-padding-bottom, 72px) * 0.74);
+    }
+
+    .about-socks-values__inner {
+      gap: 34px;
+    }
+
+    .about-socks-values__statement {
+      gap: 20px;
+    }
+
+    .about-socks-values__heading {
+      font-size: 3.55rem;
+      line-height: 1.02;
+    }
+
+    .about-socks-values__body {
+      padding-left: 18px;
+    }
+
+    .about-socks-values__content {
+      gap: 26px;
+    }
+
+    .about-socks-values__product {
+      min-height: 330px;
+      padding: 28px;
+    }
+
+    .about-socks-values__product h3 {
+      font-size: 2.35rem;
+    }
+
+    .about-socks-values__product-pattern {
+      width: min(176px, 74%);
+      gap: 7px;
+      padding-top: 24px;
+    }
+
+    .about-socks-values__product-pattern span {
+      height: 70px;
+    }
+
+    .about-socks-values__product-pattern span:nth-child(2) {
+      transform: translateY(10px);
+    }
+
+    .about-socks-values__product-pattern span:nth-child(3) {
+      transform: translateY(20px);
+    }
+
+    .about-socks-values__item {
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 14px;
+      min-height: 0;
+      padding: 22px 18px;
+    }
+
+    .about-socks-values__item h3 {
+      font-size: 2.2rem;
+    }
+
+    .about-socks-values__number {
+      font-size: 2.8rem;
+    }
+
+    .about-socks-values__item p {
+      font-size: 1.58rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-socks-values *,
+    .about-socks-values *::before,
+    .about-socks-values *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+
+    .about-socks-values__statement,
+    .about-socks-values__product,
+    .about-socks-values__item {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "About socks values",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The sock is simple. The care behind it is not."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>We focus on one everyday essential and make it feel better: softer on sensitive feet, steadier through long days, and easy to wear in real shoes.</p>"
+    },
+    {
+      "type": "text",
+      "id": "product_heading",
+      "label": "Product heading",
+      "default": "Our orthopedic socks"
+    },
+    {
+      "type": "textarea",
+      "id": "product_text",
+      "label": "Product text",
+      "default": "A low-pressure knit, cushioned footbed, smooth toe feel, and steady support work together so comfort feels natural from the first step."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the sock"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Surface",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1F1D24"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#157A5B"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 76
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Comfort first"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Every detail should make the sock easier to wear: softer seams, steady support, breathable knit, and less pressure."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About socks values",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "heading": "Comfort first",
+            "text": "Every detail should make the sock easier to wear: softer seams, steady support, breathable knit, and less pressure."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "heading": "Trust over hype",
+            "text": "We explain the benefits plainly and keep the design focused on what your feet actually feel."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "heading": "Made for real days",
+            "text": "Walking, work, travel, and time at home all ask for the same thing: dependable comfort that does not get in the way."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

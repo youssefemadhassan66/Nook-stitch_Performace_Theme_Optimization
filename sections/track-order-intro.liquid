@@ -1,0 +1,218 @@
+{{ 'track-order-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'track-order-page.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  #shopify-section-{{ section.id }},
+  #shopify-section-{{ section.id }} + .shopify-section {
+    --track-button-background: {{ section.settings.track_button_background }};
+    --track-button-text: {{ section.settings.track_button_text }};
+    --track-button-hover-background: {{ section.settings.track_button_hover_background }};
+    --track-button-hover-text: {{ section.settings.track_button_hover_text }};
+    --track-button-hover-shadow: {{ section.settings.track_button_hover_background | color_modify: 'alpha', 0.18 }};
+    --track-button-focus-ring: {{ section.settings.track_button_hover_background | color_modify: 'alpha', 0.3 }};
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="track-order-intro color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+  data-track-order-page
+  data-track-order-intro
+>
+  <div class="track-order-intro__inner page-width">
+    <div class="track-order-intro__copy" data-track-intro-copy>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="track-order-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="track-order-intro__heading">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <div class="track-order-intro__body rte">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.helper_text != blank -%}
+        <p class="track-order-intro__helper">
+          <span class="track-order-intro__helper-mark" aria-hidden="true"></span>
+          {{ section.settings.helper_text | escape }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <div
+      class="track-order-journey"
+      data-track-intro-journey
+      role="img"
+      aria-label="{{ section.settings.journey_label | escape }}"
+    >
+      <svg class="track-order-journey__route" viewBox="0 0 560 176" fill="none" aria-hidden="true" focusable="false">
+        <path class="track-order-journey__route-base" d="M38 115C104 115 112 47 190 47C268 47 281 130 360 130C425 130 448 72 522 72" />
+        <path class="track-order-journey__route-progress" d="M38 115C104 115 112 47 190 47C268 47 281 130 360 130C425 130 448 72 522 72" />
+      </svg>
+
+      <ol class="track-order-journey__stages" role="list">
+        {%- for block in section.blocks -%}
+          <li class="track-order-journey__stage track-order-journey__stage--{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <span class="track-order-journey__icon" aria-hidden="true">
+              {%- case forloop.index -%}
+                {%- when 1 -%}
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <path d="m6.5 12 3.3 3.2 7.7-7.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {%- when 2 -%}
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <path d="M3.5 7.5h10v8h-10zM13.5 10h3.8l3.2 3.2v2.3h-7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <circle cx="7" cy="17" r="1.7" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="17" r="1.7" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <path d="M4 10.5 12 4l8 6.5M6.5 9.5V20h11V9.5M10 20v-6h4v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              {%- endcase -%}
+            </span>
+            <span class="track-order-journey__label">{{ block.settings.label | escape }}</span>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Track order intro",
+  "tag": "section",
+  "class": "track-order-intro-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Order updates, made simple"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Where is my order?"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Follow your package from our door to yours. Use your order details or tracking number below for the latest update.</p>"
+    },
+    {
+      "type": "text",
+      "id": "helper_text",
+      "label": "Helper text",
+      "default": "Have your order number and checkout email ready."
+    },
+    {
+      "type": "text",
+      "id": "journey_label",
+      "label": "Journey accessibility label",
+      "default": "Your delivery journey from order confirmation to your door"
+    },
+    {
+      "type": "header",
+      "content": "Track button colors"
+    },
+    {
+      "type": "color",
+      "id": "track_button_background",
+      "label": "Button background",
+      "default": "#1f1d24"
+    },
+    {
+      "type": "color",
+      "id": "track_button_text",
+      "label": "Button text",
+      "default": "#fbfaf4"
+    },
+    {
+      "type": "color",
+      "id": "track_button_hover_background",
+      "label": "Button hover background",
+      "default": "#157a5b"
+    },
+    {
+      "type": "color",
+      "id": "track_button_hover_text",
+      "label": "Button hover text",
+      "default": "#fbfaf4"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Journey stage",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Order confirmed"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Track order intro",
+      "blocks": [
+        { "type": "stage", "settings": { "label": "Order confirmed" } },
+        { "type": "stage", "settings": { "label": "On the way" } },
+        { "type": "stage", "settings": { "label": "At your door" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

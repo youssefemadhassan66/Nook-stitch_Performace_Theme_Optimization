@@ -1,0 +1,413 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<section
+  class="activity-categories color-{{ s.color_scheme }} gradient{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  style="
+    --activity-bg: {{ s.background_color }};
+    --activity-ink: {{ s.text_color }};
+    --activity-divider: {{ s.divider_color }};
+    --activity-min-height: {{ s.min_height }}px;
+  "
+>
+  {%- if section.blocks.size > 0 -%}
+    <div class="activity-categories__grid" aria-label="{{ s.accessibility_label | escape }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign title = block.settings.title | default: 'Shop socks'
+          assign link = block.settings.link | default: routes.all_products_collection_url
+        -%}
+        <a
+          class="activity-categories__tile{% if block.settings.image != blank %} activity-categories__tile--photo{% endif %}"
+          href="{{ link }}"
+          style="
+            --tile-start: {{ block.settings.gradient_start }};
+            --tile-end: {{ block.settings.gradient_end }};
+            --tile-glow: {{ block.settings.accent_color }};
+            --tile-overlay: {{ block.settings.overlay_opacity | times: 0.01 }};
+          "
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.image != blank -%}
+            <span class="activity-categories__img-wrap" aria-hidden="true">
+              {{- block.settings.image | image_url: width: 900 | image_tag:
+                  loading: 'lazy',
+                  class: 'activity-categories__img',
+                  widths: '480, 600, 900',
+                  sizes: '(max-width: 599px) 100vw, 33vw'
+              -}}
+            </span>
+          {%- endif -%}
+          <span class="activity-categories__texture" aria-hidden="true"></span>
+          <span class="activity-categories__content">
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="activity-categories__eyebrow">{{ block.settings.eyebrow | escape }}</span>
+            {%- endif -%}
+            <span class="activity-categories__title">{{ title | escape }}</span>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .activity-categories {
+    overflow: hidden;
+    background: var(--activity-bg, rgb(var(--color-background)));
+    color: var(--activity-ink, #FBFAF4);
+    scroll-margin-top: 96px;
+  }
+
+  .activity-categories__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .activity-categories__tile {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: var(--activity-min-height, 500px);
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(3.8rem, 5vw, 6.6rem) 2.4rem clamp(5rem, 6vw, 7.2rem);
+    color: var(--activity-ink, #FBFAF4);
+    text-align: center;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--tile-glow, #157A5B) 54%, transparent), transparent 32%),
+      linear-gradient(180deg, color-mix(in srgb, var(--tile-start, #157A5B) 92%, white) 0%, var(--tile-start, #157A5B) 38%, var(--tile-end, #1F1D24) 100%);
+  }
+
+  /* Photo tiles: image fills the tile, gradient scrim darkens bottom */
+  .activity-categories__img-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .activity-categories__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .activity-categories__tile--photo {
+    background: none;
+  }
+
+  .activity-categories__tile--photo::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, calc(var(--tile-overlay, 0.18) * 0.5)) 0%,
+        rgba(0, 0, 0, calc(var(--tile-overlay, 0.18) * 0.7)) 40%,
+        rgba(0, 0, 0, calc(var(--tile-overlay, 0.18) * 1.8)) 75%,
+        rgba(0, 0, 0, calc(var(--tile-overlay, 0.18) * 2.6)) 100%
+      ) !important;
+  }
+
+  .activity-categories__tile + .activity-categories__tile {
+    border-left: 2px solid var(--activity-divider, rgba(251, 250, 244, 0.82));
+  }
+
+  .activity-categories__tile::before,
+  .activity-categories__tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .activity-categories__tile::before {
+    background:
+      linear-gradient(180deg, rgba(31, 29, 36, 0.08) 0%, rgba(31, 29, 36, 0.36) 58%, rgba(31, 29, 36, 0.72) 100%),
+      radial-gradient(circle at 18% 72%, rgba(251, 250, 244, 0.16), transparent 24rem);
+  }
+
+  .activity-categories__tile::after {
+    background: linear-gradient(115deg, transparent 0 24%, rgba(251, 250, 244, 0.08) 24% 25%, transparent 25% 100%);
+    opacity: 0.55;
+    transform: translateX(-14%);
+    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease;
+  }
+
+  .activity-categories__texture {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.3;
+    background:
+      repeating-linear-gradient(92deg, rgba(251, 250, 244, 0.14) 0 1px, transparent 1px 18px),
+      repeating-linear-gradient(2deg, rgba(31, 29, 36, 0.1) 0 1px, transparent 1px 22px);
+    mix-blend-mode: soft-light;
+  }
+
+  .activity-categories__content {
+    display: grid;
+    gap: 1.6rem;
+    justify-items: center;
+    transform: translateY(0);
+    transition: transform 260ms ease;
+  }
+
+  .activity-categories__eyebrow {
+    color: currentColor;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(1.1rem, 0.55rem + 0.45vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: 0.42em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 0 0.2rem 1.4rem rgba(31, 29, 36, 0.5);
+  }
+
+  .activity-categories__title {
+    color: currentColor;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(3.4rem, 2rem + 2.4vw, 5.7rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-shadow: 0 0.4rem 1.8rem rgba(31, 29, 36, 0.58);
+  }
+
+  .activity-categories__tile:hover .activity-categories__content {
+    transform: translateY(-0.8rem);
+  }
+
+  .activity-categories__tile:hover::after {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+
+  .activity-categories__tile:focus-visible {
+    z-index: 1;
+    outline: 4px solid color-mix(in srgb, var(--tile-glow, #157A5B) 78%, white);
+    outline-offset: -8px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .activity-categories__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+      -webkit-overflow-scrolling: touch;
+      padding: 0 32px;
+      gap: 0;
+      width: 100%;
+    }
+
+    .activity-categories__grid::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
+    .activity-categories__tile {
+      flex: 0 0 calc(100vw - 64px);
+      scroll-snap-align: center;
+      min-height: clamp(480px, 80vh, 650px);
+      align-items: flex-end;
+      padding: 5.2rem 2.8rem 6.4rem 2.8rem;
+      box-sizing: border-box;
+    }
+
+    .activity-categories__tile + .activity-categories__tile {
+      border-left: 2px solid var(--activity-divider, rgba(251, 250, 244, 0.82));
+      border-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    .activity-categories__grid {
+      padding: 0 20px;
+    }
+
+    .activity-categories__tile {
+      flex: 0 0 calc(100vw - 40px);
+      padding: 4.6rem 2rem 5.6rem 2rem;
+    }
+
+    .activity-categories__content {
+      gap: 1.1rem;
+    }
+
+    .activity-categories__eyebrow {
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+    }
+
+    .activity-categories__title {
+      font-size: clamp(2.8rem, 9vw, 3.8rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .activity-categories *,
+    .activity-categories *::before,
+    .activity-categories *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Activity category tiles",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.popup"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Shop socks by activity"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#FBFAF4"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider",
+      "default": "#FBFAF4"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 320,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Tile height",
+      "default": 760
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo (optional — replaces gradient background)"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Photo overlay darkness",
+          "min": 10,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "default": 55,
+          "info": "How dark the gradient scrim over the photo is. Higher = more contrast for text."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "Made for every step"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Walk socks"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "gradient_start",
+          "label": "Gradient start (no photo fallback)",
+          "default": "#157A5B"
+        },
+        {
+          "type": "color",
+          "id": "gradient_end",
+          "label": "Gradient end (no photo fallback)",
+          "default": "#1F1D24"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Glow accent",
+          "default": "#157A5B"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Activity category tiles",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Made for every step",
+            "title": "Walk socks",
+            "gradient_start": "#157A5B",
+            "gradient_end": "#1F1D24",
+            "accent_color": "#157A5B"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Made for long days",
+            "title": "Work socks",
+            "gradient_start": "#999999",
+            "gradient_end": "#1F1D24",
+            "accent_color": "#157A5B"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Made for easy miles",
+            "title": "Travel socks",
+            "gradient_start": "#157A5B",
+            "gradient_end": "#123C34",
+            "accent_color": "#FBFAF4"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

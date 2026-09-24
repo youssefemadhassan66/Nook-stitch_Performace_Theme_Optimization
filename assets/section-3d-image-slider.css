@@ -1,0 +1,127 @@
+/* 3D Image Slider Section styles */
+
+.slider-3d-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-3d-container {
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.slider-3d-spinner {
+  display: grid;
+  place-self: center;
+  pointer-events: auto;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Animations */
+@keyframes slider-rotate-left {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes slider-rotate-right {
+  0% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.slider-3d-spinner.rotate-left {
+  animation: slider-rotate-left var(--slider-duration, 32s) linear infinite;
+}
+
+.slider-3d-spinner.rotate-right {
+  animation: slider-rotate-right var(--slider-duration, 32s) linear infinite;
+}
+
+.slider-3d-spinner.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+/* Reduced Motion support */
+@media (prefers-reduced-motion: reduce) {
+  .slider-3d-spinner.rotate-left,
+  .slider-3d-spinner.rotate-right {
+    animation-duration: calc(var(--slider-duration, 32s) * 4);
+  }
+}
+
+.slider-3d-card-wrapper {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  width: var(--card-width, 17.5em);
+  aspect-ratio: var(--card-aspect-ratio, 7/10);
+  outline: none;
+}
+
+.slider-3d-card {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+}
+
+.slider-3d-card-wrapper:hover .slider-3d-card {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.slider-3d-card-wrapper:focus-visible .slider-3d-card {
+  outline: 2px solid rgb(var(--color-keyboard-focus));
+  outline-offset: 4px;
+}
+
+/* Fade mask on the edges */
+.slider-3d-mask-left-right {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20% 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 20% 80%, transparent);
+}
+
+/* Optional header for the slider section */
+.slider-3d-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 60rem;
+  padding: 0 1.5rem;
+}
+
+.slider-3d-header .title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.slider-3d-header .description {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}

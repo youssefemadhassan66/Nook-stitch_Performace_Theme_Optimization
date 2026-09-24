@@ -1,0 +1,812 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e": {
+          "type": "review",
+          "settings": {
+            "lrw_text": "<strong>4.8 - 1356 Reviews</strong>",
+            "text_size": 14,
+            "star_style": "star",
+            "star_size": 0.7,
+            "star_rating": 4.5,
+            "lrw_star_color": "#c9bc0e",
+            "lrw_star_color_disable": "#eeeeee",
+            "lrw_color": "#000000",
+            "margin_top": 15,
+            "margin_bottom": 10
+          }
+        },
+        "title_JizAxD": {
+          "type": "title",
+          "settings": {
+            "title_size": 28,
+            "title_height": 120,
+            "text_transform": "none"
+          }
+        },
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309": {
+          "type": "fomo",
+          "settings": {
+            "fomo_text_before": "<strong> Limited Stock</strong>",
+            "text_style": "uppercase",
+            "text_size": 10,
+            "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+            "fomo_border_activate": false,
+            "fomo_border": 0,
+            "fomo_border_color": "#ffe7ec",
+            "pill_color": "#d50000",
+            "fomo_min": 8,
+            "fomo_max": 16,
+            "fomo_speed": 3,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 16,
+            "margin_bottom": 0
+          }
+        },
+        "auto_tabs_epeaKh": {
+          "type": "auto_tabs",
+          "disabled": true,
+          "settings": {
+            "tabs_color_scheme": "scheme-c8c05c75-1914-4148-9446-95aa92ade006",
+            "compact": false,
+            "auto_tab_heading": 13,
+            "padding_top": 16,
+            "padding_bottom": 16
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_style": "price",
+            "price_size": 20,
+            "badge_text_1": 13,
+            "price_first": false,
+            "badge_bg_1": "#2e2a2a",
+            "badge_price_1": "#ffffff",
+            "price_size_2": 1,
+            "badge_price": "#8b8d8f",
+            "price_bold_2": false,
+            "sale_price_color": "#000000",
+            "regular_price_color": "#d50000",
+            "price_bold": true,
+            "badge_hide": false,
+            "taxes_hide": false,
+            "shipping_hide": false,
+            "padding_top": 4,
+            "padding_bottom": 4
+          }
+        },
+        "icon_with_text_8G9TXx": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+            "icon_font_size": 11,
+            "icon_1": "truck",
+            "image_1": "shopify://shop_images/rush_1.png",
+            "heading_1": "Order Today = Shipped Today",
+            "icon_2": "truck",
+            "heading_2": "Free Shipping",
+            "icon_3": "clipboard",
+            "image_3": "shopify://shop_images/thumbs-up_1.png",
+            "heading_3": "30 Day Money Back Guarantee"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "label_style": "uppercase",
+            "font_size": 14,
+            "font_style": "bold",
+            "swatchType": "variantImage",
+            "optionName": "Color",
+            "swatchStyle": "portrait",
+            "swatchSize": 30,
+            "swatchHeight": 30,
+            "size_trigger": "",
+            "chart_id": "",
+            "size_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "enable_quantity_discounts": false,
+            "headline": "BUNDLE & SAVE",
+            "txt_size_head_qb": 18,
+            "sub_headline": "This offer is for limited time only",
+            "txt_size_subhead_qb": 12,
+            "background_top_qb": "#ffffff",
+            "background_top_text_qb": "#212121",
+            "background_qb": "#ffffff",
+            "border_qb": "#000000",
+            "check_bg_qb": "#e9ecef",
+            "check_border_qb": "#000000",
+            "check_dot": "#000000",
+            "hover_bg_qb": "#ffffff",
+            "hover_border_qb": "#000000",
+            "badge_qb": "#000000",
+            "badge_qb_text": "#ffffff",
+            "compare_price": "#000000",
+            "qb_border_wd": 2,
+            "qb_border": 4,
+            "padding_top": 20,
+            "padding_bottom": 20,
+            "preselected": "option_1",
+            "display_badge": "none",
+            "badge_text": "Most Popular",
+            "option_1_quantity": 1,
+            "option_1_label": "",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount]",
+            "option_1_discount_type": "none",
+            "option_1_percentage_off": 0,
+            "option_1_fixed_amount_off": "0",
+            "option_2_quantity": 2,
+            "option_2_label": "",
+            "option_2_benefit": "",
+            "option_2_caption": "Only [item_price] per Item",
+            "option_2_discount_type": "none",
+            "option_2_percentage_off": 0,
+            "option_2_fixed_amount_off": "0",
+            "option_3_quantity": 3,
+            "option_3_label": "",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount]",
+            "option_3_discount_type": "none",
+            "option_3_percentage_off": 0,
+            "option_3_fixed_amount_off": "0",
+            "option_4_quantity": 4,
+            "option_4_label": "",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount]",
+            "option_4_discount_type": "none",
+            "option_4_percentage_off": 0,
+            "option_4_fixed_amount_off": "0"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_full_button": true,
+            "lm_main_button": "#157a5b",
+            "lm_main_button_gr": "",
+            "lm_main_text": "#ffffff",
+            "lm_button_animation": "soft",
+            "show_gift_card_recipient": true,
+            "skip_cart": false,
+            "cart_text": ""
+          }
+        },
+        "payment_EymzfV": {
+          "type": "payment",
+          "settings": {
+            "original": "custom",
+            "payment_icon": "visa,master,paypal,apple_pay,shopify-pay,klarna",
+            "payment_content_alignment": "center"
+          }
+        },
+        "shipping_qbTyxb": {
+          "type": "shipping",
+          "settings": {
+            "ship_days": 2,
+            "cut_off_time": 16,
+            "icon_size": 20,
+            "image_ani": "none",
+            "text_size": 10,
+            "text_style": "uppercase",
+            "text": "ORDER BEFORE 23:00 = SHIPPED THE SAME DAY!",
+            "date_locale": "en-US",
+            "ship_bg": "#dcc5c5",
+            "show_border": false,
+            "ship_border": "#f2f2f2",
+            "border_radius": 0,
+            "padding_top": 12,
+            "padding_bottom": 12,
+            "margin_top": 16,
+            "margin_bottom": 16
+          }
+        },
+        "tabs_rMHzJJ": {
+          "type": "tabs",
+          "settings": {
+            "tabs_color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+            "tab_font": 13,
+            "tab_font_align": "center",
+            "tab_content_align": "left",
+            "tab_font_mb": 14,
+            "tab_font_mb_align": "center",
+            "tab_content_align_mb": "left",
+            "show_border": true,
+            "large-hide": false,
+            "small-hide": false,
+            "heading_1": "Details",
+            "description": false,
+            "tab_content": "<p>Defend your skin from dark spots and uneven tone with this powerful color corrector<br/><br/></p>",
+            "tab_2": true,
+            "large-hide-2": false,
+            "small-hide-2": false,
+            "heading_2": "Benefits",
+            "description_2": false,
+            "tab_content_2": "<ul><li>Multi-tasking undereye color corrector & nutrient-rich concealer that helps even the look of skin tone</li><li>Waterproof, full coverage formula that gives a radiant finish</li><li>Vegan squalane helps reduce the look of wrinkles & caffeine helps improve the look of tired, puffy skin</li><li>Cruelty-free & dermatologist-tested</li></ul>",
+            "tab_3": true,
+            "large-hide-3": false,
+            "small-hide-3": false,
+            "heading_3": "Ingredients",
+            "tab_content_3": "<ul><li><strong>Caffeine: </strong>energizes & improves look of tired, puffy skin</li><li><strong>Licorice root: </strong>brightens & evens look of skin</li><li><strong>Sodium hyaluronate: </strong>moisturizes</li><li><strong>Vegan squalane: </strong>reduces look of fine lines & wrinkles</li></ul><p><strong>Always formulated without: Parabens • Mineral Oil • Phthalates • Triclosan • Sodium Lauryl Sulfate • Gluten</strong></p>"
+          }
+        },
+        "icon_with_text_ebdgHe": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "color_scheme": "background-1",
+            "icon_font_size": 14,
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "2fead2d5-7a3f-49d9-bacf-1d813be9861e",
+        "title_JizAxD",
+        "8f8d8903-27e7-4cac-99c4-ec1b60b7f309",
+        "auto_tabs_epeaKh",
+        "price",
+        "icon_with_text_8G9TXx",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "payment_EymzfV",
+        "shipping_qbTyxb",
+        "tabs_rMHzJJ",
+        "icon_with_text_ebdgHe",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "show_feature_media": true,
+        "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "show_container": true,
+        "container_radius": 10,
+        "container_padding": 30,
+        "container_color": "#ffe7ec",
+        "container_border_color": "#0e1b4d",
+        "container_text": "",
+        "container_text_bg": "#212121",
+        "container_text_txt": "#ffffff",
+        "show_container_mb": true,
+        "container_padding_mb": 20,
+        "container_radius_mb": 8,
+        "container_color_mb": "#ffe7ec",
+        "container_border_color_mb": "#ffe7ec",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_size": 70,
+        "thumbnail_radius": 4,
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "show_full_image": true,
+        "first_image_size": 100,
+        "second_image_size": 0,
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 8,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b": {
+      "type": "random-number",
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "pill_color": "#d50000",
+        "fomo_border": 6,
+        "fomo_border_color": "#ffe7ec",
+        "fomo_min": 8,
+        "fomo_max": 16,
+        "fomo_speed": 3,
+        "fomo_text_before": "<strong>[Limited stock]</strong>",
+        "number_bold": true,
+        "fomo_text_after": "Peoples are checking out right now",
+        "text_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "image_banner_A3Mfc3": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BhACdi": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_zRbaC3": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_THEmyL": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BhACdi",
+        "text_zRbaC3",
+        "buttons_THEmyL"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/hero__CC-undereye-corrector__01.webp",
+        "image_2": "shopify://shop_images/hero__CC-undereye-corrector__02.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_with_text_dgQ6UP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_q6CVke": {
+          "type": "heading",
+          "settings": {
+            "heading": "Find Your Perfect Shade.",
+            "heading_size": "h2"
+          }
+        },
+        "text_8KKxmk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Available in multiple versatile shades to seamlessly match and brighten every skin tone.<br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_PE4xyg": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_q6CVke",
+        "text_8KKxmk",
+        "button_PE4xyg"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/0fb97671-8cc6-4f32-96dc-e2337aecf300.avif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_A3LDaD": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n  .video-section-container {\n    text-align: center;\n    background: #FFE7EC; /* full pink background */\n    padding: 60px 20px;  /* equal spacing top & bottom */\n    margin: 0;           /* removes white gaps outside */\n    border-radius: 0;    /* keep edges straight */\n    width: 100%;         /* full width */\n  }\n\n  .video-section-container h2 {\n    font-size: 28px;\n    font-weight: bold;\n    margin-bottom: 20px;\n    letter-spacing: 1px;\n  }\n\n  .video-carousel {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    overflow: hidden;\n    position: relative;\n  }\n\n  .video-track {\n    display: flex;\n    gap: 20px;\n    scroll-snap-type: x mandatory;\n    overflow-x: auto;\n    scrollbar-width: none; /* hide scrollbar Firefox */\n    -ms-overflow-style: none; /* hide scrollbar IE */\n  }\n\n  .video-track::-webkit-scrollbar {\n    display: none; /* hide scrollbar Chrome/Safari */\n  }\n\n  .video-track video {\n    flex: 0 0 auto;\n    width: 30%;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    border-radius: 12px;\n    box-shadow: 0 4px 10px rgba(0,0,0,0.3);\n    scroll-snap-align: center;\n  }\n\n  @media (max-width: 1024px) {\n    .video-track video {\n      width: 45%;\n    }\n  }\n\n  @media (max-width: 768px) {\n    .video-track video {\n      width: 80%; /* show 1 main video in center */\n    }\n  }\n</style>\n\n<div class=\"video-section-container\">\n  <h2>Get The Glam</h2>\n  <div class=\"video-carousel\">\n    <div class=\"video-track\" id=\"videoTrack\">\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/a7d58793b3a24c868ac2b4c77c61ed9e.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/b259edc816ea46308ed9354bfe17b6b1.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n      <video src=\"https://cdn.shopify.com/videos/c/o/v/8cafa16c55b341f79e702e28d0e19047.mp4\" muted playsinline autoplay loop preload=\"auto\"></video>\n    </div>\n  </div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_Gy7apD": {
+      "type": "multirow",
+      "blocks": {
+        "row_yGQ7Kb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/common__CC-undereye-corrector__02.jpg",
+            "caption": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_yDNUD6": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/hero__CC-undereye-corrector__01.webp",
+            "caption": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_yGQ7Kb",
+        "row_yDNUD6"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "row_color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17594148958c393f11": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1759407132c2ec348e": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "custom_liquid_7RqYxa": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"eu-reviews-section\">\n  <style>\n    .eu-reviews-section { background:#FFE7EC; padding:48px 0; font-family:-apple-system, BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial; }\n    .eu-reviews-container{ max-width:1100px; margin:0 auto; padding:0 20px; }\n    .eu-reviews-header{ text-align:center; margin-bottom:28px; }\n    .eu-reviews-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }\n    .eu-review-card{ background:#fff; border-radius:18px; padding:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); display:flex; flex-direction:column; min-height:160px; }\n    .eu-review-top{ display:flex; align-items:center; margin-bottom:10px; }\n    .eu-avatar{ width:44px; height:44px; border-radius:50%; background:#e6e6e6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#374151; margin-right:12px; }\n    .eu-review-name{ font-weight:600; margin:0; }\n    .eu-verified{ font-size:13px; color:#6b7280; margin:0; }\n    .eu-stars{ display:flex; gap:4px; margin-bottom:8px; }\n    .eu-review-text{ color:#374151; margin-top:auto; }\n    .eu-star-filled{ fill:#FBBF24; }\n    .eu-star-empty{ fill:#E5E7EB; }\n    .eu-loadmore-wrap{ text-align:center; margin-top:30px; }\n    .eu-loadmore-btn{ background:#111827; color:#fff; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-loadmore-btn:hover{ background:#374151; }\n    .eu-write-review{ margin-top:50px; padding:28px; background:#fff; border-radius:18px; box-shadow:0 4px 14px rgba(16,24,40,0.06); }\n    .eu-write-review h3{ margin:0 0 14px; font-size:22px; }\n    .eu-write-review input, .eu-write-review textarea, .eu-write-review select { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d1d5db; border-radius:8px; }\n    .eu-write-review button{ background:#111827; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; }\n    .eu-write-review button:hover{ background:#374151; }\n  </style>\n\n  <div class=\"eu-reviews-container\">\n    <div class=\"eu-reviews-header\">\n      <h2 style=\"font-size:28px; margin:0 0 6px;\">Customer Reviews</h2>\n      <p style=\"color:#6b7280; margin:0;\">Rated <strong>4.8/5</strong> by 1,356 customers</p>\n    </div>\n\n    {% assign reviews = \"\nEmily W.|5|This concealer gives amazing coverage for pigmentation and looks really natural on my skin.;\nHannah B.|5|I love it. It covers well and blends smoothly without creasing at all.;\nCharlotte N.|5|Works great on my forehead pigmentation and doesn’t dry out my skin.;\nOlivia R.|5|Covers my pigmentation perfectly and leaves my skin looking even and fresh.;\nMegan L.|5|I’ve tried many concealers but this one hides my dark spots better than any other.;\nSophie T.|4|Good coverage overall, though I wish it stayed matte a bit longer on my oily skin.;\nGrace P.|5|Beautiful finish and smooth texture. My pigmentation is barely visible now.;\nElla D.|5|Feels light on the skin but gives full coverage for pigmentation and redness.;\nLucy S.|5|It really brightens my complexion and evens out my skin tone nicely.;\nChloe A.|4|Great for covering pigmentation but I needed to set it with powder to last all day.;\nAmelia J.|5|The texture is creamy and blends effortlessly, covering dark areas instantly.;\nLily H.|5|This product is a lifesaver for anyone with pigmentation issues! Looks so natural.;\nIsla C.|4|Covers my pigmentation quite well but I wish it came in more shades.;\nZoe F.|5|So smooth and hydrating. My skin feels soft and my dark spots disappear instantly.;\nRuby G.|5|Perfect for my uneven skin tone — gives a flawless look every time.;\nFreya M.|5|I love how natural this concealer looks while still hiding pigmentation perfectly.;\nScarlett V.|5|My favourite product for pigmentation. It evens out my skin in seconds.;\nJessica K.|5|Fantastic coverage and blends beautifully. My freckles and spots are barely visible.;\nAva J.|4|Good coverage but slightly thick for my taste. Still works well on pigmentation.;\nMia R.|5|Makes my skin look airbrushed and hides all pigmentation effortlessly.;\nLottie B.|5|Absolutely love the smooth finish! Great for covering pigmentation on my cheeks.;\nHarper E.|5|Hides pigmentation without looking cakey. My skin looks healthy and radiant.;\nDaisy W.|4|Nice formula and coverage, but I wish it lasted longer on hot days.;\nElla P.|5|I’ve been using it for a week and my complexion looks flawless. Love it!;\nRosie S.|5|Perfect match to my tone and covers pigmentation perfectly.;\nMolly D.|4|Good for pigmentation but I needed two layers for full coverage.;\nAmber L.|5|This concealer gives a bright, even look and hides all dark marks easily.;\nSienna R.|5|It blends beautifully and hides pigmentation while feeling lightweight.;\nPhoebe C.|5|My go-to every morning! Evens out my tone without looking heavy.;\nNatalie F.|4|Does a great job covering my pigmentation but fades slightly after 8 hours.;\nLauren H.|5|Love this product. My dark spots are invisible and it looks so smooth.;\nBethany G.|5|Perfect for daily use — evens my tone and gives me confidence.;\nAbigail K.|5|Amazing texture and coverage for pigmentation. Highly recommend!;\nChloe N.|4|Good coverage but a little too dewy for my liking. Still great for pigmentation.;\nHolly S.|5|This covers pigmentation perfectly and doesn’t crease or dry my skin.;\nEleanor P.|5|Flawless coverage and a silky finish — pigmentation completely gone.;\nMillie T.|5|So lightweight yet hides all my dark marks. My skin looks natural and bright.;\nGeorgia L.|4|It covers well but could be slightly creamier for dry skin types.;\nImogen C.|5|Blends into my skin beautifully. My pigmentation is completely concealed.;\nErin M.|5|Love how even my skin looks after applying this. Covers pigmentation perfectly.;\nKatie B.|5|The best concealer I’ve used for pigmentation — creamy, smooth, and long-lasting.;\nLilly A.|4|Covers well but takes a bit of blending. Still really good quality.;\nFlorence D.|5|Hydrating and smooth. My pigmentation looks completely gone.;\nMatilda P.|5|Perfect coverage with a natural glow — I use it daily!;\nSophia H.|4|Good formula and shade range. Covers pigmentation quite well.;\nLayla R.|5|This gives my skin such a clean and even finish. Amazing for dark spots.;\nEmma W.|5|Pigmentation completely hidden and skin looks soft and fresh.;\nAlice J.|5|Gives my face a radiant and even tone, perfect for everyday makeup.;\nNancy F.|4|Really nice texture and covers most pigmentation but needs setting powder.;\nTilly M.|5|Best product I’ve tried for pigmentation. Easy to blend and looks flawless.;\nBrooke S.|5|Makes my skin smooth, fresh, and even-toned. Love this so much.;\n\" | split: \";\" %}\n\n    <div id=\"eu-reviews-grid\" class=\"eu-reviews-grid\">\n      {% for r in reviews %}\n        {% assign parts = r | split: \"|\" %}\n        {% assign name = parts[0] | strip %}\n        {% assign rating = parts[1] | strip | plus: 0 %}\n        {% assign text = parts[2] | strip %}\n        {% if name != \"\" %}\n        <article class=\"eu-review-card\" style=\"display:none;\">\n          <div class=\"eu-review-top\">\n            <div class=\"eu-avatar\">{{ name | slice: 0, 1 }}</div>\n            <div>\n              <p class=\"eu-review-name\">{{ name }}</p>\n              <p class=\"eu-verified\">Verified Buyer</p>\n            </div>\n          </div>\n          <div class=\"eu-stars\">\n            {% for i in (1..5) %}\n              {% if i <= rating %}\n                <svg class=\"eu-star-filled\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% else %}\n                <svg class=\"eu-star-empty\" width=\"18\" height=\"18\" viewBox=\"0 0 20 20\"><path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.184c.969 0 1.371 1.24.588 1.81l-3.39 2.463a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.39-2.463a1 1 0 00-1.176 0l-3.39 2.463c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.04 9.401c-.783-.57-.38-1.81.588-1.81h4.184a1 1 0 00.95-.69l1.287-3.974z\"/></svg>\n              {% endif %}\n            {% endfor %}\n          </div>\n          <p class=\"eu-review-text\">“{{ text }}”</p>\n        </article>\n        {% endif %}\n      {% endfor %}\n    </div>\n\n    <div class=\"eu-loadmore-wrap\">\n      <button id=\"eu-loadmore-btn\" class=\"eu-loadmore-btn\">Load More Reviews</button>\n    </div>\n\n    <div class=\"eu-write-review\">\n      <h3>Write a Review</h3>\n      <form id=\"review-form\">\n        <input type=\"text\" name=\"name\" placeholder=\"Your Name\" required>\n        <select name=\"rating\" required>\n          <option value=\"\">Rating</option>\n          <option value=\"5\">★★★★★ - Excellent</option>\n          <option value=\"4\">★★★★☆ - Good</option>\n          <option value=\"3\">★★★☆☆ - Average</option>\n          <option value=\"2\">★★☆☆☆ - Poor</option>\n          <option value=\"1\">★☆☆☆☆ - Terrible</option>\n        </select>\n        <textarea name=\"review\" rows=\"4\" placeholder=\"Share your experience...\" required></textarea>\n        <button type=\"submit\">Submit Review</button>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    document.addEventListener(\"DOMContentLoaded\", function(){\n      var reviews = document.querySelectorAll(\"#eu-reviews-grid .eu-review-card\");\n      var btn = document.getElementById(\"eu-loadmore-btn\");\n      var perPage = 6; \n      var shown = 0;\n\n      function showMore(){\n        for(var i=shown; i<shown+perPage && i<reviews.length; i++){\n          reviews[i].style.display = \"flex\";\n        }\n        shown += perPage;\n        if(shown >= reviews.length){\n          btn.style.display = \"none\";\n        }\n      }\n      showMore(); \n      btn.addEventListener(\"click\", showMore);\n\n      document.getElementById(\"review-form\").addEventListener(\"submit\", function(e){\n        e.preventDefault();\n        alert(\"Thank you for your review! It will appear once approved.\");\n        this.reset();\n      });\n    });\n  </script>\n</section>",
+        "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_rba4hP": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div style=\"margin:50px 0; text-align:center; padding:40px; background:#FFE7ECf; color:#111; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.08);\">\n  <h3 style=\"font-size:24px; font-weight:600; margin-bottom:30px; letter-spacing:0.5px; color:#111;\">Our Guarantees</h3>\n  \n  <div style=\"display:flex; justify-content:center; gap:40px; flex-wrap:wrap;\">\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">Fast & Free Shipping</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">Satisfaction Guarantee</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">24/7 Customer Support</p>\n    </div>\n\n    <div class=\"guarantee-card\" style=\"flex:1; min-width:180px; max-width:220px; padding:20px; transition:transform 0.3s;\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#d4af37\" stroke-width=\"2\" viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" class=\"guarantee-icon\" style=\"margin-bottom:12px; transition:all 0.3s ease;\">\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 11c.828 0 1.5.672 1.5 1.5v1.5a1.5 1.5 0 01-3 0V12.5c0-.828.672-1.5 1.5-1.5z\" />\n        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 9V7a6 6 0 1112 0v2M4 9h16v11H4V9z\" />\n      </svg>\n      <p style=\"font-size:15px; font-weight:500; margin:0;\">Secure Checkout</p>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .guarantee-card:hover {\n    transform: translateY(-6px);\n  }\n\n  .guarantee-card:hover .guarantee-icon {\n    stroke: #c69d2f;\n    transform: scale(1.15);\n    filter: drop-shadow(0 0 6px rgba(198,157,47,0.6));\n  }\n</style>",
+        "color_scheme": "scheme-15ab6c1a-5144-4b7d-a402-482fa31b8c04",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_comparison_HDGKVp": {
+      "type": "image-comparison",
+      "blocks": {
+        "text_QHwVeR": {
+          "type": "text",
+          "settings": {
+            "subheading": "",
+            "heading": "Image comparison",
+            "content": "<p>See the stunning transformations our products deliver — real results from real customers.</p>",
+            "text_position": "center",
+            "color": "#000000"
+          }
+        },
+        "images_HbhYND": {
+          "type": "images",
+          "settings": {
+            "desktop_height": 500,
+            "mobile_height": 500,
+            "border_radius": 12,
+            "drag_initial_position": 50,
+            "cover": true,
+            "before_text": "Before",
+            "after_text": "After",
+            "before_after_text_position": "bottom",
+            "before_text_color": "#ffffff",
+            "after_text_color": "#ffffff",
+            "drag_cursor_bg": "#ffffff",
+            "drag_cursor_color": "#000000"
+          }
+        },
+        "button_HyfhMn": {
+          "type": "button",
+          "settings": {
+            "link_text": "SHOP NO",
+            "link": "",
+            "button_position": "center",
+            "width": 160,
+            "font_size": 16,
+            "border_radius": 10,
+            "border_width": 0,
+            "color": "#ffffff",
+            "background_color": "#000000",
+            "hover_color": "#ffffff",
+            "hover_background_color": "#000000",
+            "border_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "text_QHwVeR",
+        "images_HbhYND",
+        "button_HyfhMn"
+      ],
+      "disabled": true,
+      "name": "Image comparison",
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "collection_text_alignment": "left",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_no_crop": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_desc": true,
+        "quick_desc_legth": 90,
+        "quick_desc_size": 13,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_QntHhK": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_HVppW6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How Long Does The Shipping take?",
+            "icon": "none",
+            "row_content": "<p>Standard delivery takes 5-12 business days, depending on your location.<br/><br/>You'll receive a tracking number as soon as your order is on the way.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KQn6x6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What Can The Cyan AI Do?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI gives you instant access to ChatGPT. Ask questions, get ideas, write texts, solve problems and plan your day—all by voice. It's like having your own personal assistant built into your glasses.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LhhV7X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are They Easy To Use?",
+            "icon": "none",
+            "row_content": "<p>Cyan AI Glasses are built for simplicity. Just connect them to your phone through the HeyCyan app and control everything with touch gestures or voice commands—no complicated setup required. Every order includes a user manual, and the app will guide you step by step<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NxibBb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will They Work With My Phone?",
+            "icon": "none",
+            "row_content": "<p>Absolutely, Cyan AI Glasses work seamlessly with both iOS and Android devices. Just download the HeyCyan app and you're ready to connect, control and customize.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3DrMCA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can People Around Me Hear The Audio?",
+            "icon": "none",
+            "row_content": "<p>We designed Cyan AI with open-air directional speakers that play audio clearly to you, not the room. People nearby won't hear your music or calls unless you raise the volume very high.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Nf6eKH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where Will My Videos And Photos Go?",
+            "icon": "none",
+            "row_content": "<p>After taking a video or a photo, your media will be saved in HeyCyan app!</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_HVppW6",
+        "collapsible_row_KQn6x6",
+        "collapsible_row_LhhV7X",
+        "collapsible_row_NxibBb",
+        "collapsible_row_3DrMCA",
+        "collapsible_row_Nf6eKH"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559": {
+      "type": "custom-fonts",
+      "blocks": {
+        "abd19213-10d7-45b5-b8e0-532450e7ddab": {
+          "type": "image",
+          "settings": {
+            "name": "customfont",
+            "custom_font_weight": "none",
+            "custom_font_style": "none",
+            "custom_font_url": "",
+            "apply_h1": true,
+            "apply_h2": true,
+            "apply_h3": true,
+            "apply_h4": true,
+            "apply_h5": true,
+            "apply_h6": true,
+            "apply_span": true,
+            "apply_p": true,
+            "apply_custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "abd19213-10d7-45b5-b8e0-532450e7ddab"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable": true
+      }
+    },
+    "brands_7ULWLR": {
+      "type": "brands",
+      "blocks": {
+        "image_3dehmJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_86.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_kib7VG": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_85.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_4hzkYd": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_82.png",
+            "logo_image_width": 110
+          }
+        },
+        "image_reHxCJ": {
+          "type": "image",
+          "settings": {
+            "logo_image": "shopify://shop_images/Untitled_design_81.png",
+            "logo_image_width": 110
+          }
+        }
+      },
+      "block_order": [
+        "image_3dehmJ",
+        "image_kib7VG",
+        "image_4hzkYd",
+        "image_reHxCJ"
+      ],
+      "disabled": true,
+      "name": "LOGO Slider",
+      "settings": {
+        "scroll_speed": 15,
+        "fade": false,
+        "color_scheme": "background-1",
+        "padding_desktop": 16,
+        "padding_mobile": 8,
+        "padding_item_desktop": 36,
+        "padding_item_mobile": 24,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17573385083b13945d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ebd38537-357b-4b9d-94d3-8480c1f8694b",
+    "image_banner_A3Mfc3",
+    "image_with_text_dgQ6UP",
+    "custom_liquid_A3LDaD",
+    "multirow_Gy7apD",
+    "17594148958c393f11",
+    "1759407132c2ec348e",
+    "custom_liquid_7RqYxa",
+    "custom_liquid_rba4hP",
+    "image_comparison_HDGKVp",
+    "related-products",
+    "collapsible_content_QntHhK",
+    "41eff030-bfe6-4439-9af3-bc24e7cb0559",
+    "brands_7ULWLR",
+    "17573385083b13945d"
+  ]
+}

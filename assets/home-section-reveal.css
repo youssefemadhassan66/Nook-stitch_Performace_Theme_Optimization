@@ -1,0 +1,118 @@
+/* Homepage motion stays independent of the global theme animation toggle. */
+@media (prefers-reduced-motion: no-preference) {
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__media--left {
+    animation: nookHomeMediaLeft 960ms 40ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__media--right {
+    animation: nookHomeMediaRight 960ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__kicker,
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__heading > span,
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__body,
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__button,
+  .nook-hero--motion .nook-hero__dots {
+    animation: nookHomeCopyEnter 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__kicker {
+    animation-delay: 100ms;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__heading > span:nth-child(1) {
+    animation-delay: 180ms;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__heading > span:nth-child(2) {
+    animation-delay: 270ms;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__body {
+    animation-delay: 390ms;
+  }
+
+  .nook-hero--motion .nook-hero__slide.is-active .nook-hero__button {
+    animation-delay: 500ms;
+  }
+
+  .nook-hero--motion .nook-hero__dots {
+    animation-delay: 620ms;
+  }
+
+  .js.home-motion-ready #MainContent > .shopify-section.home-section-reveal {
+    opacity: 0;
+    transform: translate3d(0, 3.2rem, 0);
+    transition:
+      opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .js.home-motion-ready #MainContent > .shopify-section.home-section-reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* The page reveal owns visibility even when Dawn's optional toggle is enabled. */
+  .js.home-motion-ready
+    #MainContent
+    > .shopify-section.home-section-reveal
+    .scroll-trigger.animate--fade-in,
+  .js.home-motion-ready
+    #MainContent
+    > .shopify-section.home-section-reveal
+    .scroll-trigger.animate--slide-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  @keyframes nookHomeMediaLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-3rem, 0, 0) scale(1.025);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes nookHomeMediaRight {
+    from {
+      opacity: 0;
+      transform: translate3d(3rem, 0, 0) scale(1.025);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes nookHomeCopyEnter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 1.8rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nook-hero--motion .nook-hero__media,
+  .nook-hero--motion .nook-hero__kicker,
+  .nook-hero--motion .nook-hero__heading > span,
+  .nook-hero--motion .nook-hero__body,
+  .nook-hero--motion .nook-hero__button,
+  .nook-hero--motion .nook-hero__dots,
+  #MainContent > .shopify-section.home-section-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,848 @@
+{%- liquid
+  assign s = section.settings
+  assign sticky_link = blank
+
+  for sticky_block in section.blocks
+    if sticky_block.type == 'product_cta' and sticky_link == blank and sticky_block.settings.button_link != blank
+      assign sticky_link = sticky_block.settings.button_link
+    endif
+  endfor
+-%}
+
+<section
+  id="FeelBenefitRows-{{ section.id }}"
+  class="feel-benefit-rows gradient color-{{ s.color_scheme }}"
+  style="
+    --feel-benefit-accent: {{ s.accent_color }};
+    --feel-benefit-shadow: {{ s.heading_shadow_color }};
+  "
+>
+  <div class="feel-benefit-rows__inner page-width">
+    {%- assign has_subheading = false -%}
+    {%- if s.subheading != blank and s.subheading != '<p></p>' -%}
+      {%- assign has_subheading = true -%}
+    {%- endif -%}
+
+    {%- if s.heading != blank or has_subheading -%}
+      <div class="feel-benefit-rows__header">
+        {%- if s.heading != blank -%}
+          <h2 class="feel-benefit-rows__main-heading">{{ s.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if has_subheading -%}
+          <div class="feel-benefit-rows__subheading rte">{{ s.subheading }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="feel-benefit-rows__list">
+      {%- assign benefit_index = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'product_cta' -%}
+            <aside class="feel-benefit-rows__cta" data-feel-product-cta {{ block.shopify_attributes }}>
+              <div class="feel-benefit-rows__cta-media">
+                {%- if block.settings.video != blank -%}
+                  {{
+                    block.settings.video
+                    | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '1200x', class: 'feel-benefit-rows__cta-video'
+                  }}
+                {%- elsif block.settings.image != blank -%}
+                  {%- capture cta_sizes -%}
+                    (min-width: {{ settings.page_width }}px) 500px,
+                    (min-width: 750px) 44vw,
+                    100vw
+                  {%- endcapture -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1200
+                    | image_tag: loading: 'lazy', sizes: cta_sizes, widths: '360, 520, 720, 960, 1200', class: 'feel-benefit-rows__cta-image'
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg feel-benefit-rows__placeholder' }}
+                {%- endif -%}
+              </div>
+
+              <div class="feel-benefit-rows__cta-copy">
+                {%- if block.settings.kicker != blank -%}
+                  <p class="feel-benefit-rows__cta-kicker">{{ block.settings.kicker | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="feel-benefit-rows__cta-heading">{{ block.settings.heading | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <div class="feel-benefit-rows__cta-text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+
+                {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                  <a class="feel-benefit-rows__cta-button" href="{{ block.settings.button_link }}">
+                    <span>{{ block.settings.button_label | escape }}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                {%- endif -%}
+
+                {%- if block.settings.support_text != blank -%}
+                  <p class="feel-benefit-rows__cta-support">{{ block.settings.support_text | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.guarantee_text != blank -%}
+                  <p class="feel-benefit-rows__cta-guarantee">{{ block.settings.guarantee_text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </aside>
+
+          {%- else -%}
+            {%- assign benefit_index = benefit_index | plus: 1 -%}
+            <article class="feel-benefit-rows__row" data-feel-benefit-index="{{ benefit_index }}" {{ block.shopify_attributes }}>
+              <div class="feel-benefit-rows__media">
+                {%- if block.settings.video != blank -%}
+                  {{
+                    block.settings.video
+                    | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '1100x', class: 'feel-benefit-rows__video'
+                  }}
+                {%- elsif block.settings.image != blank -%}
+                  {%- capture sizes -%}
+                    (min-width: {{ settings.page_width }}px) 460px,
+                    (min-width: 750px) 42vw,
+                    100vw
+                  {%- endcapture -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1100
+                    | image_tag: loading: 'lazy', sizes: sizes, widths: '320, 460, 650, 900, 1100', class: 'feel-benefit-rows__image'
+                  }}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg feel-benefit-rows__placeholder' }}
+                {%- endif -%}
+              </div>
+
+              <div class="feel-benefit-rows__copy">
+                {%- if block.settings.kicker != blank -%}
+                  <p class="feel-benefit-rows__kicker">{{ block.settings.kicker | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="feel-benefit-rows__heading">{{ block.settings.heading | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <div class="feel-benefit-rows__text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </article>
+
+            {%- if benefit_index == 3 -%}
+              <span class="feel-benefit-rows__sticky-start" data-feel-sticky-start aria-hidden="true"></span>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- if sticky_link != blank -%}
+    <div class="feel-benefit-rows__mobile-sticky" data-feel-mobile-sticky aria-hidden="true">
+      <a class="feel-benefit-rows__mobile-sticky-button" href="{{ sticky_link }}">
+        <span>TRY THEM RISK FREE</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <p class="feel-benefit-rows__mobile-sticky-proof">
+        <span class="feel-benefit-rows__mobile-sticky-avatar" aria-hidden="true">C</span>
+        <span>CHRISTINE K.</span>
+        <span class="feel-benefit-rows__mobile-sticky-check" aria-hidden="true">✓</span>
+        <span>VERIFIED BUYER FEEDBACK</span>
+      </p>
+    </div>
+  {%- endif -%}
+</section>
+
+{%- style -%}
+  #FeelBenefitRows-{{ section.id }} {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__inner {
+    padding-top: {{ s.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ s.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__header {
+    width: min(100%, 78rem);
+    margin: 0 auto clamp(36px, 5vw, 64px);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__main-heading {
+    margin: 0;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(3.2rem, 3vw, 4.8rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.12;
+    text-shadow: 2px 2px 0 var(--feel-benefit-shadow);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__subheading {
+    max-width: 64rem;
+    margin-top: 16px;
+    font-size: clamp(1.45rem, 0.92vw, 1.58rem);
+    line-height: 1.5;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__list {
+    display: grid;
+    gap: clamp(54px, 7vw, 88px);
+    width: min(100%, 112rem);
+    margin: 0 auto;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__row {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+    gap: clamp(34px, 5vw, 58px);
+    align-items: center;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__media {
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(var(--color-foreground), 0.04);
+    aspect-ratio: 1.08 / 1;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__image,
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__video,
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__copy {
+    max-width: 56rem;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__kicker {
+    margin: 0 0 8px;
+    color: rgb(var(--color-foreground));
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__heading {
+    margin: 0;
+    color: rgb(var(--color-foreground));
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(2.9rem, 2.6vw, 4.2rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.13;
+    text-shadow: 2px 2px 0 var(--feel-benefit-shadow);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__text {
+    margin-top: 20px;
+    color: rgb(var(--color-foreground));
+    font-size: clamp(1.45rem, 0.92vw, 1.58rem);
+    line-height: 1.52;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__text p {
+    margin: 0;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__text p + p {
+    margin-top: 20px;
+  }
+
+  #FeelBenefitRows-{{ section.id }} strong {
+    font-weight: 800;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1fr);
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid rgba(var(--color-foreground), 0.16);
+    border-radius: 8px;
+    background: rgba(var(--color-foreground), 0.02);
+    box-shadow: 0 18px 50px rgba(var(--color-foreground), 0.06);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-media {
+    min-height: 360px;
+    background:
+      radial-gradient(circle at 50% 48%, rgba(21, 122, 91, 0.12), transparent 56%),
+      rgba(21, 122, 91, 0.05);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-image,
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-video,
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-media .placeholder-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-copy {
+    display: flex;
+    min-height: 360px;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(34px, 5vw, 62px);
+    background: rgb(var(--color-background));
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-kicker {
+    margin: 0 0 12px;
+    color: var(--feel-benefit-accent);
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.16rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-heading {
+    max-width: 11ch;
+    margin: 0;
+    color: rgb(var(--color-foreground));
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: clamp(3.2rem, 3.4vw, 5.2rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.05;
+    text-shadow: 2px 2px 0 var(--feel-benefit-shadow);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-text {
+    max-width: 48rem;
+    margin-top: 20px;
+    color: rgb(var(--color-foreground));
+    font-size: clamp(1.45rem, 0.92vw, 1.58rem);
+    line-height: 1.5;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-text p {
+    margin: 0;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: min(100%, 36rem);
+    min-height: 66px;
+    margin-top: 28px;
+    border: 1px solid var(--feel-benefit-accent);
+    border-radius: 6px;
+    background: var(--feel-benefit-accent);
+    color: #ffffff;
+    font-family: var(--font-body-family);
+    font-size: 1.68rem;
+    font-weight: 800;
+    line-height: 1.2;
+    padding: 18px 32px;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-button:hover {
+    background: #11694e;
+    box-shadow: 0 12px 26px rgba(21, 122, 91, 0.18);
+    transform: translateY(-1px);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-button:focus-visible {
+    outline: 2px solid var(--feel-benefit-accent);
+    outline-offset: 3px;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-support {
+    width: min(100%, 36rem);
+    margin: 10px 0 0;
+    border-radius: 6px;
+    background: rgba(21, 122, 91, 0.07);
+    color: rgb(var(--color-foreground));
+    font-size: 1.18rem;
+    font-weight: 500;
+    line-height: 1.35;
+    padding: 11px 16px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-guarantee {
+    width: min(100%, 36rem);
+    margin: 14px 0 0;
+    color: rgb(var(--color-foreground));
+    font-size: 1.18rem;
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__sticky-start {
+    display: none;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky {
+    position: fixed;
+    right: auto;
+    bottom: 24px;
+    left: 50%;
+    z-index: 40;
+    display: block;
+    width: min(52rem, calc(100vw - 48px));
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 115%);
+    transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    visibility: hidden;
+    padding: 10px 12px 9px;
+    background: #ffffff;
+    border: 1px solid rgba(var(--color-foreground), 0.08);
+    border-radius: 10px;
+    box-shadow: 0 14px 38px rgba(var(--color-foreground), 0.14);
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    visibility: visible;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky.is-hiding {
+    visibility: visible;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    min-height: 56px;
+    border: 1px solid rgba(12, 74, 36, 0.75);
+    border-radius: 8px;
+    background: var(--feel-benefit-accent);
+    box-shadow: 0 8px 18px rgba(21, 122, 91, 0.18);
+    color: #ffffff;
+    font-family: Poppins, var(--font-heading-family), Arial, sans-serif;
+    font-size: 1.34rem;
+    font-weight: 800;
+    line-height: 1.1;
+    padding: 14px 18px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-button:focus-visible {
+    outline: 2px solid rgb(var(--color-foreground));
+    outline-offset: 3px;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 7px 0 0;
+    color: rgb(var(--color-foreground));
+    font-size: 0.94rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-avatar,
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-avatar {
+    width: 18px;
+    height: 18px;
+    background: #e7d9c9;
+    color: rgb(var(--color-foreground));
+    font-size: 0.92rem;
+  }
+
+  #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-check {
+    width: 13px;
+    height: 13px;
+    background: #1d73f8;
+    color: #ffffff;
+    font-size: 0.82rem;
+    line-height: 1;
+  }
+
+  @media screen and (min-width: 750px) {
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-button:hover {
+      background: #106a4d;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky-button {
+      transition: none;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__inner {
+      padding-top: {{ s.padding_top }}px;
+      padding-bottom: {{ s.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__header {
+      margin-inline: 0;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__row {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__media {
+      aspect-ratio: 1.18 / 1;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__copy {
+      max-width: none;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__subheading,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__text,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-text {
+      font-size: 1.38rem;
+      line-height: 1.48;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__heading,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__main-heading,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-heading {
+      text-shadow: 1.5px 1.5px 0 var(--feel-benefit-shadow);
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta {
+      grid-template-columns: 1fr;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-media {
+      min-height: 190px;
+      max-height: 230px;
+      aspect-ratio: 1.55 / 1;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-copy {
+      min-height: 0;
+      padding: 28px 22px 30px;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-heading {
+      max-width: 12ch;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-button {
+      width: 100%;
+      min-height: 54px;
+      gap: 12px;
+      padding: 14px 22px;
+      font-size: 1.45rem;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-support,
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__cta-guarantee {
+      width: 100%;
+      font-size: 1.12rem;
+      line-height: 1.35;
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+      transform: translateY(115%);
+      padding: 8px 14px max(9px, env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(var(--color-foreground), 0.08);
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      border-radius: 0;
+      box-shadow: 0 -14px 34px rgba(var(--color-foreground), 0.09);
+    }
+
+    #FeelBenefitRows-{{ section.id }} .feel-benefit-rows__mobile-sticky.is-visible {
+      transform: translateY(0);
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  (() => {
+    const section = document.getElementById('FeelBenefitRows-{{ section.id }}');
+    if (!section || section.dataset.mobileStickyReady === 'true') return;
+
+    const sticky = section.querySelector('[data-feel-mobile-sticky]');
+    const start = section.querySelector('[data-feel-benefit-index="3"]') || section.querySelector('[data-feel-sticky-start]');
+    const productCtas = Array.from(section.querySelectorAll('[data-feel-product-cta]'));
+    const finalCta = productCtas[productCtas.length - 1];
+
+    if (!sticky || !start || !finalCta || !('IntersectionObserver' in window)) return;
+
+    section.dataset.mobileStickyReady = 'true';
+
+    let passedStart = false;
+    let nearFinalCta = false;
+    let hideTimer;
+
+    const syncSticky = () => {
+      const shouldShow = passedStart && !nearFinalCta;
+
+      if (shouldShow) {
+        window.clearTimeout(hideTimer);
+        sticky.classList.remove('is-hiding');
+        sticky.classList.add('is-visible');
+        sticky.setAttribute('aria-hidden', 'false');
+        return;
+      }
+
+      if (!sticky.classList.contains('is-visible')) {
+        sticky.setAttribute('aria-hidden', 'true');
+        return;
+      }
+
+      sticky.classList.remove('is-visible');
+      sticky.classList.add('is-hiding');
+      hideTimer = window.setTimeout(() => {
+        sticky.classList.remove('is-hiding');
+        sticky.setAttribute('aria-hidden', 'true');
+      }, 280);
+    };
+
+    const startObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        passedStart = entry.isIntersecting || entry.boundingClientRect.top < 0;
+      });
+      syncSticky();
+    }, {
+      rootMargin: '0px 0px -70% 0px',
+      threshold: 0
+    });
+
+    const finalObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        nearFinalCta = entry.isIntersecting || entry.boundingClientRect.top < 0;
+      });
+      syncSticky();
+    }, {
+      rootMargin: '0px 0px 220px 0px',
+      threshold: 0
+    });
+
+    startObserver.observe(start);
+    finalObserver.observe(finalCta);
+
+    document.addEventListener('shopify:section:unload', (event) => {
+      if (event.target !== section) return;
+      window.clearTimeout(hideTimer);
+      startObserver.disconnect();
+      finalObserver.disconnect();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Feel benefit rows",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sock comfort details"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#157A5B"
+    },
+    {
+      "type": "color",
+      "id": "heading_shadow_color",
+      "label": "Heading shadow color",
+      "default": "#CFE0D2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 24,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 24,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Optional. If selected, this replaces the image."
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Eyebrow",
+          "default": "1. Support"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Comfort you can feel"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Explain how this detail helps the sock feel better through the day.</p>"
+        }
+      ]
+    },
+    {
+      "type": "product_cta",
+      "name": "Product CTA",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Optional. If selected, this replaces the image."
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Eyebrow",
+          "default": "Ready for softer steps"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Try the sock built for long days."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Cushioning, ankle padding, and gentle support work together so everyday walking feels steadier.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop the sock"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "support_text",
+          "label": "Support text below button",
+          "default": "Free shipping | shipped the same day"
+        },
+        {
+          "type": "text",
+          "id": "guarantee_text",
+          "label": "Guarantee text",
+          "default": "Try it today with a 30-Day Money Back Guarantee!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feel benefit rows",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

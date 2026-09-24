@@ -1,0 +1,951 @@
+{%- liquid
+  assign s = section.settings
+  assign visible_product_count = 0
+
+  for block in section.blocks limit: 2
+    if block.settings.product != blank
+      assign visible_product_count = visible_product_count | plus: 1
+    endif
+  endfor
+-%}
+
+<section
+  id="CollectionProducts"
+  class="collection-product-showcase gradient color-{{ s.color_scheme }}"
+  style="--section-pt: {{ s.padding_top }}px; --section-pb: {{ s.padding_bottom }}px; --card-media-ratio: {{ s.media_ratio }}; --card-media-fit: {{ s.media_fit }};"
+  data-color-label="{{ s.color_label | escape }}"
+  data-collection-product-showcase
+>
+  <div class="page-width collection-product-showcase__inner">
+    <header class="collection-product-showcase__header">
+      <div>
+        {%- if s.eyebrow != blank -%}
+          {%- if s.heading == blank -%}
+            <h2 class="collection-product-showcase__eyebrow">{{ s.eyebrow | escape }}</h2>
+          {%- else -%}
+            <p class="collection-product-showcase__eyebrow">{{ s.eyebrow | escape }}</p>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if s.heading != blank -%}
+          <h2 class="collection-product-showcase__heading">{{ s.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
+
+      {%- if s.show_product_count -%}
+        <p class="collection-product-showcase__count">
+          {{ visible_product_count }} {{ s.product_count_label | escape }}
+        </p>
+      {%- endif -%}
+    </header>
+
+    <div class="collection-product-showcase__grid" role="list">
+      {%- for block in section.blocks limit: 2 -%}
+        {%- liquid
+          assign card_product = block.settings.product
+          assign card_title = block.settings.custom_title
+
+          if card_product != blank and card_title == blank
+            assign card_title = card_product.title
+          endif
+        -%}
+
+        {%- if card_product != blank -%}
+          {%- liquid
+            assign initial_variant = card_product.selected_or_first_available_variant | default: card_product.variants.first
+            assign initial_url = initial_variant.url | default: card_product.url
+            assign initial_media = initial_variant.featured_media | default: card_product.featured_media
+            assign initial_alt = initial_media.alt | default: card_title
+            assign offer_price = blank
+            assign offer_compare_price = blank
+            assign color_option = blank
+            assign color_option_index = 0
+
+            if block.settings.offer_price != blank
+              assign offer_price_cents = block.settings.offer_price | times: 100
+              assign offer_price = offer_price_cents | money
+            endif
+
+            if block.settings.offer_compare_price != blank
+              assign offer_compare_price_cents = block.settings.offer_compare_price | times: 100
+              assign offer_compare_price = offer_compare_price_cents | money
+            endif
+
+            for product_option in card_product.options_with_values
+              assign normalized_option_name = product_option.name | downcase
+              if normalized_option_name == 'color' or normalized_option_name == 'colour'
+                assign color_option = product_option
+                assign color_option_index = product_option.position | minus: 1
+                break
+              endif
+            endfor
+
+            assign initial_color = initial_variant.options[color_option_index]
+            assign rating_value = block.settings.rating | plus: 0
+            assign rating_count = block.settings.review_count | plus: 0
+
+            if rating_value <= 0
+              assign rating_value = card_product.metafields.reviews.rating.value.rating
+            endif
+            if rating_count <= 0
+              assign rating_count = card_product.metafields.reviews.rating_count.value
+            endif
+
+            assign rating_value = rating_value | plus: 0
+            assign rating_count = rating_count | plus: 0
+            assign rating_percentage = rating_value | times: 20
+            assign rating_count_display = rating_count
+
+            if rating_count >= 1000 and rating_count < 1000000
+              assign rating_thousands = rating_count | divided_by: 1000
+              assign rating_remainder = rating_count | modulo: 1000
+              capture rating_count_display
+                echo rating_thousands
+                echo ','
+                if rating_remainder < 100
+                  echo '0'
+                endif
+                if rating_remainder < 10
+                  echo '0'
+                endif
+                echo rating_remainder
+              endcapture
+            endif
+          -%}
+
+          <article
+            class="collection-product-card"
+            role="listitem"
+            data-variant-card
+            {{ block.shopify_attributes }}
+          >
+            <a
+              class="collection-product-card__media"
+              href="{{ initial_url }}"
+              aria-label="{{ card_title | escape }}"
+              data-variant-card-link
+            >
+              {%- if initial_media != blank -%}
+                <img
+                  src="{{ initial_media | image_url: width: 1000 }}"
+                  srcset="{{ initial_media | image_url: width: 480 }} 480w, {{ initial_media | image_url: width: 720 }} 720w, {{ initial_media | image_url: width: 1000 }} 1000w, {{ initial_media | image_url: width: 1280 }} 1280w"
+                  sizes="(min-width: 990px) calc((min(100vw, 1400px) - 72px) / 2), (min-width: 750px) 50vw, 100vw"
+                  alt="{{ initial_alt | escape }}"
+                  class="collection-product-card__image"
+                  loading="lazy"
+                  width="{{ initial_media.width }}"
+                  height="{{ initial_media.height }}"
+                  data-variant-card-image
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'collection-product-card__placeholder' }}
+              {%- endif -%}
+            </a>
+
+            <div class="collection-product-card__body">
+              {%- if block.settings.eyebrow != blank -%}
+                <p class="collection-product-card__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+              {%- endif -%}
+
+              <div class="collection-product-card__title-row">
+                <h3 class="collection-product-card__title">
+                  <a href="{{ initial_url }}" data-variant-card-link>{{ card_title | escape }}</a>
+                </h3>
+
+                <p class="collection-product-card__price">
+                  {%- if block.settings.offer_label != blank -%}
+                    <span class="collection-product-card__offer-label">{{ block.settings.offer_label | escape }}</span>
+                  {%- endif -%}
+                  <span data-variant-card-price>
+                    {%- if offer_price != blank -%}
+                      {{ offer_price }}
+                    {%- else -%}
+                      {{ initial_variant.price | money }}
+                    {%- endif -%}
+                  </span>
+                  <s
+                    data-variant-card-compare
+                    {% if offer_price != blank and offer_compare_price == blank %}hidden{% elsif offer_compare_price == blank and initial_variant.compare_at_price <= initial_variant.price %}hidden{% endif %}
+                  >
+                    {%- if offer_compare_price != blank -%}
+                      {{ offer_compare_price }}
+                    {%- elsif offer_price == blank and initial_variant.compare_at_price > initial_variant.price -%}
+                      {{ initial_variant.compare_at_price | money }}
+                    {%- endif -%}
+                  </s>
+                </p>
+              </div>
+
+              {%- if s.show_ratings and rating_value > 0 -%}
+                <div
+                  class="collection-product-card__rating"
+                  role="img"
+                  aria-label="{{ rating_value }} {{ s.rating_accessibility_label | escape }}"
+                >
+                  <span class="collection-product-card__stars" style="--rating-width: {{ rating_percentage }}%;" aria-hidden="true">
+                    <span class="collection-product-card__stars-base">★★★★★</span>
+                    <span class="collection-product-card__stars-fill">★★★★★</span>
+                  </span>
+                  <strong>{{ rating_value }}</strong>
+                  {%- if rating_count > 0 -%}
+                    <span aria-hidden="true">·</span>
+                    <span>{{ rating_count_display }} {{ s.reviews_label | escape }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if color_option != blank -%}
+                <div class="collection-product-card__variant-panel">
+                  <p class="collection-product-card__selected">
+                    {{ s.color_label | escape }}:
+                    <strong data-variant-card-selected>{{ initial_color | escape }}</strong>
+                  </p>
+
+                  <div
+                    class="collection-product-card__swatches"
+                    role="group"
+                    aria-label="{{ card_title | escape }} {{ s.color_options_label | escape }}"
+                  >
+                    {%- for option_value in color_option.values -%}
+                      {%- liquid
+                        assign color_name = option_value.name | default: option_value
+                        assign swatch_variant = option_value.variant
+                        assign first_color_variant = swatch_variant
+                        assign available_color_variant = blank
+                        assign needs_variant_fallback = false
+
+                        if swatch_variant == blank
+                          assign needs_variant_fallback = true
+                        elsif swatch_variant.available == false
+                          assign needs_variant_fallback = true
+                        endif
+
+                        if needs_variant_fallback
+                          for candidate_variant in card_product.variants
+                            assign candidate_color = candidate_variant.options[color_option_index]
+                            if candidate_color == color_name
+                              if first_color_variant == blank
+                                assign first_color_variant = candidate_variant
+                              endif
+                              if candidate_variant.available
+                                assign available_color_variant = candidate_variant
+                                break
+                              endif
+                            endif
+                          endfor
+
+                          if available_color_variant != blank
+                            assign swatch_variant = available_color_variant
+                          else
+                            assign swatch_variant = first_color_variant
+                          endif
+                        endif
+
+                        assign swatch_url = swatch_variant.url | default: card_product.url
+                        assign swatch_media = swatch_variant.featured_media | default: initial_media
+                        assign swatch_alt = swatch_media.alt | default: card_title
+                        assign swatch_background = option_value.swatch.color
+
+                        if swatch_background == blank
+                          assign swatch_rules = settings.swatchColors | newline_to_br | split: '<br />'
+                          assign configured_swatch = blank
+                          for swatch_rule in swatch_rules
+                            assign swatch_rule_parts = swatch_rule | split: ':'
+                            assign swatch_rule_name = swatch_rule_parts.first | strip
+                            if swatch_rule_name == color_name
+                              assign configured_swatch = swatch_rule_parts[1] | strip
+                              break
+                            endif
+                          endfor
+
+                          if configured_swatch != blank
+                            assign swatch_codes = configured_swatch | split: '#'
+                            assign swatch_code_count = swatch_codes.size
+                            assign swatch_code_1 = swatch_codes[1] | strip | slice: 0, 6
+                            assign swatch_code_2 = swatch_codes[2] | strip | slice: 0, 6
+
+                            if swatch_code_count == 2
+                              assign swatch_background = '#' | append: swatch_code_1
+                            elsif swatch_code_count > 2
+                              capture swatch_background
+                                echo 'linear-gradient(135deg, #'
+                                echo swatch_code_1
+                                echo ' 50%, #'
+                                echo swatch_code_2
+                                echo ' 50%)'
+                              endcapture
+                            endif
+                          endif
+                        endif
+
+                        if swatch_background == blank
+                          assign swatch_background = 'rgba(var(--color-foreground), 0.45)'
+                        endif
+                        assign swatch_is_active = false
+                        if color_name == initial_color
+                          assign swatch_is_active = true
+                        endif
+                        assign swatch_is_available = swatch_variant.available
+                      -%}
+
+                      <button
+                        type="button"
+                        class="collection-product-card__swatch{% if swatch_is_active %} is-active{% endif %}{% unless swatch_is_available %} is-unavailable{% endunless %}"
+                        style="--swatch-color: {{ swatch_background }};"
+                        aria-label="{{ color_name | escape }}{% unless swatch_is_available %} - {{ s.sold_out_label | escape }}{% endunless %}"
+                        aria-pressed="{% if swatch_is_active %}true{% else %}false{% endif %}"
+                        data-variant-card-swatch
+                        data-color-name="{{ color_name | escape }}"
+                        data-variant-url="{{ swatch_url }}"
+                        data-price="{% if offer_price != blank %}{{ offer_price | escape }}{% else %}{{ swatch_variant.price | money | escape }}{% endif %}"
+                        data-compare-price="{% if offer_compare_price != blank %}{{ offer_compare_price | escape }}{% elsif offer_price == blank and swatch_variant.compare_at_price > swatch_variant.price %}{{ swatch_variant.compare_at_price | money | escape }}{% endif %}"
+                        {%- if swatch_media != blank %}
+                          data-image-src="{{ swatch_media | image_url: width: 1000 }}"
+                          data-image-srcset="{{ swatch_media | image_url: width: 480 }} 480w, {{ swatch_media | image_url: width: 720 }} 720w, {{ swatch_media | image_url: width: 1000 }} 1000w, {{ swatch_media | image_url: width: 1280 }} 1280w"
+                          data-image-alt="{{ swatch_alt | append: ' - ' | append: color_name | escape }}"
+                        {%- endif %}
+                      >
+                        <span class="visually-hidden">{{ color_name | escape }}</span>
+                      </button>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <p class="collection-product-card__text">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+
+              <a class="collection-product-card__button" href="{{ initial_url }}" data-variant-card-link>
+                {{ s.button_label | escape }}
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <p class="visually-hidden" aria-live="polite" data-variant-card-live></p>
+            </div>
+          </article>
+        {%- elsif request.design_mode -%}
+          <article class="collection-product-card collection-product-card--placeholder" role="listitem" {{ block.shopify_attributes }}>
+            <div class="collection-product-card__media">
+              {{ 'product-1' | placeholder_svg_tag: 'collection-product-card__placeholder' }}
+            </div>
+            <div class="collection-product-card__body">
+              <h3 class="collection-product-card__title">Choose a product</h3>
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  if (!window.collectionProductCardsReady) {
+    window.collectionProductCardsReady = true;
+
+    document.addEventListener('click', (event) => {
+      const swatch = event.target.closest('[data-variant-card-swatch]');
+      if (!swatch) return;
+
+      const card = swatch.closest('[data-variant-card]');
+      if (!card) return;
+      if (swatch.getAttribute('aria-pressed') === 'true') return;
+
+      const section = card.closest('[data-collection-product-showcase]');
+      if (!section) return;
+
+      const variantUrl = swatch.dataset.variantUrl;
+      const image = card.querySelector('[data-variant-card-image]');
+      const selected = card.querySelector('[data-variant-card-selected]');
+      const liveRegion = card.querySelector('[data-variant-card-live]');
+      const price = card.querySelector('[data-variant-card-price]');
+      const comparePrice = card.querySelector('[data-variant-card-compare]');
+
+      card.querySelectorAll('[data-variant-card-link]').forEach((link) => {
+        if (variantUrl) link.href = variantUrl;
+      });
+
+      if (image && swatch.dataset.imageSrc) {
+        image.classList.add('is-changing');
+        const clearImageState = () => image.classList.remove('is-changing');
+        image.addEventListener('load', clearImageState, { once: true });
+        image.addEventListener('error', clearImageState, { once: true });
+        if (swatch.dataset.imageSrcset) image.srcset = swatch.dataset.imageSrcset;
+        image.src = swatch.dataset.imageSrc;
+        if (swatch.dataset.imageAlt) image.alt = swatch.dataset.imageAlt;
+        if (image.complete) requestAnimationFrame(clearImageState);
+      }
+
+      if (selected) selected.textContent = swatch.dataset.colorName || '';
+      if (price && swatch.dataset.price) price.textContent = swatch.dataset.price;
+
+      if (comparePrice) {
+        comparePrice.textContent = swatch.dataset.comparePrice || '';
+        comparePrice.hidden = !swatch.dataset.comparePrice;
+      }
+
+      card.querySelectorAll('[data-variant-card-swatch]').forEach((button) => {
+        const isActive = button === swatch;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      if (liveRegion) {
+        liveRegion.textContent = `${section.dataset.colorLabel}: ${swatch.dataset.colorName || ''}`;
+      }
+    });
+  }
+</script>
+
+{% stylesheet %}
+  .collection-product-showcase {
+    scroll-margin-top: 2rem;
+    padding-block: var(--section-pt, 76px) var(--section-pb, 96px);
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .collection-product-showcase__inner {
+    display: grid;
+    gap: clamp(3rem, 4vw, 5.6rem);
+  }
+
+  .collection-product-showcase__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.18);
+  }
+
+  .collection-product-showcase__eyebrow {
+    margin: 0 0 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .collection-product-showcase__heading {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3rem, 2.4rem + 1.2vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .collection-product-showcase__count {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .collection-product-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2.4rem, 3.2vw, 4.8rem);
+  }
+
+  .collection-product-card {
+    min-width: 0;
+  }
+
+  .collection-product-card__media {
+    position: relative;
+    display: block;
+    aspect-ratio: var(--card-media-ratio, 4 / 3);
+    overflow: hidden;
+    border-radius: calc(var(--media-radius, 0px) + 0.4rem);
+    background: color-mix(in srgb, rgb(var(--color-background)) 92%, rgb(var(--color-foreground)) 8%);
+  }
+
+  .collection-product-card__image,
+  .collection-product-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: var(--card-media-fit, cover);
+    object-position: center;
+    padding: 0;
+    transition:
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 180ms ease;
+  }
+
+  .collection-product-card__image.is-changing {
+    opacity: 0.72;
+  }
+
+  .collection-product-card:hover .collection-product-card__image {
+    transform: scale(1.025);
+  }
+
+  .collection-product-card__body {
+    padding-top: 2rem;
+  }
+
+  .collection-product-card__eyebrow {
+    margin: 0 0 0.8rem;
+    color: rgba(var(--color-foreground), 0.7);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .collection-product-card__title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .collection-product-card__title {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading-family);
+    font-size: clamp(2rem, 1.7rem + 0.5vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.18;
+  }
+
+  .collection-product-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .collection-product-card__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.35rem;
+  }
+
+  .collection-product-card__price {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: end;
+    gap: 0.2rem 0.6rem;
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .collection-product-card__offer-label {
+    grid-column: 1 / -1;
+    color: rgba(var(--color-foreground), 0.68);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .collection-product-card__price s {
+    color: rgba(var(--color-foreground), 0.52);
+  }
+
+  .collection-product-card__rating {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    color: rgba(var(--color-foreground), 0.72);
+    font-size: 1.4rem;
+  }
+
+  .collection-product-card__stars {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: 0.12em;
+  }
+
+  .collection-product-card__stars-base {
+    color: rgba(var(--color-foreground), 0.22);
+  }
+
+  .collection-product-card__stars-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--rating-width, 100%);
+    overflow: hidden;
+    color: rgb(var(--color-button));
+    white-space: nowrap;
+  }
+
+  .collection-product-card__variant-panel {
+    min-height: 8.4rem;
+    padding-top: 1.8rem;
+    transition:
+      opacity 240ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collection-product-card__selected {
+    margin: 0 0 0.8rem;
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .collection-product-card__selected strong {
+    font-weight: 600;
+  }
+
+  .collection-product-card__swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+  }
+
+  .collection-product-card__swatch {
+    position: relative;
+    display: inline-grid;
+    width: 4.4rem;
+    height: 4.4rem;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .collection-product-card__swatch::before {
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.28);
+    border-radius: 50%;
+    background: var(--swatch-color, currentColor);
+    box-shadow: inset 0 0 0 0.3rem rgb(var(--color-background));
+    content: '';
+  }
+
+  .collection-product-card__swatch.is-active::after {
+    position: absolute;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 0.15rem solid rgb(var(--color-foreground));
+    border-radius: 50%;
+    content: '';
+  }
+
+  .collection-product-card__swatch.is-unavailable::before {
+    opacity: 0.58;
+  }
+
+  .collection-product-card__swatch:focus-visible {
+    outline: 0.2rem solid rgb(var(--color-foreground));
+    outline-offset: 0.1rem;
+  }
+
+  .collection-product-card__text {
+    max-width: 56ch;
+    margin: 0 0 1.6rem;
+    color: rgba(var(--color-foreground), 0.72);
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .collection-product-card__button {
+    display: flex;
+    min-height: 5.2rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.3rem 1.8rem;
+    border: 0.1rem solid rgb(var(--color-foreground));
+    border-radius: var(--buttons-radius, 6px);
+    color: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collection-product-card__button:hover {
+    border-color: rgb(var(--color-button));
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+  }
+
+  .collection-product-card__button span {
+    font-size: 2rem;
+    line-height: 1;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collection-product-card__button:hover span {
+    transform: translateX(0.3rem);
+  }
+
+  @media (hover: hover) and (min-width: 750px) {
+    .collection-product-card__variant-panel {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(0.8rem);
+    }
+
+    .collection-product-card:hover .collection-product-card__variant-panel,
+    .collection-product-card:focus-within .collection-product-card__variant-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 749px) {
+    .collection-product-showcase__header {
+      align-items: start;
+    }
+
+    .collection-product-showcase__grid {
+      grid-template-columns: 1fr;
+      gap: 5.6rem;
+    }
+
+    .collection-product-card__title-row {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .collection-product-card__price {
+      justify-content: flex-start;
+    }
+
+    .collection-product-card__offer-label {
+      text-align: left;
+    }
+
+    .collection-product-card__variant-panel {
+      min-height: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .collection-product-card__image,
+    .collection-product-card__variant-panel,
+    .collection-product-card__button,
+    .collection-product-card__button span {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection products",
+  "tag": "section",
+  "class": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    { "type": "header", "content": "Heading" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop all socks"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your everyday comfort."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_count_label",
+      "label": "Product count label",
+      "default": "products"
+    },
+    { "type": "header", "content": "Product controls" },
+    {
+      "type": "select",
+      "id": "media_ratio",
+      "label": "Image shape",
+      "options": [
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 3", "label": "Landscape" },
+        { "value": "3 / 2", "label": "Wide landscape" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Fill frame" },
+        { "value": "contain", "label": "Show full image" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "text",
+      "id": "color_label",
+      "label": "Selected color label",
+      "default": "Color"
+    },
+    {
+      "type": "text",
+      "id": "color_options_label",
+      "label": "Color options accessibility label",
+      "default": "color options"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Choose options"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_label",
+      "label": "Sold-out color label",
+      "default": "Sold out"
+    },
+    { "type": "header", "content": "Ratings" },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "Show ratings",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "reviews_label",
+      "label": "Reviews label",
+      "default": "reviews"
+    },
+    {
+      "type": "text",
+      "id": "rating_accessibility_label",
+      "label": "Rating accessibility label",
+      "default": "out of 5 stars"
+    },
+    { "type": "header", "content": "Spacing" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title",
+          "info": "Leave blank to use the Shopify product title."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Short description"
+        },
+        { "type": "header", "content": "Bundle offer" },
+        {
+          "type": "text",
+          "id": "offer_label",
+          "label": "Offer label"
+        },
+        {
+          "type": "text",
+          "id": "offer_price",
+          "label": "Offer price",
+          "info": "Enter the amount without a currency symbol, for example 49.97. Leave blank to show the selected variant price."
+        },
+        {
+          "type": "text",
+          "id": "offer_compare_price",
+          "label": "Compare-at price",
+          "info": "Optional. Enter the amount without a currency symbol."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "label": "Rating",
+          "info": "Set to 0 to use the product's standard rating metafield.",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "review_count",
+          "label": "Review count",
+          "info": "Set to 0 to use the product's standard review count metafield.",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Collection products",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
