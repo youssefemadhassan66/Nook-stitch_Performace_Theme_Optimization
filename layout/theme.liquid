@@ -8,6 +8,12 @@
           assign optimize_product_assets = true
         endif
       endif
+      assign optimize_content_page_assets = false
+      if request.page_type == 'page'
+        if page.handle == 'aboutus' or page.handle == 'about-us' or page.handle == 'contact' or page.handle == 'trackmyorder'
+          assign optimize_content_page_assets = true
+        endif
+      endif
     -%}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +53,7 @@
     {%- endif -%}
 
     {%- unless request.page_type == 'index' -%}
-      <script src="{{ 'jquery.js' | asset_url }}"{% if optimize_product_assets %} defer="defer"{% endif %}></script>
+      <script src="{{ 'jquery.js' | asset_url }}"{% if optimize_product_assets or optimize_content_page_assets %} defer="defer"{% endif %}></script>
     {%- endunless -%}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -335,7 +341,7 @@
     {% endstyle %}
     {{ 'lumin.css' | asset_url | stylesheet_tag }}
     {{ 'lumin-fancy-text.css' | asset_url | stylesheet_tag }}
-    {%- unless optimize_product_assets -%}
+    {%- unless optimize_product_assets or optimize_content_page_assets -%}
       {{ 'lazyloading-classes.css' | asset_url | stylesheet_tag }}
     {%- endunless -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -375,7 +381,7 @@
       {% render 'loader' %}
     {% endif %}
 
-    {%- unless optimize_product_assets -%}
+    {%- unless optimize_product_assets or optimize_content_page_assets -%}
       <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
       <style>.lazyload,.lazyloading{opacity:0}.lazyloaded{opacity:1;transition:opacity.3s}</style>
       <script src="{{ 'ls.rias.min.js' | asset_url }}" async="async"></script>

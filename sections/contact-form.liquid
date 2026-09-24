@@ -398,7 +398,7 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="contact-heading-{{ section.id }} title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="contact-heading-{{ section.id }} title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.heading | replace: '[', '<span class="lumin-text__fancy1">' | replace: ']', '</span>' | replace: '((', '<span class="lumin-text__fancy2">' | replace: '))', '</span>' }}
         </h2>
       {%- else -%}
@@ -458,13 +458,7 @@
         <p class="nook-contact__form-heading">{{ section.settings.form_heading }}</p>
       {%- endif -%}
 
-    {%- liquid
-      assign contact_form_class = 'isolate nook-contact__form'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in nook-contact__form'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+    {%- form 'contact', id: 'ContactForm', class: 'isolate nook-contact__form' -%}
       {%- if form.posted_successfully? -%}
         <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
           {% render 'icon-success' %}

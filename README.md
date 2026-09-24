@@ -17,6 +17,12 @@ One local mobile Lighthouse rerun after these changes measured **crew: 2.91 s FC
 
 The remaining large costs include Pumper, UpCart, and third-party tracking scripts. Their cache lifetimes and script payloads cannot be changed through this theme; replacing an app requires preserving its purchase flow first.
 
+## About, Contact, and Track My Order
+
+The September 24, 2026 content-page pass covers both public About URLs (`/pages/aboutus` and `/pages/about-us`), `/pages/contact`, and `/pages/trackmyorder` on the unpublished theme. These pages no longer request the unused legacy lazysizes library and its styles/plugins; jQuery loads without blocking HTML parsing. The About hero now offers smaller mobile image widths and requests high fetch priority. The first-screen About image, Contact heading, and tracking heading stay visible during their entrance motion. Contact's duplicate Dawn reveal classes were removed so they do not delay its heading or form. Track123 remains the tracking form provider.
+
+Single local mobile Lighthouse runs on the unpublished preview returned these LCP values (before → after): About **5.76 → 5.07 s**, Contact **6.70 → 4.13 s**, and Track My Order **5.89 → 3.57 s**. These are preliminary, variable runs; the scores and Total Blocking Time did not consistently improve. The 2-second target remains open, and app scripts are still a significant cost. The contact form and Track123 fields rendered in browser checks without console errors.
+
 ## Workflow
 
 Edit and validate locally, push to the unpublished Shopify theme for preview, then measure the product pages. Git commits here track the source changes; `git push` does not publish the theme to customers or update the live theme.
