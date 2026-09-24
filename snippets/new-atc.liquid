@@ -67,11 +67,11 @@
 
             {% if image %}
               <img
-                src="{{ image.src | image_url }}"
+                src="{{ image | image_url: width: 120 }}"
                 alt="Selected Variant Image"
                 id="selectedVariantImage-mobile"
-                width="{{ image.width }}"
-                height="{{ image.width | divided_by: image.aspect_ratio | round }}"
+                width="120"
+                height="{{ 120 | divided_by: image.aspect_ratio | round }}"
                 loading="lazy"
               >
             {% endif %}
@@ -145,11 +145,11 @@
 
         {% if image %}
           <img
-            src="{{ image.src | image_url }}"
+            src="{{ image | image_url: width: 120 }}"
             alt="Selected Variant Image"
             id="selectedVariantImage-desktop"
-            width="{{ image.width }}"
-            height="{{ image.width | divided_by: image.aspect_ratio | round }}"
+            width="120"
+            height="{{ 120 | divided_by: image.aspect_ratio | round }}"
             loading="lazy"
           >
         {% endif %}

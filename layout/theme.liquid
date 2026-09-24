@@ -1,6 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    {%- liquid
+      assign optimize_product_assets = false
+      if request.page_type == 'product'
+        if product.handle == 'orthopedic-crew-socks' or product.handle == 'orthopedic-sneaker-socks-copy-1'
+          assign optimize_product_assets = true
+        endif
+      endif
+    -%}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -39,7 +47,7 @@
     {%- endif -%}
 
     {%- unless request.page_type == 'index' -%}
-      <script type="text/javascript" src="{{ 'jquery.js' | asset_url }}"></script>
+      <script src="{{ 'jquery.js' | asset_url }}"{% if optimize_product_assets %} defer="defer"{% endif %}></script>
     {%- endunless -%}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -327,7 +335,9 @@
     {% endstyle %}
     {{ 'lumin.css' | asset_url | stylesheet_tag }}
     {{ 'lumin-fancy-text.css' | asset_url | stylesheet_tag }}
-    {{ 'lazyloading-classes.css' | asset_url | stylesheet_tag }}
+    {%- unless optimize_product_assets -%}
+      {{ 'lazyloading-classes.css' | asset_url | stylesheet_tag }}
+    {%- endunless -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -365,10 +375,12 @@
       {% render 'loader' %}
     {% endif %}
 
-    <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
-    <style>.lazyload,.lazyloading{opacity:0}.lazyloaded{opacity:1;transition:opacity.3s}</style>
-    <script src="{{ 'ls.rias.min.js' | asset_url }}" async="async"></script>
-    <script src="{{ 'ls.bgset.min.js' | asset_url }}" async="async"></script>
+    {%- unless optimize_product_assets -%}
+      <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
+      <style>.lazyload,.lazyloading{opacity:0}.lazyloaded{opacity:1;transition:opacity.3s}</style>
+      <script src="{{ 'ls.rias.min.js' | asset_url }}" async="async"></script>
+      <script src="{{ 'ls.bgset.min.js' | asset_url }}" async="async"></script>
+    {%- endunless -%}
     
   </head>
 
