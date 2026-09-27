@@ -4,7 +4,7 @@ Shopify theme source for the unpublished performance test theme (`Performance_Te
 
 ## Current focus
 
-Improve the product pages first, with US storefront performance as the priority. Recent changes give the first product image high loading priority and request smaller, responsive gallery thumbnails, feature icons, and scrolling photos. Shopify's image CDN chooses optimized delivery formats. Original store media has not been replaced or recompressed.
+Improve the product pages first, with US storefront performance as the priority. Recent changes give the first product image high loading priority and request smaller, responsive gallery thumbnails, feature icons, and scrolling photos. Shopify's image CDN chooses optimized delivery formats. Original store media remains unchanged; the performance theme now requests compressed delivery variants for lower-page photos.
 
 On September 24, 2026, the crew and sneaker product pages received another focused pass:
 
@@ -30,5 +30,7 @@ The actual US ankle handle (`orthopedicsocks`) now receives the asset optimizati
 Final mobile preview runs measured ankle LCP **2.80 s** (before **3.68 s**) and crew LCP **2.10 s** (before **3.66 s**), with near-zero layout shift. Results vary, and blocking time did not consistently improve; the two-second goal remains open. Bundle and same-product gift behavior passed browser checks. See [the full review](PERFORMANCE_REVIEW_2026-09-27.md) for measurements, validation, and remaining work.
 
 ## Workflow
+
+The September 27 image compression pass requests quality 75 for scrolling gallery photos and quality 80 for product benefit photos. Eleven representative photo downloads fell from 528,660 to 319,010 bytes (39.7%) at unchanged dimensions. Both product pages retain eager, high-priority, responsive main images. See [the compression measurements](IMAGE_COMPRESSION_2026-09-27.md).
 
 Edit and validate locally, push to the unpublished Shopify theme for preview, then measure the product pages. Git commits here track the source changes; `git push` does not publish the theme to customers or update the live theme.

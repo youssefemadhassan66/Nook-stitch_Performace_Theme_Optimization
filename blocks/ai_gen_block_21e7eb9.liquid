@@ -145,7 +145,7 @@
               %}
               {% if current_image != blank %}
                 <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
-                  {{ current_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
+                  {{ current_image | image_url: width: 1200, format: 'jpg', quality: 75 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
                 </div>
               {% endif %}
             {% endfor %}
@@ -169,7 +169,7 @@
               %}
               {% if current_image != blank %}
                 <div class="ai-auto-scroll-gallery__item-{{ ai_gen_id }}">
-                  {{ current_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
+                  {{ current_image | image_url: width: 1200, format: 'jpg', quality: 75 | image_tag: loading: 'lazy', widths: '280, 400, 560, 600, 800, 1200', sizes: gallery_image_sizes, alt: current_image.alt }}
                 </div>
               {% endif %}
             {% endfor %}

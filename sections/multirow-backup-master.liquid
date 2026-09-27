@@ -58,14 +58,24 @@
               {% endif %}
             >
               {%- if block.settings.image != blank -%}
+                {%- liquid
+                  assign benefit_image_quality = nil
+                  assign benefit_image_format = nil
+                  assign benefit_image_loading = nil
+                  if request.page_type == 'product'
+                    assign benefit_image_quality = 80
+                    assign benefit_image_format = 'jpg'
+                    assign benefit_image_loading = 'lazy'
+                  endif
+                -%}
                 {%- capture sizes -%}
                   (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
                 {%- endcapture -%}
                 {{
                   block.settings.image
-                  | image_url: width: 1500
-                  | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500'
+                  | image_url: width: 1500, format: benefit_image_format, quality: benefit_image_quality
+                  | image_tag: loading: benefit_image_loading, sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500'
                 }}
               {%- else -%}
                 {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
