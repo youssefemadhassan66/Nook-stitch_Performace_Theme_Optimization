@@ -31,6 +31,8 @@ Final mobile preview runs measured ankle LCP **2.80 s** (before **3.68 s**) and 
 
 ## Workflow
 
+An individual app audit ran 24 mobile Lighthouse comparisons on September 27 using browser-only request blocking. Median blocking time fell roughly 58–61% with Pumper blocked and 50–55% with external tracking blocked; UpCart's effect was smaller and varied by product. No app or theme settings were changed. See [the app cost audit](APP_COST_AUDIT_2026-09-27.md) for attribution, raw metrics, and important paint-measurement limitations.
+
 The September 27 image compression pass requests quality 75 for scrolling gallery photos and quality 80 for product benefit photos. Eleven representative photo downloads fell from 528,660 to 319,010 bytes (39.7%) at unchanged dimensions. Both product pages retain eager, high-priority, responsive main images. See [the compression measurements](IMAGE_COMPRESSION_2026-09-27.md).
 
 Edit and validate locally, push to the unpublished Shopify theme for preview, then measure the product pages. Git commits here track the source changes; `git push` does not publish the theme to customers or update the live theme.
