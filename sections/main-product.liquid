@@ -11,7 +11,6 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {{ 'component-quantity-breaks.css' | asset_url | stylesheet_tag }}
   {%- if product.quantity_price_breaks_configured? -%}
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
@@ -1321,6 +1320,7 @@
 
                {%- when 'quantity_selector' -%}
                                     {%- if block.settings.enable_quantity_discounts -%}
+                    {{ 'component-quantity-breaks.css' | asset_url | stylesheet_tag }}
                     <div class="quantity-breaks-container" 
                          style="--txt-top-qb: {{block.settings.txt_size_head_qb}}px;
                                 --txt-sub-top-qb: {{block.settings.txt_size_subhead_qb}}px;
@@ -2347,8 +2347,7 @@
                             <div style="display: flex;align-items: center;width:100%;align-items: baseline;">
                             <legend class="form__label form__label-{{block.id}}{% if block.settings.label_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.label_style == 'subtitle' %} subtitle{% endif %}">
                               {{ option.name }}:
-                              <span id="atc selected-{{ option.name | downcase | replace: ' ', '-' }}"> </span>
-                              {{- option.selected_value }}
+                              <span id="selected-{{ option.name | downcase | replace: ' ', '-' }}">{{ option.selected_value }}</span>
                             </legend>
                         
                             {% if is_size %}

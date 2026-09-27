@@ -4,7 +4,7 @@
     {%- liquid
       assign optimize_product_assets = false
       if request.page_type == 'product'
-        if product.handle == 'orthopedic-crew-socks' or product.handle == 'orthopedic-sneaker-socks-copy-1'
+        if product.handle == 'orthopedicsocks' or product.handle == 'orthopedic-crew-socks' or product.handle == 'orthopedic-sneaker-socks-copy-1'
           assign optimize_product_assets = true
         endif
       endif
@@ -348,11 +348,16 @@
 
     {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
       {{ 'component-price.css' | asset_url | stylesheet_tag }}
-      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-      {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+      {%- assign cart_stylesheets = 'component-cart.css,component-totals.css,component-discounts.css,component-loading-overlay.css' | split: ',' -%}
+      {%- for cart_stylesheet in cart_stylesheets -%}
+        {%- if optimize_product_assets and request.design_mode == false -%}
+          <link rel="stylesheet" href="{{ cart_stylesheet | asset_url }}" media="print" onload="this.media='all'">
+          <noscript>{{ cart_stylesheet | asset_url | stylesheet_tag }}</noscript>
+        {%- else -%}
+          {{ cart_stylesheet | asset_url | stylesheet_tag }}
+        {%- endif -%}
+      {%- endfor -%}
     {%- endif -%}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}

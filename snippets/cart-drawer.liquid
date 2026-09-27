@@ -1,9 +1,17 @@
 
-{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'cart-upsell.css' | asset_url | stylesheet_tag }}
+{%- assign drawer_stylesheets = 'quantity-popover.css,component-card.css,cart-upsell.css' | split: ',' -%}
+{%- for drawer_stylesheet in drawer_stylesheets -%}
+  {%- if request.page_type == 'product' and request.design_mode == false -%}
+    <link rel="stylesheet" href="{{ drawer_stylesheet | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ drawer_stylesheet | asset_url | stylesheet_tag }}</noscript>
+  {%- else -%}
+    {{ drawer_stylesheet | asset_url | stylesheet_tag }}
+  {%- endif -%}
+{%- endfor -%}
 
-<script src="{{ 'cart-upsell.js' | asset_url }}" defer="defer"></script>
+{%- if settings.collection != blank -%}
+  <script src="{{ 'cart-upsell.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 {% if settings.enable_cart_upsell %}
   {% assign upsell_product = all_products[settings.cart_upsell_product_2] %}
   {% if upsell_product %}

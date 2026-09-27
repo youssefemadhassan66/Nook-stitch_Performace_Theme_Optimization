@@ -23,6 +23,12 @@ The September 24, 2026 content-page pass covers both public About URLs (`/pages/
 
 Single local mobile Lighthouse runs on the unpublished preview returned these LCP values (before → after): About **5.76 → 5.07 s**, Contact **6.70 → 4.13 s**, and Track My Order **5.89 → 3.57 s**. These are preliminary, variable runs; the scores and Total Blocking Time did not consistently improve. The 2-second target remains open, and app scripts are still a significant cost. The contact form and Track123 fields rendered in browser checks without console errors.
 
+## September 27 product review
+
+The actual US ankle handle (`orthopedicsocks`) now receives the asset optimizations that previously covered the crew product and sneaker copy. Cart interior styles no longer block the initial product display; unused theme quantity-discount styles and unconfigured native recommendation scripts are omitted. The product photo strip pauses offscreen, a recommendation-container layout shift is fixed, and the crew color-selector label error is corrected.
+
+Final mobile preview runs measured ankle LCP **2.80 s** (before **3.68 s**) and crew LCP **2.10 s** (before **3.66 s**), with near-zero layout shift. Results vary, and blocking time did not consistently improve; the two-second goal remains open. Bundle and same-product gift behavior passed browser checks. See [the full review](PERFORMANCE_REVIEW_2026-09-27.md) for measurements, validation, and remaining work.
+
 ## Workflow
 
 Edit and validate locally, push to the unpublished Shopify theme for preview, then measure the product pages. Git commits here track the source changes; `git push` does not publish the theme to customers or update the live theme.

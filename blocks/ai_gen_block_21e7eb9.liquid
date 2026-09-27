@@ -37,7 +37,7 @@
     gap: {{ block.settings.image_gap }}px;
   }
 
-  .ai-auto-scroll-gallery__track-{{ ai_gen_id }}:hover .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
+  .ai-auto-scroll-gallery-{{ ai_gen_id }}[data-visible] .ai-auto-scroll-gallery__track-{{ ai_gen_id }}:hover .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
     animation-play-state: paused;
   }
 
@@ -45,7 +45,17 @@
     display: flex;
     gap: {{ block.settings.image_gap }}px;
     animation: ai-auto-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
-    will-change: transform;
+    animation-play-state: paused;
+  }
+
+  .ai-auto-scroll-gallery-{{ ai_gen_id }}[data-visible] .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
+    animation-play-state: running;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-auto-scroll-gallery-{{ ai_gen_id }}[data-visible] .ai-auto-scroll-gallery__set-{{ ai_gen_id }} {
+      animation-play-state: paused;
+    }
   }
 
   .ai-auto-scroll-gallery__item-{{ ai_gen_id }} {
@@ -181,12 +191,20 @@
 <script>
   (function() {
     class AutoScrollGallery{{ ai_gen_id }} extends HTMLElement {
-      constructor() {
-        super();
+      connectedCallback() {
+        if (!('IntersectionObserver' in window)) {
+          this.setAttribute('data-visible', '');
+          return;
+        }
+        this.observer = new IntersectionObserver(([entry]) => {
+          this.toggleAttribute('data-visible', entry.isIntersecting);
+        });
+        this.observer.observe(this);
       }
 
-      connectedCallback() {
-        this.track = this.querySelector('.ai-auto-scroll-gallery__track-{{ ai_gen_id }}');
+      disconnectedCallback() {
+        this.observer?.disconnect();
+        this.removeAttribute('data-visible');
       }
     }
 
